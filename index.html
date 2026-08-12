@@ -1,11 +1,219 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Duberly Saavedra</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duberly | Arte · Investigación · Mediación</title>
+    <meta name="description" content="Portal oficial y archivo de proyectos de arte, investigación sonora, mediación cultural y creación poética.">
+    
+    <!-- Decap CMS Script para el panel /admin -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    <style>
+        :root {
+            --bg-color: #fbfbfb;
+            --text-color: #1a1a1a;
+            --accent-color: #8c2a2a;
+            --muted-color: #666666;
+            --border-color: #e5e5e5;
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --font-serif: Georgia, Cambria, "Times New Roman", Times, serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            padding: 2rem 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+
+        p.subtitle {
+            color: var(--muted-color);
+            font-size: 1.05rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        nav {
+            margin-top: 1.5rem;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-right: 1.5rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        section {
+            margin-bottom: 3.5rem;
+        }
+
+        h2 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 400;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            background: #ffffff;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .project-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card p {
+            color: var(--muted-color);
+            font-size: 0.9rem;
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+            margin-top: 4rem;
+            font-size: 0.85rem;
+            color: var(--muted-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer a {
+            color: var(--muted-color);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--text-color);
+        }
+    </style>
 </head>
 <body>
-  <h1>Sitio en línea</h1>
+
+    <header>
+        <h1>Duberly Saavedra</h1>
+        <p class="subtitle">Arte · Investigación · Mediación</p>
+        <nav>
+            <a href="#proyectos">Proyectos</a>
+            <a href="#investigacion">Investigación</a>
+            <a href="#poetica">Obra Poética</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="biografia">
+            <p>Espacio de articulación entre investigación sonora, praxis artística, escrituras del territorio y mediación cultural.</p>
+        </section>
+
+        <section id="proyectos">
+            <h2>Proyectos & Instalaciones</h2>
+            <div class="project-grid">
+                <article class="project-card">
+                    <span class="tag">Instalación Acústica</span>
+                    <h3>Hablar la Voz</h3>
+                    <p>Investigación-creación sobre la escucha, el espacio fonético y la performatividad sonora de la voz humana.</p>
+                </article>
+
+                <article class="project-card">
+                    <span class="tag">Archivo Comunitario</span>
+                    <h3>YO / FEED / ARCHIVO</h3>
+                    <p>Dispositivo físico y digital de mediación comunitaria para el resguardo de memoria e identidad colectiva.</p>
+                </article>
+
+                <article class="project-card">
+                    <span class="tag">Paisaje Sonoro</span>
+                    <h3>Valpo Folk Fest</h3>
+                    <p>Dirección conceptual e imagen identitaria enfocada en la fusión e integración de ritmos latinoamericanos.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="poetica">
+            <h2>Creación Poética</h2>
+            <div class="project-grid">
+                <article class="project-card">
+                    <span class="tag">Manuscrito</span>
+                    <h3>Atlas de los 39</h3>
+                    <p>Estructura poética de cartografías personales, desplazamientos y memorias del territorio.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Duberly Saavedra. Todos los derechos reservados.</p>
+        <p><a href="/admin">Acceso Panel /admin</a></p>
+    </footer>
+
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
 </body>
 </html>
