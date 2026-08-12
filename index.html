@@ -48,7 +48,7 @@
         }
 
         /* -------------------------------------------------- */
-        /* PORTADA INTERACTIVA / UMBRAL                       */
+        /* PORTADA INTERACTIVA / UMBRAL MINIMALISTA           */
         /* -------------------------------------------------- */
         .landing-portal {
             position: fixed;
@@ -80,22 +80,18 @@
             letter-spacing: 0.2em;
             text-transform: uppercase;
             line-height: 1;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0;
             color: var(--text-color);
             cursor: pointer;
             user-select: none;
+            transition: margin-bottom 0.6s ease;
         }
 
-        .portal-subtitle {
-            color: var(--muted-color);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.16em;
+        .landing-portal.revealed .hero-title-main {
             margin-bottom: 3rem;
-            opacity: 0.8;
         }
 
-        /* Menú interactivo revelado suavemente */
+        /* Menú interactivo revelado suavemente tras interacción */
         .portal-nav {
             display: flex;
             justify-content: center;
@@ -103,7 +99,7 @@
             flex-wrap: wrap;
             max-width: 900px;
             opacity: 0;
-            transform: translateY(12px);
+            transform: translateY(16px);
             transition: var(--transition-smooth);
             pointer-events: none;
         }
@@ -132,21 +128,6 @@
         .portal-nav button:hover {
             color: var(--text-color);
             border-bottom-color: var(--accent-petroleo);
-        }
-
-        .portal-hint {
-            position: absolute;
-            bottom: 3rem;
-            font-size: 0.75rem;
-            color: var(--accent-light);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            opacity: 0.5;
-            transition: opacity 0.5s ease;
-        }
-
-        .landing-portal.revealed .portal-hint {
-            opacity: 0;
         }
 
         /* -------------------------------------------------- */
@@ -393,10 +374,9 @@
 </head>
 <body>
 
-    <!-- UMBRAL / PORTADA INTERACTIVA -->
+    <!-- PORTADA UMBRAL DE PANTALLA COMPLETA -->
     <div id="portal" class="landing-portal">
         <h1 class="hero-title-main" id="portalTitle">DUBERLY</h1>
-        <p class="portal-subtitle">Arte · Investigación · Mediación</p>
         
         <nav class="portal-nav">
             <button onclick="enterSite('artista')">Artista</button>
@@ -406,8 +386,6 @@
             <button onclick="enterSite('lab')">LAB</button>
             <button onclick="enterSite('contacto')">Contacto</button>
         </nav>
-
-        <span class="portal-hint">Mueve el cursor o toca la pantalla</span>
     </div>
 
     <!-- ESTRUCTURA PRINCIPAL DEL SITIO -->
@@ -581,7 +559,7 @@
         const portal = document.getElementById('portal');
         let revealed = false;
 
-        // Revelar menú con movimiento de cursor en Desktop o toque en Mobile
+        // Revelar menú únicamente al mover el cursor en Desktop o al tocar en Mobile
         function revealMenu() {
             if (!revealed) {
                 revealed = true;
@@ -599,13 +577,12 @@
             switchTab(tabId);
         }
 
-        // Volver a mostrar el umbral inicial al hacer click en el logo de la cabecera interior
+        // Volver al umbral al hacer click en el logo de la cabecera interior
         function resetToPortal() {
             portal.classList.remove('hidden');
             portal.classList.remove('revealed');
             revealed = false;
             
-            // Re-vincular los eventos de revelado
             setTimeout(() => {
                 window.addEventListener('mousemove', revealMenu, { once: true });
                 window.addEventListener('touchstart', revealMenu, { once: true });
