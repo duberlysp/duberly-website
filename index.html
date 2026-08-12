@@ -16,6 +16,7 @@
             --accent-color: #8c2a2a;
             --muted-color: #666666;
             --border-color: #e5e5e5;
+            --card-bg: #ffffff;
             --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             --font-serif: Georgia, Cambria, "Times New Roman", Times, serif;
         }
@@ -32,7 +33,7 @@
             font-family: var(--font-main);
             line-height: 1.6;
             padding: 2rem 1.5rem;
-            max-width: 900px;
+            max-width: 960px;
             margin: 0 auto;
         }
 
@@ -79,7 +80,7 @@
             font-size: 0.95rem;
             font-weight: 500;
             cursor: pointer;
-            padding-bottom: 0.2rem;
+            padding-bottom: 0.3rem;
             border-bottom: 2px solid transparent;
             transition: all 0.2s ease;
         }
@@ -101,33 +102,59 @@
             display: block;
         }
 
+        .tab-description {
+            color: var(--muted-color);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+        }
+
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.8rem;
         }
 
         .project-card {
             border: 1px solid var(--border-color);
-            padding: 1.5rem;
-            background: #ffffff;
+            background: var(--card-bg);
+            overflow: hidden;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
         }
 
-        .project-card h3 {
-            font-size: 1.15rem;
-            margin-bottom: 0.5rem;
+        .card-image-container {
+            width: 100%;
+            height: 200px;
+            background-color: #f0f0f0;
+            overflow: hidden;
+            position: relative;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .project-card p {
-            color: var(--muted-color);
-            font-size: 0.9rem;
+        .card-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .card-image-container img {
+            transform: scale(1.03);
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .tag {
@@ -138,6 +165,19 @@
             color: var(--accent-color);
             margin-bottom: 0.5rem;
             font-weight: 600;
+        }
+
+        .project-card h3 {
+            font-size: 1.2rem;
+            font-family: var(--font-serif);
+            margin-bottom: 0.6rem;
+            font-weight: 400;
+        }
+
+        .project-card p {
+            color: var(--muted-color);
+            font-size: 0.9rem;
+            line-height: 1.5;
         }
 
         footer {
@@ -179,58 +219,98 @@
     <main>
         <!-- Pestaña: Artista -->
         <section id="artista" class="tab-content active">
-            <p>Espacio de articulación entre investigación sonora, praxis artística, escrituras del territorio y mediación cultural.</p>
+            <p class="tab-description">Espacio de articulación entre investigación sonora, praxis artística, escrituras del territorio y mediación cultural.</p>
             <div class="project-grid">
                 <article class="project-card">
-                    <span class="tag">Instalación Acústica</span>
-                    <h3>Hablar la Voz</h3>
-                    <p>Investigación-creación sobre la escucha, el espacio fonético y la performatividad sonora de la voz humana.</p>
+                    <div class="card-image-container">
+                        <img src="images/hablar-la-voz.jpg" alt="Hablar la Voz" onerror="this.src='https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80'">
+                    </div>
+                    <div class="card-body">
+                        <span class="tag">Instalación Acústica</span>
+                        <h3>Hablar la Voz</h3>
+                        <p>Investigación-creación sobre la escucha, el espacio fonético y la performatividad sonora de la voz humana.</p>
+                    </div>
                 </article>
             </div>
         </section>
 
         <!-- Pestaña: Investigación -->
         <section id="investigacion" class="tab-content">
-            <p>Líneas de investigación doctoral, publicaciones y ponencias sobre territorio y escucha.</p>
+            <p class="tab-description">Líneas de investigación doctoral, publicaciones, ponencias y reflexiones teóricas sobre territorio y escucha.</p>
             <div class="project-grid">
                 <article class="project-card">
-                    <span class="tag">Tesis Doctoral</span>
-                    <h3>Micelio Virtual / Territorios Sonoros</h3>
-                    <p>Estudio de las ecologías culturales y dispositivos de mediación en Chile y Latinoamérica.</p>
+                    <div class="card-image-container">
+                        <img src="images/micelio-virtual.jpg" alt="Micelio Virtual" onerror="this.src='https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80'">
+                    </div>
+                    <div class="card-body">
+                        <span class="tag">Tesis Doctoral</span>
+                        <h3>Micelio Virtual / Territorios Sonoros</h3>
+                        <p>Estudio de las ecologías culturales y dispositivos de mediación en Chile y Latinoamérica.</p>
+                    </div>
                 </article>
             </div>
         </section>
 
         <!-- Pestaña: Mediación & Archivo -->
         <section id="mediacion" class="tab-content">
+            <p class="tab-description">Proyectos participativos, archivos comunitarios e intervenciones de mediación territorial.</p>
             <div class="project-grid">
                 <article class="project-card">
-                    <span class="tag">Archivo Comunitario</span>
-                    <h3>YO / FEED / ARCHIVO</h3>
-                    <p>Dispositivo físico y digital de mediación comunitaria para el resguardo de memoria e identidad colectiva.</p>
+                    <div class="card-image-container">
+                        <img src="images/yo-feed-archivo.jpg" alt="YO / FEED / ARCHIVO" onerror="this.src='https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=600&q=80'">
+                    </div>
+                    <div class="card-body">
+                        <span class="tag">Archivo Comunitario</span>
+                        <h3>YO / FEED / ARCHIVO</h3>
+                        <p>Dispositivo físico y digital de mediación comunitaria para el resguardo de memoria e identidad colectiva.</p>
+                    </div>
                 </article>
+
                 <article class="project-card">
-                    <span class="tag">Paisaje Sonoro</span>
-                    <h3>Valpo Folk Fest</h3>
-                    <p>Dirección conceptual e imagen identitaria enfocada en la fusión e integración de ritmos latinoamericanos.</p>
+                    <div class="card-image-container">
+                        <img src="images/valpo-folk-fest.jpg" alt="Valpo Folk Fest" onerror="this.src='https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=600&q=80'">
+                    </div>
+                    <div class="card-body">
+                        <span class="tag">Paisaje Sonoro</span>
+                        <h3>Valpo Folk Fest</h3>
+                        <p>Dirección conceptual e imagen identitaria enfocada en la fusión e integración de ritmos latinoamericanos.</p>
+                    </div>
                 </article>
             </div>
         </section>
 
         <!-- Pestaña: Obra Poética -->
         <section id="poetica" class="tab-content">
+            <p class="tab-description">Procesos de escritura, manuscritos y cartografías poéticas del territorio.</p>
             <div class="project-grid">
                 <article class="project-card">
-                    <span class="tag">Manuscrito</span>
-                    <h3>Atlas de los 39</h3>
-                    <p>Estructura poética de cartografías personales, desplazamientos y memorias del territorio.</p>
+                    <div class="card-image-container">
+                        <img src="images/atlas-de-los-39.jpg" alt="Atlas de los 39" onerror="this.src='https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80'">
+                    </div>
+                    <div class="card-body">
+                        <span class="tag">Manuscrito</span>
+                        <h3>Atlas de los 39</h3>
+                        <p>Estructura poética de cartografías personales, desplazamientos y memorias del territorio.</p>
+                    </div>
                 </article>
             </div>
         </section>
 
         <!-- Pestaña: LAB -->
         <section id="lab" class="tab-content">
-            <p>Espacio transversal de experimentación, prototipos sonoros y registros en proceso.</p>
+            <p class="tab-description">Espacio transversal de experimentación, prototipos sonoros, registros visuales en proceso y bitácora.</p>
+            <div class="project-grid">
+                <article class="project-card">
+                    <div class="card-image-container">
+                        <img src="images/lab-experimentos.jpg" alt="Laboratorio Sonoro" onerror="this.src='https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=600&q=80'">
+                    </div>
+                    <div class="card-body">
+                        <span class="tag">Prototipo</span>
+                        <h3>Bitácora de Escucha & Sonoridades</h3>
+                        <p>Fragmentos de trabajo de campo, bocetos de audio y pruebas de materialidad sonora.</p>
+                    </div>
+                </article>
+            </div>
         </section>
     </main>
 
@@ -245,7 +325,15 @@
         document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
         
         document.getElementById(tabId).classList.add('active');
-        event.target.classList.add('active');
+        event.target.children ? null : null;
+        
+        // Activar el botón correspondiente
+        const buttons = document.querySelectorAll('.nav-btn');
+        buttons.forEach(btn => {
+            if (btn.getAttribute('onclick').includes(tabId)) {
+                btn.classList.add('active');
+            }
+        });
       }
 
       if (window.netlifyIdentity) {
