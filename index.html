@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DUBERLY SAAVEDRA POLO | Arte · Investigación · Mediación</title>
-    <meta name="description" content="Portal oficial de Duberly Saavedra Polo. Práctica interdisciplinaria que articula música, voz, escritura, paisaje sonoro, investigación-creación y mediación artística.">
+    <title>DUBERLY | Arte · Investigación · Mediación</title>
+    <meta name="description" content="Ecosistema de creación, archivo y práctica artística. Música, voz, paisaje sonoro, investigación-creación y mediación comunitaria.">
     
     <!-- Open Graph / Meta Social -->
-    <meta property="og:title" content="DUBERLY SAAVEDRA POLO | Arte · Investigación · Mediación">
+    <meta property="og:title" content="DUBERLY | Arte · Investigación · Mediación">
     <meta property="og:description" content="Arte para crear conocimiento, activar memorias y fortalecer comunidades.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.duberly.me/">
@@ -17,7 +17,7 @@
 
     <style>
         :root {
-            /* Paleta Mineral, Agua Profunda, Musgo y Petróleo */
+            /* Paleta Mineral, Agua Profunda, Musgo, Petróleo y Piedra */
             --bg-color: #0f1315;          /* Piedra oscura húmeda */
             --card-bg: #151b1e;           /* Gris mineral profundo */
             --text-color: #e2e8f0;         /* Blanco piedra / frío */
@@ -139,7 +139,6 @@
             color: var(--text-color);
         }
 
-        /* Atenuación del menú ante interacción en una opción */
         .landing-nav:hover button:not(:hover) {
             opacity: 0.35;
         }
@@ -148,7 +147,7 @@
         /* ESTRUCTURA Y NAVEGACIÓN INTERIOR                   */
         /* -------------------------------------------------- */
         .site-container {
-            max-width: 1080px;
+            max-width: 1120px;
             margin: 0 auto;
             padding: 3rem 1.5rem;
             min-height: 100vh;
@@ -170,22 +169,14 @@
             letter-spacing: 0.1em;
             text-transform: uppercase;
             line-height: 1;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             color: var(--text-color);
             cursor: pointer;
         }
 
-        p.author-name {
-            font-size: 1.15rem;
-            font-weight: 500;
-            color: var(--text-color);
-            letter-spacing: 0.04em;
-            margin-bottom: 0.3rem;
-        }
-
         p.subtitle {
             color: var(--muted-color);
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             text-transform: uppercase;
             letter-spacing: 0.14em;
             margin-bottom: 1.2rem;
@@ -196,7 +187,7 @@
             font-style: italic;
             font-size: 1.05rem;
             color: var(--accent-light);
-            max-width: 650px;
+            max-width: 680px;
             margin: 0 auto;
             line-height: 1.5;
         }
@@ -233,7 +224,7 @@
         }
 
         /* -------------------------------------------------- */
-        /* CONTENIDO Y TARJETAS                              */
+        /* CONTENIDO Y COMPOSICIÓN EDITORIAL DE FOTOGRAFÍAS  */
         /* -------------------------------------------------- */
         main {
             flex-grow: 1;
@@ -289,10 +280,64 @@
             color: var(--accent-light);
         }
 
+        /* Rejilla y Composición Editorial Flexible */
+        .editorial-photo-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .photo-item {
+            position: relative;
+            background: #0c0f10;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: var(--transition-smooth);
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.02);
+        }
+
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 0.8rem 1rem;
+            background: linear-gradient(to top, rgba(15, 19, 21, 0.9), transparent);
+            font-size: 0.8rem;
+            color: var(--muted-color);
+            letter-spacing: 0.05em;
+        }
+
+        /* Variaciones de escala editorial */
+        .col-12 { grid-column: span 12; height: 420px; }
+        .col-8  { grid-column: span 8; height: 360px; }
+        .col-6  { grid-column: span 6; height: 320px; }
+        .col-4  { grid-column: span 4; height: 280px; }
+
+        @media (max-width: 768px) {
+            .col-12, .col-8, .col-6, .col-4 {
+                grid-column: span 12;
+                height: 260px;
+            }
+        }
+
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
         }
 
         .project-card {
@@ -320,15 +365,10 @@
 
         .card-image-container img {
             width: 100%;
-            height: 220px;
+            height: 240px;
             object-fit: cover;
             display: block;
-            opacity: 0.85;
             transition: var(--transition-smooth);
-        }
-
-        .project-card:hover .card-image-container img {
-            opacity: 1;
         }
 
         .card-body {
@@ -376,7 +416,7 @@
         /* CONTACTO                                           */
         /* -------------------------------------------------- */
         .contact-container {
-            max-width: 600px;
+            max-width: 620px;
         }
 
         .contact-intro {
@@ -464,7 +504,6 @@
     <div class="site-container">
         <header>
             <h1 class="hero-title-main" onclick="returnToLanding()">DUBERLY</h1>
-            <p class="author-name">Duberly Saavedra Polo</p>
             <p class="subtitle">Arte · Investigación · Mediación</p>
             <p class="hero-concept">Arte para crear conocimiento, activar memorias y fortalecer comunidades.</p>
             <nav class="main-nav">
@@ -479,13 +518,13 @@
         </header>
 
         <main>
-            <!-- Pestaña: Inicio / Bio -->
+            <!-- Pestaña: Inicio / Editorial -->
             <section id="inicio" class="tab-content active">
                 <div class="bio-box">
-                    <p>Duberly Saavedra Polo desarrolla una práctica interdisciplinaria que articula música, voz, escritura, paisaje sonoro, investigación-creación y mediación artística. Su trabajo explora las relaciones entre memoria, territorio, comunidad y tecnologías contemporáneas, generando proyectos donde la creación se convierte también en una forma de investigación, encuentro y producción colectiva de sentido.</p>
-                    <p>Como músico y director artístico del Ensamble Transatlántico de Folk Chileno, desarrolla proyectos vinculados a la música, el patrimonio y la creación colectiva. Paralelamente, investiga metodologías de mediación artística y procesos de creación colaborativa desde la investigación basada en artes y la práctica como investigación.</p>
-                    <p>Su trabajo incorpora también fotografía, archivo, escritura y experimentación sonora como formas de observar, registrar y transformar experiencias.</p>
-                    <p>Actualmente desarrolla su investigación doctoral en Artes Integradas, profundizando en las relaciones entre creación, mediación y tecnologías digitales.</p>
+                    <p>Su práctica interdisciplinaria articula música, voz, escritura, paisaje sonoro, investigación-creación y mediación artística. Este ecosistema de trabajo explora las relaciones entre memoria, territorio, comunidad y tecnologías contemporáneas, generando procesos donde la creación se convierte en forma de investigación y producción colectiva de sentido.</p>
+                    <p>En la dirección artística del Ensamble Transatlántico de Folk Chileno y en proyectos solistas, desarrolla iniciativas vinculadas a la música, el patrimonio y la creación colectiva. Paralelamente, investiga metodologías de mediación artística desde la investigación basada en artes.</p>
+                    <p>La fotografía, el archivo, la escritura y la experimentación sonora funcionan como modos de observar, registrar y transformar experiencias.</p>
+                    <p>Actualmente profundiza en la investigación doctoral en Artes Integradas, estudiando los cruces entre mediación artística, territorio y tecnologías digitales.</p>
                     <p>Arte, investigación y mediación constituyen distintas dimensiones de una misma práctica: crear conocimiento, activar memorias y fortalecer comunidades.</p>
                 </div>
             </section>
@@ -493,17 +532,26 @@
             <!-- Pestaña: Artista -->
             <section id="artista" class="tab-content">
                 <div class="tab-description">
-                    <p>La práctica artística de Duberly Saavedra Polo se despliega entre la música, la voz, la escritura, el paisaje sonoro y la experimentación interdisciplinaria.</p>
-                    <p>Su trabajo explora formas de creación colectiva, participativa y abierta, donde la autoría se entiende como un espacio compartido y la obra puede surgir de la interacción entre personas, territorios, memorias y materiales. Existe un interés particular por formas de arte sin una autoría individual cerrada, donde crear implica también participar, escuchar y transformar colectivamente.</p>
-                    <p>La música dialoga con el territorio, la memoria y el archivo; la voz se convierte en materia sonora y literaria; la experiencia colectiva abre nuevas posibilidades para crear.</p>
-                    <p>Su producción includes proyectos como artista solista y el trabajo desarrollado junto al Ensamble Transatlántico de Folk Chileno, además de investigaciones y experimentaciones que expanden la práctica musical hacia otros lenguajes.</p>
-                    <p><strong>La obra se construye como un territorio compartido: un espacio donde crear también significa participar, escuchar y transformar colectivamente.</strong></p>
+                    <p>La práctica artística se despliega entre la música, la voz, la escritura, el paisaje sonoro y la experimentación interdisciplinaria.</p>
+                    <p>El trabajo explora formas de creación colectiva y participativa, donde la autoría se comprende como un espacio compartido. La obra surge de la interacción directa entre personas, territorios, memorias y materiales sonoros.</p>
+                </div>
+
+                <!-- Composicion Editorial Fotográfica - Artista -->
+                <div class="editorial-photo-grid">
+                    <div class="photo-item col-8">
+                        <img src="images/drive/artista/ensamble-performance.jpg" alt="Presentación Ensamble Transatlántico" onerror="this.src='images/ensamble-transatlantico.jpg'">
+                        <div class="photo-caption">Ensamble Transatlántico de Folk Chileno — Creación colectiva y escena</div>
+                    </div>
+                    <div class="photo-item col-4">
+                        <img src="images/drive/artista/voz-experimentacion.jpg" alt="Registro sonoro de la voz" onerror="this.src='images/hablar-la-voz.jpg'">
+                        <div class="photo-caption">Estructuras vocales e instrumentos</div>
+                    </div>
                 </div>
 
                 <div class="project-grid">
                     <article class="project-card">
                         <div class="card-image-container">
-                            <img src="images/hablar-la-voz.jpg" alt="Hablar la Voz" onerror="this.style.display='none'">
+                            <img src="images/drive/artista/hablar-la-voz-instalacion.jpg" alt="Hablar la Voz" onerror="this.src='images/hablar-la-voz.jpg'">
                         </div>
                         <div class="card-body">
                             <span class="tag">Instalación Acústica</span>
@@ -515,7 +563,7 @@
 
                     <article class="project-card">
                         <div class="card-image-container">
-                            <img src="images/ensamble-transatlantico.jpg" alt="Ensamble Transatlántico de Folk Chileno" onerror="this.style.display='none'">
+                            <img src="images/drive/artista/ensamble-folk.jpg" alt="Ensamble Transatlántico de Folk Chileno" onerror="this.src='images/ensamble-transatlantico.jpg'">
                         </div>
                         <div class="card-body">
                             <span class="tag">Creación Musical & Dirección</span>
@@ -530,18 +578,25 @@
             <!-- Pestaña: Investigación -->
             <section id="investigacion" class="tab-content">
                 <div class="tab-description">
-                    <p>La investigación forma parte del proceso creativo.</p>
-                    <p>Duberly Saavedra Polo desarrolla investigación-creación desde una perspectiva interdisciplinaria que articula arte, mediación, tecnologías contemporáneas, territorio, memoria y creación colectiva.</p>
-                    <p>Su trabajo se desarrolla principalmente desde la Investigación Basada en Artes (IBA) y la Práctica como Investigación (PaR), utilizando procesos artísticos como espacios para producir preguntas, observar fenómenos y generar conocimiento.</p>
-                    <p>Actualmente desarrolla su investigación doctoral en Artes Integradas, profundizando en las relaciones entre mediación artística, tecnologías digitales y procesos de creación colectiva.</p>
-                    <p>La investigación se expresa en proyectos, publicaciones, ponencias, metodologías, experiencias y archivos. Cada uno constituye una oportunidad para observar cómo una pregunta puede desplazarse entre distintos lenguajes y convertirse en una nueva práctica.</p>
-                    <p><strong>Investigar es también crear condiciones para que algo pueda aparecer.</strong></p>
+                    <p>La investigación forma parte indisoluble del proceso creativo.</p>
+                    <p>Desarrollada principalmente desde la Investigación Basada en Artes (IBA) y la Práctica como Investigación (PaR), la indagación utiliza procesos artísticos para formular preguntas, observar fenómenos territoriales y producir conocimiento académico-sensible.</p>
+                </div>
+
+                <div class="editorial-photo-grid">
+                    <div class="photo-item col-6">
+                        <img src="images/drive/investigacion/doctoral-registro.jpg" alt="Registro de investigación-creación" onerror="this.src='images/micelio-virtual.jpg'">
+                        <div class="photo-caption">Documentación y apuntes de campo</div>
+                    </div>
+                    <div class="photo-item col-6">
+                        <img src="images/drive/investigacion/instalacion-sonora.jpg" alt="Dispositivo de ensayo" onerror="this.src='images/hablar-la-voz.jpg'">
+                        <div class="photo-caption">Pruebas mecánicas y espacio acústico</div>
+                    </div>
                 </div>
 
                 <div class="project-grid">
                     <article class="project-card">
                         <div class="card-image-container">
-                            <img src="images/micelio-virtual.jpg" alt="Investigación Doctoral" onerror="this.style.display='none'">
+                            <img src="images/drive/investigacion/doctorado-artes.jpg" alt="Investigación Doctoral" onerror="this.src='images/micelio-virtual.jpg'">
                         </div>
                         <div class="card-body">
                             <span class="tag">Investigación Doctoral</span>
@@ -556,18 +611,21 @@
             <!-- Pestaña: Mediación -->
             <section id="mediacion" class="tab-content">
                 <div class="tab-description">
-                    <p>La mediación artística constituye un espacio de encuentro, creación y producción de conocimiento.</p>
-                    <p>Duberly Saavedra Polo desarrolla experiencias de mediación en contextos educativos, comunitarios, culturales e institucionales, articulando metodologías participativas con procesos de creación artística.</p>
-                    <p>Estos espacios reúnen personas, territorios, experiencias y lenguajes diversos. La música, las artes visuales, la escritura, la escucha y las tecnologías se convierten en herramientas para activar procesos colectivos y construir nuevas formas de relación.</p>
-                    <p>Cada experiencia genera materiales, aprendizajes y preguntas que pueden continuar desarrollándose más allá del momento de encuentro.</p>
-                    <p>Proyectos educativos, iniciativas comunitarias, experiencias universitarias y procesos culturales forman parte de este territorio de trabajo.</p>
-                    <p><strong>Mediar es crear condiciones para que otras personas puedan crear.</strong></p>
+                    <p>La mediación artística constituye un espacio de encuentro, creación compartida y producción social de sentido.</p>
+                    <p>Estas experiencias articulan contextos educativos, comunitarios y culturales, donde la escucha, la música y las artes visuales funcionan como catalizadores de comunidades activas.</p>
+                </div>
+
+                <div class="editorial-photo-grid">
+                    <div class="photo-item col-12">
+                        <img src="images/drive/mediacion/taller-comunitario.jpg" alt="Taller participativo de mediación" onerror="this.src='images/yo-feed-archivo.jpg'">
+                        <div class="photo-caption">Interacción colectiva y registro de dinámicas comunitarias</div>
+                    </div>
                 </div>
 
                 <div class="project-grid">
                     <article class="project-card">
                         <div class="card-image-container">
-                            <img src="images/yo-feed-archivo.jpg" alt="YO / FEED / ARCHIVO" onerror="this.style.display='none'">
+                            <img src="images/drive/mediacion/yo-feed-dispositivo.jpg" alt="YO / FEED / ARCHIVO" onerror="this.src='images/yo-feed-archivo.jpg'">
                         </div>
                         <div class="card-body">
                             <span class="tag">Mediación & Archivo</span>
@@ -579,7 +637,7 @@
 
                     <article class="project-card">
                         <div class="card-image-container">
-                            <img src="images/valpo-folk-fest.jpg" alt="Valpo Folk Fest" onerror="this.style.display='none'">
+                            <img src="images/drive/mediacion/valpo-folk-fest-escena.jpg" alt="Valpo Folk Fest" onerror="this.src='images/valpo-folk-fest.jpg'">
                         </div>
                         <div class="card-body">
                             <span class="tag">Procesos Culturales</span>
@@ -593,17 +651,26 @@
             <!-- Pestaña: Archivo -->
             <section id="archivo" class="tab-content">
                 <div class="tab-description">
-                    <p>El archivo reúne materiales que documentan procesos y, al mismo tiempo, pueden convertirse en materia para nuevas creaciones.</p>
-                    <p>Fotografías, sonidos, documentos, escritos, mapas, registros de campo, publicaciones, conversaciones y fragmentos de procesos forman parte de un archivo que continúa creciendo.</p>
-                    <p>Aquí conviven materiales provenientes de distintos momentos y proyectos. Cada registro puede abrir nuevas relaciones entre territorio, memoria, investigación y creación.</p>
-                    <p>El archivo también conserva aquello que permanece en proceso: una fotografía sin proyecto definido, una grabación de campo, una nota, un boceto o una observación pueden adquirir nuevos sentidos al encontrarse con otros materiales.</p>
-                    <p><strong>Archivar es una forma de escuchar aquello que todavía puede volver a decir algo.</strong></p>
+                    <p>El archivo reúne materiales con densidad documental que registran procesos y se activan como materia para nuevas obras.</p>
+                    <p>Fotografías, paisajes, mapas, fragmentos sonoros y objetos históricos dialogan construyendo una memoria viva del territorio.</p>
+                </div>
+
+                <div class="editorial-photo-grid">
+                    <div class="photo-item col-4">
+                        <img src="images/drive/archivo/territorio-1.jpg" alt="Registro territorial" onerror="this.src='images/atlas-de-los-39.jpg'">
+                    </div>
+                    <div class="photo-item col-4">
+                        <img src="images/drive/archivo/documento-objeto.jpg" alt="Material documental" onerror="this.src='images/atlas-de-los-39.jpg'">
+                    </div>
+                    <div class="photo-item col-4">
+                        <img src="images/drive/archivo/paisaje-sonoro.jpg" alt="Espacio natural" onerror="this.src='images/atlas-de-los-39.jpg'">
+                    </div>
                 </div>
 
                 <div class="project-grid">
                     <article class="project-card">
                         <div class="card-image-container">
-                            <img src="images/atlas-de-los-39.jpg" alt="Atlas de los 39" onerror="this.style.display='none'">
+                            <img src="images/drive/archivo/atlas-39-manuscrito.jpg" alt="Atlas de los 39" onerror="this.src='images/atlas-de-los-39.jpg'">
                         </div>
                         <div class="card-body">
                             <span class="tag">Manuscrito & Registro</span>
@@ -618,18 +685,25 @@
             <!-- Pestaña: LAB -->
             <section id="lab" class="tab-content">
                 <div class="tab-description">
-                    <p>El LAB es el espacio de experimentación del ecosistema.</p>
-                    <p>Aquí aparecen ideas, pruebas, observaciones y materiales antes de convertirse necesariamente en obras, investigaciones o proyectos consolidados.</p>
-                    <p>Una fotografía, un sonido, una pregunta, un mapa, una escritura, una visualización o un experimento pueden constituir una entrada.</p>
-                    <p>El LAB registra el pensamiento mientras ocurre y permite observar las conexiones que comienzan a formarse entre distintos proyectos.</p>
-                    <p>Es un espacio para probar, documentar, volver sobre los materiales y dejar abiertas preguntas que todavía buscan una forma.</p>
-                    <p><strong>El LAB muestra el movimiento de la práctica.</strong></p>
+                    <p>El LAB es el espacio de experimentación abierta.</p>
+                    <p>Aquí conviven bocetos, pruebas de sonido, fragmentos visuales e ideas en curso antes de consolidarse en proyectos o investigaciones formales.</p>
+                </div>
+
+                <div class="editorial-photo-grid">
+                    <div class="photo-item col-6">
+                        <img src="images/drive/lab/experimento-1.jpg" alt="Prueba de laboratorio" onerror="this.src='images/lab-experimentos.jpg'">
+                        <div class="photo-caption">Pruebas acústicas y ensayos de materialidad</div>
+                    </div>
+                    <div class="photo-item col-6">
+                        <img src="images/drive/lab/experimento-2.jpg" alt="Visualización de proceso" onerror="this.src='images/lab-experimentos.jpg'">
+                        <div class="photo-caption">Bocetos visuales y registros breves</div>
+                    </div>
                 </div>
 
                 <div class="project-grid">
                     <article class="project-card">
                         <div class="card-image-container">
-                            <img src="images/lab-experimentos.jpg" alt="Prototipos Sonoros" onerror="this.style.display='none'">
+                            <img src="images/drive/lab/bitacora-sonora.jpg" alt="Bitácora de Escucha" onerror="this.src='images/lab-experimentos.jpg'">
                         </div>
                         <div class="card-body">
                             <span class="tag">Experimentos & Bitácora</span>
@@ -705,10 +779,7 @@
         }
       }
 
-      // Detección de movimiento de cursor
       window.addEventListener('mousemove', revealLandingNav, { once: false });
-      
-      // Soporte para dispositivos táctiles o interacción por teclado
       landingScreen.addEventListener('touchstart', revealLandingNav, { passive: true });
       landingScreen.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
