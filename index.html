@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DUBERLY | Arte · Investigación · Mediación</title>
-    <meta name="description" content="Ecosistema de creación, archivo y práctica artística. Música, voz, paisaje sonoro, investigación-creación y mediación comunitaria.">
+    <meta name="description" content="Ecosistema de creación, archivo y práctica artística. Música, voz, escritura, paisaje sonoro, investigación-creación y mediación comunitaria.">
     
     <!-- Open Graph / Meta Social -->
     <meta property="og:title" content="DUBERLY | Arte · Investigación · Mediación">
@@ -28,7 +28,7 @@
 
             --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             --font-serif: Georgia, Cambria, "Times New Roman", Times, serif;
-            --transition-smooth: all 0.3s ease;
+            --transition-smooth: all 0.25s ease;
         }
 
         * {
@@ -48,76 +48,7 @@
         }
 
         /* -------------------------------------------------- */
-        /* PORTADA / UMBRAL INTERACTIVO                       */
-        /* -------------------------------------------------- */
-        #landing-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: var(--bg-color);
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-
-        #landing-screen.hidden {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
-
-        .landing-title {
-            font-family: var(--font-serif);
-            font-size: clamp(3.5rem, 10vw, 8rem);
-            font-weight: 400;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--text-color);
-            user-select: none;
-            cursor: pointer;
-        }
-
-        .landing-nav {
-            margin-top: 3rem;
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            justify-content: center;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-            max-width: 90%;
-        }
-
-        .landing-nav.revealed {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .landing-nav button {
-            background: none;
-            border: none;
-            color: var(--muted-color);
-            font-size: 0.9rem;
-            font-weight: 500;
-            cursor: pointer;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            padding: 0.4rem 0.8rem;
-            transition: var(--transition-smooth);
-        }
-
-        .landing-nav button:hover {
-            color: var(--text-color);
-        }
-
-        /* -------------------------------------------------- */
-        /* ESTRUCTURA PRINCIPAL DEL SITIO                      */
+        /* PORTADA DIRECTA Y NAVEGACIÓN PRINCIPAL              */
         /* -------------------------------------------------- */
         .site-container {
             max-width: 1080px;
@@ -130,16 +61,16 @@
 
         header {
             border-bottom: 1px solid var(--border-color);
-            padding-bottom: 2rem;
+            padding-bottom: 2.5rem;
             margin-bottom: 3rem;
             text-align: center;
         }
 
         .hero-title-main {
             font-family: var(--font-serif);
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-size: clamp(3rem, 8vw, 5.5rem);
             font-weight: 400;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
             line-height: 1;
             margin-bottom: 0.8rem;
@@ -152,20 +83,20 @@
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.14em;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
         }
 
         p.hero-concept {
             font-family: var(--font-serif);
             font-style: italic;
-            font-size: 1rem;
+            font-size: 1.05rem;
             color: var(--accent-light);
             max-width: 650px;
             margin: 0 auto;
         }
 
         nav.main-nav {
-            margin-top: 2rem;
+            margin-top: 2.5rem;
             display: flex;
             justify-content: center;
             gap: 1.2rem;
@@ -183,7 +114,7 @@
             border-bottom: 2px solid transparent;
             transition: var(--transition-smooth);
             text-transform: uppercase;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.1em;
         }
 
         nav.main-nav button:hover {
@@ -196,7 +127,7 @@
         }
 
         /* -------------------------------------------------- */
-        /* SECCIONES Y CONTENIDO                              */
+        /* CONTENIDO Y SECCIONES                               */
         /* -------------------------------------------------- */
         main {
             flex-grow: 1;
@@ -228,6 +159,7 @@
             color: var(--accent-light);
             font-size: 1.15rem;
             margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
             padding-left: 1rem;
             border-left: 2px solid var(--accent-musgo);
         }
@@ -254,10 +186,10 @@
             margin-bottom: 0;
         }
 
-        /* Rejilla de Proyectos y Fotografías */
+        /* Rejilla de Proyectos (Presentación limpia sin marcos de imágenes rotas) */
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
@@ -266,31 +198,15 @@
             border: 1px solid var(--border-color);
             background: var(--card-bg);
             border-radius: 2px;
-            overflow: hidden;
+            padding: 2rem;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transition-smooth);
         }
 
-        .card-image-container {
-            width: 100%;
-            height: 220px;
-            background-color: #0c0f10;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .card-image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .card-body {
-            padding: 1.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
+        .project-card:hover {
+            border-color: var(--border-hover);
         }
 
         .tag {
@@ -299,14 +215,14 @@
             text-transform: uppercase;
             letter-spacing: 0.08em;
             color: var(--accent-light);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
             font-weight: 600;
         }
 
         .project-card h3 {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             font-family: var(--font-serif);
-            margin-bottom: 0.7rem;
+            margin-bottom: 0.8rem;
             font-weight: 400;
             color: var(--text-color);
         }
@@ -373,24 +289,10 @@
 </head>
 <body>
 
-    <!-- PORTADA / UMBRAL INTERACTIVO -->
-    <div id="landing-screen" onclick="revealLandingNav()" onkeydown="revealLandingNav()">
-        <div class="landing-title">DUBERLY</div>
-        <nav class="landing-nav" id="landing-nav">
-            <button onclick="enterSite('inicio')">Inicio</button>
-            <button onclick="enterSite('artista')">Artista</button>
-            <button onclick="enterSite('investigacion')">Investigación</button>
-            <button onclick="enterSite('mediacion')">Mediación</button>
-            <button onclick="enterSite('archivo')">Archivo</button>
-            <button onclick="enterSite('lab')">LAB</button>
-            <button onclick="enterSite('contacto')">Contacto</button>
-        </nav>
-    </div>
-
     <!-- ESTRUCTURA PRINCIPAL DEL SITIO -->
     <div class="site-container">
         <header>
-            <h1 class="hero-title-main" onclick="returnToLanding()">DUBERLY</h1>
+            <h1 class="hero-title-main" onclick="switchTab('inicio')">DUBERLY</h1>
             <p class="subtitle">Arte · Investigación · Mediación</p>
             <p class="hero-concept">Arte para crear conocimiento, activar memorias y fortalecer comunidades.</p>
             <nav class="main-nav">
@@ -408,7 +310,7 @@
             <!-- SECCIÓN: INICIO (BIO OFICIAL) -->
             <section id="inicio" class="tab-content active">
                 <div class="bio-box">
-                    <p>Duberly desarrolla una práctica interdisciplinaria que articula música, voz, escritura, paisaje sonoro, investigación-creación y mediación artística. Su trabajo explora las relaciones entre memoria, territorio, comunidad y tecnologías contemporáneas, generando proyectos donde la creación se convierte también en una forma de investigación, encuentro y producción colectiva de sentido.</p>
+                    <p>DUBERLY desarrolla una práctica interdisciplinaria que articula música, voz, escritura, paisaje sonoro, investigación-creación y mediación artística. Su trabajo explora las relaciones entre memoria, territorio, comunidad y tecnologías contemporáneas, generando proyectos donde la creación se convierte también en una forma de investigación, encuentro y producción colectiva de sentido.</p>
                     <p>Como músico y director artístico del Ensamble Transatlántico de Folk Chileno, desarrolla proyectos vinculados a la música, el patrimonio y la creación colectiva. Paralelamente, investiga metodologías de mediación artística y procesos de creación colaborativa desde la investigación basada en artes y la práctica como investigación.</p>
                     <p>Su trabajo incorpora también fotografía, archivo, escritura y experimentación sonora como formas de observar, registrar y transformar experiencias.</p>
                     <p>Actualmente desarrolla su investigación doctoral en Artes Integradas, profundizando en las relaciones entre creación, mediación y tecnologías digitales.</p>
@@ -419,17 +321,14 @@
             <!-- SECCIÓN: ARTISTA -->
             <section id="artista" class="tab-content">
                 <div class="tab-description">
-                    <p>La práctica artística se despliega entre la música, la voz, la escritura, el paisaje sonoro y la experimentación interdisciplinaria. Se exploran formas de creación colectiva y participativa basadas en la autoría compartida y en el desarrollo de procesos sin autoría individual cerrada.</p>
+                    <p>La práctica artística se despliega entre la música, la voz, la escritura, el paisaje sonoro y la experimentación interdisciplinaria. Explora formas de creación colectiva y participativa basadas en la autoría compartida y en el interés por formas de arte sin autoría individual cerrada.</p>
                     <p>A través del territorio, la memoria y el archivo, la práctica conecta el trabajo solista con la dirección del Ensamble Transatlántico de Folk Chileno.</p>
                     <p class="highlight-quote">“La obra se construye como un territorio compartido: un espacio donde crear también significa participar, escuchar y transformar colectivamente.”</p>
                 </div>
 
                 <div class="project-grid">
                     <article class="project-card">
-                        <div class="card-image-container">
-                            <img src="images/hablar-la-voz.jpg" alt="Hablar la Voz" onerror="this.style.opacity='0.3'">
-                        </div>
-                        <div class="card-body">
+                        <div>
                             <span class="tag">Instalación Acústica</span>
                             <h3>Hablar la Voz</h3>
                             <p>Investigación-creación sobre la escucha, el espacio fonético y la performatividad sonora de la voz humana.</p>
@@ -437,10 +336,7 @@
                     </article>
 
                     <article class="project-card">
-                        <div class="card-image-container">
-                            <img src="images/ensamble-transatlantico.jpg" alt="Ensamble Transatlántico" onerror="this.style.opacity='0.3'">
-                        </div>
-                        <div class="card-body">
+                        <div>
                             <span class="tag">Creación Musical & Dirección</span>
                             <h3>Ensamble Transatlántico de Folk Chileno</h3>
                             <p>Proyectos vinculados a la música, el patrimonio y la creación colectiva en clave contemporánea.</p>
@@ -452,17 +348,14 @@
             <!-- SECCIÓN: INVESTIGACIÓN -->
             <section id="investigacion" class="tab-content">
                 <div class="tab-description">
-                    <p>La investigación se desarrolla mediante procesos de investigación-creación, combinando la Investigación Basada en Artes (IBA) y la Práctica como Investigación (PaR). Se analizan los cruces entre mediación, tecnologías contemporáneas, territorio y memoria desde la creación colectiva.</p>
-                    <p>Línea marco desarrollada en el marco de la investigación doctoral en Artes Integradas.</p>
+                    <p>La investigación se desarrolla mediante procesos de investigación-creación, combinando la Investigación Basada en Artes (IBA) y la Práctica como Investigación (PaR). Se analizan los cruces entre mediación artística, tecnologías contemporáneas, territorio, memoria y creación colectiva.</p>
+                    <p>Línea marco desarrollada en el contexto de la investigación doctoral en Artes Integradas.</p>
                     <p class="highlight-quote">“Investigar es también crear condiciones para que algo pueda aparecer.”</p>
                 </div>
 
                 <div class="project-grid">
                     <article class="project-card">
-                        <div class="card-image-container">
-                            <img src="images/micelio-virtual.jpg" alt="Investigación Doctoral" onerror="this.style.opacity='0.3'">
-                        </div>
-                        <div class="card-body">
+                        <div>
                             <span class="tag">Investigación Doctoral</span>
                             <h3>Doctorado en Artes Integradas</h3>
                             <p>Análisis de las relaciones entre creación, mediación artística y tecnologías digitales.</p>
@@ -480,10 +373,7 @@
 
                 <div class="project-grid">
                     <article class="project-card">
-                        <div class="card-image-container">
-                            <img src="images/yo-feed-archivo.jpg" alt="YO / FEED / ARCHIVO" onerror="this.style.opacity='0.3'">
-                        </div>
-                        <div class="card-body">
+                        <div>
                             <span class="tag">Mediación & Archivo</span>
                             <h3>YO / FEED / ARCHIVO</h3>
                             <p>Dispositivo de mediación comunitaria para el resguardo de memoria, identidad colectiva y registro territorial.</p>
@@ -491,10 +381,7 @@
                     </article>
 
                     <article class="project-card">
-                        <div class="card-image-container">
-                            <img src="images/valpo-folk-fest.jpg" alt="Valpo Folk Fest" onerror="this.style.opacity='0.3'">
-                        </div>
-                        <div class="card-body">
+                        <div>
                             <span class="tag">Procesos Culturales</span>
                             <h3>Valpo Folk Fest</h3>
                             <p>Encuentro e integración de ritmos y sonoridades latinoamericanas proyectadas desde el territorio.</p>
@@ -506,16 +393,13 @@
             <!-- SECCIÓN: ARCHIVO -->
             <section id="archivo" class="tab-content">
                 <div class="tab-description">
-                    <p>El archivo reúne fotografías, sonidos, documentos, escritura, mapas, registros, publicaciones y conversaciones. Concibe la memoria no como depósito estático, sino como materia activa para nuevas creaciones.</p>
+                    <p>El archivo reúne fotografías, sonidos, documentos, escritos, mapas, registros, publicaciones, conversaciones y materiales de proceso. Concibe la memoria no como depósito estático, sino como materia activa para nuevas creaciones.</p>
                     <p class="highlight-quote">“Archivar es una forma de escuchar aquello que todavía puede volver a decir algo.”</p>
                 </div>
 
                 <div class="project-grid">
                     <article class="project-card">
-                        <div class="card-image-container">
-                            <img src="images/atlas-de-los-39.jpg" alt="Atlas de los 39" onerror="this.style.opacity='0.3'">
-                        </div>
-                        <div class="card-body">
+                        <div>
                             <span class="tag">Manuscrito & Registro</span>
                             <h3>Atlas de los 39</h3>
                             <p>Estructura poética de cartografías personales, desplazamientos y memorias del territorio.</p>
@@ -527,16 +411,13 @@
             <!-- SECCIÓN: LAB -->
             <section id="lab" class="tab-content">
                 <div class="tab-description">
-                    <p>El LAB funciona como un espacio de experimentación, pruebas, observaciones, materiales, ideas y procesos todavía abiertos.</p>
+                    <p>El LAB funciona como un espacio de experimentación, pruebas, observaciones, materiales, ideas, prototipos, procesos abiertos, registros y exploraciones.</p>
                     <p class="highlight-quote">“El LAB muestra el movimiento de la práctica.”</p>
                 </div>
 
                 <div class="project-grid">
                     <article class="project-card">
-                        <div class="card-image-container">
-                            <img src="images/lab-experimentos.jpg" alt="Bitácora de Escucha" onerror="this.style.opacity='0.3'">
-                        </div>
-                        <div class="card-body">
+                        <div>
                             <span class="tag">Experimentos & Bitácora</span>
                             <h3>Bitácora de Escucha & Sonoridades</h3>
                             <p>Registros de audio en proceso, fragmentos de campo y pruebas conceptuales en desarrollo.</p>
@@ -574,31 +455,8 @@
         </footer>
     </div>
 
-    <!-- SCRIPTS DE INTERACCIÓN Y NAVEGACIÓN SEGUROS -->
+    <!-- SCRIPT DE NAVEGACIÓN 100% ESTABLE -->
     <script>
-      let revealed = false;
-      const landingScreen = document.getElementById('landing-screen');
-      const landingNav = document.getElementById('landing-nav');
-
-      function revealLandingNav() {
-        if (!revealed) {
-            revealed = true;
-            landingNav.classList.add('revealed');
-        }
-      }
-
-      window.addEventListener('mousemove', revealLandingNav, { once: true });
-      window.addEventListener('touchstart', revealLandingNav, { once: true, passive: true });
-
-      function enterSite(tabId) {
-        landingScreen.classList.add('hidden');
-        switchTab(tabId);
-      }
-
-      function returnToLanding() {
-        landingScreen.classList.remove('hidden');
-      }
-
       function switchTab(tabId) {
         document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
         document.querySelectorAll('.main-nav button').forEach(el => el.classList.remove('active'));
