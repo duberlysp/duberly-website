@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DUBERLY SAAVEDRA POLO | Arte · Investigación · Mediación</title>
-    <meta name="description" content="Portal oficial de Duberly Saavedra Polo. Archivo de proyectos de arte, investigación sonora, mediación cultural, archivo comunitario y creación poética.">
+    <meta name="description" content="Portal oficial de Duberly Saavedra Polo. Práctica interdisciplinaria que articula música, voz, escritura, paisaje sonoro, investigación-creación y mediación artística.">
     
     <!-- Open Graph / Meta Social -->
     <meta property="og:title" content="DUBERLY SAAVEDRA POLO | Arte · Investigación · Mediación">
-    <meta property="og:description" content="Archivo de proyectos de arte, investigación sonora, mediación cultural y creación poética.">
+    <meta property="og:description" content="Arte para crear conocimiento, activar memorias y fortalecer comunidades.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.duberly.me/">
 
@@ -63,7 +63,7 @@
         }
 
         p.author-name {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             font-weight: 500;
             color: var(--text-color);
             letter-spacing: 0.03em;
@@ -75,6 +75,17 @@
             font-size: 0.95rem;
             text-transform: uppercase;
             letter-spacing: 0.12em;
+            margin-bottom: 1rem;
+        }
+
+        p.hero-concept {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.4;
         }
 
         nav {
@@ -117,10 +128,35 @@
         }
 
         .tab-description {
-            color: var(--muted-color);
+            color: var(--text-color);
             font-size: 1.05rem;
             margin-bottom: 2.5rem;
-            max-width: 720px;
+            max-width: 800px;
+            white-space: pre-line;
+            line-height: 1.7;
+        }
+
+        .tab-description p {
+            margin-bottom: 1rem;
+        }
+
+        .bio-box {
+            background: #f4f4f4;
+            padding: 2rem;
+            border-left: 3px solid var(--accent-color);
+            margin-bottom: 3rem;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--text-color);
+        }
+
+        .bio-box p {
+            margin-bottom: 1rem;
+        }
+
+        .bio-box p:last-child {
+            margin-bottom: 0;
+            font-weight: 500;
         }
 
         .project-grid {
@@ -198,12 +234,21 @@
         }
 
         /* Contacto Styles */
+        .contact-container {
+            max-width: 600px;
+        }
+
+        .contact-intro {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: var(--text-color);
+        }
+
         .contact-list {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 1rem;
-            max-width: 500px;
+            gap: 1.2rem;
         }
 
         .contact-list li a {
@@ -211,9 +256,11 @@
             text-decoration: none;
             font-size: 1.05rem;
             border-bottom: 1px solid var(--border-color);
-            padding-bottom: 0.4rem;
+            padding-bottom: 0.5rem;
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            transition: border-color 0.2s ease, color 0.2s ease;
         }
 
         .contact-list li a:hover {
@@ -250,8 +297,10 @@
         <h1 class="hero-title">DUBERLY</h1>
         <p class="author-name">Duberly Saavedra Polo</p>
         <p class="subtitle">Arte · Investigación · Mediación</p>
+        <p class="hero-concept">Arte para crear conocimiento, activar memorias y fortalecer comunidades.</p>
         <nav>
-            <button class="nav-btn active" onclick="switchTab('artista')">Artista</button>
+            <button class="nav-btn active" onclick="switchTab('inicio')">Inicio</button>
+            <button class="nav-btn" onclick="switchTab('artista')">Artista</button>
             <button class="nav-btn" onclick="switchTab('investigacion')">Investigación</button>
             <button class="nav-btn" onclick="switchTab('mediacion')">Mediación</button>
             <button class="nav-btn" onclick="switchTab('archivo')">Archivo</button>
@@ -261,9 +310,27 @@
     </header>
 
     <main>
+        <!-- Pestaña: Inicio / Bio -->
+        <section id="inicio" class="tab-content active">
+            <div class="bio-box">
+                <p>Duberly Saavedra Polo desarrolla una práctica interdisciplinaria que articula música, voz, escritura, paisaje sonoro, investigación-creación y mediación artística. Su trabajo explora las relaciones entre memoria, territorio, comunidad y tecnologías contemporáneas, generando proyectos donde la creación se convierte también en una forma de investigación, encuentro y producción colectiva de sentido.</p>
+                <p>Como músico y director artístico del Ensamble Transatlántico de Folk Chileno, desarrolla proyectos vinculados a la música, el patrimonio y la creación colectiva. Paralelamente, investiga metodologías de mediación artística y procesos de creación colaborativa desde la investigación basada en artes y la práctica como investigación.</p>
+                <p>Su trabajo incorpora también fotografía, archivo, escritura y experimentación sonora como formas de observar, registrar y transformar experiencias.</p>
+                <p>Actualmente desarrolla su investigación doctoral en Artes Integradas, profundizando en las relaciones entre creación, mediación y tecnologías digitales.</p>
+                <p>Arte, investigación y mediación constituyen distintas dimensiones de una misma práctica: crear conocimiento, activar memorias y fortalecer comunidades.</p>
+            </div>
+        </section>
+
         <!-- Pestaña: Artista -->
-        <section id="artista" class="tab-content active">
-            <p class="tab-description">Praxis artística, investigación sonora, escrituras del territorio y producción musical colectiva e individual.</p>
+        <section id="artista" class="tab-content">
+            <div class="tab-description">
+                <p>La práctica artística de Duberly Saavedra Polo se despliega entre la música, la voz, la escritura, el paisaje sonoro y la experimentación interdisciplinaria.</p>
+                <p>Su trabajo explora formas de creación colectiva, participativa y abierta, donde la autoría se entiende como un espacio compartido y la obra puede surgir de la interacción entre personas, territorios, memorias y materiales. Existe un interés particular por formas de arte sin una autoría individual cerrada, donde crear implica también participar, escuchar y transformar colectivamente.</p>
+                <p>La música dialoga con el territorio, la memoria y el archivo; la voz se convierte en materia sonora y literaria; la experiencia colectiva abre nuevas posibilidades para crear.</p>
+                <p>Su producción incluye proyectos como artista solista y el trabajo desarrollado junto al Ensamble Transatlántico de Folk Chileno, además de investigaciones y experimentaciones que expanden la práctica musical hacia otros lenguajes.</p>
+                <p><strong>La obra se construye como un territorio compartido: un espacio donde crear también significa participar, escuchar y transformar colectivamente.</strong></p>
+            </div>
+
             <div class="project-grid">
                 <article class="project-card">
                     <div class="card-image-container">
@@ -284,7 +351,7 @@
                     <div class="card-body">
                         <span class="tag">Creación Musical & Dirección</span>
                         <h3>Ensamble Transatlántico de Folk Chileno</h3>
-                        <p>Dirección de imagen y comunicaciones, exploración de sonoridades folclóricas contemporáneas y proyección internacional.</p>
+                        <p>Proyectos vinculados a la música, el patrimonio y la creación colectiva en clave contemporánea.</p>
                         <div class="dialogue-link">También dialoga con: Valpo Folk Fest / Mediación</div>
                     </div>
                 </article>
@@ -293,7 +360,15 @@
 
         <!-- Pestaña: Investigación -->
         <section id="investigacion" class="tab-content">
-            <p class="tab-description">Líneas de investigación doctoral, ponencias, reflexiones teóricas y ecologías culturales sobre el territorio y la escucha.</p>
+            <div class="tab-description">
+                <p>La investigación forma parte del proceso creativo.</p>
+                <p>Duberly Saavedra Polo desarrolla investigación-creación desde una perspectiva interdisciplinaria que articula arte, mediación, tecnologías contemporáneas, territorio, memoria y creación colectiva.</p>
+                <p>Su trabajo se desarrolla principalmente desde la Investigación Basada en Artes (IBA) y la Práctica como Investigación (PaR), utilizando procesos artísticos como espacios para producir preguntas, observar fenómenos y generar conocimiento.</p>
+                <p>Actualmente desarrolla su investigación doctoral en Artes Integradas, profundizando en las relaciones entre mediación artística, tecnologías digitales y procesos de creación colectiva.</p>
+                <p>La investigación se expresa en proyectos, publicaciones, ponencias, metodologías, experiencias y archivos. Cada uno constituye una oportunidad para observar cómo una pregunta puede desplazarse entre distintos lenguajes y convertirse en una nueva práctica.</p>
+                <p><strong>Investigar es también crear condiciones para que algo pueda aparecer.</strong></p>
+            </div>
+
             <div class="project-grid">
                 <article class="project-card">
                     <div class="card-image-container">
@@ -301,8 +376,8 @@
                     </div>
                     <div class="card-body">
                         <span class="tag">Investigación Doctoral</span>
-                        <h3>Micelio Virtual & Territorios Sonoros</h3>
-                        <p>Estudio de los dispositivos de mediación, paisajes sonoros y ecologías culturales desarrollado en la Universidad de Playa Ancha.</p>
+                        <h3>Doctorado en Artes Integradas</h3>
+                        <p>Profundización en las relaciones entre mediación artística, tecnologías digitales y procesos de creación colectiva.</p>
                         <div class="dialogue-link">También dialoga con: Hablar la Voz</div>
                     </div>
                 </article>
@@ -311,16 +386,24 @@
 
         <!-- Pestaña: Mediación -->
         <section id="mediacion" class="tab-content">
-            <p class="tab-description">Proyectos participativos, intervenciones educativas y mediación cultural en contextos institucionales y comunitarios.</p>
+            <div class="tab-description">
+                <p>La mediación artística constituye un espacio de encuentro, creación y producción de conocimiento.</p>
+                <p>Duberly Saavedra Polo desarrolla experiencias de mediación en contextos educativos, comunitarios, culturales e institucionales, articulando metodologías participativas con procesos de creación artística.</p>
+                <p>Estos espacios reúnen personas, territorios, experiencias y lenguajes diversos. La música, las artes visuales, la escritura, la escucha y las tecnologías se convierten en herramientas para activar procesos colectivos y construir nuevas formas de relación.</p>
+                <p>Cada experiencia genera materiales, aprendizajes y preguntas que pueden continuar desarrollándose más allá del momento de encuentro.</p>
+                <p>Proyectos educativos, iniciativas comunitarias, experiencias universitarias y procesos culturales forman parte de este territorio de trabajo.</p>
+                <p><strong>Mediar es crear condiciones para que otras personas puedan crear.</strong></p>
+            </div>
+
             <div class="project-grid">
                 <article class="project-card">
                     <div class="card-image-container">
                         <img src="images/yo-feed-archivo.jpg" alt="YO / FEED / ARCHIVO" onerror="this.style.display='none'">
                     </div>
                     <div class="card-body">
-                        <span class="tag">Archivo Comunitario</span>
+                        <span class="tag">Mediación & Archivo</span>
                         <h3>YO / FEED / ARCHIVO</h3>
-                        <p>Dispositivo físico y digital de mediación comunitaria para el resguardo de memoria, identidad colectiva y registro territorial.</p>
+                        <p>Dispositivo de mediación comunitaria para el resguardo de memoria, identidad colectiva y registro territorial.</p>
                         <div class="dialogue-link">También dialoga con: Archivo Vivo</div>
                     </div>
                 </article>
@@ -330,9 +413,9 @@
                         <img src="images/valpo-folk-fest.jpg" alt="Valpo Folk Fest" onerror="this.style.display='none'">
                     </div>
                     <div class="card-body">
-                        <span class="tag">Fusión Latinoamericana</span>
+                        <span class="tag">Procesos Culturales</span>
                         <h3>Valpo Folk Fest</h3>
-                        <p>Conceptualización e imagen identitaria para el encuentro de ritmos y sonoridades latinoamericanas en Valparaíso.</p>
+                        <p>Encuentro e integración de ritmos y sonoridades latinoamericanas proyectadas desde el territorio.</p>
                     </div>
                 </article>
             </div>
@@ -340,16 +423,23 @@
 
         <!-- Pestaña: Archivo -->
         <section id="archivo" class="tab-content">
-            <p class="tab-description">Repositorio vivo de documentos, mapas sonoros, registros históricos, manuscritos y cartografías del territorio.</p>
+            <div class="tab-description">
+                <p>El archivo reúne materiales que documentan procesos y, al mismo tiempo, pueden convertirse en materia para nuevas creaciones.</p>
+                <p>Fotografías, sonidos, documentos, escritos, mapas, registros de campo, publicaciones, conversaciones y fragmentos de procesos forman parte de un archivo que continúa creciendo.</p>
+                <p>Aquí conviven materiales provenientes de distintos momentos y proyectos. Cada registro puede abrir nuevas relaciones entre territorio, memoria, investigación y creación.</p>
+                <p>El archivo también conserva aquello que permanece en proceso: una fotografía sin proyecto definido, una grabación de campo, una nota, un boceto o una observación pueden adquirir nuevos sentidos al encontrarse con otros materiales.</p>
+                <p><strong>Archivar es una forma de escuchar aquello que todavía puede volver a decir algo.</strong></p>
+            </div>
+
             <div class="project-grid">
                 <article class="project-card">
                     <div class="card-image-container">
                         <img src="images/atlas-de-los-39.jpg" alt="Atlas de los 39" onerror="this.style.display='none'">
                     </div>
                     <div class="card-body">
-                        <span class="tag">Manuscrito & Cartografía</span>
+                        <span class="tag">Manuscrito & Registro</span>
                         <h3>Atlas de los 39</h3>
-                        <p>Estructura poética de cartografías personales, desplazamientos y memorias. Material disponible para lectura y descarga.</p>
+                        <p>Estructura poética de cartografías personales, desplazamientos y memorias del territorio.</p>
                         <div class="dialogue-link">También dialoga con: Bitácora de Campo / LAB</div>
                     </div>
                 </article>
@@ -358,16 +448,24 @@
 
         <!-- Pestaña: LAB -->
         <section id="lab" class="tab-content">
-            <p class="tab-description">Espacio transversal de experimentación, prototipos sonoros, pruebas de materialidad y bitácoras de trabajo de campo.</p>
+            <div class="tab-description">
+                <p>El LAB es el espacio de experimentación del ecosistema.</p>
+                <p>Aquí aparecen ideas, pruebas, observaciones y materiales antes de convertirse necesariamente en obras, investigaciones o proyectos consolidados.</p>
+                <p>Una fotografía, un sonido, una pregunta, un mapa, una escritura, una visualización o un experimento pueden constituir una entrada.</p>
+                <p>El LAB registra el pensamiento mientras ocurre y permite observar las conexiones que comienzan a formarse entre distintos proyectos.</p>
+                <p>Es un espacio para probar, documentar, volver sobre los materiales y dejar abiertas preguntas que todavía buscan una forma.</p>
+                <p><strong>El LAB muestra el movimiento de la práctica.</strong></p>
+            </div>
+
             <div class="project-grid">
                 <article class="project-card">
                     <div class="card-image-container">
                         <img src="images/lab-experimentos.jpg" alt="Prototipos Sonoros" onerror="this.style.display='none'">
                     </div>
                     <div class="card-body">
-                        <span class="tag">Bitácora & Experimentación</span>
+                        <span class="tag">Experimentos & Bitácora</span>
                         <h3>Bitácora de Escucha & Sonoridades</h3>
-                        <p>Registros de audio en proceso, fragmentos de campo y pruebas conceptuales antes de su consolidación en obras o publicaciones.</p>
+                        <p>Registros de audio en proceso, fragmentos de campo y pruebas conceptuales en desarrollo.</p>
                     </div>
                 </article>
             </div>
@@ -375,13 +473,48 @@
 
         <!-- Pestaña: Contacto -->
         <section id="contacto" class="tab-content">
-            <p class="tab-description">Plataformas de vinculación profesional, investigación y proyectos artísticos.</p>
-            <ul class="contact-list">
-                <li><a href="mailto:contacto@duberly.me"><span>Correo Electrónico</span> <span>contacto@duberly.me</span></a></li>
-                <li><a href="https://open.spotify.com" target="_blank" rel="noopener"><span>Spotify</span> <span>Ver perfil</span></a></li>
-                <li><a href="https://youtube.com" target="_blank" rel="noopener"><span>YouTube</span> <span>Canal Oficial</span></a></li>
-                <li><a href="https://orcid.org" target="_blank" rel="noopener"><span>ORCID</span> <span>Registro Académico</span></a></li>
-            </ul>
+            <div class="contact-container">
+                <p class="contact-intro">Para colaboraciones artísticas, proyectos de investigación, mediación, docencia y desarrollo de experiencias interdisciplinarias:</p>
+                
+                <ul class="contact-list">
+                    <li>
+                        <a href="mailto:duberlysp@gmail.com">
+                            <span>Correo Electrónico</span> 
+                            <span>duberlysp@gmail.com</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://open.spotify.com/intl-es/artist/2O47nAAKaTTE7CrG0OcBly" target="_blank" rel="noopener">
+                            <span>Spotify</span> 
+                            <span>Escuchar</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="link-instagram" target="_blank" rel="noopener">
+                            <span>Instagram</span> 
+                            <span>Ver perfil</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="link-linkedin" target="_blank" rel="noopener">
+                            <span>LinkedIn</span> 
+                            <span>Conectar</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="link-orcid" target="_blank" rel="noopener">
+                            <span>ORCID</span> 
+                            <span>Registro Académico</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="link-scholar" target="_blank" rel="noopener">
+                            <span>Google Scholar</span> 
+                            <span>Publicaciones</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </section>
     </main>
 
