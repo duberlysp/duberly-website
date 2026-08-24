@@ -301,10 +301,6 @@
         .home-portrait-wrapper {
             flex: 0 0 42%;
             max-width: 45%;
-            display: none;
-        }
-
-        .home-portrait-wrapper.loaded {
             display: block;
         }
 
@@ -786,14 +782,12 @@
                 <section id="inicio" class="tab-content active">
                     <div class="home-hero-layout">
                         <div class="home-portrait-wrapper">
-                            <div class="site-photo-container" onclick="openLightbox('duberly-retrato-inicio.jpg')">
+                            <div class="site-photo-container" onclick="openLightbox('./duberly-retrato-inicio.jpg')">
                                 <img 
-                                    src="duberly-retrato-inicio.jpg" 
+                                    src="./duberly-retrato-inicio.jpg" 
                                     alt="Retrato de Duberly Saavedra Polo sentado y mirando directamente a cámara." 
                                     class="site-photo-img"
-                                    loading="lazy"
-                                    onload="this.closest('.home-portrait-wrapper').classList.add('loaded')"
-                                    onerror="this.closest('.home-portrait-wrapper').style.display='none'"
+                                    loading="eager"
                                 >
                             </div>
                         </div>
@@ -872,8 +866,8 @@
                                 <h3>INICIA</h3>
                                 <p>TANKBOY y DUBERLY</p>
                             </div>
-                            <div class="site-photo-container" onclick="openLightbox('duberly-inicia.jpeg')">
-                                <img src="duberly-inicia.jpeg" alt="Imagen abstracta en blanco, negro y verde vinculada a INICIA, obra musical de DUBERLY." class="site-photo-img" loading="lazy">
+                            <div class="site-photo-container" onclick="openLightbox('./duberly-inicia.jpeg')">
+                                <img src="./duberly-inicia.jpeg" alt="Imagen abstracta en blanco, negro y verde vinculada a INICIA, obra musical de DUBERLY." class="site-photo-img" loading="lazy">
                             </div>
                             <div class="card-embed-slot">
                                 <iframe src="https://open.spotify.com/embed/track/0XPDkQ3XqGpmtYrW6nZpfq?utm_source=generator" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
@@ -891,8 +885,8 @@
                                 <h3>SOLO VOCAL</h3>
                                 <p>DUBERLY</p>
                             </div>
-                            <div class="site-photo-container" onclick="openLightbox('duberly-solo-vocal.png')">
-                                <img src="duberly-solo-vocal.png" alt="Cuaderno abierto con el título SOLO VOCAL y un rostro construido mediante fragmentos gráficos." class="site-photo-img" loading="lazy">
+                            <div class="site-photo-container" onclick="openLightbox('./duberly-solo-vocal.jpg')">
+                                <img src="./duberly-solo-vocal.jpg" alt="Cuaderno abierto con el título SOLO VOCAL y un rostro construido mediante fragmentos gráficos." class="site-photo-img" loading="lazy">
                             </div>
                             <div class="card-embed-slot">
                                 <iframe src="https://open.spotify.com/embed/track/06V9YNuLUyl0XXtzla1y6S?utm_source=generator" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
@@ -953,7 +947,7 @@
                                 <p>Ensamble Transatlántico de Folk Chileno</p>
                             </div>
                             <div class="site-photo-container" onclick="openModal('modal-cartografia')">
-                                <img src="ensamble-cartografia-sonora.png" alt="Collage de montañas, luna, agua y paisaje latinoamericano de Cartografía Sonora Latinoamericana." class="site-photo-img" loading="lazy">
+                                <img src="./ensamble-cartografia-sonora.jpg" alt="Collage de montañas, luna, agua y paisaje latinoamericano de Cartografía Sonora Latinoamericana." class="site-photo-img" loading="lazy">
                             </div>
                             <div class="card-action-slot">
                                 <button class="discrete-link" onclick="openModal('modal-cartografia')">Ver Ficha Expandida & Galería ↗</button>
@@ -966,8 +960,8 @@
                                 <h3>Beso Mineral</h3>
                                 <p>Ensamble Transatlántico de Folk Chileno</p>
                             </div>
-                            <div class="site-photo-container" onclick="openLightbox('ensamble-beso-mineral.jpg')">
-                                <img src="ensamble-beso-mineral.jpg" alt="Collage de volcanes y paisaje nocturno correspondiente a Beso Mineral." class="site-photo-img" loading="lazy">
+                            <div class="site-photo-container" onclick="openLightbox('./ensamble-beso-mineral.jpg')">
+                                <img src="./ensamble-beso-mineral.jpg" alt="Collage de volcanes y paisaje nocturno correspondiente a Beso Mineral." class="site-photo-img" loading="lazy">
                             </div>
                         </article>
                     </div>
@@ -1041,7 +1035,7 @@
                                 <p>Experiencia de mediación desarrollada en Valparaíso. Vincula música en vivo, conversación, participación y aprendizaje mediante encuentros entre artistas, estudiantes y comunidades educativas.</p>
                             </div>
                             <div class="site-photo-container" onclick="openModal('modal-mediacion-educativo')">
-                                <img src="mediacion-concierto-educativo-pcdv.jpg" alt="Concierto educativo al aire libre con músicos, estudiantes y público en Valparaíso." class="site-photo-img" loading="lazy">
+                                <img src="./mediacion-concierto-educativo-pcdv.jpg" alt="Concierto educativo al aire libre con músicos, estudiantes y público en Valparaíso." class="site-photo-img" loading="lazy">
                             </div>
                             <div class="photo-credit">Fotografía: Nathaly Arancibia</div>
                             <div class="card-action-slot">
@@ -1057,7 +1051,7 @@
                                 <p>Duberly Saavedra Polo desarrolla procesos de formación vocal y creación escénica con estudiantes de la Universidad Andrés Bello. El trabajo integra aprendizaje basado en proyectos, interpretación colectiva y presentaciones públicas.</p>
                             </div>
                             <div class="site-photo-container" onclick="openModal('modal-unab')">
-                                <img src="mediacion-unab-01.jpg" alt="Escenario iluminado en magenta durante presentación universitaria UNAB." class="site-photo-img" loading="lazy">
+                                <img src="./mediacion-unab-01.jpg" alt="Escenario iluminado en magenta durante presentación universitaria UNAB." class="site-photo-img" loading="lazy">
                             </div>
                             <div class="card-action-slot">
                                 <button class="discrete-link" onclick="openModal('modal-unab')">Ver Ficha Expandida & Galería ↗</button>
@@ -1260,14 +1254,14 @@
             
             <div class="modal-gallery-grid">
                 <div>
-                    <div class="site-photo-container" onclick="openLightbox('ensamble-cartografia-sonora.png')">
-                        <img src="ensamble-cartografia-sonora.png" alt="Collage de montañas, luna, agua y paisaje latinoamericano de Cartografía Sonora Latinoamericana." class="site-photo-img" loading="lazy">
+                    <div class="site-photo-container" onclick="openLightbox('./ensamble-cartografia-sonora.jpg')">
+                        <img src="./ensamble-cartografia-sonora.jpg" alt="Collage de montañas, luna, agua y paisaje latinoamericano de Cartografía Sonora Latinoamericana." class="site-photo-img" loading="lazy">
                     </div>
                     <div class="photo-credit">Portada de la producción</div>
                 </div>
                 <div>
-                    <div class="site-photo-container" onclick="openLightbox('ensamble-cartografia-contracara.png')">
-                        <img src="ensamble-cartografia-contracara.png" alt="Contracara de Cartografía Sonora Latinoamericana con lista de temas y créditos detallados." class="site-photo-img" loading="lazy">
+                    <div class="site-photo-container" onclick="openLightbox('./ensamble-cartografia-contracara.png')">
+                        <img src="./ensamble-cartografia-contracara.png" alt="Contracara de Cartografía Sonora Latinoamericana con lista de temas y créditos detallados." class="site-photo-img" loading="lazy">
                     </div>
                     <div class="photo-credit">Material secundario / Contracara</div>
                 </div>
@@ -1285,14 +1279,14 @@
             
             <div class="modal-gallery-grid">
                 <div>
-                    <div class="site-photo-container" onclick="openLightbox('mediacion-concierto-educativo-pcdv.jpg')">
-                        <img src="mediacion-concierto-educativo-pcdv.jpg" alt="Concierto educativo al aire libre con músicos, estudiantes y público en Valparaíso." class="site-photo-img" loading="lazy">
+                    <div class="site-photo-container" onclick="openLightbox('./mediacion-concierto-educativo-pcdv.jpg')">
+                        <img src="./mediacion-concierto-educativo-pcdv.jpg" alt="Concierto educativo al aire libre con músicos, estudiantes y público en Valparaíso." class="site-photo-img" loading="lazy">
                     </div>
                     <div class="photo-credit">Fotografía: Nathaly Arancibia</div>
                 </div>
                 <div>
-                    <div class="site-photo-container" onclick="openLightbox('mediacion-chile-puerto-folk.jpg')">
-                        <img src="mediacion-chile-puerto-folk.jpg" alt="Experiencia de mediación musical con intérpretes y público en un espacio cultural." class="site-photo-img" loading="lazy">
+                    <div class="site-photo-container" onclick="openLightbox('./mediacion-chile-puerto-folk.jpg')">
+                        <img src="./mediacion-chile-puerto-folk.jpg" alt="Experiencia de mediación musical con intérpretes y público en un espacio cultural." class="site-photo-img" loading="lazy">
                     </div>
                     <div class="photo-credit">Registro de encuentro comunitario</div>
                 </div>
@@ -1310,14 +1304,14 @@
             
             <div class="modal-gallery-grid">
                 <div>
-                    <div class="site-photo-container" onclick="openLightbox('mediacion-unab-01.jpg')">
-                        <img src="mediacion-unab-01.jpg" alt="Escenario iluminado en magenta durante presentación universitaria UNAB." class="site-photo-img" loading="lazy">
+                    <div class="site-photo-container" onclick="openLightbox('./mediacion-unab-01.jpg')">
+                        <img src="./mediacion-unab-01.jpg" alt="Escenario iluminado en magenta durante presentación universitaria UNAB." class="site-photo-img" loading="lazy">
                     </div>
                     <div class="photo-credit">Escenario y puesta en escena</div>
                 </div>
                 <div>
-                    <div class="site-photo-container" onclick="openLightbox('mediacion-unab-02.jpg')">
-                        <img src="mediacion-unab-02.jpg" alt="Presentación grupal sobre el escenario en experiencia UNAB." class="site-photo-img" loading="lazy">
+                    <div class="site-photo-container" onclick="openLightbox('./mediacion-unab-02.jpg')">
+                        <img src="./mediacion-unab-02.jpg" alt="Presentación grupal sobre el escenario en experiencia UNAB." class="site-photo-img" loading="lazy">
                     </div>
                     <div class="photo-credit">Presentación grupal</div>
                 </div>
