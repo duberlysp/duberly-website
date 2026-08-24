@@ -234,13 +234,74 @@
         }
 
         /* -------------------------------------------------- */
-        /* INICIO: COMPOSICIÓN DE DOS ZONAS (FOTO Y TEXTO)    */
+        /* INICIO: COMPOSICIÓN Y TRATAMIENTO DE FOTOGRAFÍAS   */
         /* -------------------------------------------------- */
         .home-hero-layout {
             display: flex;
             gap: 2.5rem;
             align-items: center;
             margin-bottom: 4rem;
+        }
+
+        /* SISTEMA VISUAL REUTILIZABLE PARA FOTOGRAFÍAS */
+        .site-photo-container {
+            position: relative;
+            display: inline-block;
+            border-radius: 12px;
+            overflow: hidden;
+            /* Sombras multicapa: tenue cercana + amplia atmosférica en verde/azul petróleo */
+            box-shadow: 
+                0 4px 12px rgba(0, 0, 0, 0.35),
+                0 18px 45px -10px rgba(30, 58, 61, 0.35);
+            transition: transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
+        }
+
+        /* Capa de tinte transparente (5% verde/azul petróleo) */
+        .site-photo-container::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--accent-verde-azulado);
+            opacity: 0.05;
+            pointer-events: none;
+            transition: opacity 0.5s var(--ease-out);
+        }
+
+        .site-photo-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            opacity: 0.97; /* Opacidad entre 96% y 98% */
+            filter: brightness(1) contrast(1);
+            transition: transform 0.5s var(--ease-out), filter 0.5s var(--ease-out);
+        }
+
+        /* Interacción sutil al pasar el cursor */
+        .site-photo-container:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                0 6px 16px rgba(0, 0, 0, 0.4),
+                0 22px 55px -8px rgba(30, 58, 61, 0.45);
+        }
+
+        .site-photo-container:hover .site-photo-img {
+            filter: brightness(1.03) contrast(1);
+        }
+
+        /* Meta de fotografía futura */
+        .site-photo-caption {
+            margin-top: 0.8rem;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .site-photo-caption span {
+            color: var(--text-secondary);
         }
 
         .home-portrait-wrapper {
@@ -252,16 +313,6 @@
         .home-portrait-wrapper.loaded {
             display: block;
         }
-
-       .home-portrait-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-    border-radius: 16px; /* Bordes redondeados sutiles */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Sombra suave para integrarla al fondo */
-    overflow: hidden;
-}
 
         .home-presentation-single {
             flex: 1;
@@ -536,7 +587,7 @@
                 transition: none !important;
                 animation: none !important;
             }
-            .home-access-card {
+            .home-access-card, .site-photo-container {
                 opacity: 1;
                 transform: none;
             }
@@ -573,14 +624,17 @@
                 <!-- INICIO -->
                 <section id="inicio" class="tab-content active">
                     <div class="home-hero-layout">
+                        <!-- RETRATO VERTICAL CON TRATAMIENTO VISUAL REUTILIZABLE -->
                         <div class="home-portrait-wrapper">
-                            <img 
-                                src="duberly-retrato-inicio.jpg" 
-                                alt="Retrato de Duberly Saavedra Polo." 
-                                class="home-portrait-img"
-                                onload="this.parentElement.classList.add('loaded')"
-                                onerror="this.parentElement.style.display='none'"
-                            >
+                            <div class="site-photo-container">
+                                <img 
+                                    src="duberly-retrato-inicio.jpg" 
+                                    alt="Retrato de Duberly Saavedra Polo sentado y mirando directamente a cámara." 
+                                    class="site-photo-img"
+                                    onload="this.closest('.home-portrait-wrapper').classList.add('loaded')"
+                                    onerror="this.closest('.home-portrait-wrapper').style.display='none'"
+                                >
+                            </div>
                         </div>
 
                         <div class="home-presentation-single">
@@ -645,7 +699,7 @@
 
                     <div class="sub-header">
                         <h2>DUBERLY</h2>
-                        <p>DUBERLY es el proyecto musical solista de Duberly Saavedra. Articula canción, experimentación vocal, texturas acústicas y electrónicas, poesía e imagen como dimensiones de una misma identidad artística. En 2026 publicó INICIA, junto a TANKBOY, y SOLO VOCAL. Actualmente desarrolla su primer álbum solista.</p>
+                        <p>DUBERLY es el proyecto musical solista de Duberly Saavedra Polo. Articula canción, experimentación vocal, texturas acústicas y electrónicas, poesía e imagen como dimensiones de una misma identidad artística. En 2026 publicó INICIA, junto a TANKBOY, y SOLO VOCAL. Actualmente desarrolla su primer álbum solista.</p>
                     </div>
                     <div class="card-grid">
                         <article class="home-access-card">
@@ -678,7 +732,7 @@
 
                     <div class="sub-header">
                         <h2>ENSAMBLE TRANSATLÁNTICO DE FOLK CHILENO</h2>
-                        <p>Duberly es vocalista y director artístico del Ensamble Transatlántico de Folk Chileno. Su trabajo con la agrupación reúne interpretación, dirección escénica, creación colectiva y circulación internacional. La trayectoria del Ensamble incluye producciones como Vivo, Vol. I, Vol. II y Cartografía Sonora Latinoamericana, además de presentaciones y giras en Chile, India, Japón, Corea del Sur y Europa entre 2016 y 2025.</p>
+                        <p>Duberly Saavedra Polo es vocalista y director artístico del Ensamble Transatlántico de Folk Chileno. Su trabajo con la agrupación reúne interpretación, dirección escénica, creación colectiva y circulación internacional. La trayectoria del Ensamble incluye producciones como Vivo, Vol. I, Vol. II y Cartografía Sonora Latinoamericana, además de presentaciones y giras en Chile, India, Japón, Corea del Sur y Europa entre 2016 y 2025.</p>
                     </div>
                     <div class="card-grid">
                         <article class="home-access-card">
@@ -739,7 +793,7 @@
                             <div>
                                 <div class="card-number">Formación Universitaria — Desde 2020</div>
                                 <h3>UNIVERSIDAD ANDRÉS BELLO</h3>
-                                <p>Desde 2020, Duberly desarrolla procesos de formación vocal y creación escénica con estudiantes de la Universidad Andrés Bello. El trabajo integra aprendizaje basado en proyectos, interpretación colectiva y presentaciones públicas.</p>
+                                <p>Desde 2020, Duberly Saavedra Polo desarrolla procesos de formación vocal y creación escénica con estudiantes de la Universidad Andrés Bello. El trabajo integra aprendizaje basado en proyectos, interpretación colectiva y presentaciones públicas.</p>
                             </div>
                             <div class="slot-placeholder">[ Ficha preparada para imágenes, instituciones y programas ]</div>
                         </article>
@@ -748,7 +802,7 @@
                             <div>
                                 <div class="card-number">Creación Colectiva — Chile Puerto Folk</div>
                                 <h3>ORQUESTA FOLK</h3>
-                                <p>Proceso de creación e interpretation colectiva vinculado con músicas de raíz y repertorios latinoamericanos. Duberly participa en su diseño, coordinación y dirección artística desde Chile Puerto Folk.</p>
+                                <p>Proceso de creación e interpretación colectiva vinculado con músicas de raíz y repertorios latinoamericanos. Duberly Saavedra Polo participa en su diseño, coordinación y dirección artística desde Chile Puerto Folk.</p>
                             </div>
                             <div class="slot-placeholder">[ Ficha preparada para fechas, participantes y registros ]</div>
                         </article>
@@ -757,7 +811,7 @@
                             <div>
                                 <div class="card-number">Escuela Comunitaria — Viña del Mar</div>
                                 <h3>ECAV</h3>
-                                <p>Duberly desarrolla labores de coordinación, diseño pedagógico y dirección de experiencias musicales en la Escuela de la Corporación Cultural Arte y Vida, en Viña del Mar. El trabajo articula ensambles, formación musical y montajes integrados.</p>
+                                <p>Duberly Saavedra Polo desarrolla labores de coordinación, diseño pedagógico y dirección de experiencias musicales en la Escuela de la Corporación Cultural Arte y Vida, en Viña del Mar. El trabajo articula ensambles, formación musical y montajes integrados.</p>
                             </div>
                             <div class="slot-placeholder">[ Ficha preparada para documentación y montajes ]</div>
                         </article>
@@ -768,7 +822,7 @@
                 <section id="investigacion" class="tab-content">
                     <div class="section-header">
                         <h1>INVESTIGACIÓN</h1>
-                        <p class="section-lead">Duberly desarrolla su Doctorado en Artes Integradas en la Universidad de Playa Ancha desde 2024. Su investigación se sitúa en el campo de la investigación-creación y estudia la mediación artística como práctica de producción de conocimiento. El proyecto articula creación colectiva, tecnologías cotidianas, memoria, territorio y participación mediante la metáfora del micelio cultural. Sus procesos se vinculan con experiencias desarrolladas en contextos educativos, artísticos y comunitarios.</p>
+                        <p class="section-lead">Duberly Saavedra Polo desarrolla su Doctorado en Artes Integradas en la Universidad de Playa Ancha desde 2024. Su investigación se sitúa en el campo de la investigación-creación y estudia la mediación artística como práctica de producción de conocimiento. El proyecto articula creación colectiva, tecnologías cotidianas, memoria, territorio y participación mediante la metáfora del micelio cultural. Sus procesos se vinculan con experiencias desarrolladas en contextos educativos, artísticos y comunitarios.</p>
                     </div>
 
                     <div class="card-grid">
