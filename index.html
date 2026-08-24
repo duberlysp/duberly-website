@@ -56,7 +56,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3, .brand-signature, .hero-title, .home-access-card h2, .editorial-card h3 {
+        h1, h2, h3, .brand-signature, .hero-title, .home-access-card h2 {
             font-family: var(--font-serif);
         }
 
@@ -224,6 +224,7 @@
             font-weight: 400;
             letter-spacing: 0.05em;
             color: var(--accent-light);
+            font-family: var(--font-serif);
         }
 
         .sub-header p {
@@ -242,15 +243,14 @@
             margin-bottom: 4rem;
         }
 
-        /* Retrato vertical (40–45%) */
         .home-portrait-wrapper {
             flex: 0 0 42%;
             max-width: 45%;
-            display: none; /* Se oculta automáticamente si no existe la foto */
+            display: none;
         }
 
         .home-portrait-wrapper.loaded {
-            display: block; /* Se muestra solo cuando la foto carga correctamente */
+            display: block;
         }
 
         .home-portrait-img {
@@ -258,12 +258,8 @@
             height: auto;
             display: block;
             object-fit: cover;
-            border-radius: 0;
-            filter: none;
-            border: none;
         }
 
-        /* Presentación (55–60%) */
         .home-presentation-single {
             flex: 1;
             font-family: var(--font-sans);
@@ -276,35 +272,13 @@
         }
 
         /* -------------------------------------------------- */
-        /* INICIO: ACCESOS EN RED MICELIAL ORGANICA           */
+        /* TARJETAS CON ESTILO Y EFECTOS HOMOGÉNEOS           */
         /* -------------------------------------------------- */
-        .mycelial-network-container {
-            position: relative;
-            margin-top: 2rem;
-            padding: 1rem 0;
-        }
-
-        .mycelial-svg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-            overflow: visible;
-        }
-
-        .mycelial-path {
-            fill: none;
-            stroke: rgba(115, 157, 174, 0.25);
-            stroke-width: 1.2;
-            stroke-dasharray: 4 2;
-        }
-
-        .mycelial-node {
-            fill: var(--accent-slate);
-            opacity: 0.4;
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.8rem;
+            margin-top: 1.5rem;
         }
 
         .mycelial-grid {
@@ -324,11 +298,12 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            cursor: pointer;
             position: relative;
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+            background: linear-gradient(135deg, rgba(20, 40, 52, 0.6) 0%, rgba(17, 22, 25, 0.5) 100%);
+            border-radius: 20px;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInOrganic 0.8s var(--ease-out) forwards;
@@ -342,9 +317,9 @@
             }
         }
 
+        /* Formas orgánicas en Inicio */
         .home-card-obra {
             grid-column: 1 / span 7;
-            background: linear-gradient(135deg, rgba(20, 40, 52, 0.6) 0%, rgba(17, 22, 25, 0.5) 100%);
             border-radius: 28px 12px 36px 16px;
             min-height: 230px;
             animation-delay: 0.1s;
@@ -378,26 +353,12 @@
             animation-delay: 0.55s;
         }
 
+        /* Hover dinámico unificado */
         .home-access-card:hover, .home-access-card:focus-visible {
             transform: translateY(-5px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-            outline: none;
-        }
-
-        .home-card-obra:hover, .home-card-obra:focus-visible {
-            background: linear-gradient(135deg, rgba(20, 40, 52, 0.82) 0%, rgba(26, 50, 64, 0.72) 100%);
-        }
-
-        .home-card-mediacion:hover, .home-card-mediacion:focus-visible {
-            background: linear-gradient(135deg, rgba(30, 58, 61, 0.82) 0%, rgba(42, 78, 82, 0.72) 100%);
-        }
-
-        .home-card-investigacion:hover, .home-card-investigacion:focus-visible {
-            background: linear-gradient(135deg, rgba(30, 58, 61, 0.8) 0%, rgba(20, 40, 52, 0.82) 100%);
-        }
-
-        .home-card-escritos:hover, .home-card-escritos:focus-visible {
             background: linear-gradient(135deg, rgba(20, 40, 52, 0.85) 0%, rgba(30, 58, 61, 0.75) 100%);
+            outline: none;
         }
 
         .home-access-card .card-number {
@@ -409,8 +370,8 @@
             margin-bottom: 1rem;
         }
 
-        .home-access-card h2 {
-            font-size: 1.6rem;
+        .home-access-card h2, .home-access-card h3 {
+            font-size: 1.5rem;
             font-weight: 400;
             color: var(--text-primary);
             margin-bottom: 0.6rem;
@@ -419,52 +380,36 @@
         .home-access-card p {
             font-size: 0.92rem;
             color: var(--text-secondary);
-            line-height: 1.55;
+            line-height: 1.6;
         }
 
-        /* OTROS COMPONENTES */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 1.8rem;
-            margin-top: 1.5rem;
+        .mycelial-network-container {
+            position: relative;
+            margin-top: 2rem;
+            padding: 1rem 0;
         }
 
-        .editorial-card {
-            border: 1px solid var(--border-subtle);
-            background-color: var(--surface-color);
-            padding: 1.8rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: var(--transition-smooth);
+        .mycelial-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: visible;
         }
 
-        .editorial-card:hover {
-            border-color: var(--border-active);
-            background-color: var(--surface-card);
+        .mycelial-path {
+            fill: none;
+            stroke: rgba(115, 157, 174, 0.25);
+            stroke-width: 1.2;
+            stroke-dasharray: 4 2;
         }
 
-        .card-meta {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--accent-slate);
-            margin-bottom: 0.6rem;
-            font-weight: 600;
-        }
-
-        .editorial-card h3 {
-            font-size: 1.25rem;
-            font-weight: 400;
-            color: var(--text-primary);
-            margin-bottom: 0.8rem;
-        }
-
-        .editorial-card p {
-            color: var(--text-secondary);
-            font-size: 0.93rem;
-            line-height: 1.65;
+        .mycelial-node {
+            fill: var(--accent-slate);
+            opacity: 0.4;
         }
 
         .slot-placeholder {
@@ -475,6 +420,7 @@
             font-size: 0.8rem;
             color: var(--text-muted);
             text-align: center;
+            border-radius: 8px;
         }
 
         .slot-placeholder a {
@@ -484,13 +430,6 @@
 
         .slot-placeholder a:hover {
             text-decoration: underline;
-        }
-
-        .writing-subgrid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.2rem;
         }
 
         .field-label {
@@ -555,7 +494,7 @@
         /* RESPONSIVE (MÓVIL) */
         @media (max-width: 820px) {
             .home-hero-layout {
-                flex-direction: column-reverse; /* Texto primero y foto después en móvil */
+                flex-direction: column-reverse;
                 gap: 2rem;
             }
             .home-portrait-wrapper {
@@ -630,27 +569,22 @@
 
                 <!-- INICIO -->
                 <section id="inicio" class="tab-content active">
-                    
-                    <!-- COMPOSICIÓN DE FOTO Y PRESENTACIÓN -->
                     <div class="home-hero-layout">
-                        <!-- ZONA 1: RETRATO VERTICAL (40–45%) -->
                         <div class="home-portrait-wrapper">
                             <img 
                                 src="duberly-retrato-inicio.jpg" 
-                                alt="Retrato de Duberly Saavedra Polo sentado y mirando directamente a cámara." 
+                                alt="Retrato de Duberly Saavedra Polo." 
                                 class="home-portrait-img"
                                 onload="this.parentElement.classList.add('loaded')"
                                 onerror="this.parentElement.style.display='none'"
                             >
                         </div>
 
-                        <!-- ZONA 2: PRESENTACIÓN (55–60%) -->
                         <div class="home-presentation-single">
                             Duberly Saavedra Polo es artista, cantautor, investigador y mediador radicado en Valparaíso. Desarrolla su proyecto musical solista DUBERLY, es director artístico y vocalista del Ensamble Transatlántico de Folk Chileno y diseña experiencias de creación y mediación en contextos educativos, culturales y comunitarios.
                         </div>
                     </div>
 
-                    <!-- ACCESOS EN RED MICELIAL ORGÁNICA -->
                     <div class="mycelial-network-container">
                         <svg class="mycelial-svg" viewBox="0 0 1000 500" preserveAspectRatio="none" aria-hidden="true">
                             <path class="mycelial-path" d="M 250,110 C 420,80 500,200 600,120" />
@@ -711,27 +645,27 @@
                         <p>DUBERLY es el proyecto musical solista de Duberly Saavedra. Articula canción, experimentación vocal, texturas acústicas y electrónicas, poesía e imagen como dimensiones de una misma identidad artística. En 2026 publicó INICIA, junto a TANKBOY, y SOLO VOCAL. Actualmente desarrolla su primer álbum solista.</p>
                     </div>
                     <div class="card-grid">
-                        <article class="editorial-card">
+                        <article class="home-access-card">
                             <div>
-                                <div class="card-meta">Proyecto Solista — 2026</div>
+                                <div class="card-number">Proyecto Solista — 2026</div>
                                 <h3>INICIA</h3>
                                 <p>DUBERLY junto a TANKBOY.</p>
                             </div>
                             <div class="slot-placeholder">[ Espacio reservado para portadas, Spotify & YouTube ]</div>
                         </article>
 
-                        <article class="editorial-card">
+                        <article class="home-access-card">
                             <div>
-                                <div class="card-meta">Proyecto Solista — 2026</div>
+                                <div class="card-number">Proyecto Solista — 2026</div>
                                 <h3>SOLO VOCAL</h3>
                                 <p>DUBERLY.</p>
                             </div>
                             <div class="slot-placeholder">[ Espacio reservado para reproducción audio & video ]</div>
                         </article>
 
-                        <article class="editorial-card">
+                        <article class="home-access-card">
                             <div>
-                                <div class="card-meta">Compilación Sonora</div>
+                                <div class="card-number">Compilación Sonora</div>
                                 <h3>Playlist “La voz de DUBERLY”</h3>
                                 <p>Selección y recopilación del cuerpo vocal y musical.</p>
                             </div>
@@ -744,18 +678,18 @@
                         <p>Duberly es vocalista y director artístico del Ensamble Transatlántico de Folk Chileno. Su trabajo con la agrupación reúne interpretación, dirección escénica, creación colectiva y circulación internacional. La trayectoria del Ensamble incluye producciones como Vivo, Vol. I, Vol. II y Cartografía Sonora Latinoamericana, además de presentaciones y giras en Chile, India, Japón, Corea del Sur y Europa entre 2016 y 2025.</p>
                     </div>
                     <div class="card-grid">
-                        <article class="editorial-card">
+                        <article class="home-access-card">
                             <div>
-                                <div class="card-meta">Producciones Discográficas</div>
+                                <div class="card-number">Producciones Discográficas</div>
                                 <h3>Discografía Oficial</h3>
                                 <p>Vivo, Vol. I, Vol. II y Cartografía Sonora Latinoamericana.</p>
                             </div>
                             <div class="slot-placeholder">[ Espacio reservado para fichas de discos y enlaces ]</div>
                         </article>
 
-                        <article class="editorial-card">
+                        <article class="home-access-card">
                             <div>
-                                <div class="card-meta">Circulación Internacional</div>
+                                <div class="card-number">Circulación Internacional</div>
                                 <h3>Giras & Conciertos (2016–2025)</h3>
                                 <p>Presentaciones en Chile, India, Japón, Corea del Sur y Europa.</p>
                             </div>
@@ -768,9 +702,9 @@
                         <p>Exploración y creación vinculada al entorno y la escucha territorial.</p>
                     </div>
                     <div class="card-grid">
-                        <article class="editorial-card">
+                        <article class="home-access-card">
                             <div>
-                                <div class="card-meta">Registro Territorial</div>
+                                <div class="card-number">Registro Territorial</div>
                                 <h3>Sonografías del Aconcagua</h3>
                                 <p>Proyecto de escucha y registro sonoro vinculado con el río Aconcagua y sus transformaciones territoriales y ecológicas. Su registro audiovisual se encuentra disponible en YouTube.</p>
                             </div>
@@ -789,36 +723,36 @@
                     </div>
 
                     <div class="card-grid">
-                        <article class="editorial-card">
+                        <article class="home-access-card">
                             <div>
-                                <div class="card-meta">Experiencia Pedagógico-Musical — Valparaíso</div>
+                                <div class="card-number">Experiencia Pedagógico-Musical — Valparaíso</div>
                                 <h3>CONCIERTO EDUCATIVO</h3>
                                 <p>Experiencia de mediación desarrollada en distintas versiones en Valparaíso. Vincula música en vivo, conversación, participación y aprendizaje mediante encuentros entre artistas, estudiantes y comunidades educativas.</p>
                             </div>
                             <div class="slot-placeholder">[ Ficha preparada para registros de versiones 2025 y 2026 ]</div>
                         </article>
 
-                        <article class="editorial-card">
+                        <article class="home-access-card">
                             <div>
-                                <div class="card-meta">Formación Universitaria — Desde 2020</div>
+                                <div class="card-number">Formación Universitaria — Desde 2020</div>
                                 <h3>UNIVERSIDAD ANDRÉS BELLO</h3>
                                 <p>Desde 2020, Duberly desarrolla procesos de formación vocal y creación escénica con estudiantes de la Universidad Andrés Bello. El trabajo integra aprendizaje basado en proyectos, interpretación colectiva y presentaciones públicas.</p>
                             </div>
                             <div class="slot-placeholder">[ Ficha preparada para imágenes, instituciones y programas ]</div>
                         </article>
 
-                        <article class="editorial-card">
+                        <article class="home-access-card">
                             <div>
-                                <div class="card-meta">Creación Colectiva — Chile Puerto Folk</div>
+                                <div class="card-number">Creación Colectiva — Chile Puerto Folk</div>
                                 <h3>ORQUESTA FOLK</h3>
-                                <p>Proceso de creación e interpretación colectiva vinculado con músicas de raíz y repertorios latinoamericanos. Duberly participa en su diseño, coordinación y dirección artística desde Chile Puerto Folk.</p>
+                                <p>Proceso de creación e interpretation colectiva vinculado con músicas de raíz y repertorios latinoamericanos. Duberly participa en su diseño, coordinación y dirección artística desde Chile Puerto Folk.</p>
                             </div>
                             <div class="slot-placeholder">[ Ficha preparada para fechas, participantes y registros ]</div>
                         </article>
 
-                        <article class="editorial-card">
+                        <article class="home-access-card">
                             <div>
-                                <div class="card-meta">Escuela Comunitaria — Viña del Mar</div>
+                                <div class="card-number">Escuela Comunitaria — Viña del Mar</div>
                                 <h3>ECAV</h3>
                                 <p>Duberly desarrolla labores de coordinación, diseño pedagógico y dirección de experiencias musicales en la Escuela de la Corporación Cultural Arte y Vida, en Viña del Mar. El trabajo articula ensambles, formación musical y montajes integrados.</p>
                             </div>
@@ -835,9 +769,9 @@
                     </div>
 
                     <div class="card-grid">
-                        <article class="editorial-card">
+                        <article class="home-access-card">
                             <div>
-                                <div class="card-meta">Doctorado en Artes Integradas — UPLA (2024–Presente)</div>
+                                <div class="card-number">Doctorado en Artes Integradas — UPLA (2024–Presente)</div>
                                 <h3>La mediación artística como producción de conocimiento</h3>
                                 <p>Investigación-creación sobre creación colectiva, memoria y la metáfora del micelio cultural.</p>
                             </div>
@@ -857,37 +791,37 @@
                         <h2>ESCRITURA ARTÍSTICA</h2>
                         <p>Poesía, crónicas, narrativa y piezas en proceso de circulación.</p>
                     </div>
-                    <div class="writing-subgrid">
-                        <article class="editorial-card">
+                    <div class="card-grid">
+                        <article class="home-access-card">
                             <div>
-                                <div class="card-meta">Poesía & Cartografía — 2026</div>
+                                <div class="card-number">Poesía & Cartografía — 2026</div>
                                 <h3>Atlas de los 39</h3>
                                 <p>Proyecto poético y cartográfico sobre geografía, memoria, vínculos y desplazamiento. Reúne poemas-coordenada, poemas-concepto y poemas-trayecto vinculados con Chile, América, Europa y Asia.</p>
                             </div>
                             <div class="slot-placeholder">[ Espacio preparado para PDF, fragmentos y enlaces de descarga ]</div>
                         </article>
 
-                        <article class="editorial-card">
+                        <article class="home-access-card">
                             <div>
-                                <div class="card-meta">Próximamente</div>
+                                <div class="card-number">Próximamente</div>
                                 <h3>Crónica</h3>
                                 <p>Textos de registro narrativo y testimonial.</p>
                             </div>
                             <div class="slot-placeholder">[ Ficha en preparación ]</div>
                         </article>
 
-                        <article class="editorial-card">
+                        <article class="home-access-card">
                             <div>
-                                <div class="card-meta">Próximamente</div>
+                                <div class="card-number">Próximamente</div>
                                 <h3>Cuentos</h3>
                                 <p>Textos narrativos en espera de autorización de publicación.</p>
                             </div>
                             <div class="slot-placeholder">[ Ficha restringida hasta publicación ]</div>
                         </article>
 
-                        <article class="editorial-card">
+                        <article class="home-access-card">
                             <div>
-                                <div class="card-meta">Próximamente</div>
+                                <div class="card-number">Próximamente</div>
                                 <h3>Otros textos poéticos o narrativos</h3>
                                 <p>Escritos breves y manuscritos.</p>
                             </div>
@@ -899,10 +833,10 @@
                         <h2>ESCRITURA ACADÉMICA</h2>
                         <p>Fichas preparadas para registrar artículos, ponencias, capítulos de libros y textos doctorales.</p>
                     </div>
-                    <div class="writing-subgrid">
-                        <article class="editorial-card">
+                    <div class="card-grid">
+                        <article class="home-access-card">
                             <div>
-                                <div class="card-meta">Publicación Académica</div>
+                                <div class="card-number">Publicación Académica</div>
                                 <h3>Artículos</h3>
                                 <div class="field-label">Estado:</div>
                                 <div class="field-value">Ficha modular lista para ingresar título, revista, año y PDF.</div>
@@ -910,9 +844,9 @@
                             <div class="slot-placeholder">[ Registro bibliográfico ]</div>
                         </article>
 
-                        <article class="editorial-card">
+                        <article class="home-access-card">
                             <div>
-                                <div class="card-meta">Congresos & Encuentros</div>
+                                <div class="card-number">Congresos & Encuentros</div>
                                 <h3>Ponencias</h3>
                                 <div class="field-label">Estado:</div>
                                 <div class="field-value">Ficha modular lista para ingresar evento, ciudad, fecha y enlace.</div>
@@ -920,9 +854,9 @@
                             <div class="slot-placeholder">[ Registro de ponencia ]</div>
                         </article>
 
-                        <article class="editorial-card">
+                        <article class="home-access-card">
                             <div>
-                                <div class="card-meta">Libros / Compilaciones</div>
+                                <div class="card-number">Libros / Compilaciones</div>
                                 <h3>Capítulos</h3>
                                 <div class="field-label">Estado:</div>
                                 <div class="field-value">Ficha modular lista para ingresar libro, editorial y estado editorial.</div>
@@ -930,9 +864,9 @@
                             <div class="slot-placeholder">[ Registro de capítulo ]</div>
                         </article>
 
-                        <article class="editorial-card">
+                        <article class="home-access-card">
                             <div>
-                                <div class="card-meta">Investigación Doctoral</div>
+                                <div class="card-number">Investigación Doctoral</div>
                                 <h3>Textos de Investigación-Creación</h3>
                                 <div class="field-label">Estado:</div>
                                 <div class="field-value">Documentos vinculados con la tesis doctoral UPLA.</div>
