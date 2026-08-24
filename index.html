@@ -14,19 +14,19 @@
 
     <style>
         :root {
-            /* Paleta corregida con alto contraste */
+            /* Paleta general */
             --bg-color: #0a0d0f;
             --surface-color: #111619;
             --surface-card: #151c20;
             --border-subtle: #1e282d;
             --border-active: #344852;
             
-            /* Textos con alto contraste para lectura sobre oscuro */
+            /* Textos */
             --text-primary: #e8edef;
             --text-secondary: #b0c0c7;
             --text-muted: #80939c;
 
-            /* Acentos claros */
+            /* Acentos */
             --accent-petroleo: #1e3a3d;
             --accent-azul-profundo: #142834;
             --accent-verde-azulado: #3b6e72;
@@ -56,14 +56,11 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* TIPOGRAFÍA: Serif para títulos principales, obras y firmas */
         h1, h2, h3, .brand-signature, .hero-title, .home-access-card h2, .editorial-card h3 {
             font-family: var(--font-serif);
         }
 
-        /* -------------------------------------------------- */
-        /* PORTADA (UMBRAL)                                  */
-        /* -------------------------------------------------- */
+        /* PORTADA */
         .hero-cover {
             position: fixed;
             top: 0;
@@ -98,9 +95,7 @@
             pointer-events: none;
         }
 
-        /* -------------------------------------------------- */
-        /* ENCABEZADO Y FIRMA FIJA                            */
-        /* -------------------------------------------------- */
+        /* ENCABEZADO Y FIRMA */
         header.site-header {
             position: fixed;
             top: 0;
@@ -172,9 +167,7 @@
             border-bottom-color: var(--accent-verde-azulado);
         }
 
-        /* -------------------------------------------------- */
-        /* LAYOUT GENERAL                                     */
-        /* -------------------------------------------------- */
+        /* LAYOUT GENERAL */
         main {
             flex-grow: 1;
             padding-top: 120px;
@@ -240,17 +233,39 @@
         }
 
         /* -------------------------------------------------- */
-        /* INICIO EDITORIAL (FOTOGRAFÍA + TEXTO + FICHAS)    */
+        /* INICIO: COMPOSICIÓN DE DOS ZONAS (FOTO Y TEXTO)    */
         /* -------------------------------------------------- */
-        .home-hero-grid {
-            display: grid;
-            grid-template-columns: 55% 42%;
-            gap: 3%;
+        .home-hero-layout {
+            display: flex;
+            gap: 2.5rem;
             align-items: center;
-            margin-bottom: 4.5rem;
+            margin-bottom: 4rem;
         }
 
+        /* Retrato vertical (40–45%) */
+        .home-portrait-wrapper {
+            flex: 0 0 42%;
+            max-width: 45%;
+            display: none; /* Se oculta automáticamente si no existe la foto */
+        }
+
+        .home-portrait-wrapper.loaded {
+            display: block; /* Se muestra solo cuando la foto carga correctamente */
+        }
+
+        .home-portrait-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            border-radius: 0;
+            filter: none;
+            border: none;
+        }
+
+        /* Presentación (55–60%) */
         .home-presentation-single {
+            flex: 1;
             font-family: var(--font-sans);
             font-size: clamp(1.05rem, 1.8vw, 1.25rem);
             line-height: 1.8;
@@ -260,104 +275,129 @@
             padding-left: 1.8rem;
         }
 
-        .home-portrait-wrapper {
+        /* -------------------------------------------------- */
+        /* INICIO: ACCESOS EN RED MICELIAL ORGANICA           */
+        /* -------------------------------------------------- */
+        .mycelial-network-container {
             position: relative;
-            width: 100%;
-            height: clamp(400px, 55vh, 560px);
-            background-color: var(--surface-color);
-            border: 1px solid var(--border-subtle);
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            display: block;
+            margin-top: 2rem;
+            padding: 1rem 0;
         }
 
-        .home-portrait-wrapper.hidden-fallback {
-            display: none !important;
-        }
-
-        .home-portrait-img {
+        .mycelial-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            object-position: center top;
-            filter: grayscale(15%) contrast(102%);
-            transition: filter 0.5s ease;
-            display: block;
+            pointer-events: none;
+            z-index: 1;
+            overflow: visible;
         }
 
-        .home-portrait-wrapper:hover .home-portrait-img {
-            filter: grayscale(0%) contrast(105%);
+        .mycelial-path {
+            fill: none;
+            stroke: rgba(115, 157, 174, 0.25);
+            stroke-width: 1.2;
+            stroke-dasharray: 4 2;
         }
 
-        /* FICHAS CON ALTURA Y VITALIDAD VISUAL */
-        .home-asymmetric-nav {
+        .mycelial-node {
+            fill: var(--accent-slate);
+            opacity: 0.4;
+        }
+
+        .mycelial-grid {
+            position: relative;
+            z-index: 2;
             display: grid;
             grid-template-columns: repeat(12, 1fr);
-            gap: 1.8rem;
-            margin-top: 2rem;
+            gap: 2rem;
+            align-items: start;
         }
 
         .home-access-card {
-            border: 1px solid var(--border-subtle);
-            background-color: var(--surface-color);
+            border: none;
             padding: 2.2rem;
             text-decoration: none;
             color: inherit;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: var(--transition-smooth);
             cursor: pointer;
             position: relative;
-            overflow: hidden;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInOrganic 0.8s var(--ease-out) forwards;
+            transition: transform 0.4s var(--ease-out), background 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
         }
 
-        .home-access-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 3px;
-            height: 100%;
-            background-color: transparent;
-            transition: background-color 0.3s ease;
-        }
-
-        .home-access-card:hover, .home-access-card:focus-visible {
-            border-color: var(--border-active);
-            background-color: var(--surface-card);
-            transform: translateY(-3px);
-            outline: none;
-        }
-
-        .home-access-card:hover::before, .home-access-card:focus-visible::before {
-            background-color: var(--accent-light);
+        @keyframes fadeInOrganic {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .home-card-obra {
-            grid-column: span 7;
-            min-height: 250px;
-            background: linear-gradient(135deg, var(--surface-color) 0%, var(--accent-azul-profundo) 100%);
+            grid-column: 1 / span 7;
+            background: linear-gradient(135deg, rgba(20, 40, 52, 0.6) 0%, rgba(17, 22, 25, 0.5) 100%);
+            border-radius: 28px 12px 36px 16px;
+            min-height: 230px;
+            animation-delay: 0.1s;
         }
 
         .home-card-mediacion {
-            grid-column: span 5;
-            min-height: 250px;
-            margin-top: 1.2rem;
-            background: linear-gradient(135deg, var(--surface-color) 0%, var(--accent-petroleo) 100%);
+            grid-column: 7 / span 6;
+            margin-top: 2.5rem;
+            margin-left: -1.5rem;
+            background: linear-gradient(135deg, rgba(30, 58, 61, 0.58) 0%, rgba(17, 22, 25, 0.52) 100%);
+            border-radius: 16px 32px 18px 28px;
+            min-height: 240px;
+            animation-delay: 0.25s;
         }
 
         .home-card-investigacion {
-            grid-column: span 5;
+            grid-column: 1 / span 6;
+            margin-top: 1rem;
+            background: linear-gradient(135deg, rgba(30, 58, 61, 0.52) 0%, rgba(20, 40, 52, 0.58) 100%);
+            border-radius: 22px 18px 30px 14px;
             min-height: 230px;
-            background: linear-gradient(135deg, var(--surface-color) 0%, var(--accent-petroleo) 100%);
+            animation-delay: 0.4s;
         }
 
         .home-card-escritos {
-            grid-column: span 7;
+            grid-column: 6 / span 7;
+            margin-top: -1rem;
+            background: linear-gradient(135deg, rgba(20, 40, 52, 0.62) 0%, rgba(30, 58, 61, 0.48) 100%);
+            border-radius: 14px 26px 16px 34px;
             min-height: 230px;
-            margin-top: -1.2rem;
-            background: linear-gradient(135deg, var(--surface-color) 0%, var(--accent-azul-profundo) 100%);
+            animation-delay: 0.55s;
+        }
+
+        .home-access-card:hover, .home-access-card:focus-visible {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            outline: none;
+        }
+
+        .home-card-obra:hover, .home-card-obra:focus-visible {
+            background: linear-gradient(135deg, rgba(20, 40, 52, 0.82) 0%, rgba(26, 50, 64, 0.72) 100%);
+        }
+
+        .home-card-mediacion:hover, .home-card-mediacion:focus-visible {
+            background: linear-gradient(135deg, rgba(30, 58, 61, 0.82) 0%, rgba(42, 78, 82, 0.72) 100%);
+        }
+
+        .home-card-investigacion:hover, .home-card-investigacion:focus-visible {
+            background: linear-gradient(135deg, rgba(30, 58, 61, 0.8) 0%, rgba(20, 40, 52, 0.82) 100%);
+        }
+
+        .home-card-escritos:hover, .home-card-escritos:focus-visible {
+            background: linear-gradient(135deg, rgba(20, 40, 52, 0.85) 0%, rgba(30, 58, 61, 0.75) 100%);
         }
 
         .home-access-card .card-number {
@@ -382,9 +422,7 @@
             line-height: 1.55;
         }
 
-        /* -------------------------------------------------- */
-        /* COMPONENTES SECUNDARIOS                            */
-        /* -------------------------------------------------- */
+        /* OTROS COMPONENTES */
         .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -514,33 +552,28 @@
             gap: 1rem;
         }
 
-        /* RESPONSIVE & MÓVIL: En móvil primero el texto, luego la fotografía */
+        /* RESPONSIVE (MÓVIL) */
         @media (max-width: 820px) {
-            .home-hero-grid {
-                display: flex;
-                flex-direction: column;
+            .home-hero-layout {
+                flex-direction: column-reverse; /* Texto primero y foto después en móvil */
                 gap: 2rem;
-                margin-bottom: 3rem;
-            }
-            .home-presentation-single {
-                order: 1;
-                border-left: none;
-                border-top: 2px solid var(--accent-verde-azulado);
-                padding-left: 0;
-                padding-top: 1.2rem;
             }
             .home-portrait-wrapper {
-                order: 2;
-                height: 380px;
+                max-width: 100%;
+                width: 100%;
             }
-            .home-asymmetric-nav {
+            .mycelial-grid {
                 display: flex;
                 flex-direction: column;
-                gap: 1.2rem;
+                gap: 1.5rem;
             }
             .home-access-card {
-                margin-top: 0 !important;
+                margin: 0 !important;
                 min-height: auto;
+                border-radius: 18px;
+            }
+            .mycelial-svg {
+                display: none;
             }
             header.site-header {
                 flex-direction: column;
@@ -561,6 +594,10 @@
                 transition: none !important;
                 animation: none !important;
             }
+            .home-access-card {
+                opacity: 1;
+                transform: none;
+            }
         }
     </style>
 </head>
@@ -568,7 +605,7 @@
 
     <div class="site-wrapper">
 
-        <!-- PORTADA (UMBRAL ANTERIOR A LA NAVEGACIÓN) -->
+        <!-- PORTADA -->
         <div class="hero-cover" id="heroCover" onclick="enterSite('inicio')" tabindex="0" role="button" aria-label="Ingresar al sitio DUBERLY">
             <h1 class="hero-title">DUBERLY</h1>
         </div>
@@ -593,51 +630,72 @@
 
                 <!-- INICIO -->
                 <section id="inicio" class="tab-content active">
-                    <div class="home-hero-grid">
-                        <!-- TEXTO DE PRESENTACIÓN ÚNICO -->
+                    
+                    <!-- COMPOSICIÓN DE FOTO Y PRESENTACIÓN -->
+                    <div class="home-hero-layout">
+                        <!-- ZONA 1: RETRATO VERTICAL (40–45%) -->
+                        <div class="home-portrait-wrapper">
+                            <img 
+                                src="duberly-retrato-inicio.jpg" 
+                                alt="Retrato de Duberly Saavedra Polo sentado y mirando directamente a cámara." 
+                                class="home-portrait-img"
+                                onload="this.parentElement.classList.add('loaded')"
+                                onerror="this.parentElement.style.display='none'"
+                            >
+                        </div>
+
+                        <!-- ZONA 2: PRESENTACIÓN (55–60%) -->
                         <div class="home-presentation-single">
                             Duberly Saavedra Polo es artista, cantautor, investigador y mediador radicado en Valparaíso. Desarrolla su proyecto musical solista DUBERLY, es director artístico y vocalista del Ensamble Transatlántico de Folk Chileno y diseña experiencias de creación y mediación en contextos educativos, culturales y comunitarios.
                         </div>
-
-                        <!-- RETRATO PRINCIPAL DE DUBERLY -->
-                        <div class="home-portrait-wrapper" id="portraitContainer">
-                            <img src="SESIÓN EXPRESS DUB _5 (1).jpg" alt="Retrato de Duberly Saavedra Polo sentado y mirando directamente a cámara." class="home-portrait-img" id="portraitImg" onerror="handleImageError()">
-                        </div>
                     </div>
 
-                    <!-- ACCESOS ASIMÉTRICOS -->
-                    <div class="home-asymmetric-nav">
-                        <a class="home-access-card home-card-obra" onclick="switchTab('obra')" tabindex="0">
-                            <div>
-                                <div class="card-number">01 / Creación</div>
-                                <h2>OBRA</h2>
-                                <p>Proyecto solista DUBERLY, Ensamble Transatlántico de Folk Chileno y proyectos de creación sonora territorial.</p>
-                            </div>
-                        </a>
+                    <!-- ACCESOS EN RED MICELIAL ORGÁNICA -->
+                    <div class="mycelial-network-container">
+                        <svg class="mycelial-svg" viewBox="0 0 1000 500" preserveAspectRatio="none" aria-hidden="true">
+                            <path class="mycelial-path" d="M 250,110 C 420,80 500,200 600,120" />
+                            <path class="mycelial-path" d="M 220,130 C 200,260 280,300 240,360" />
+                            <path class="mycelial-path" d="M 600,140 C 650,280 480,310 520,380" />
+                            <path class="mycelial-path" d="M 260,370 C 400,390 480,360 550,380" />
+                            <circle class="mycelial-node" cx="250" cy="110" r="3" />
+                            <circle class="mycelial-node" cx="600" cy="120" r="3" />
+                            <circle class="mycelial-node" cx="240" cy="360" r="3" />
+                            <circle class="mycelial-node" cx="520" cy="380" r="3" />
+                        </svg>
 
-                        <a class="home-access-card home-card-mediacion" onclick="switchTab('mediacion')" tabindex="0">
-                            <div>
-                                <div class="card-number">02 / Práctica Colectiva</div>
-                                <h2>MEDIACIÓN</h2>
-                                <p>Conciertos educativos, orquestas comunitarias y procesos formativos en contextos diversos.</p>
-                            </div>
-                        </a>
+                        <div class="mycelial-grid">
+                            <a class="home-access-card home-card-obra" onclick="switchTab('obra')" tabindex="0">
+                                <div>
+                                    <div class="card-number">01 / Creación</div>
+                                    <h2>OBRA</h2>
+                                    <p>Proyecto solista DUBERLY, Ensamble Transatlántico de Folk Chileno y proyectos de creación sonora territorial.</p>
+                                </div>
+                            </a>
 
-                        <a class="home-access-card home-card-investigacion" onclick="switchTab('investigacion')" tabindex="0">
-                            <div>
-                                <div class="card-number">03 / Conocimiento</div>
-                                <h2>INVESTIGACIÓN</h2>
-                                <p>Doctorado en Artes Integradas, investigación-creación y la metáfora del micelio cultural.</p>
-                            </div>
-                        </a>
+                            <a class="home-access-card home-card-mediacion" onclick="switchTab('mediacion')" tabindex="0">
+                                <div>
+                                    <div class="card-number">02 / Práctica Colectiva</div>
+                                    <h2>MEDIACIÓN</h2>
+                                    <p>Conciertos educativos, orquestas comunitarias y procesos formativos en contextos diversos.</p>
+                                </div>
+                            </a>
 
-                        <a class="home-access-card home-card-escritos" onclick="switchTab('escritos')" tabindex="0">
-                            <div>
-                                <div class="card-number">04 / Archivo Textual</div>
-                                <h2>ESCRITOS</h2>
-                                <p>Escritura artística (poesía, crónicas, narrativa) y publicaciones e investigaciones académicas.</p>
-                            </div>
-                        </a>
+                            <a class="home-access-card home-card-investigacion" onclick="switchTab('investigacion')" tabindex="0">
+                                <div>
+                                    <div class="card-number">03 / Conocimiento</div>
+                                    <h2>INVESTIGACIÓN</h2>
+                                    <p>Doctorado en Artes Integradas, investigación-creación y la metáfora del micelio cultural.</p>
+                                </div>
+                            </a>
+
+                            <a class="home-access-card home-card-escritos" onclick="switchTab('escritos')" tabindex="0">
+                                <div>
+                                    <div class="card-number">04 / Archivo Textual</div>
+                                    <h2>ESCRITOS</h2>
+                                    <p>Escritura artística (poesía, crónicas, narrativa) y publicaciones e investigaciones académicas.</p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </section>
 
@@ -940,15 +998,8 @@
 
     </div>
 
-    <!-- SCRIPT DE NAVEGACIÓN Y MANEJO DE IMAGEN -->
+    <!-- SCRIPT DE NAVEGACIÓN -->
     <script>
-        function handleImageError() {
-            const container = document.getElementById('portraitContainer');
-            if (container) {
-                container.classList.add('hidden-fallback');
-            }
-        }
-
         function enterSite(targetTab = 'inicio') {
             document.body.classList.add('inside-site');
             switchTab(targetTab);
