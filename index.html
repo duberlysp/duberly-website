@@ -233,9 +233,7 @@
             margin-top: 0.2rem;
         }
 
-        /* -------------------------------------------------- */
-        /* INICIO: COMPOSICIÓN Y TRATAMIENTO DE FOTOGRAFÍAS   */
-        /* -------------------------------------------------- */
+        /* COMPOSICIÓN Y TRATAMIENTO DE FOTOGRAFÍAS */
         .home-hero-layout {
             display: flex;
             gap: 2.5rem;
@@ -243,20 +241,17 @@
             margin-bottom: 4rem;
         }
 
-        /* SISTEMA VISUAL REUTILIZABLE PARA FOTOGRAFÍAS */
         .site-photo-container {
             position: relative;
             display: inline-block;
             border-radius: 12px;
             overflow: hidden;
-            /* Sombras multicapa: tenue cercana + amplia atmosférica en verde/azul petróleo */
             box-shadow: 
                 0 4px 12px rgba(0, 0, 0, 0.35),
                 0 18px 45px -10px rgba(30, 58, 61, 0.35);
             transition: transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
         }
 
-        /* Capa de tinte transparente (5% verde/azul petróleo) */
         .site-photo-container::after {
             content: "";
             position: absolute;
@@ -275,12 +270,11 @@
             height: auto;
             display: block;
             object-fit: cover;
-            opacity: 0.97; /* Opacidad entre 96% y 98% */
+            opacity: 0.97;
             filter: brightness(1) contrast(1);
             transition: transform 0.5s var(--ease-out), filter 0.5s var(--ease-out);
         }
 
-        /* Interacción sutil al pasar el cursor */
         .site-photo-container:hover {
             transform: translateY(-3px);
             box-shadow: 
@@ -290,18 +284,6 @@
 
         .site-photo-container:hover .site-photo-img {
             filter: brightness(1.03) contrast(1);
-        }
-
-        /* Meta de fotografía futura */
-        .site-photo-caption {
-            margin-top: 0.8rem;
-            font-size: 0.82rem;
-            color: var(--text-muted);
-            line-height: 1.4;
-        }
-
-        .site-photo-caption span {
-            color: var(--text-secondary);
         }
 
         .home-portrait-wrapper {
@@ -325,9 +307,7 @@
             padding-left: 1.8rem;
         }
 
-        /* -------------------------------------------------- */
-        /* TARJETAS CON ESTILO Y EFECTOS HOMOGÉNEOS           */
-        /* -------------------------------------------------- */
+        /* TARJETAS Y SISTEMA DE ACCIONES / ENLACES DISCRETOS */
         .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -371,7 +351,6 @@
             }
         }
 
-        /* Formas orgánicas en Inicio */
         .home-card-obra {
             grid-column: 1 / span 7;
             border-radius: 28px 12px 36px 16px;
@@ -407,8 +386,7 @@
             animation-delay: 0.55s;
         }
 
-        /* Hover dinámico unificado */
-        .home-access-card:hover, .home-access-card:focus-visible {
+        .home-access-card:hover, .home-access-card:focus-within {
             transform: translateY(-5px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
             background: linear-gradient(135deg, rgba(20, 40, 52, 0.85) 0%, rgba(30, 58, 61, 0.75) 100%);
@@ -435,6 +413,71 @@
             font-size: 0.92rem;
             color: var(--text-secondary);
             line-height: 1.6;
+        }
+
+        /* ENLACES TIPOGRÁFICOS DISCRETOS / CÁPSULAS TRANSPARENTES */
+        .card-action-slot {
+            margin-top: 1.5rem;
+            padding-top: 0.8rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            align-items: center;
+        }
+
+        .discrete-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--accent-light);
+            text-decoration: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            background-color: rgba(30, 58, 61, 0.25);
+            border: 1px solid rgba(115, 157, 174, 0.2);
+            transition: var(--transition-smooth);
+        }
+
+        .discrete-link:hover, .discrete-link:focus-visible {
+            color: #ffffff;
+            background-color: rgba(59, 110, 114, 0.45);
+            border-color: var(--accent-light);
+            outline: none;
+            transform: translateX(2px);
+        }
+
+        .discrete-link .arrow {
+            font-size: 0.9em;
+            transition: transform 0.3s ease;
+        }
+
+        .discrete-link:hover .arrow {
+            transform: translate(2px, -2px);
+        }
+
+        .slot-placeholder {
+            margin-top: 1.2rem;
+            padding: 0.9rem;
+            background-color: rgba(10, 13, 15, 0.4);
+            border: 1px dashed var(--border-subtle);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .field-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 0.6rem;
+        }
+
+        .field-value {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
         }
 
         .mycelial-network-container {
@@ -464,39 +507,6 @@
         .mycelial-node {
             fill: var(--accent-slate);
             opacity: 0.4;
-        }
-
-        .slot-placeholder {
-            margin-top: 1.2rem;
-            padding: 0.9rem;
-            background-color: rgba(10, 13, 15, 0.4);
-            border: 1px dashed var(--border-subtle);
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-align: center;
-            border-radius: 8px;
-        }
-
-        .slot-placeholder a {
-            color: var(--accent-light);
-            text-decoration: none;
-        }
-
-        .slot-placeholder a:hover {
-            text-decoration: underline;
-        }
-
-        .field-label {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-top: 0.6rem;
-        }
-
-        .field-value {
-            font-size: 0.88rem;
-            color: var(--text-secondary);
         }
 
         .bio-body p {
@@ -624,7 +634,6 @@
                 <!-- INICIO -->
                 <section id="inicio" class="tab-content active">
                     <div class="home-hero-layout">
-                        <!-- RETRATO VERTICAL CON TRATAMIENTO VISUAL REUTILIZABLE -->
                         <div class="home-portrait-wrapper">
                             <div class="site-photo-container">
                                 <img 
@@ -708,7 +717,11 @@
                                 <h3>INICIA</h3>
                                 <p>DUBERLY junto a TANKBOY.</p>
                             </div>
-                            <div class="slot-placeholder">[ Espacio reservado para portadas, Spotify & YouTube ]</div>
+                            <div class="card-action-slot">
+                                <a href="https://www.youtube.com/watch?v=Zdlrt2OkWkY" target="_blank" rel="noopener noreferrer" class="discrete-link" aria-label="Escuchar INICIA en YouTube">
+                                    <span>Escuchar INICIA</span> <span class="arrow" aria-hidden="true">↗</span>
+                                </a>
+                            </div>
                         </article>
 
                         <article class="home-access-card">
@@ -717,16 +730,24 @@
                                 <h3>SOLO VOCAL</h3>
                                 <p>DUBERLY.</p>
                             </div>
-                            <div class="slot-placeholder">[ Espacio reservado para reproducción audio & video ]</div>
+                            <div class="card-action-slot">
+                                <a href="https://www.youtube.com/playlist?list=OLAK5uy_kmxkmq-u6uNCSOaL5z0zdyGe2qOLXTlLk" target="_blank" rel="noopener noreferrer" class="discrete-link" aria-label="Escuchar SOLO VOCAL en YouTube">
+                                    <span>Escuchar SOLO VOCAL</span> <span class="arrow" aria-hidden="true">↗</span>
+                                </a>
+                            </div>
                         </article>
 
                         <article class="home-access-card">
                             <div>
                                 <div class="card-number">Compilación Sonora</div>
                                 <h3>Playlist “La voz de DUBERLY”</h3>
-                                <p>Selección y recopilación del cuerpo vocal y musical.</p>
+                                <p>Un recorrido por la voz de DUBERLY en distintos proyectos y colaboraciones.</p>
                             </div>
-                            <div class="slot-placeholder">[ Espacio reservado para reproductor de playlist ]</div>
+                            <div class="card-action-slot">
+                                <a href="https://www.youtube.com/playlist?list=PLBnF2Bv18p_k" target="_blank" rel="noopener noreferrer" class="discrete-link" aria-label="Abrir playlist La voz de DUBERLY en YouTube">
+                                    <span>Abrir playlist</span> <span class="arrow" aria-hidden="true">↗</span>
+                                </a>
+                            </div>
                         </article>
                     </div>
 
@@ -741,7 +762,11 @@
                                 <h3>Discografía Oficial</h3>
                                 <p>Vivo, Vol. I, Vol. II y Cartografía Sonora Latinoamericana.</p>
                             </div>
-                            <div class="slot-placeholder">[ Espacio reservado para fichas de discos y enlaces ]</div>
+                            <div class="card-action-slot">
+                                <a href="https://open.spotify.com/artist/4NrRzaWQSLH0pUvhk30dh" target="_blank" rel="noopener noreferrer" class="discrete-link" aria-label="Escuchar al Ensamble Transatlántico de Folk Chileno en Spotify">
+                                    <span>Escuchar al Ensamble</span> <span class="arrow" aria-hidden="true">↗</span>
+                                </a>
+                            </div>
                         </article>
 
                         <article class="home-access-card">
@@ -763,10 +788,12 @@
                             <div>
                                 <div class="card-number">Registro Territorial</div>
                                 <h3>Sonografías del Aconcagua</h3>
-                                <p>Proyecto de escucha y registro sonoro vinculado con el río Aconcagua y sus transformaciones territoriales y ecológicas. Su registro audiovisual se encuentra disponible en YouTube.</p>
+                                <p>Proyecto de escucha y registro sonoro vinculado con el río Aconcagua y sus transformaciones territoriales y ecológicas.</p>
                             </div>
-                            <div class="slot-placeholder">
-                                <a href="https://www.youtube.com" target="_blank" rel="noopener">[ Registro audiovisual en YouTube ]</a>
+                            <div class="card-action-slot">
+                                <a href="https://www.youtube.com/watch?v=HfsA-UGwB3g" target="_blank" rel="noopener noreferrer" class="discrete-link" aria-label="Ver registro audiovisual de Sonografías del Aconcagua en YouTube">
+                                    <span>Ver registro audiovisual</span> <span class="arrow" aria-hidden="true">↗</span>
+                                </a>
                             </div>
                         </article>
                     </div>
@@ -963,19 +990,19 @@
                             Valparaíso, Chile
                         </div>
 
-                        <a href="mailto:duberlysp@gmail.com" class="contact-item">
+                        <a href="mailto:duberlysp@gmail.com" class="contact-item" aria-label="Enviar correo a duberlysp@gmail.com">
                             <span>Correo Electrónico</span>
                             <span>duberlysp@gmail.com</span>
                         </a>
 
-                        <a href="https://open.spotify.com" target="_blank" rel="noopener" class="contact-item">
-                            <span>Spotify</span>
-                            <span>Perfil Oficial</span>
+                        <a href="https://open.spotify.com/intl-es/artist/2O47nAAKaTTE7CrG0OcBly" target="_blank" rel="noopener noreferrer" class="contact-item" aria-label="Spotify · DUBERLY (se abre en pestaña nueva)">
+                            <span>Spotify · DUBERLY</span>
+                            <span class="arrow" aria-hidden="true">↗</span>
                         </a>
 
-                        <a href="https://www.youtube.com" target="_blank" rel="noopener" class="contact-item">
-                            <span>YouTube</span>
-                            <span>Canal Oficial</span>
+                        <a href="https://www.youtube.com/dubsavpolo" target="_blank" rel="noopener noreferrer" class="contact-item" aria-label="YouTube · Duberly (se abre en pestaña nueva)">
+                            <span>YouTube · Duberly</span>
+                            <span class="arrow" aria-hidden="true">↗</span>
                         </a>
                     </div>
                 </section>
