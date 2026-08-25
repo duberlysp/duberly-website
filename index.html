@@ -10,7 +10,105 @@
 <meta property="og:description" content="Sitio oficial de Duberly Saavedra Polo. Música, creación sonora, mediación artística, investigación y escritos.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://duberly.me/">
-<style> :root { /* Paleta general */ --bg-color: #0a0d0f; --surface-color: #111619; --surface-card: #151c20; --border-subtle: #1e282d; --border-active: #344852; /* Textos */ --text-primary: #e8edef; --text-secondary: #b0c0c7; --text-muted: #80939c; /* Acentos */ --accent-petroleo: #1e3a3d; --accent-azul-profundo: #142834; --accent-verde-azulado: #3b6e72; --accent-slate: #739dae; --accent-light: #9ed4e2; --font-serif: "Times New Roman", Times, Georgia, serif; --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --transition-smooth: all 0.4s var(--ease-out); } * { box-sizing: border-box; margin: 0; padding: 0; } html, body { height: 100%; background-color: var(--bg-color); color: var(--text-primary); font-family: var(--font-sans); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; } h1, h2, h3, .brand-signature, .hero-title, .home-access-card h2 { font-family: var(--font-serif); } /* PORTADA */ .hero-cover { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; background-color: var(--bg-color); z-index: 1000; cursor: pointer; opacity: 1; visibility: visible; transition: opacity 0.6s var(--ease-out), visibility 0.6s var(--ease-out); } .hero-title { font-size: clamp(3rem, 11vw, 8rem); font-weight: 400; letter-spacing: 0.28em; text-transform: uppercase; color: var(--text-primary); user-select: none; margin-left: 0.28em; text-shadow: 0 0 40px rgba(0, 0, 0, 0.8); } body.inside-site .hero-cover { opacity: 0; visibility: hidden; pointer-events: none; } /* ENCABEZADO Y FIRMA */ header.site-header { position: fixed; top: 0; left: 0; width: 100%; padding: 1.8rem 2.5rem; z-index: 900; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(180deg, rgba(10, 13, 15, 0.98) 0%, rgba(10, 13, 15, 0.85) 70%, rgba(10, 13, 15, 0) 100%); backdrop-filter: blur(10px); opacity: 0; transform: translateY(-10px); pointer-events: none; transition: var(--transition-smooth); } body.inside-site header.site-header { opacity: 1; transform: translateY(0); pointer-events: auto; } .brand-signature { font-size: 1.15rem; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-primary); cursor: pointer; text-decoration: none; transition: color 0.3s ease; } .brand-signature:hover { color: var(--accent-light); } nav.main-nav { display: flex; gap: 1.5rem; flex-wrap: wrap; } nav.main-nav button { background: none; border: none; color: var(--text-secondary); font-family: var(--font-sans); font-size: 0.82rem; font-weight: 500; cursor: pointer; padding: 0.3rem 0; border-bottom: 2px solid transparent; transition: var(--transition-smooth); text-transform: uppercase; letter-spacing: 0.12em; } nav.main-nav button:hover, nav.main-nav button:focus-visible { color: var(--text-primary); border-bottom-color: var(--accent-slate); outline: none; } nav.main-nav button.active { color: var(--accent-light); border-bottom-color: var(--accent-verde-azulado); } /* LAYOUT GENERAL */ main { flex-grow: 1; padding-top: 120px; position: relative; z-index: 10; } .site-container { max-width: 1040px; margin: 0 auto; padding: 2rem 2rem 6rem 2rem; } .tab-content { display: none; opacity: 0; transition: opacity 0.4s ease; } .tab-content.active { display: block; opacity: 1; } .section-header { margin-bottom: 3.5rem; } .section-header h1 { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 400; letter-spacing: 0.08em; margin-bottom: 1.2rem; color: var(--text-primary); } .section-header p.section-lead { color: var(--text-secondary); font-size: 1.05rem; max-width: 860px; line-height: 1.75; font-weight: 300; } .sub-header { margin-top: 3.5rem; margin-bottom: 1.8rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.6rem; } .sub-header h2 { font-size: 1.5rem; font-weight: 400; letter-spacing: 0.05em; color: var(--accent-light); font-family: var(--font-serif); } .sub-header p { color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.2rem; } /* COMPOSICIÓN Y TRATAMIENTO DE FOTOGRAFÍAS */ .home-hero-layout { display: flex; gap: 2.5rem; align-items: center; margin-bottom: 4rem; } .site-photo-container { position: relative; display: block; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4), 0 18px 45px -10px rgba(30, 58, 61, 0.35); transition: transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out); cursor: pointer; margin-bottom: 1.2rem; background-color: var(--surface-color); } .site-photo-container::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--accent-verde-azulado); opacity: 0.03; pointer-events: none; transition: opacity 0.5s var(--ease-out); } .site-photo-img { width: 100%; height: auto; display: block; object-fit: cover; opacity: 0.98; filter: brightness(1) contrast(1); transition: transform 0.5s var(--ease-out), filter 0.5s var(--ease-out); } .site-photo-container:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 0 22px 55px -8px rgba(30, 58, 61, 0.45); } .site-photo-container:hover .site-photo-img { filter: brightness(1.04) contrast(1); transform: scale(1.015); } .photo-credit { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.4rem; font-style: italic; text-align: right; } .home-portrait-wrapper { flex: 0 0 42%; max-width: 45%; display: block; } .home-presentation-single { flex: 1; font-family: var(--font-sans); font-size: clamp(1.05rem, 1.8vw, 1.25rem); line-height: 1.8; color: var(--text-primary); font-weight: 300; border-left: 2px solid var(--accent-verde-azulado); padding-left: 1.8rem; } /* TARJETAS Y ESTRUCTURA DE FICHAS */ .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.8rem; margin-top: 1.5rem; } .mycelial-grid { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(12, 1fr); gap: 2rem; align-items: start; } .home-access-card { border: none; padding: 2.2rem; text-decoration: none; color: inherit; display: flex; flex-direction: column; justify-content: space-between; position: relative; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35); background: linear-gradient(135deg, rgba(20, 40, 52, 0.6) 0%, rgba(17, 22, 25, 0.5) 100%); border-radius: 20px; opacity: 0; transform: translateY(20px); animation: fadeInOrganic 0.8s var(--ease-out) forwards; transition: transform 0.4s var(--ease-out), background 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease; } @keyframes fadeInOrganic { to { opacity: 1; transform: translateY(0); } } .home-card-obra { grid-column: 1 / span 7; border-radius: 28px 12px 36px 16px; min-height: 230px; animation-delay: 0.1s; } .home-card-mediacion { grid-column: 7 / span 6; margin-top: 2.5rem; margin-left: -1.5rem; background: linear-gradient(135deg, rgba(30, 58, 61, 0.58) 0%, rgba(17, 22, 25, 0.52) 100%); border-radius: 16px 32px 18px 28px; min-height: 240px; animation-delay: 0.25s; } .home-card-investigacion { grid-column: 1 / span 6; margin-top: 1rem; background: linear-gradient(135deg, rgba(30, 58, 61, 0.52) 0%, rgba(20, 40, 52, 0.58) 100%); border-radius: 22px 18px 30px 14px; min-height: 230px; animation-delay: 0.4s; } .home-card-escritos { grid-column: 6 / span 7; margin-top: -1rem; background: linear-gradient(135deg, rgba(20, 40, 52, 0.62) 0%, rgba(30, 58, 61, 0.48) 100%); border-radius: 14px 26px 16px 34px; min-height: 230px; animation-delay: 0.55s; } .home-access-card:hover, .home-access-card:focus-within { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); background: linear-gradient(135deg, rgba(20, 40, 52, 0.85) 0%, rgba(30, 58, 61, 0.75) 100%); outline: none; } .home-access-card .card-number { font-size: 0.75rem; letter-spacing: 0.15em; color: var(--accent-slate); text-transform: uppercase; font-weight: 600; margin-bottom: 1rem; } .home-access-card h2, .home-access-card h3 { font-size: 1.5rem; font-weight: 400; color: var(--text-primary); margin-bottom: 0.6rem; } .home-access-card p { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; } /* INTEGRACIÓN DE REPRODUCTORES Y ENLACES DISCRETOS */ .card-embed-slot { margin-top: 1.2rem; width: 100%; border-radius: 12px; overflow: hidden; background: rgba(10, 13, 15, 0.5); box-shadow: 0 4px 16px rgba(0,0,0,0.4); border: 1px solid rgba(115, 157, 174, 0.15); } .card-embed-slot iframe { display: block; width: 100%; border: 0; } .video-responsive { position: relative; padding-bottom: 56.25%; /* Aspect Ratio 16:9 */ height: 0; overflow: hidden; } .video-responsive iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; } .card-action-slot { margin-top: 1.2rem; padding-top: 0.8rem; border-top: 1px solid rgba(255, 255, 255, 0.06); display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; } .discrete-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.88rem; font-weight: 500; color: var(--accent-light); text-decoration: none; padding: 0.4rem 0.8rem; border-radius: 20px; background-color: rgba(30, 58, 61, 0.25); border: 1px solid rgba(115, 157, 174, 0.2); transition: var(--transition-smooth); cursor: pointer; } .discrete-link:hover, .discrete-link:focus-visible { color: #ffffff; background-color: rgba(59, 110, 114, 0.45); border-color: var(--accent-light); outline: none; transform: translateX(2px); } .discrete-link .arrow { font-size: 0.9em; transition: transform 0.3s ease; } .discrete-link:hover .arrow { transform: translate(2px, -2px); } .slot-placeholder { margin-top: 1.2rem; padding: 1.2rem; background-color: rgba(10, 13, 15, 0.4); border: 1px dashed var(--border-subtle); font-size: 0.82rem; color: var(--text-muted); text-align: center; border-radius: 12px; } .field-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.6rem; } .field-value { font-size: 0.88rem; color: var(--text-secondary); } /* MODAL / FICHA EXPANDIDA CON GALERÍA */ .project-modal { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(10, 13, 15, 0.92); backdrop-filter: blur(14px); z-index: 2000; display: flex; justify-content: center; align-items: center; padding: 2rem; opacity: 0; visibility: hidden; transition: opacity 0.4s var(--ease-out), visibility 0.4s var(--ease-out); } .project-modal.open { opacity: 1; visibility: visible; } .modal-content-wrapper { background-color: var(--surface-card); border: 1px solid var(--border-active); border-radius: 24px; max-width: 860px; width: 100%; max-height: 88vh; overflow-y: auto; padding: 2.5rem; position: relative; box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7); } .modal-close-btn { position: absolute; top: 1.5rem; right: 1.5rem; background: rgba(30, 58, 61, 0.4); border: 1px solid rgba(115, 157, 174, 0.3); color: var(--text-primary); font-size: 1.2rem; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: var(--transition-smooth); } .modal-close-btn:hover { background: var(--accent-verde-azulado); color: #fff; } .modal-gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 1.8rem 0; } .modal-gallery-grid .site-photo-container { margin-bottom: 0; } .mycelial-network-container { position: relative; margin-top: 2rem; padding: 1rem 0; } .mycelial-svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; overflow: visible; } .mycelial-path { fill: none; stroke: rgba(115, 157, 174, 0.25); stroke-width: 1.2; stroke-dasharray: 4 2; } .mycelial-node { fill: var(--accent-slate); opacity: 0.4; } .bio-body p { margin-bottom: 1.4rem; color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; } .contact-block { margin-top: 2rem; display: flex; flex-direction: column; gap: 1.2rem; max-width: 500px; } .contact-item { display: flex; justify-content: space-between; align-items: center; padding-bottom: 0.8rem; border-bottom: 1px solid var(--border-subtle); color: var(--text-primary); text-decoration: none; font-size: 1rem; transition: var(--transition-smooth); } .contact-item:hover, .contact-item:focus-visible { border-bottom-color: var(--accent-light); color: var(--accent-light); outline: none; } footer { border-top: 1px solid var(--border-subtle); padding-top: 2rem; margin-top: 5rem; font-size: 0.82rem; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; } /* LIGHTBOX PARA AMPLIAR FOTOGRAFÍAS */ .lightbox-modal { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(5, 7, 8, 0.95); z-index: 3000; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; padding: 2rem; } .lightbox-modal.open { opacity: 1; visibility: visible; } .lightbox-modal img { max-width: 92vw; max-height: 92vh; object-fit: contain; border-radius: 8px; box-shadow: 0 0 50px rgba(0,0,0,0.9); } /* RESPONSIVE (MÓVIL) */ @media (max-width: 820px) { .home-hero-layout { flex-direction: column-reverse; gap: 2rem; } .home-portrait-wrapper { max-width: 100%; width: 100%; } .mycelial-grid { display: flex; flex-direction: column; gap: 1.5rem; } .home-access-card { margin: 0 !important; min-height: auto; border-radius: 18px; } .mycelial-svg { display: none; } header.site-header { flex-direction: column; gap: 1rem; padding: 1.2rem 1.5rem; } nav.main-nav { justify-content: center; gap: 0.8rem; } .hero-title { letter-spacing: 0.18em; } .modal-content-wrapper { padding: 1.5rem; } } @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } .home-access-card, .site-photo-container { opacity: 1; transform: none; } } </style>
+<style>
+ :root { /* Paleta general */ --bg-color: #0a0d0f; --surface-color: #111619; --surface-card: #151c20; --border-subtle: #1e282d; --border-active: #344852; /* Textos */ --text-primary: #e8edef; --text-secondary: #b0c0c7; --text-muted: #80939c; /* Acentos */ --accent-petroleo: #1e3a3d; --accent-azul-profundo: #142834; --accent-verde-azulado: #3b6e72; --accent-slate: #739dae; --accent-light: #9ed4e2; --font-serif: "Times New Roman", Times, Georgia, serif; --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --transition-smooth: all 0.4s var(--ease-out); }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { min-height: 100%; color: var(--text-primary); font-family: var(--font-sans); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+body { background: radial-gradient(circle at 86% 76%, #000000 0%, rgba(0, 0, 0, 0.96) 18%, rgba(0, 0, 0, 0.48) 43%, transparent 66%), radial-gradient(ellipse at 16% 12%, rgba(30, 58, 61, 0.48) 0%, rgba(20, 40, 52, 0.26) 32%, rgba(5, 8, 10, 0.78) 68%, #000000 100%); background-attachment: fixed; }
+.site-wrapper { min-height: 100vh; position: relative; }
+h1, h2, h3, .brand-signature, .hero-title, .home-access-card h2 { font-family: var(--font-serif); }
+/* PORTADA */ .hero-cover { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; background-color: var(--bg-color); z-index: 1000; cursor: pointer; opacity: 1; visibility: visible; transition: opacity 0.6s var(--ease-out), visibility 0.6s var(--ease-out); }
+.hero-title { font-size: clamp(3rem, 11vw, 8rem); font-weight: 400; letter-spacing: 0.28em; text-transform: uppercase; color: var(--text-primary); user-select: none; margin-left: 0.28em; text-shadow: 0 0 40px rgba(0, 0, 0, 0.8); }
+body.inside-site .hero-cover { opacity: 0; visibility: hidden; pointer-events: none; }
+/* ENCABEZADO Y FIRMA */ header.site-header { position: fixed; top: 0; left: 0; width: 100%; padding: 1.8rem 2.5rem; z-index: 900; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(180deg, rgba(10, 13, 15, 0.98) 0%, rgba(10, 13, 15, 0.85) 70%, rgba(10, 13, 15, 0) 100%); backdrop-filter: blur(10px); opacity: 0; transform: translateY(-10px); pointer-events: none; transition: var(--transition-smooth); }
+body.inside-site header.site-header { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.brand-signature { font-size: 1.15rem; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-primary); cursor: pointer; text-decoration: none; transition: color 0.3s ease; }
+.brand-signature:hover { color: var(--accent-light); }
+nav.main-nav { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+nav.main-nav button { background: none; border: none; color: var(--text-secondary); font-family: var(--font-sans); font-size: 0.82rem; font-weight: 500; cursor: pointer; padding: 0.3rem 0; border-bottom: 2px solid transparent; transition: var(--transition-smooth); text-transform: uppercase; letter-spacing: 0.12em; }
+nav.main-nav button:hover, nav.main-nav button:focus-visible { color: var(--text-primary); border-bottom-color: var(--accent-slate); outline: none; }
+nav.main-nav button.active { color: var(--accent-light); border-bottom-color: var(--accent-verde-azulado); }
+/* LAYOUT GENERAL */ main { flex-grow: 1; padding-top: 120px; position: relative; z-index: 10; }
+.site-container { max-width: 1040px; margin: 0 auto; padding: 2rem 2rem 6rem 2rem; }
+.tab-content { display: none; opacity: 0; transition: opacity 0.4s ease; }
+.tab-content.active { display: block; opacity: 1; }
+.section-header { margin-bottom: 3.5rem; }
+.section-header h1 { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 400; letter-spacing: 0.08em; margin-bottom: 1.2rem; color: var(--text-primary); }
+.section-header p.section-lead { color: var(--text-secondary); font-size: 1.05rem; max-width: 860px; line-height: 1.75; font-weight: 300; }
+.sub-header { margin-top: 3.5rem; margin-bottom: 1.8rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.6rem; }
+.sub-header h2 { font-size: 1.5rem; font-weight: 400; letter-spacing: 0.05em; color: var(--accent-light); font-family: var(--font-serif); }
+.sub-header p { color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.2rem; }
+/* COMPOSICIÓN Y TRATAMIENTO DE FOTOGRAFÍAS */ .home-hero-layout { display: flex; gap: 2.5rem; align-items: center; margin-bottom: 4rem; }
+.site-photo-container { position: relative; display: block; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4), 0 18px 45px -10px rgba(30, 58, 61, 0.35); transition: transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out); cursor: pointer; margin-bottom: 1.2rem; background-color: var(--surface-color); }
+.site-photo-container::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--accent-verde-azulado); opacity: 0.03; pointer-events: none; transition: opacity 0.5s var(--ease-out); }
+.site-photo-img { width: 100%; height: auto; display: block; object-fit: cover; opacity: 0.98; filter: brightness(1) contrast(1); transition: transform 0.5s var(--ease-out), filter 0.5s var(--ease-out); }
+.site-photo-container:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 0 22px 55px -8px rgba(30, 58, 61, 0.45); }
+.site-photo-container:hover .site-photo-img { filter: brightness(1.04) contrast(1); transform: scale(1.015); }
+.photo-credit { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.4rem; font-style: italic; text-align: right; }
+.home-portrait-wrapper { flex: 0 0 42%; max-width: 45%; display: block; }
+.home-presentation-single { flex: 1; font-family: var(--font-sans); font-size: clamp(1.05rem, 1.8vw, 1.25rem); line-height: 1.8; color: var(--text-primary); font-weight: 300; border-left: 2px solid var(--accent-verde-azulado); padding-left: 1.8rem; }
+.home-presentation-single p + p { margin-top: 1rem; }
+.home-portrait-static { cursor: default; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.46), 0 22px 60px -18px rgba(59, 110, 114, 0.55); }
+.home-portrait-static:hover { transform: none; box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5), 0 24px 66px -16px rgba(59, 110, 114, 0.62); }
+.home-portrait-static:hover .site-photo-img { transform: none; filter: brightness(1.035) contrast(1.01); }
+/* TARJETAS Y ESTRUCTURA DE FICHAS */ .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.8rem; margin-top: 1.5rem; }
+.mycelial-grid { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(12, 1fr); gap: 2rem; align-items: start; }
+.home-access-card { border: none; padding: 2.2rem; text-decoration: none; color: inherit; display: flex; flex-direction: column; justify-content: space-between; position: relative; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35); background: linear-gradient(135deg, rgba(20, 40, 52, 0.6) 0%, rgba(17, 22, 25, 0.5) 100%); border-radius: 20px; opacity: 0; transform: translateY(20px); animation: fadeInOrganic 0.8s var(--ease-out) forwards; transition: transform 0.4s var(--ease-out), background 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease; }
+@keyframes fadeInOrganic { to { opacity: 1; transform: translateY(0); }
+}
+.home-card-obra { grid-column: 1 / span 7; border-radius: 28px 12px 36px 16px; min-height: 230px; animation-delay: 0.1s; }
+.home-card-mediacion { grid-column: 7 / span 6; margin-top: 2.5rem; margin-left: -1.5rem; background: linear-gradient(135deg, rgba(30, 58, 61, 0.58) 0%, rgba(17, 22, 25, 0.52) 100%); border-radius: 16px 32px 18px 28px; min-height: 240px; animation-delay: 0.25s; }
+.home-card-investigacion { grid-column: 1 / span 6; margin-top: 1rem; background: linear-gradient(135deg, rgba(30, 58, 61, 0.52) 0%, rgba(20, 40, 52, 0.58) 100%); border-radius: 22px 18px 30px 14px; min-height: 230px; animation-delay: 0.4s; }
+.home-card-escritos { grid-column: 6 / span 7; margin-top: -1rem; background: linear-gradient(135deg, rgba(20, 40, 52, 0.62) 0%, rgba(30, 58, 61, 0.48) 100%); border-radius: 14px 26px 16px 34px; min-height: 230px; animation-delay: 0.55s; }
+.home-access-card:hover, .home-access-card:focus-within { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); background: linear-gradient(135deg, rgba(20, 40, 52, 0.85) 0%, rgba(30, 58, 61, 0.75) 100%); outline: none; }
+.home-access-card .card-number { font-size: 0.75rem; letter-spacing: 0.15em; color: var(--accent-slate); text-transform: uppercase; font-weight: 600; margin-bottom: 1rem; }
+.home-access-card h2, .home-access-card h3 { font-size: 1.5rem; font-weight: 400; color: var(--text-primary); margin-bottom: 0.6rem; }
+.home-access-card p { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; }
+/* INTEGRACIÓN DE REPRODUCTORES Y ENLACES DISCRETOS */ .card-embed-slot { margin-top: 1.2rem; width: 100%; border-radius: 12px; overflow: hidden; background: rgba(10, 13, 15, 0.5); box-shadow: 0 4px 16px rgba(0,0,0,0.4); border: 1px solid rgba(115, 157, 174, 0.15); }
+.card-embed-slot iframe { display: block; width: 100%; border: 0; }
+.video-responsive { position: relative; padding-bottom: 56.25%; /* Aspect Ratio 16:9 */ height: 0; overflow: hidden; }
+.video-responsive iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.card-action-slot { margin-top: 1.2rem; padding-top: 0.8rem; border-top: 1px solid rgba(255, 255, 255, 0.06); display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; }
+.discrete-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.88rem; font-weight: 500; color: var(--accent-light); text-decoration: none; padding: 0.4rem 0.8rem; border-radius: 20px; background-color: rgba(30, 58, 61, 0.25); border: 1px solid rgba(115, 157, 174, 0.2); transition: var(--transition-smooth); cursor: pointer; }
+.discrete-link:hover, .discrete-link:focus-visible { color: #ffffff; background-color: rgba(59, 110, 114, 0.45); border-color: var(--accent-light); outline: none; transform: translateX(2px); }
+.discrete-link .arrow { font-size: 0.9em; transition: transform 0.3s ease; }
+.discrete-link:hover .arrow { transform: translate(2px, -2px); }
+.slot-placeholder { margin-top: 1.2rem; padding: 1.2rem; background-color: rgba(10, 13, 15, 0.4); border: 1px dashed var(--border-subtle); font-size: 0.82rem; color: var(--text-muted); text-align: center; border-radius: 12px; }
+.field-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.6rem; }
+.field-value { font-size: 0.88rem; color: var(--text-secondary); }
+/* MODAL / FICHA EXPANDIDA CON GALERÍA */ .project-modal { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(10, 13, 15, 0.92); backdrop-filter: blur(14px); z-index: 2000; display: flex; justify-content: center; align-items: center; padding: 2rem; opacity: 0; visibility: hidden; transition: opacity 0.4s var(--ease-out), visibility 0.4s var(--ease-out); }
+.project-modal.open { opacity: 1; visibility: visible; }
+.modal-content-wrapper { background-color: var(--surface-card); border: 1px solid var(--border-active); border-radius: 24px; max-width: 860px; width: 100%; max-height: 88vh; overflow-y: auto; padding: 2.5rem; position: relative; box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7); }
+.modal-close-btn { position: absolute; top: 1.5rem; right: 1.5rem; background: rgba(30, 58, 61, 0.4); border: 1px solid rgba(115, 157, 174, 0.3); color: var(--text-primary); font-size: 1.2rem; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: var(--transition-smooth); }
+.modal-close-btn:hover { background: var(--accent-verde-azulado); color: #fff; }
+.modal-gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 1.8rem 0; }
+.modal-gallery-grid .site-photo-container { margin-bottom: 0; }
+.mycelial-network-container { position: relative; margin-top: 2rem; padding: 1rem 0; }
+.mycelial-svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; overflow: visible; }
+.mycelial-path { fill: none; stroke: rgba(115, 157, 174, 0.25); stroke-width: 1.2; stroke-dasharray: 4 2; }
+.mycelial-node { fill: var(--accent-slate); opacity: 0.4; }
+.bio-body p { margin-bottom: 1.4rem; color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; }
+.contact-block { margin-top: 2rem; display: flex; flex-direction: column; gap: 1.2rem; max-width: 500px; }
+.contact-item { display: flex; justify-content: space-between; align-items: center; padding-bottom: 0.8rem; border-bottom: 1px solid var(--border-subtle); color: var(--text-primary); text-decoration: none; font-size: 1rem; transition: var(--transition-smooth); }
+.contact-item:hover, .contact-item:focus-visible { border-bottom-color: var(--accent-light); color: var(--accent-light); outline: none; }
+footer { border-top: 1px solid var(--border-subtle); padding-top: 2rem; margin-top: 5rem; font-size: 0.82rem; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+/* LIGHTBOX PARA AMPLIAR FOTOGRAFÍAS */ .lightbox-modal { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(5, 7, 8, 0.95); z-index: 3000; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; padding: 2rem; }
+.lightbox-modal.open { opacity: 1; visibility: visible; }
+.lightbox-modal img { max-width: 92vw; max-height: 92vh; object-fit: contain; border-radius: 8px; box-shadow: 0 0 50px rgba(0,0,0,0.9); }
+/* RESPONSIVE (MÓVIL) */ @media (max-width: 820px) { .home-hero-layout { flex-direction: column-reverse; gap: 2rem; }
+.home-portrait-wrapper { max-width: 100%; width: 100%; }
+.mycelial-grid { display: flex; flex-direction: column; gap: 1.5rem; }
+.home-access-card { margin: 0 !important; min-height: auto; border-radius: 18px; }
+.mycelial-svg { display: none; }
+header.site-header { flex-direction: column; gap: 1rem; padding: 1.2rem 1.5rem; }
+nav.main-nav { justify-content: center; gap: 0.8rem; }
+.hero-title { letter-spacing: 0.18em; }
+.modal-content-wrapper { padding: 1.5rem; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; }
+.home-access-card, .site-photo-container { opacity: 1; transform: none; }
+}
+</style>
 </head>
 <body>
 <div class="site-wrapper">
@@ -38,11 +136,16 @@
 <section id="inicio" class="tab-content active">
 <div class="home-hero-layout">
 <div class="home-portrait-wrapper">
-<div class="site-photo-container" onclick="openLightbox('./duberly-retrato-inicio.jpg')">
+<div class="site-photo-container home-portrait-static">
 <img src="./duberly-retrato-inicio.jpg" alt="Retrato de Duberly Saavedra Polo sentado y mirando directamente a cámara." class="site-photo-img" loading="eager" >
 </div>
 </div>
-<div class="home-presentation-single"> Duberly Saavedra Polo es artista, cantautor, investigador y mediador radicado en Valparaíso. Desarrolla su proyecto musical solista DUBERLY, es director artístico y vocalista del Ensamble Transatlántico de Folk Chileno y diseña experiencias de creación y mediación en contextos educativos, culturales y comunitarios. </div>
+<div class="home-presentation-single">
+<p>Soy Duberly Saavedra Polo, músico, artista e investigador nacido en Quillota y radicado en Valparaíso. Mi trabajo parte de la voz y se expande hacia la canción, la creación sonora, la escritura y la mediación artística.</p>
+<p>Creo música como DUBERLY y soy vocalista y director artístico del Ensamble Folk. Desde Chile Puerto Folk impulso experiencias artísticas que relacionan música en vivo, participación, aprendizaje y creación colectiva.</p>
+<p>Entiendo estos proyectos como ecosistemas colaborativos: tramas en las que personas, saberes, lenguajes y territorios se encuentran y se transforman. Como un micelio, cada experiencia establece conexiones, activa nuevos procesos y continúa creciendo más allá de su momento de realización.</p>
+<p>Actualmente desarrollo una investigación doctoral sobre la mediación artística como práctica de creación y producción de conocimiento.</p>
+</div>
 </div>
 <div class="mycelial-network-container">
 <svg class="mycelial-svg" viewBox="0 0 1000 500" preserveAspectRatio="none" aria-hidden="true">
@@ -60,28 +163,28 @@
 <div>
 <div class="card-number">01 / Creación</div>
 <h2>OBRA</h2>
-<p>Proyecto solista DUBERLY, Ensamble Transatlántico de Folk Chileno y proyectos de creación sonora territorial.</p>
+<p>Canción, voz, creación sonora y obras nacidas del diálogo con otros lenguajes y territorios.</p>
 </div>
 </a>
 <a class="home-access-card home-card-mediacion" onclick="switchTab('mediacion')" tabindex="0">
 <div>
 <div class="card-number">02 / Práctica Colectiva</div>
 <h2>MEDIACIÓN</h2>
-<p>Conciertos educativos, orquestas comunitarias y procesos formativos en contextos diversos.</p>
+<p>Experiencias artísticas que conectan comunidades, aprendizaje, música en vivo y creación colectiva.</p>
 </div>
 </a>
 <a class="home-access-card home-card-investigacion" onclick="switchTab('investigacion')" tabindex="0">
 <div>
 <div class="card-number">03 / Conocimiento</div>
 <h2>INVESTIGACIÓN</h2>
-<p>Doctorado en Artes Integradas, investigación-creación y la metáfora del micelio cultural.</p>
+<p>Investigación-creación sobre mediación artística, conocimiento situado y ecosistemas colaborativos.</p>
 </div>
 </a>
 <a class="home-access-card home-card-escritos" onclick="switchTab('escritos')" tabindex="0">
 <div>
 <div class="card-number">04 / Archivo Textual</div>
 <h2>ESCRITOS</h2>
-<p>Escritura artística (poesía, crónicas, narrativa) y publicaciones e investigaciones académicas.</p>
+<p>Poesía, crónica, narrativa y escritura académica como extensiones de una misma práctica artística.</p>
 </div>
 </a>
 </div>
@@ -91,12 +194,12 @@
 <section id="obra" class="tab-content">
 <div class="section-header">
 <h1>OBRA</h1>
-<p class="section-lead">Mi creación se desarrolla entre la música, la voz, el paisaje sonoro, la escritura y la experiencia colectiva. Reúne mi proyecto solista DUBERLY, mi trabajo como vocalista y director artístico del Ensamble Transatlántico de Folk Chileno y proyectos sonoros vinculados con el territorio, la escucha y la experimentación.</p>
+<p class="section-lead">Mi obra nace en la voz y se desplaza entre la canción, el paisaje sonoro, la escritura y la experiencia colectiva. Cada proyecto abre un ecosistema distinto: la identidad solista de DUBERLY, la creación compartida del Ensamble Folk y las exploraciones que conectan escucha, territorio y memoria.</p>
 </div>
 <!-- DUBERLY SOLISTA -->
 <div class="sub-header">
 <h2>DUBERLY</h2>
-<p>DUBERLY es el proyecto musical solista de Duberly Saavedra Polo. Articula canción, experimentación vocal, texturas acústicas y electrónicas, poesía e imagen como dimensiones de una misma identidad artística. En 2026 publicó INICIA, junto a TANKBOY, y SOLO VOCAL. Actualmente desarrolla su primer álbum solista.</p>
+<p>DUBERLY es mi proyecto musical solista: un espacio donde la canción convive con la experimentación vocal, las texturas acústicas y electrónicas, la poesía y la imagen. En 2026 publiqué INICIA, junto a TANKBOY, y SOLO VOCAL. Actualmente desarrollo mi primer álbum solista.</p>
 </div>
 <!-- FICHAS MUSICA LE SOLISTA PRIMERO -->
 <div class="card-grid">
@@ -144,7 +247,7 @@
 <div>
 <div class="card-number">Perfil Artista Solista</div>
 <h3>DUBERLY en Spotify</h3>
-<p>Explora el catálogo completo y últimos lanzamientos solistas.</p>
+<p>Reúne mis lanzamientos y las distintas etapas de una obra solista todavía en expansión.</p>
 </div>
 <div class="card-embed-slot">
 <iframe src="https://open.spotify.com/embed/artist/2O47nAAKaTTE7CrG0OcBly?utm_source=generator" height="352" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
@@ -161,7 +264,7 @@
 <div>
 <div class="card-number">Compilación Sonora</div>
 <h3>LA VOZ DE DUBERLY</h3>
-<p>Selección de interpretaciones de DUBERLY en su proyecto solista, el Ensamble Transatlántico de Folk Chileno y otras colaboraciones.</p>
+<p>Un recorrido por mi voz a través del proyecto solista, el Ensamble Folk y otras colaboraciones: distintos contextos unidos por una misma materia vocal.</p>
 </div>
 <div class="card-embed-slot">
 <iframe src="https://open.spotify.com/embed/playlist/1jwC4DRxiAeOvSRtDrG2mH?utm_source=generator" height="380" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
@@ -175,28 +278,28 @@
 </article>
 <!-- ENSAMBLE TRANSATLÁNTICO DE FOLK CHILENO -->
 <div class="sub-header">
-<h2>ENSAMBLE TRANSATLÁNTICO DE FOLK CHILENO</h2>
-<p>Duberly Saavedra Polo es vocalista y director artístico del Ensamble Transatlántico de Folk Chileno. Su trabajo con la agrupación reúne interpretación, dirección escénica, creación colectiva y circulación internacional. La trayectoria del Ensamble incluye producciones como Vivo, Vol. I, Vol. II y Cartografía Sonora Latinoamericana, además de presentaciones y giras en Chile, India, Japón, Corea del Sur y Europa entre 2016 y 2025.</p>
+<h2>ENSAMBLE FOLK</h2>
+<p>Soy vocalista y director artístico del Ensamble Folk, una práctica colectiva donde interpretación, dirección escénica, arreglos y circulación internacional se alimentan mutuamente. Sus producciones —Vivo, Vol. I, Vol. II y Cartografía Sonora Latinoamericana— registran un recorrido compartido por Chile, India, Japón, Corea del Sur y Europa entre 2016 y 2025.</p>
 </div>
 <div class="card-grid" style="margin-bottom: 2rem;">
 <article class="home-access-card">
 <div>
 <div class="card-number">Producción Discográfica</div>
 <h3>Cartografía Sonora Latinoamericana</h3>
-<p>Ensamble Transatlántico de Folk Chileno</p>
+<p>Un mapa musical construido desde repertorios, paisajes y vínculos latinoamericanos.</p>
 </div>
 <div class="site-photo-container" onclick="openModal('modal-cartografia')">
 <img src="./ensamble-cartografia-sonora.jpg" alt="Collage de montañas, luna, agua y paisaje latinoamericano de Cartografía Sonora Latinoamericana." class="site-photo-img" loading="lazy">
 </div>
 <div class="card-action-slot">
-<button class="discrete-link" onclick="openModal('modal-cartografia')">Ver Ficha Expandida & Galería ↗</button>
+<button class="discrete-link" onclick="openModal('modal-cartografia')">Abrir experiencia ↗</button>
 </div>
 </article>
 <article class="home-access-card">
 <div>
 <div class="card-number">Producción Discográfica</div>
 <h3>Beso Mineral</h3>
-<p>Ensamble Transatlántico de Folk Chileno</p>
+<p>Una pieza del Ensamble Folk donde territorio, materia y memoria entran en resonancia.</p>
 </div>
 <div class="site-photo-container" onclick="openLightbox('./ensamble-beso-mineral.jpg')">
 <img src="./ensamble-beso-mineral.jpg" alt="Collage de volcanes y paisaje nocturno correspondiente a Beso Mineral." class="site-photo-img" loading="lazy">
@@ -206,8 +309,8 @@
 <article class="home-access-card">
 <div>
 <div class="card-number">Perfil Artista Agrupación</div>
-<h3>Ensamble Transatlántico de Folk Chileno</h3>
-<p>Producciones discográficas oficiales: Vivo, Vol. I, Vol. II y Cartografía Sonora Latinoamericana.</p>
+<h3>Ensamble Folk</h3>
+<p>El archivo sonoro del Ensamble Folk reúne años de creación colectiva, viajes, encuentros y repertorios transformados por quienes los interpretan.</p>
 </div>
 <div class="card-embed-slot">
 <iframe src="https://open.spotify.com/embed/artist/4NrRzaWQSLH0pUvhk30dhB?utm_source=generator" height="352" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
@@ -222,14 +325,14 @@
 <!-- PROYECTOS SONOROS (YOUTUBE) -->
 <div class="sub-header">
 <h2>PROYECTOS SONOROS & REGISTROS AUDIOVISUALES</h2>
-<p>Exploración y creación vinculada al entorno, la escucha territorial y el registro audiovisual en vivo.</p>
+<p>Proyectos donde la escucha funciona como una manera de recorrer, registrar y volver a imaginar el territorio.</p>
 </div>
 <div class="card-grid">
 <article class="home-access-card">
 <div>
 <div class="card-number">Registro Territorial</div>
 <h3>Sonografías del Aconcagua: El Río</h3>
-<p>Proyecto de escucha y registro sonoro vinculado con el río Aconcagua y sus transformaciones territoriales y ecológicas.</p>
+<p>Una escucha del río Aconcagua y de las transformaciones territoriales y ecológicas que atraviesan su recorrido.</p>
 </div>
 <div class="card-embed-slot video-responsive">
 <iframe src="https://www.youtube-nocookie.com/embed/HfsA-UGwB3g" title="Sonografías del Aconcagua: El Río" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
@@ -245,7 +348,7 @@
 <div>
 <div class="card-number">Canal Oficial</div>
 <h3>YouTube · Duberly</h3>
-<p>Archivo audiovisual de registros en vivo, procesos creativos y producciones sonoras.</p>
+<p>Registros en vivo, procesos creativos y obras que permiten seguir las conexiones entre música, territorio y experiencia.</p>
 </div>
 <div class="card-action-slot" style="margin-top: 2rem;">
 <a href="https://www.youtube.com/dubsavpolo" target="_blank" rel="noopener noreferrer" class="discrete-link" aria-label="Visitar canal de YouTube">
@@ -260,64 +363,64 @@
 <section id="mediacion" class="tab-content">
 <div class="section-header">
 <h1>MEDIACIÓN</h1>
-<p class="section-lead">Diseño y desarrollo experiencias de mediación artística que conectan creación musical, aprendizaje, participación y encuentro. Cada proceso se construye a partir de sus participantes y contextos, integrando interpretación, creación colectiva, escucha, conversación y puesta en escena.</p>
+<p class="section-lead">Desde Chile Puerto Folk y otros espacios de colaboración diseño experiencias artísticas donde música, aprendizaje y participación forman un mismo proceso. La mediación no ocurre alrededor de la obra: es parte de su creación. Cada encuentro activa una red de intérpretes, comunidades, instituciones y territorios que aprende, transforma y hace circular lo vivido.</p>
 </div>
 <div class="card-grid">
 <!-- LÍNEA A: CONCIERTO EDUCATIVO / CHILE PUERTO FOLK -->
 <article class="home-access-card">
 <div>
-<div class="card-number">Línea A — Experiencia Pedagógico-Musical</div>
-<h3>Concierto Educativo / Chile Puerto Folk</h3>
-<p>Experiencia de mediación desarrollada en Valparaíso. Vincula música en vivo, conversación, participación y aprendizaje mediante encuentros entre artistas, estudiantes y comunidades educativas.</p>
+<div class="card-number">Chile Puerto Folk — Experiencias Artísticas</div>
+<h3>Experiencias artísticas / Chile Puerto Folk</h3>
+<p>Encuentros desarrollados en Valparaíso donde la música en vivo se abre a la conversación, el movimiento, la escucha y la participación. Artistas, estudiantes y comunidades educativas dejan de ocupar lugares separados y construyen una experiencia común.</p>
 </div>
 <div class="site-photo-container" onclick="openModal('modal-mediacion-educativo')">
 <img src="./mediacion-concierto-educativo-pcdv.JPG" alt="Concierto educativo al aire libre con músicos, estudiantes y público en Valparaíso." class="site-photo-img" loading="lazy">
 </div>
 <div class="photo-credit">Fotografía: Nathaly Arancibia</div>
 <div class="card-action-slot">
-<button class="discrete-link" onclick="openModal('modal-mediacion-educativo')">Ver Ficha Expandida & Galería ↗</button>
+<button class="discrete-link" onclick="openModal('modal-mediacion-educativo')">Abrir experiencia ↗</button>
 </div>
 </article>
 <!-- LÍNEA B: EXPERIENCIAS UNAB -->
 <article class="home-access-card">
 <div>
-<div class="card-number">Línea B — Formación Universitaria</div>
+<div class="card-number">UNAB — Formación y Creación</div>
 <h3>Experiencias UNAB</h3>
-<p>Duberly Saavedra Polo desarrolla procesos de formación vocal y creación escénica con estudiantes de la Universidad Andrés Bello. El trabajo integra aprendizaje basado en proyectos, interpretación colectiva y presentaciones públicas.</p>
+<p>Desde 2020 desarrollo procesos de formación vocal y creación escénica con estudiantes de la Universidad Andrés Bello. El aprendizaje basado en proyectos permite que cada grupo construya su propio montaje y convierta el aula en ensayo, escena y experiencia colectiva.</p>
 </div>
 <div class="site-photo-container" onclick="openModal('modal-unab')">
 <img src="./mediacion-unab-01.jpg" alt="Escenario iluminado en magenta durante presentación universitaria UNAB." class="site-photo-img" loading="lazy">
 </div>
 <div class="card-action-slot">
-<button class="discrete-link" onclick="openModal('modal-unab')">Ver Ficha Expandida & Galería ↗</button>
+<button class="discrete-link" onclick="openModal('modal-unab')">Abrir experiencia ↗</button>
 </div>
 </article>
 <!-- LÍNEA C: ORQUESTA FOLK -->
 <article class="home-access-card">
 <div>
-<div class="card-number">Línea C — Creación Colectiva</div>
+<div class="card-number">Chile Puerto Folk — Creación Colectiva</div>
 <h3>ORQUESTA FOLK</h3>
-<p>Proceso de creación e interpretación colectiva vinculado con músicas de raíz y repertorios latinoamericanos. Corresponde a una de las experiencias de concierto educativo y mediación generadas por Duberly Saavedra Polo en Chile Puerto Folk.</p>
+<p>Una orquesta abierta a músicas de raíz, repertorios latinoamericanos y aprendizajes compartidos. Dentro del ecosistema Chile Puerto Folk, intérpretes con trayectorias diversas se conectan para ensayar, enseñar, aprender y producir sonido en común.</p>
 </div>
 <div class="site-photo-container" onclick="openModal('modal-orquesta-folk')">
 <img src="./orquesta-folk-pcdv.jpg" alt="Orquesta Folk interpretando música al aire libre frente al público en el Parque Cultural de Valparaíso." class="site-photo-img" loading="lazy">
 </div>
 <div class="card-action-slot">
-<button class="discrete-link" onclick="openModal('modal-orquesta-folk')">Ver Ficha Expandida & Galería ↗</button>
+<button class="discrete-link" onclick="openModal('modal-orquesta-folk')">Abrir experiencia ↗</button>
 </div>
 </article>
 <!-- LÍNEA D: ECAV -->
 <article class="home-access-card">
 <div>
-<div class="card-number">Línea D — Escuela Comunitaria</div>
+<div class="card-number">ECAV — Formación Artística</div>
 <h3>ECAV</h3>
-<p>Bloque asignado a experiencias educativas, musicales y de mediación desarrolladas con la Corporación Cultural Arte y Vida.</p>
+<p>En ECAV acompaño procesos musicales que conectan formación, práctica de ensamble, intervención territorial y puesta en escena. Cada presentación es la parte visible de una red cotidiana de aprendizajes, afectos y colaboración.</p>
 </div>
 <div class="site-photo-container" onclick="openModal('modal-ecav')">
 <img src="./ecav-01-limpia.png" alt="Presentación musical de ECAV ante una comunidad reunida en una sala." class="site-photo-img" loading="lazy">
 </div>
 <div class="card-action-slot">
-<button class="discrete-link" onclick="openModal('modal-ecav')">Ver Ficha Expandida & Galería ↗</button>
+<button class="discrete-link" onclick="openModal('modal-ecav')">Abrir experiencia ↗</button>
 </div>
 </article>
 </div>
@@ -326,16 +429,15 @@
 <section id="investigacion" class="tab-content">
 <div class="section-header">
 <h1>INVESTIGACIÓN</h1>
-<p class="section-lead">Duberly Saavedra Polo desarrolla su Doctorado en Artes Integradas en la Universidad de Playa Ancha desde 2024. Su investigación se sitúa en el campo de la investigación-creación y estudia la mediación artística como práctica de producción de conocimiento. El proyecto articula creación colectiva, tecnologías cotidianas, memoria, territorio y participación mediante la metáfora del micelio cultural. Sus procesos se vinculan con experiencias desarrolladas en contextos educativos, artísticos y comunitarios.</p>
+<p class="section-lead">Desde 2024 desarrollo mi Doctorado en Artes Integradas en la Universidad de Playa Ancha. Investigo la mediación artística como una práctica capaz de crear conocimiento desde la experiencia, los vínculos y el territorio. La imagen del micelio me permite observar cómo una acción artística se conecta con otras, circula entre personas y contextos, y produce aprendizajes que ninguna autoría individual podría contener por sí sola.</p>
 </div>
 <div class="card-grid">
 <article class="home-access-card">
 <div>
 <div class="card-number">Doctorado en Artes Integradas — UPLA (2024–Presente)</div>
-<h3>La mediación artística como producción de conocimiento</h3>
-<p>Investigación-creación sobre creación colectiva, memoria y la metáfora del micelio cultural.</p>
+<h3>Micelio cultural</h3>
+<p>Investigación-creación sobre mediación artística, memoria, tecnologías cotidianas y producción colaborativa de conocimiento en contextos educativos, artísticos y comunitarios.</p>
 </div>
-<div class="slot-placeholder">[ Ficha preparada para ponencias, artículos y avances doctorales ]</div>
 </article>
 </div>
 </section>
@@ -343,78 +445,67 @@
 <section id="escritos" class="tab-content">
 <div class="section-header">
 <h1>ESCRITOS</h1>
-<p class="section-lead">Recopilación ordenada de producciones textuales desarrolladas en el ámbito artístico y académico.</p>
+<p class="section-lead">Escribo para registrar recorridos, reunir fragmentos y pensar aquello que la música o la imagen dejan abierto. La escritura artística y académica forma parte del mismo ecosistema: cambia de forma según el contexto, pero conserva preguntas sobre memoria, territorio, creación y vínculos.</p>
 </div>
 <div class="sub-header">
 <h2>ESCRITOS ARTÍSTICOS</h2>
-<p>Poesía, crónicas, narrativa y piezas en proceso de circulación.</p>
+<p>Poesía, crónica y narrativa como mapas sensibles de experiencias, desplazamientos y encuentros.</p>
 </div>
 <div class="card-grid">
 <article class="home-access-card">
 <div>
 <div class="card-number">Poesía & Cartografía</div>
 <h3>Atlas de los 39</h3>
-<p>Proyecto poético y cartográfico sobre geografía, memoria, vínculos y desplazamiento. Reúne poemas-coordenada, poemas-concepto y poemas-trayecto vinculados con Chile, América, Europa y Asia.</p>
+<p>Un proyecto poético y cartográfico sobre geografía, memoria, vínculos y desplazamiento. Sus poemas funcionan como coordenadas, conceptos y trayectos que conectan experiencias vividas en Chile, América, Europa y Asia.</p>
 </div>
-<div class="slot-placeholder">[ Ficha preparada para imagen de portada, fecha, texto introductorio, enlace de lectura/descarga, créditos editoriales y ciudad/contexto de publicación ]</div>
 </article>
 <article class="home-access-card">
 <div>
 <div class="card-number">Crónica</div>
-<h3>Crónica</h3>
-<p>Textos de registro narrativo y testimonial.</p>
+<h3>Crónicas</h3>
+<p>Relatos que nacen de viajes, procesos artísticos y escenas cotidianas, allí donde la memoria personal se encuentra con la experiencia compartida.</p>
 </div>
-<div class="slot-placeholder">[ Ficha en preparación ]</div>
 </article>
 <article class="home-access-card">
 <div>
 <div class="card-number">Narrativa Breve</div>
 <h3>Cuentos</h3>
-<p>Textos narrativos programados para su publicación progresiva una vez liberados los derechos de distribución.</p>
+<p>Relatos breves en los que territorio, naturaleza, imaginación y memoria abren otras formas de recorrer una experiencia.</p>
 </div>
-<div class="slot-placeholder">[ Ficha en preparación ]</div>
 </article>
 </div>
 <div class="sub-header">
 <h2>ESCRITOS ACADÉMICOS</h2>
-<p>Publicaciones, ponencias, capítulos de libros y textos doctorales.</p>
+<p>Textos donde la práctica artística conversa con la investigación-creación, la educación y los estudios sobre mediación.</p>
 </div>
 <div class="card-grid">
 <article class="home-access-card">
 <div>
 <div class="card-number">Publicación Académica</div>
 <h3>Artículos</h3>
-<div class="field-label">Estado:</div>
-<div class="field-value">Ficha modular lista para ingresar título, revista, año y PDF.</div>
+<p>Artículos que observan prácticas artísticas, tecnologías y formas colectivas de producir y hacer circular conocimiento.</p>
 </div>
-<div class="slot-placeholder">[ Registro bibliográfico ]</div>
 </article>
 <article class="home-access-card">
 <div>
 <div class="card-number">Congresos & Encuentros</div>
 <h3>Ponencias</h3>
-<div class="field-label">Estado:</div>
-<div class="field-value">Ficha modular lista para ingresar evento, ciudad, fecha y enlace.</div>
+<p>Presentaciones que ponen la investigación en conversación con comunidades académicas y artísticas, permitiendo que las ideas cambien al circular.</p>
 </div>
-<div class="slot-placeholder">[ Registro de ponencia ]</div>
 </article>
 <article class="home-access-card">
 <div>
 <div class="card-number">Libros / Compilaciones</div>
 <h3>Capítulos</h3>
-<div class="field-label">Estado:</div>
-<div class="field-value">Ficha modular lista para ingresar libro, editorial y estado editorial.</div>
+<p>Escrituras desarrolladas en colaboración y diálogo con investigaciones más amplias sobre arte, memoria, educación y territorio.</p>
 </div>
-<div class="slot-placeholder">[ Registro de capítulo ]</div>
 </article>
 <article class="home-access-card">
 <div>
 <div class="card-number">Investigación Doctoral</div>
 <h3>Textos de Investigación-Creación</h3>
-<div class="field-label">Estado:</div>
-<div class="field-value">Documentos vinculados con la tesis doctoral UPLA.</div>
+<p>Bitácoras, ensayos y documentos vinculados con el desarrollo del micelio cultural y la mediación artística como producción de conocimiento.</p>
 </div>
-<div class="slot-placeholder">[ Registro de documento ]</div>
 </article>
 </div>
 </section>
@@ -422,20 +513,20 @@
 <section id="biocv" class="tab-content">
 <div class="section-header">
 <h1>BIO / CV</h1>
-<p class="section-lead">Trayectoria artística, académica y profesional.</p>
+<p class="section-lead">Una trayectoria construida entre creación musical, mediación artística, investigación y trabajo colectivo.</p>
 </div>
 <div class="bio-body">
-<p>Duberly Saavedra Polo es artista, cantautor, investigador, mediador y gestor cultural chileno. Nació en Quillota y desarrolla su práctica principalmente desde Valparaíso y Viña del Mar.</p>
+<p>Duberly Saavedra Polo es músico, artista, investigador y mediador chileno. Nació en Quillota y desarrolla su práctica desde Valparaíso y Viña del Mar, conectando voz, creación sonora, escritura, educación y experiencia colectiva.</p>
 <p>Es Licenciado en Artes, Tecnología y Gestión Musical por la Universidad de Valparaíso, Magíster en Arte y Educación por la Universidad Central y doctorando en Artes Integradas en la Universidad de Playa Ancha.</p>
-<p>Desde 2020 ejerce docencia en la Universidad Andrés Bello. Es director artístico y vocalista del Ensamble Transatlántico de Folk Chileno y participa en el diseño de proyectos como la Orquesta Folk, experiencias de concierto educativo y procesos formativos de ECAV.</p>
-<p>Su trayectoria reúne creación musical, dirección artística, mediación, investigación y circulación internacional en América, Asia y Europa.</p>
+<p>Desde 2020 ejerce docencia en la Universidad Andrés Bello. Es vocalista y director artístico del Ensamble Folk y, desde el ecosistema Chile Puerto Folk, impulsa experiencias artísticas, la Orquesta Folk y procesos de mediación en diálogo con comunidades educativas, culturales y territoriales. Su trabajo en ECAV amplía esta red mediante formación, ensambles e intervenciones artísticas.</p>
+<p>Su trayectoria se ha tejido mediante colaboraciones y circulación por América, Asia y Europa. En cada contexto, la práctica se transforma al encontrarse con otras personas, repertorios y maneras de comprender el territorio.</p>
 </div>
 </section>
 <!-- CONTACTO -->
 <section id="contacto" class="tab-content">
 <div class="section-header">
 <h1>CONTACTO</h1>
-<p class="section-lead">Información de contacto directo y plataformas oficiales.</p>
+<p class="section-lead">Para colaboraciones, proyectos artísticos, mediaciones, investigación y circulación.</p>
 </div>
 <div class="contact-block">
 <div style="font-size: 1.15rem; font-family: var(--font-serif); color: var(--text-primary); margin-bottom: 0.5rem;"> Duberly Saavedra Polo </div>
@@ -465,9 +556,9 @@
 <div id="modal-cartografia" class="project-modal" role="dialog" aria-modal="true" aria-label="Ficha expandida Cartografía Sonora Latinoamericana">
 <div class="modal-content-wrapper">
 <button class="modal-close-btn" onclick="closeModal('modal-cartografia')" aria-label="Cerrar modal">&times;</button>
-<div class="card-number">Producción Discográfica — Ficha Expandida</div>
+<div class="card-number">Producción Discográfica</div>
 <h2 style="font-size: 1.8rem; margin-bottom: 0.8rem; font-family: var(--font-serif);">Cartografía Sonora Latinoamericana</h2>
-<p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Ensamble Transatlántico de Folk Chileno</p>
+<p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Una cartografía musical construida por el Ensamble Folk desde paisajes, repertorios y vínculos latinoamericanos.</p>
 <div class="modal-gallery-grid">
 <div>
 <div class="site-photo-container" onclick="openLightbox('./ensamble-cartografia-sonora.jpg')">
@@ -484,13 +575,13 @@
 </div>
 </div>
 </div>
-<!-- Modal Mediación Concierto Educativo -->
-<div id="modal-mediacion-educativo" class="project-modal" role="dialog" aria-modal="true" aria-label="Ficha expandida Concierto Educativo / Chile Puerto Folk">
+<!-- Modal Experiencias Artísticas Chile Puerto Folk -->
+<div id="modal-mediacion-educativo" class="project-modal" role="dialog" aria-modal="true" aria-label="Experiencias artísticas de Chile Puerto Folk">
 <div class="modal-content-wrapper">
 <button class="modal-close-btn" onclick="closeModal('modal-mediacion-educativo')" aria-label="Cerrar modal">&times;</button>
-<div class="card-number">Experiencia Pedagógico-Musical — Ficha Expandida</div>
-<h2 style="font-size: 1.8rem; margin-bottom: 0.8rem; font-family: var(--font-serif);">Concierto Educativo / Chile Puerto Folk</h2>
-<p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Valparaíso</p>
+<div class="card-number">Chile Puerto Folk — Mediación Artística</div>
+<h2 style="font-size: 1.8rem; margin-bottom: 0.8rem; font-family: var(--font-serif);">Experiencias artísticas</h2>
+<p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Música, conversación, movimiento y participación se conectan en encuentros construidos junto a comunidades de Valparaíso.</p>
 <div class="modal-gallery-grid">
 <div>
 <div class="site-photo-container" onclick="openLightbox('./mediacion-concierto-educativo-pcdv.JPG')">
@@ -523,9 +614,9 @@
 <div id="modal-unab" class="project-modal" role="dialog" aria-modal="true" aria-label="Ficha expandida Experiencias UNAB">
 <div class="modal-content-wrapper">
 <button class="modal-close-btn" onclick="closeModal('modal-unab')" aria-label="Cerrar modal">&times;</button>
-<div class="card-number">Formación Universitaria — Ficha Expandida</div>
+<div class="card-number">UNAB — Formación y Creación</div>
 <h2 style="font-size: 1.8rem; margin-bottom: 0.8rem; font-family: var(--font-serif);">Experiencias UNAB</h2>
-<p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Procesos de formación vocal y creación escénica desarrollados por Duberly Saavedra Polo.</p>
+<p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Procesos donde cada grupo transforma el aprendizaje vocal en montaje, escena y experiencia compartida.</p>
 <div class="modal-gallery-grid">
 <div>
 <div class="site-photo-container" onclick="openLightbox('./mediacion-unab-01.jpg')">
@@ -558,9 +649,9 @@
 <div id="modal-orquesta-folk" class="project-modal" role="dialog" aria-modal="true" aria-label="Ficha expandida Orquesta Folk">
 <div class="modal-content-wrapper">
 <button class="modal-close-btn" onclick="closeModal('modal-orquesta-folk')" aria-label="Cerrar modal">&times;</button>
-<div class="card-number">Creación Colectiva — Ficha Expandida</div>
+<div class="card-number">Chile Puerto Folk — Creación Colectiva</div>
 <h2 style="font-size: 1.8rem; margin-bottom: 0.8rem; font-family: var(--font-serif);">Orquesta Folk</h2>
-<p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Proceso de interpretación, aprendizaje y mediación musical vinculado con repertorios de raíz y prácticas colectivas.</p>
+<p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Un espacio donde repertorios de raíz, aprendizajes e intérpretes diversos se encuentran para producir sonido en común.</p>
 <div class="modal-gallery-grid">
 <div>
 <div class="site-photo-container" onclick="openLightbox('./orquesta-folk-pcdv.jpg')">
@@ -593,9 +684,9 @@
 <div id="modal-ecav" class="project-modal" role="dialog" aria-modal="true" aria-label="Ficha expandida ECAV">
 <div class="modal-content-wrapper">
 <button class="modal-close-btn" onclick="closeModal('modal-ecav')" aria-label="Cerrar modal">&times;</button>
-<div class="card-number">Formación y Mediación — Ficha Expandida</div>
+<div class="card-number">ECAV — Formación y Mediación</div>
 <h2 style="font-size: 1.8rem; margin-bottom: 0.8rem; font-family: var(--font-serif);">ECAV</h2>
-<p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Experiencias educativas, musicales y de mediación desarrolladas con la Corporación Cultural Arte y Vida.</p>
+<p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Formación, ensambles e intervenciones territoriales conectados por una red cotidiana de aprendizaje y colaboración.</p>
 <div class="modal-gallery-grid">
 <div>
 <div class="site-photo-container" onclick="openLightbox('./ecav-01-limpia.png')">
