@@ -89,6 +89,13 @@ nav.main-nav button.active { color: var(--accent-light); border-bottom-color: va
 .home-access-card .card-number { font-size: 0.75rem; letter-spacing: 0.15em; color: var(--accent-slate); text-transform: uppercase; font-weight: 600; margin-bottom: 1rem; }
 .home-access-card h2, .home-access-card h3 { font-size: 1.5rem; font-weight: 400; color: var(--text-primary); margin-bottom: 0.6rem; }
 .home-access-card p { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; }
+/* PRENSA Y CONTEXTO */
+.press-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.8rem; margin-top: 1.2rem; }
+.press-item { min-height: 155px; padding: 1.15rem; display: flex; flex-direction: column; justify-content: space-between; background: linear-gradient(145deg, rgba(20, 40, 52, 0.34), rgba(17, 22, 25, 0.24)); border: 1px solid rgba(115, 157, 174, 0.12); border-radius: 12px 20px 14px 18px; transition: background 0.35s ease, transform 0.35s var(--ease-out), border-color 0.35s ease; }
+.press-item:hover { transform: translateY(-3px); background: linear-gradient(145deg, rgba(30, 58, 61, 0.48), rgba(17, 22, 25, 0.36)); border-color: rgba(158, 212, 226, 0.22); }
+.press-meta { color: var(--accent-slate); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.45rem; }
+.press-item h3 { font-family: var(--font-sans); font-size: 0.92rem; line-height: 1.35; font-weight: 500; margin-bottom: 0.8rem; }
+.press-item .discrete-link { align-self: flex-start; font-size: 0.76rem; padding: 0.3rem 0.65rem; }
 /* INTEGRACIÓN DE REPRODUCTORES Y ENLACES DISCRETOS */ .card-embed-slot { margin-top: 1.2rem; width: 100%; border-radius: 12px; overflow: hidden; background: rgba(10, 13, 15, 0.5); box-shadow: 0 4px 16px rgba(0,0,0,0.4); border: 1px solid rgba(115, 157, 174, 0.15); }
 .card-embed-slot iframe { display: block; width: 100%; border: 0; }
 .video-responsive { position: relative; padding-bottom: 56.25%; /* Aspect Ratio 16:9 */ height: 0; overflow: hidden; }
@@ -128,6 +135,8 @@ footer { border-top: 1px solid var(--border-subtle); padding-top: 2rem; margin-t
 .mycelial-svg { display: none; }
 header.site-header { flex-direction: column; gap: 1rem; padding: 1.2rem 1.5rem; }
 nav.main-nav { justify-content: center; gap: 0.8rem; }
+.press-grid { grid-template-columns: 1fr; }
+.press-item { min-height: 0; }
 .hero-title { letter-spacing: 0.18em; }
 .modal-content-wrapper { padding: 1.5rem; }
 #obra .card-grid.creation-carousel { padding-right: 12vw; }
@@ -469,6 +478,54 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 <div class="card-action-slot">
 <button class="discrete-link" onclick="openModal('modal-ecav')">Abrir experiencia ↗</button>
 </div>
+</article>
+</div>
+<div class="sub-header">
+<h2>PRENSA Y CONTEXTO</h2>
+<p>Una selección de coberturas sobre creación, mediación, circulación y trabajo colaborativo.</p>
+</div>
+<div class="press-grid">
+<article class="press-item">
+<div>
+<div class="press-meta">UPLA · 2024 · Perfil e internacionalización</div>
+<h3>Gira europea, creación interdisciplinaria y Doctorado en Artes Integradas</h3>
+</div>
+<a href="https://upla.cl/noticias/2024/10/30/estudiante-de-doctorado-en-artes-integradas-realizo-gira-por-europa-con-banda-ensamble-folk/" target="_blank" rel="noopener noreferrer" class="discrete-link">Leer nota <span class="arrow" aria-hidden="true">↗</span></a>
+</article>
+<article class="press-item">
+<div>
+<div class="press-meta">Parque Cultural de Valparaíso · 2025 · Mediación</div>
+<h3>Semana de la Educación Artística: comunidad, territorio y desarrollo social</h3>
+</div>
+<a href="https://parquecultural.cl/2025/05/16/centenares-de-estudiantes-participaron-en-la-semana-de-la-educacion-artistica-en-el-parque-cultural-de-valparaiso/" target="_blank" rel="noopener noreferrer" class="discrete-link">Leer nota <span class="arrow" aria-hidden="true">↗</span></a>
+</article>
+<article class="press-item">
+<div>
+<div class="press-meta">G5 Noticias · 2026 · Educación artística</div>
+<h3>Concierto educativo, mediaciones musicales y pasantías estudiantiles</h3>
+</div>
+<a href="https://g5noticias.cl/2026/05/25/ensamble-folk-cerro-semana-de-la-educacion-artistica-con-concierto-educativo-en-valparaiso/" target="_blank" rel="noopener noreferrer" class="discrete-link">Leer nota <span class="arrow" aria-hidden="true">↗</span></a>
+</article>
+<article class="press-item">
+<div>
+<div class="press-meta">Parque Cultural de Valparaíso · 2024 · Creación colectiva</div>
+<h3>Orquesta Folk de Valparaíso: transmisión oral, improvisación y comunidad</h3>
+</div>
+<a href="https://parquecultural.cl/events/concierto-orquesta-del-folk-de-valparaiso/" target="_blank" rel="noopener noreferrer" class="discrete-link">Leer nota <span class="arrow" aria-hidden="true">↗</span></a>
+</article>
+<article class="press-item">
+<div>
+<div class="press-meta">Alerta Noticias · 2025 · Festival</div>
+<h3>Valpo Folk Fest: música en vivo, formación y colaboración territorial</h3>
+</div>
+<a href="https://alertanoticias.cl/valparaiso/ensamble-folk-y-golosa-la-orquesta-protagonizaran-primera-version-del-festival-valpo-folk-fest-respira/" target="_blank" rel="noopener noreferrer" class="discrete-link">Leer nota <span class="arrow" aria-hidden="true">↗</span></a>
+</article>
+<article class="press-item">
+<div>
+<div class="press-meta">Universidad Andrés Bello · 2026 · Formación</div>
+<h3>Talleres DGDE: experiencia artística y formación integral universitaria</h3>
+</div>
+<a href="https://noticias.unab.cl/talleres-dgde-cierre-1-2026/" target="_blank" rel="noopener noreferrer" class="discrete-link">Leer nota <span class="arrow" aria-hidden="true">↗</span></a>
 </article>
 </div>
 </section>
