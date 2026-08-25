@@ -299,7 +299,12 @@
 <h3>ORQUESTA FOLK</h3>
 <p>Proceso de creación e interpretación colectiva vinculado con músicas de raíz y repertorios latinoamericanos. Corresponde a una de las experiencias de concierto educativo y mediación generadas por Duberly Saavedra Polo en Chile Puerto Folk.</p>
 </div>
-<div class="slot-placeholder">[ Ficha preparada para fotografías y registros específicos del proyecto ]</div>
+<div class="site-photo-container" onclick="openModal('modal-orquesta-folk')">
+<img src="./orquesta-folk-pcdv.jpg" alt="Orquesta Folk interpretando música al aire libre frente al público en el Parque Cultural de Valparaíso." class="site-photo-img" loading="lazy">
+</div>
+<div class="card-action-slot">
+<button class="discrete-link" onclick="openModal('modal-orquesta-folk')">Ver Ficha Expandida & Galería ↗</button>
+</div>
 </article>
 <!-- LÍNEA D: ECAV -->
 <article class="home-access-card">
@@ -308,7 +313,12 @@
 <h3>ECAV</h3>
 <p>Bloque asignado a experiencias educativas, musicales y de mediación desarrolladas con la Corporación Cultural Arte y Vida.</p>
 </div>
-<div class="slot-placeholder">[ Ficha preparada para fotografías, fechas e instituciones específicas ]</div>
+<div class="site-photo-container" onclick="openModal('modal-ecav')">
+<img src="./ecav-01-limpia.png" alt="Presentación musical de ECAV ante una comunidad reunida en una sala." class="site-photo-img" loading="lazy">
+</div>
+<div class="card-action-slot">
+<button class="discrete-link" onclick="openModal('modal-ecav')">Ver Ficha Expandida & Galería ↗</button>
+</div>
 </article>
 </div>
 </section>
@@ -540,6 +550,76 @@
 <img src="./mediacion-unab-04.jpg" alt="Estudiantes del Taller de Canto saludando al público al finalizar una presentación en la Universidad Andrés Bello." class="site-photo-img" loading="lazy">
 </div>
 <div class="photo-credit">Cierre de presentación del Taller de Canto UNAB</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal Orquesta Folk -->
+<div id="modal-orquesta-folk" class="project-modal" role="dialog" aria-modal="true" aria-label="Ficha expandida Orquesta Folk">
+<div class="modal-content-wrapper">
+<button class="modal-close-btn" onclick="closeModal('modal-orquesta-folk')" aria-label="Cerrar modal">&times;</button>
+<div class="card-number">Creación Colectiva — Ficha Expandida</div>
+<h2 style="font-size: 1.8rem; margin-bottom: 0.8rem; font-family: var(--font-serif);">Orquesta Folk</h2>
+<p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Proceso de interpretación, aprendizaje y mediación musical vinculado con repertorios de raíz y prácticas colectivas.</p>
+<div class="modal-gallery-grid">
+<div>
+<div class="site-photo-container" onclick="openLightbox('./orquesta-folk-pcdv.jpg')">
+<img src="./orquesta-folk-pcdv.jpg" alt="Orquesta Folk interpretando música al aire libre frente al público en el Parque Cultural de Valparaíso." class="site-photo-img" loading="lazy">
+</div>
+<div class="photo-credit">Presentación de la Orquesta Folk</div>
+</div>
+<div>
+<div class="site-photo-container" onclick="openLightbox('./orquesta-folk-pcdv-02.jpg')">
+<img src="./orquesta-folk-pcdv-02.jpg" alt="Público reunido al aire libre durante una presentación de la Orquesta Folk." class="site-photo-img" loading="lazy">
+</div>
+<div class="photo-credit">Encuentro con el público</div>
+</div>
+<div>
+<div class="site-photo-container" onclick="openLightbox('./orquesta-folk-aprendizaje-horizontal.jpg')">
+<img src="./orquesta-folk-aprendizaje-horizontal.jpg" alt="Integrantes de la Orquesta Folk reunidos en una instancia de aprendizaje colectivo." class="site-photo-img" loading="lazy">
+</div>
+<div class="photo-credit">Aprendizaje y trabajo colectivo</div>
+</div>
+<div>
+<div class="site-photo-container" onclick="openLightbox('./orquesta-folk-mediacion.jpg')">
+<img src="./orquesta-folk-mediacion.jpg" alt="Músicos e integrantes de la Orquesta Folk participando en una experiencia de mediación." class="site-photo-img" loading="lazy">
+</div>
+<div class="photo-credit">Proceso de mediación musical</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal ECAV -->
+<div id="modal-ecav" class="project-modal" role="dialog" aria-modal="true" aria-label="Ficha expandida ECAV">
+<div class="modal-content-wrapper">
+<button class="modal-close-btn" onclick="closeModal('modal-ecav')" aria-label="Cerrar modal">&times;</button>
+<div class="card-number">Formación y Mediación — Ficha Expandida</div>
+<h2 style="font-size: 1.8rem; margin-bottom: 0.8rem; font-family: var(--font-serif);">ECAV</h2>
+<p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Experiencias educativas, musicales y de mediación desarrolladas con la Corporación Cultural Arte y Vida.</p>
+<div class="modal-gallery-grid">
+<div>
+<div class="site-photo-container" onclick="openLightbox('./ecav-01-limpia.png')">
+<img src="./ecav-01-limpia.png" alt="Presentación musical de ECAV ante una comunidad reunida en una sala." class="site-photo-img" loading="lazy">
+</div>
+<div class="photo-credit">Presentación musical y encuentro comunitario</div>
+</div>
+<div>
+<div class="site-photo-container" onclick="openLightbox('./ecav-02-limpia.png')">
+<img src="./ecav-02-limpia.png" alt="Experiencia artística comunitaria de ECAV realizada en un espacio abierto." class="site-photo-img" loading="lazy">
+</div>
+<div class="photo-credit">Participación artística comunitaria</div>
+</div>
+<div>
+<div class="site-photo-container" onclick="openLightbox('./ecav-patrimonial.jpg')">
+<img src="./ecav-patrimonial.jpg" alt="Presentación de estudiantes de ECAV frente a un edificio patrimonial y público asistente." class="site-photo-img" loading="lazy">
+</div>
+<div class="photo-credit">Música y espacio patrimonial</div>
+</div>
+<div>
+<div class="site-photo-container" onclick="openLightbox('./ecav-intervenciones-territoriales.JPG')">
+<img src="./ecav-intervenciones-territoriales.JPG" alt="Intérpretes vocales de ECAV durante una intervención musical ante el público." class="site-photo-img" loading="lazy">
+</div>
+<div class="photo-credit">Intervenciones territoriales</div>
 </div>
 </div>
 </div>
