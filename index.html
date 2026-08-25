@@ -63,6 +63,18 @@ nav.main-nav button.active { color: var(--accent-light); border-bottom-color: va
 #obra iframe[src*="/artist/"] { height: 220px; }
 #obra iframe[src*="/playlist/"] { height: 235px; }
 #obra .channel-card { max-width: 430px; min-height: 0; align-self: start; }
+#obra .card-grid { grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 1rem; align-items: start; }
+#obra .card-grid > article:nth-child(odd) { grid-column: 1 / span 7; z-index: 1; }
+#obra .card-grid > article:nth-child(even) { grid-column: 7 / span 6; margin-top: 3rem; margin-left: -1.25rem; z-index: 2; }
+#obra .creation-feature { width: 72%; position: relative; }
+#obra .creation-feature-left { margin: 1.2rem auto 2rem 4%; }
+#obra .creation-feature-right { margin: -0.5rem 3% 3rem auto; z-index: 3; }
+#obra .playlist-frame { background: linear-gradient(135deg, rgba(20, 40, 52, 0.82), rgba(30, 58, 61, 0.62)); border: 1px solid rgba(158, 212, 226, 0.18); }
+/* BIO COMPACTA Y CENTRADA */
+#biocv .section-header { max-width: 860px; margin: 0 auto 2rem; text-align: center; }
+#biocv .section-header p.section-lead { margin: 0 auto; }
+#biocv .bio-body { max-width: 860px; margin: 0 auto; text-align: justify; text-justify: inter-word; }
+#biocv .bio-body p { font-size: 0.96rem; line-height: 1.72; margin-bottom: 1.1rem; }
 /* TARJETAS Y ESTRUCTURA DE FICHAS */ .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.8rem; margin-top: 1.5rem; }
 .mycelial-grid { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(12, 1fr); gap: 2rem; align-items: start; }
 .home-access-card { border: none; padding: 2.2rem; text-decoration: none; color: inherit; display: flex; flex-direction: column; justify-content: space-between; position: relative; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35); background: linear-gradient(135deg, rgba(20, 40, 52, 0.6) 0%, rgba(17, 22, 25, 0.5) 100%); border-radius: 20px; opacity: 0; transform: translateY(20px); animation: fadeInOrganic 0.8s var(--ease-out) forwards; transition: transform 0.4s var(--ease-out), background 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease; }
@@ -116,6 +128,9 @@ header.site-header { flex-direction: column; gap: 1rem; padding: 1.2rem 1.5rem; 
 nav.main-nav { justify-content: center; gap: 0.8rem; }
 .hero-title { letter-spacing: 0.18em; }
 .modal-content-wrapper { padding: 1.5rem; }
+#obra .card-grid { display: flex; flex-direction: column; }
+#obra .card-grid > article, #obra .creation-feature { width: 100%; margin: 0 0 1rem !important; }
+#biocv .bio-body { text-align: left; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; }
 .home-access-card, .site-photo-container { opacity: 1; transform: none; }
@@ -153,10 +168,10 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 </div>
 </div>
 <div class="home-presentation-single">
-<p>Soy Duberly Saavedra Polo, músico, artista e investigador nacido en Quillota y radicado en Valparaíso. Mi trabajo parte de la voz y se expande hacia la canción, la creación sonora, la escritura y la mediación artística.</p>
-<p>Mi creación musical se despliega en distintos formatos: el proyecto solista DUBERLY, mi trabajo como vocalista y director artístico del Ensamble Folk, y las experiencias colaborativas impulsadas desde Chile Puerto Folk.</p>
-<p>Entiendo estos proyectos como ecosistemas colaborativos: tramas en las que personas, saberes, lenguajes y territorios se encuentran y se transforman. Como un micelio, cada experiencia establece conexiones, activa nuevos procesos y continúa creciendo más allá de su momento de realización.</p>
-<p>Actualmente desarrollo una investigación doctoral sobre la mediación artística como práctica de creación y producción de conocimiento.</p>
+<p>Duberly Saavedra Polo es músico, artista e investigador, nacido en Quillota y radicado en Valparaíso. Su práctica parte de la voz y se expande hacia la canción, la creación sonora, la escritura y la mediación artística.</p>
+<p>Su creación musical se despliega en distintos formatos: el proyecto solista DUBERLY, su trabajo como vocalista y director artístico del Ensamble Folk, y las experiencias colaborativas que impulsa desde diversos espacios.</p>
+<p>Estos proyectos forman ecosistemas colaborativos: tramas en las que personas, saberes, lenguajes y territorios se encuentran y se transforman. Como un micelio, cada experiencia establece conexiones, activa nuevos procesos y continúa creciendo más allá de su momento de realización.</p>
+<p>Actualmente desarrolla una investigación doctoral sobre la mediación artística como práctica de creación y producción de conocimiento.</p>
 </div>
 </div>
 <div class="mycelial-network-container">
@@ -206,12 +221,12 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 <section id="obra" class="tab-content">
 <div class="section-header">
 <h1>CREACIÓN</h1>
-<p class="section-lead">Mi práctica artística nace en la voz y se desplaza entre la canción, el paisaje sonoro, la escritura y la experiencia colectiva. Cada proyecto abre un ecosistema distinto: la identidad solista de DUBERLY, la creación compartida del Ensamble Folk y las exploraciones que conectan escucha, territorio y memoria.</p>
+<p class="section-lead">La práctica artística de Duberly Saavedra Polo nace en la voz y se desplaza entre la canción, el paisaje sonoro, la escritura y la experiencia colectiva. Cada proyecto abre un ecosistema distinto: la identidad solista de DUBERLY, la creación compartida del Ensamble Folk y las exploraciones que conectan escucha, territorio y memoria.</p>
 </div>
 <!-- DUBERLY SOLISTA -->
 <div class="sub-header">
 <h2>DUBERLY</h2>
-<p>DUBERLY es mi proyecto musical solista: un espacio donde la canción convive con la experimentación vocal, las texturas acústicas y electrónicas, la poesía y la imagen. En 2026 publiqué INICIA, junto a TANKBOY, y SOLO VOCAL. Actualmente desarrollo mi primer álbum solista.</p>
+<p>DUBERLY es su proyecto musical solista: un espacio donde la canción convive con la experimentación vocal, las texturas acústicas y electrónicas, la poesía y la imagen. En 2026 publicó INICIA, junto a TANKBOY, y SOLO VOCAL. Actualmente desarrolla su primer álbum solista.</p>
 </div>
 <!-- FICHAS MUSICA LE SOLISTA PRIMERO -->
 <div class="card-grid">
@@ -255,11 +270,11 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 </article>
 </div>
 <!-- Perfil Artista Spotify DUBERLY -->
-<article class="home-access-card" style="margin-top: 2rem; margin-bottom: 2rem;">
+<article class="home-access-card creation-feature creation-feature-left">
 <div>
 <div class="card-number">Perfil Artista Solista</div>
 <h3>DUBERLY en Spotify</h3>
-<p>Reúne mis lanzamientos y las distintas etapas de una obra solista todavía en expansión.</p>
+<p>Reúne sus lanzamientos y las distintas etapas de una obra solista todavía en expansión.</p>
 </div>
 <div class="card-embed-slot">
 <iframe src="https://open.spotify.com/embed/artist/2O47nAAKaTTE7CrG0OcBly?utm_source=generator" height="352" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
@@ -272,14 +287,14 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 </div>
 </article>
 <!-- Playlist LA VOZ DE DUBERLY -->
-<article class="home-access-card" style="margin-bottom: 3.5rem;">
+<article class="home-access-card creation-feature creation-feature-right playlist-frame">
 <div>
 <div class="card-number">Compilación Sonora</div>
 <h3>LA VOZ DE DUBERLY</h3>
-<p>Un recorrido por mi voz a través del proyecto solista, el Ensamble Folk y otras colaboraciones: distintos contextos unidos por una misma materia vocal.</p>
+<p>Un recorrido por su voz a través del proyecto solista, el Ensamble Folk y otras colaboraciones: distintos contextos unidos por una misma materia vocal.</p>
 </div>
 <div class="card-embed-slot">
-<iframe src="https://open.spotify.com/embed/playlist/1jwC4DRxiAeOvSRtDrG2mH?utm_source=generator" height="380" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<iframe src="https://open.spotify.com/embed/playlist/1jwC4DRxiAeOvSRtDrG2mH?utm_source=generator&amp;theme=0" height="380" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 </div>
 <div class="card-action-slot">
 <a href="https://open.spotify.com/playlist/1jwC4DRxiAeOvSRtDrG2mH?si=WxIMVuirQFOkc3YYZwcqQQ" target="_blank" rel="noopener noreferrer" class="discrete-link" aria-label="Escuchar la playlist LA VOZ DE DUBERLY">
@@ -291,7 +306,7 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 <!-- ENSAMBLE TRANSATLÁNTICO DE FOLK CHILENO -->
 <div class="sub-header">
 <h2>ENSAMBLE FOLK</h2>
-<p>Soy vocalista y director artístico del Ensamble Folk, una práctica colectiva donde interpretación, dirección escénica, arreglos y circulación internacional se alimentan mutuamente. Sus producciones —Vivo, Vol. I, Vol. II y Cartografía Sonora Latinoamericana— registran un recorrido compartido por Chile, India, Japón, Corea del Sur y Europa entre 2016 y 2025.</p>
+<p>Duberly es vocalista y director artístico del Ensamble Folk, una práctica colectiva donde interpretación, dirección escénica, arreglos y circulación internacional se alimentan mutuamente. Sus producciones —Vivo, Vol. I, Vol. II y Cartografía Sonora Latinoamericana— registran un recorrido compartido por Chile, India, Japón, Corea del Sur y Europa entre 2016 y 2025.</p>
 </div>
 <div class="card-grid" style="margin-bottom: 2rem;">
 <article class="home-access-card">
@@ -385,7 +400,7 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 <section id="mediacion" class="tab-content">
 <div class="section-header">
 <h1>MEDIACIÓN</h1>
-<p class="section-lead">Desde Chile Puerto Folk y otros espacios de colaboración diseño experiencias artísticas donde música, aprendizaje y participación forman un mismo proceso. La mediación participa directamente en la creación: cada encuentro activa una red de intérpretes, comunidades, instituciones y territorios que aprende, transforma y hace circular lo vivido.</p>
+<p class="section-lead">Duberly Saavedra Polo desarrolla experiencias artísticas donde la música, el aprendizaje y la participación forman un mismo proceso. Su práctica de mediación articula intérpretes, comunidades, instituciones y territorios mediante la creación compartida. Este trabajo se despliega en espacios educativos, universitarios y comunitarios; Chile Puerto Folk constituye uno de sus hitos principales y una plataforma sostenida para activar colaboraciones, experiencias escénicas y vínculos territoriales.</p>
 </div>
 <div class="card-grid">
 <!-- LÍNEA A: CONCIERTO EDUCATIVO / CHILE PUERTO FOLK -->
@@ -408,7 +423,7 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 <div>
 <div class="card-number">UNAB — Formación y Creación</div>
 <h3>Experiencias UNAB</h3>
-<p>Desde 2020 desarrollo semestralmente procesos de formación vocal y creación escénica con estudiantes de la Universidad Andrés Bello. El aprendizaje basado en proyectos permite que cada grupo construya su propio montaje y convierta el aula en ensayo, escena y experiencia colectiva.</p>
+<p>Desde 2020 desarrolla semestralmente procesos de formación vocal y creación escénica con estudiantes de la Universidad Andrés Bello. El aprendizaje basado en proyectos permite que cada grupo construya su propio montaje y convierta el aula en ensayo, escena y experiencia colectiva.</p>
 </div>
 <div class="site-photo-container" onclick="openModal('modal-unab')">
 <img src="./mediacion-unab-01.jpg" alt="Escenario iluminado en magenta durante presentación universitaria UNAB." class="site-photo-img" loading="lazy">
@@ -436,7 +451,7 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 <div>
 <div class="card-number">ECAV — Formación Artística</div>
 <h3>ECAV · Escuela Comunitaria de Artes</h3>
-<p>En la Escuela Comunitaria de Artes acompaño procesos musicales que conectan formación, práctica de ensamble, intervención territorial y puesta en escena. Cada presentación es la parte visible de una red cotidiana de aprendizajes, afectos y colaboración.</p>
+<p>En la Escuela Comunitaria de Artes acompaña procesos musicales que conectan formación, práctica de ensamble, intervención territorial y puesta en escena. Cada presentación es la parte visible de una red cotidiana de aprendizajes, afectos y colaboración.</p>
 </div>
 <div class="site-photo-container" onclick="openModal('modal-ecav')">
 <img src="./ecav-01-limpia.png" alt="Presentación musical de ECAV ante una comunidad reunida en una sala." class="site-photo-img" loading="lazy">
@@ -451,7 +466,7 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 <section id="investigacion" class="tab-content">
 <div class="section-header">
 <h1>INVESTIGACIÓN</h1>
-<p class="section-lead">Desde 2024 desarrollo mi Doctorado en Artes Integradas en la Universidad de Playa Ancha. Investigo la mediación artística como una práctica capaz de crear conocimiento desde la experiencia, los vínculos y el territorio. La imagen del micelio me permite observar cómo una acción artística se conecta con otras, circula entre personas y contextos, y produce aprendizajes que ninguna autoría individual podría contener por sí sola.</p>
+<p class="section-lead">Desde 2024, Duberly Saavedra Polo desarrolla su Doctorado en Artes Integradas en la Universidad de Playa Ancha. Su investigación aborda la mediación artística como una práctica capaz de crear conocimiento desde la experiencia, los vínculos y el territorio. La imagen del micelio permite observar cómo una acción artística se conecta con otras, circula entre personas y contextos, y produce aprendizajes que desbordan la autoría individual.</p>
 </div>
 <div class="card-grid">
 <article class="home-access-card">
@@ -467,7 +482,7 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 <section id="escritos" class="tab-content">
 <div class="section-header">
 <h1>ESCRITOS</h1>
-<p class="section-lead">Escribo para registrar recorridos, reunir fragmentos y pensar aquello que la música o la imagen dejan abierto. La escritura artística y académica forma parte del mismo ecosistema: cambia de forma según el contexto, pero conserva preguntas sobre memoria, territorio, creación y vínculos.</p>
+<p class="section-lead">La escritura permite a Duberly registrar recorridos, reunir fragmentos y pensar aquello que la música o la imagen dejan abierto. Su producción artística y académica forma parte del mismo ecosistema: cambia de forma según el contexto y conserva preguntas sobre memoria, territorio, creación y vínculos.</p>
 </div>
 <div class="sub-header">
 <h2>ESCRITOS ARTÍSTICOS</h2>
