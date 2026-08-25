@@ -1,56 +1,391 @@
-<section id="mediacion" class="seccion-mediacion">
-  <!-- CONCIERTOS EDUCATIVOS / CHILE PUERTO FOLK -->
-  <article class="proyecto-mediacion" data-galeria="chile-puerto-folk">
-    <div class="contenedor-imagen-principal">
-      <img 
-        src="./mediacion-concierto-educativo-pcdv.jpg" 
-        alt="Concierto educativo en Parque Cultural de Valparaíso" 
-        loading="lazy" 
-        class="img-principal"
-      />
-      <figcaption class="pie-foto">
-        Concierto educativo, Parque Cultural de Valparaíso. Fotografía: Nathaly Arancibia.
-      </figcaption>
-    </div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sitio Web - Mediación y Obras</title>
+  <style>
+    /* RESET Y ESTILOS BASE */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #0d0d0d;
+      color: #e6e6e6;
+      line-height: 1.6;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-    <!-- Galería interna/secundaria (oculta en vista previa, accesible al abrir) -->
-    <div class="galeria-secundaria-oculta">
-      <img src="./mediacion-chile-puerto-folk.jpg" alt="Chile Puerto Folk - Mediación" loading="lazy" />
-    </div>
-  </article>
+    /* NAVEGACIÓN Y CABECERA */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13, 13, 13, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+    nav a {
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+    nav a:hover {
+      opacity: 1;
+    }
 
-  <!-- EXPERIENCIAS UNAB -->
-  <article class="proyecto-mediacion" data-galeria="experiencias-unab">
-    <div class="contenedor-imagen-principal">
-      <img 
-        src="./mediacion-unab-01.jpg" 
-        alt="Experiencia de aprendizaje basado en proyectos y creación escénica UNAB" 
-        loading="lazy" 
-        class="img-principal"
-      />
-      <figcaption class="pie-foto">
-        Experiencia de aprendizaje basado en proyectos y creación escénica, Universidad Andrés Bello.
-      </figcaption>
-    </div>
+    /* CONTENEDOR PRINCIPAL */
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
 
-    <!-- Galería secundaria / secuencia visual -->
-    <div class="galeria-secundaria-oculta">
-      <img src="./mediacion-unab-02.jpg" alt="Experiencia UNAB 02" loading="lazy" />
-      <img src="./mediacion-unab-03.jpg" alt="Experiencia UNAB 03" loading="lazy" />
-    </div>
-  </article>
+    section {
+      margin-bottom: 5rem;
+    }
 
-  <!-- ORQUESTA FOLK (Bloque preparado) -->
-  <article class="proyecto-mediacion bloque-pendiente" id="orquesta-folk">
-    <div class="contenedor-placeholder">
-      <span class="etiqueta-bloque">ORQUESTA FOLK</span>
-    </div>
-  </article>
+    h2 {
+      font-size: 1.2rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      opacity: 0.6;
+      font-weight: 400;
+    }
 
-  <!-- ECAV (Bloque preparado) -->
-  <article class="proyecto-mediacion bloque-pendiente" id="ecav">
-    <div class="contenedor-placeholder">
-      <span class="etiqueta-bloque">ECAV</span>
+    /* INICIO */
+    .inicio-contenedor {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .retrato-inicio {
+      width: 220px;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      object-fit: cover;
+    }
+
+    /* OBRAS MUSICALES (MANTENIDO) */
+    .obras-lista {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .obra-card {
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 4px;
+      backdrop-filter: blur(5px);
+    }
+
+    /* TRATAMIENTO VISUAL SECCIÓN MEDIACIÓN */
+    .red-mediacion {
+      display: flex;
+      flex-direction: column;
+      gap: 3.5rem;
+    }
+
+    .proyecto-mediacion {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .contenedor-imagen-principal {
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(8px);
+      cursor: pointer;
+    }
+
+    .img-principal {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Transición suave al pasar el cursor */
+    .contenedor-imagen-principal:hover .img-principal {
+      transform: scale(1.015);
+    }
+
+    .contenedor-imagen-principal:hover {
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .pie-foto {
+      font-size: 0.85rem;
+      opacity: 0.75;
+      padding: 0.5rem 0.25rem 0;
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .titulo-proyecto {
+      font-size: 1.1rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+      opacity: 0.9;
+    }
+
+    /* Galerías secundarias internas (Ocultas hasta interacción/ampliación) */
+    .galeria-secundaria-oculta {
+      display: none;
+    }
+
+    /* BLOQUES VACÍOS PREPARADOS (ORQUESTA FOLK & ECAV) */
+    .bloque-pendiente {
+      min-height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px dashed rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+    }
+
+    .etiqueta-bloque {
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      opacity: 0.4;
+      text-transform: uppercase;
+    }
+
+    /* AMPLIACIÓN / MODAL DE GALERÍA (JS) */
+    .modal-galeria {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(15px);
+      z-index: 1000;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 2rem;
+    }
+    .modal-galeria.activo {
+      display: flex;
+    }
+    .modal-contenido {
+      max-width: 90vw;
+      max-height: 80vh;
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      padding: 1rem;
+    }
+    .modal-contenido img {
+      max-height: 75vh;
+      width: auto;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+    .cerrar-modal {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      opacity: 0.7;
+    }
+    .cerrar-modal:hover {
+      opacity: 1;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      main {
+        padding: 2rem 1rem;
+      }
+      .inicio-contenedor {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .retrato-inicio {
+        width: 100%;
+        max-width: 280px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PORTADA / CABECERA -->
+  <header>
+    <div class="logo">PORTAFOLIO</div>
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#obras">Obras Musicales</a></li>
+        <li><a href="#mediacion">Mediación</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- SECCIÓN INICIO -->
+    <section id="inicio">
+      <h2>Inicio</h2>
+      <div class="inicio-contenedor">
+        <!-- RUTA CONSERVADA INTACTA -->
+        <img 
+          src="./duberly-retrato-inicio.jpg" 
+          alt="Retrato inicio" 
+          class="retrato-inicio" 
+          loading="lazy"
+        />
+        <div>
+          <p>Plataforma de difusión, obras musicales, investigación y proyectos de mediación artística.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN OBRAS MUSICALES -->
+    <section id="obras">
+      <h2>Obras Musicales</h2>
+      <div class="obras-lista">
+        <article class="obra-card">
+          <h3>Catálogo de Obras</h3>
+          <p>Enlaces y reproductores de audio integrados.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECCIÓN MEDIACIÓN (NUEVA INTEGRACIÓN) -->
+    <section id="mediacion">
+      <h2>Mediación</h2>
+
+      <div class="red-mediacion">
+        
+        <!-- PROYECTO 1: CONCIERTOS EDUCATIVOS / CHILE PUERTO FOLK -->
+        <article class="proyecto-mediacion" onclick="abrirGaleria('galeria-pcdv')">
+          <h3 class="titulo-proyecto">Conciertos Educativos / Chile Puerto Folk</h3>
+          <div class="contenedor-imagen-principal">
+            <img 
+              src="./mediacion-concierto-educativo-pcdv.jpg" 
+              alt="Concierto educativo, Parque Cultural de Valparaíso" 
+              loading="lazy" 
+              class="img-principal"
+            />
+          </div>
+          <figcaption class="pie-foto">
+            Concierto educativo, Parque Cultural de Valparaíso. Fotografía: Nathaly Arancibia.
+          </figcaption>
+
+          <!-- Galería interna secundaria -->
+          <div id="galeria-pcdv" class="galeria-secundaria-oculta">
+            <img src="./mediacion-concierto-educativo-pcdv.jpg" alt="Concierto Educativo PCDV" />
+            <img src="./mediacion-chile-puerto-folk.jpg" alt="Chile Puerto Folk" />
+          </div>
+        </article>
+
+        <!-- PROYECTO 2: EXPERIENCIAS UNAB -->
+        <article class="proyecto-mediacion" onclick="abrirGaleria('galeria-unab')">
+          <h3 class="titulo-proyecto">Experiencias UNAB</h3>
+          <div class="contenedor-imagen-principal">
+            <img 
+              src="./mediacion-unab-01.jpg" 
+              alt="Experiencias UNAB - Aprendizaje basado en proyectos" 
+              loading="lazy" 
+              class="img-principal"
+            />
+          </div>
+          <figcaption class="pie-foto">
+            Experiencias de aprendizaje basado en proyectos y creación escénica desarrolladas en la Universidad Andrés Bello.
+          </figcaption>
+
+          <!-- Secuencia visual interna UNAB -->
+          <div id="galeria-unab" class="galeria-secundaria-oculta">
+            <img src="./mediacion-unab-01.jpg" alt="Experiencias UNAB 01" />
+            <img src="./mediacion-unab-02.jpg" alt="Experiencias UNAB 02" />
+            <img src="./mediacion-unab-03.jpg" alt="Experiencias UNAB 03" />
+          </div>
+        </article>
+
+        <!-- BLOQUE PROPIO: ORQUESTA FOLK -->
+        <article class="proyecto-mediacion" id="orquesta-folk">
+          <h3 class="titulo-proyecto">Orquesta Folk</h3>
+          <div class="bloque-pendiente">
+            <span class="etiqueta-bloque">Orquesta Folk — Registro en preparación</span>
+          </div>
+        </article>
+
+        <!-- BLOQUE PROPIO: ECAV -->
+        <article class="proyecto-mediacion" id="ecav">
+          <h3 class="titulo-proyecto">ECAV</h3>
+          <div class="bloque-pendiente">
+            <span class="etiqueta-bloque">ECAV — Registro en preparación</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL PARA AMPLIACIÓN Y GALERÍA -->
+  <div id="modalGaleria" class="modal-galeria" onclick="cerrarGaleria()">
+    <span class="cerrar-modal">&times;</span>
+    <div class="modal-contenido" id="modalContenido" onclick="event.stopPropagation()">
+      <!-- Las imágenes se cargan dinámicamente al hacer clic -->
     </div>
-  </article>
-</section>
+  </div>
+
+  <script>
+    function abrirGaleria(idGaleria) {
+      const contenedorOrigen = document.getElementById(idGaleria);
+      const modal = document.getElementById('modalGaleria');
+      const modalContenido = document.getElementById('modalContenido');
+      
+      if (!contenedorOrigen) return;
+
+      modalContenido.innerHTML = '';
+      const imagenes = contenedorOrigen.querySelectorAll('img');
+      
+      imagenes.forEach(img => {
+        const nuevaImg = document.createElement('img');
+        nuevaImg.src = img.src;
+        nuevaImg.alt = img.alt;
+        modalContenido.appendChild(nuevaImg);
+      });
+
+      modal.classList.add('activo');
+    }
+
+    function cerrarGaleria() {
+      document.getElementById('modalGaleria').classList.remove('activo');
+    }
+  </script>
+</body>
+</html>
