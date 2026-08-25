@@ -51,6 +51,18 @@ nav.main-nav button.active { color: var(--accent-light); border-bottom-color: va
 .home-portrait-static { cursor: default; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.46), 0 22px 60px -18px rgba(59, 110, 114, 0.55); }
 .home-portrait-static:hover { transform: none; box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5), 0 24px 66px -16px rgba(59, 110, 114, 0.62); }
 .home-portrait-static:hover .site-photo-img { transform: none; filter: brightness(1.035) contrast(1.01); }
+/* ESCALA COMPACTA PARA CREACIÓN */
+#obra .section-header { margin-bottom: 2rem; }
+#obra .sub-header { margin-top: 2.25rem; margin-bottom: 1.1rem; }
+#obra .card-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.1rem; }
+#obra .home-access-card { padding: 1.35rem; border-radius: 15px; }
+#obra .home-access-card h3 { font-size: 1.2rem; }
+#obra .home-access-card p { font-size: 0.84rem; line-height: 1.5; }
+#obra .site-photo-container { margin-bottom: 0.75rem; }
+#obra .card-action-slot { margin-top: 0.75rem; padding-top: 0.6rem; }
+#obra iframe[src*="/artist/"] { height: 220px; }
+#obra iframe[src*="/playlist/"] { height: 235px; }
+#obra .channel-card { max-width: 430px; min-height: 0; align-self: start; }
 /* TARJETAS Y ESTRUCTURA DE FICHAS */ .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.8rem; margin-top: 1.5rem; }
 .mycelial-grid { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(12, 1fr); gap: 2rem; align-items: start; }
 .home-access-card { border: none; padding: 2.2rem; text-decoration: none; color: inherit; display: flex; flex-direction: column; justify-content: space-between; position: relative; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35); background: linear-gradient(135deg, rgba(20, 40, 52, 0.6) 0%, rgba(17, 22, 25, 0.5) 100%); border-radius: 20px; opacity: 0; transform: translateY(20px); animation: fadeInOrganic 0.8s var(--ease-out) forwards; transition: transform 0.4s var(--ease-out), background 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease; }
@@ -121,7 +133,7 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 <a class="brand-signature" onclick="returnToCover()" title="Regresar a la portada">DUBERLY</a>
 <nav class="main-nav">
 <button class="nav-btn active" onclick="switchTab('inicio')">Inicio</button>
-<button class="nav-btn" onclick="switchTab('obra')">Obra</button>
+<button class="nav-btn" onclick="switchTab('obra')">Creación</button>
 <button class="nav-btn" onclick="switchTab('mediacion')">Mediación</button>
 <button class="nav-btn" onclick="switchTab('investigacion')">Investigación</button>
 <button class="nav-btn" onclick="switchTab('escritos')">Escritos</button>
@@ -142,7 +154,7 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 </div>
 <div class="home-presentation-single">
 <p>Soy Duberly Saavedra Polo, músico, artista e investigador nacido en Quillota y radicado en Valparaíso. Mi trabajo parte de la voz y se expande hacia la canción, la creación sonora, la escritura y la mediación artística.</p>
-<p>Creo música como DUBERLY y soy vocalista y director artístico del Ensamble Folk. Desde Chile Puerto Folk impulso experiencias artísticas que relacionan música en vivo, participación, aprendizaje y creación colectiva.</p>
+<p>Mi creación musical se despliega en distintos formatos: el proyecto solista DUBERLY, mi trabajo como vocalista y director artístico del Ensamble Folk, y las experiencias colaborativas impulsadas desde Chile Puerto Folk.</p>
 <p>Entiendo estos proyectos como ecosistemas colaborativos: tramas en las que personas, saberes, lenguajes y territorios se encuentran y se transforman. Como un micelio, cada experiencia establece conexiones, activa nuevos procesos y continúa creciendo más allá de su momento de realización.</p>
 <p>Actualmente desarrollo una investigación doctoral sobre la mediación artística como práctica de creación y producción de conocimiento.</p>
 </div>
@@ -162,7 +174,7 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 <a class="home-access-card home-card-obra" onclick="switchTab('obra')" tabindex="0">
 <div>
 <div class="card-number">01 / Creación</div>
-<h2>OBRA</h2>
+<h2>CREACIÓN</h2>
 <p>Canción, voz, creación sonora y obras nacidas del diálogo con otros lenguajes y territorios.</p>
 </div>
 </a>
@@ -193,8 +205,8 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 <!-- OBRA -->
 <section id="obra" class="tab-content">
 <div class="section-header">
-<h1>OBRA</h1>
-<p class="section-lead">Mi obra nace en la voz y se desplaza entre la canción, el paisaje sonoro, la escritura y la experiencia colectiva. Cada proyecto abre un ecosistema distinto: la identidad solista de DUBERLY, la creación compartida del Ensamble Folk y las exploraciones que conectan escucha, territorio y memoria.</p>
+<h1>CREACIÓN</h1>
+<p class="section-lead">Mi práctica artística nace en la voz y se desplaza entre la canción, el paisaje sonoro, la escritura y la experiencia colectiva. Cada proyecto abre un ecosistema distinto: la identidad solista de DUBERLY, la creación compartida del Ensamble Folk y las exploraciones que conectan escucha, territorio y memoria.</p>
 </div>
 <!-- DUBERLY SOLISTA -->
 <div class="sub-header">
@@ -293,6 +305,10 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 </div>
 <div class="card-action-slot">
 <button class="discrete-link" onclick="openModal('modal-cartografia')">Abrir experiencia ↗</button>
+<a href="https://open.spotify.com/intl-es/album/5xBfxO6GNtnoI1f7F4zKz8?si=zZ2Wze47TdKQsiVnkN34gw" target="_blank" rel="noopener noreferrer" class="discrete-link" aria-label="Escuchar Cartografía Sonora Latinoamericana en Spotify">
+<span>Escuchar disco en Spotify</span>
+<span class="arrow" aria-hidden="true">↗</span>
+</a>
 </div>
 </article>
 <article class="home-access-card">
@@ -303,6 +319,12 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 </div>
 <div class="site-photo-container" onclick="openLightbox('./ensamble-beso-mineral.jpg')">
 <img src="./ensamble-beso-mineral.jpg" alt="Collage de volcanes y paisaje nocturno correspondiente a Beso Mineral." class="site-photo-img" loading="lazy">
+</div>
+<div class="card-action-slot">
+<a href="https://www.youtube.com/watch?v=ujjYMqJ6tMM" target="_blank" rel="noopener noreferrer" class="discrete-link" aria-label="Ver Beso Mineral en YouTube">
+<span>Ver video en YouTube</span>
+<span class="arrow" aria-hidden="true">↗</span>
+</a>
 </div>
 </article>
 </div>
@@ -344,7 +366,7 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 </a>
 </div>
 </article>
-<article class="home-access-card">
+<article class="home-access-card channel-card">
 <div>
 <div class="card-number">Canal Oficial</div>
 <h3>YouTube · Duberly</h3>
@@ -363,15 +385,15 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 <section id="mediacion" class="tab-content">
 <div class="section-header">
 <h1>MEDIACIÓN</h1>
-<p class="section-lead">Desde Chile Puerto Folk y otros espacios de colaboración diseño experiencias artísticas donde música, aprendizaje y participación forman un mismo proceso. La mediación no ocurre alrededor de la obra: es parte de su creación. Cada encuentro activa una red de intérpretes, comunidades, instituciones y territorios que aprende, transforma y hace circular lo vivido.</p>
+<p class="section-lead">Desde Chile Puerto Folk y otros espacios de colaboración diseño experiencias artísticas donde música, aprendizaje y participación forman un mismo proceso. La mediación participa directamente en la creación: cada encuentro activa una red de intérpretes, comunidades, instituciones y territorios que aprende, transforma y hace circular lo vivido.</p>
 </div>
 <div class="card-grid">
 <!-- LÍNEA A: CONCIERTO EDUCATIVO / CHILE PUERTO FOLK -->
 <article class="home-access-card">
 <div>
 <div class="card-number">Chile Puerto Folk — Experiencias Artísticas</div>
-<h3>Experiencias artísticas / Chile Puerto Folk</h3>
-<p>Encuentros desarrollados en Valparaíso donde la música en vivo se abre a la conversación, el movimiento, la escucha y la participación. Artistas, estudiantes y comunidades educativas dejan de ocupar lugares separados y construyen una experiencia común.</p>
+<h3>Conciertos educativos / Chile Puerto Folk</h3>
+<p>Conciertos educativos desarrollados desde 2020 en el contexto de la Semana de la Educación Artística, en conexión con el Parque Cultural de Valparaíso y diversos establecimientos educativos del territorio.</p>
 </div>
 <div class="site-photo-container" onclick="openModal('modal-mediacion-educativo')">
 <img src="./mediacion-concierto-educativo-pcdv.JPG" alt="Concierto educativo al aire libre con músicos, estudiantes y público en Valparaíso." class="site-photo-img" loading="lazy">
@@ -386,7 +408,7 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 <div>
 <div class="card-number">UNAB — Formación y Creación</div>
 <h3>Experiencias UNAB</h3>
-<p>Desde 2020 desarrollo procesos de formación vocal y creación escénica con estudiantes de la Universidad Andrés Bello. El aprendizaje basado en proyectos permite que cada grupo construya su propio montaje y convierta el aula en ensayo, escena y experiencia colectiva.</p>
+<p>Desde 2020 desarrollo semestralmente procesos de formación vocal y creación escénica con estudiantes de la Universidad Andrés Bello. El aprendizaje basado en proyectos permite que cada grupo construya su propio montaje y convierta el aula en ensayo, escena y experiencia colectiva.</p>
 </div>
 <div class="site-photo-container" onclick="openModal('modal-unab')">
 <img src="./mediacion-unab-01.jpg" alt="Escenario iluminado en magenta durante presentación universitaria UNAB." class="site-photo-img" loading="lazy">
@@ -413,8 +435,8 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 <article class="home-access-card">
 <div>
 <div class="card-number">ECAV — Formación Artística</div>
-<h3>ECAV</h3>
-<p>En ECAV acompaño procesos musicales que conectan formación, práctica de ensamble, intervención territorial y puesta en escena. Cada presentación es la parte visible de una red cotidiana de aprendizajes, afectos y colaboración.</p>
+<h3>ECAV · Escuela Comunitaria de Artes</h3>
+<p>En la Escuela Comunitaria de Artes acompaño procesos musicales que conectan formación, práctica de ensamble, intervención territorial y puesta en escena. Cada presentación es la parte visible de una red cotidiana de aprendizajes, afectos y colaboración.</p>
 </div>
 <div class="site-photo-container" onclick="openModal('modal-ecav')">
 <img src="./ecav-01-limpia.png" alt="Presentación musical de ECAV ante una comunidad reunida en una sala." class="site-photo-img" loading="lazy">
@@ -568,7 +590,7 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 </div>
 <div>
 <div class="site-photo-container" onclick="openLightbox('./ensamble-cartografia-contracara.png')">
-<img src="./ensamble-cartografia-contracara.png" alt="Contracara de Cartografía Sonora Latinoamericana con lista de temas y créditos detallados." class="site-photo-img" loading="lazy">
+<img src="./ensamble-cartografia-contracara.png" onerror="this.onerror=null; this.src='./ensamble-cartografia-contracara.jpg';" alt="Contracara de Cartografía Sonora Latinoamericana con lista de temas y créditos detallados." class="site-photo-img" loading="lazy">
 </div>
 <div class="photo-credit">Material secundario / Contracara</div>
 </div>
@@ -685,7 +707,7 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 <div class="modal-content-wrapper">
 <button class="modal-close-btn" onclick="closeModal('modal-ecav')" aria-label="Cerrar modal">&times;</button>
 <div class="card-number">ECAV — Formación y Mediación</div>
-<h2 style="font-size: 1.8rem; margin-bottom: 0.8rem; font-family: var(--font-serif);">ECAV</h2>
+<h2 style="font-size: 1.8rem; margin-bottom: 0.8rem; font-family: var(--font-serif);">ECAV · Escuela Comunitaria de Artes</h2>
 <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Formación, ensambles e intervenciones territoriales conectados por una red cotidiana de aprendizaje y colaboración.</p>
 <div class="modal-gallery-grid">
 <div>
