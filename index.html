@@ -319,6 +319,286 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 
 /* Los modales se mantienen más sólidos por legibilidad y foco. */
 
+
+/* =========================================================
+   INVESTIGACIÓN — MICELIO CULTURAL / DIAGRAMA VIVO
+   ========================================================= */
+#investigacion .section-header { margin-bottom: 2.2rem; }
+
+.research-intro {
+  max-width: 760px;
+  padding: 0.2rem 0 0.4rem 1.4rem;
+  border-left: 1px solid rgba(115, 157, 174, 0.34);
+}
+.research-intro h2 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(1.65rem, 3vw, 2.25rem);
+  margin: 0.15rem 0 0.55rem;
+}
+.research-intro p {
+  max-width: 700px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+.micelio-subheader { margin-top: 3.2rem; }
+
+.micelio-experiment {
+  position: relative;
+  margin-top: 1rem;
+}
+.micelio-visual-wrap {
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+  overflow: hidden;
+  border-top: 1px solid rgba(158, 212, 226, 0.05);
+  border-bottom: 1px solid rgba(158, 212, 226, 0.05);
+  background:
+    radial-gradient(circle at 50% 46%, rgba(59,110,114,0.08), transparent 36%),
+    linear-gradient(180deg, rgba(3,5,6,0.03), rgba(3,5,6,0.16));
+}
+.micelio-live-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 500px;
+  overflow: visible;
+}
+.micelio-edge {
+  stroke: rgba(115, 157, 174, 0.22);
+  stroke-width: 1.15;
+  fill: none;
+  transition: stroke 0.35s ease, stroke-width 0.35s ease, opacity 0.35s ease;
+}
+.micelio-edge.local {
+  stroke: rgba(158, 212, 226, 0.42);
+  stroke-width: 1.7;
+  stroke-dasharray: 5 4;
+}
+.micelio-edge.dimmed { opacity: 0.12; }
+.micelio-edge.active {
+  opacity: 1;
+  stroke: rgba(158, 212, 226, 0.75);
+  stroke-width: 2;
+}
+.micelio-node { cursor: pointer; outline: none; }
+.micelio-node circle {
+  fill: rgba(17,22,25,0.86);
+  stroke: rgba(115,157,174,0.58);
+  stroke-width: 1.4;
+  transition: r 0.35s var(--ease-out), fill 0.35s ease, stroke 0.35s ease, opacity 0.35s ease;
+}
+.micelio-node text {
+  fill: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  letter-spacing: 0.035em;
+  text-anchor: middle;
+  pointer-events: none;
+  transition: fill 0.35s ease, opacity 0.35s ease;
+}
+.micelio-node:hover circle,
+.micelio-node:focus circle,
+.micelio-node.active circle {
+  fill: rgba(30,58,61,0.78);
+  stroke: rgba(158,212,226,0.92);
+}
+.micelio-node:hover text,
+.micelio-node:focus text,
+.micelio-node.active text { fill: var(--text-primary); }
+.micelio-node.dimmed { opacity: 0.25; }
+
+.micelio-reading {
+  position: absolute;
+  left: 1.2rem;
+  bottom: 1.2rem;
+  width: min(360px, calc(100% - 2.4rem));
+  padding: 1rem 1.1rem;
+  background: rgba(5,8,10,0.54);
+  border: 1px solid rgba(158,212,226,0.07);
+  border-radius: 14px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.micelio-reading-label {
+  display: block;
+  color: var(--accent-slate);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+.micelio-reading strong {
+  display: block;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 1.15rem;
+  margin-bottom: 0.25rem;
+}
+.micelio-reading p {
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.micelio-status {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 0.15rem 0;
+  color: var(--text-muted);
+  font-size: 0.74rem;
+  letter-spacing: 0.035em;
+}
+
+.micelio-participation {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 2.4rem;
+  align-items: start;
+  margin-top: 3rem;
+  padding: 1.6rem 0 0;
+  border-top: 1px solid rgba(158, 212, 226, 0.07);
+}
+.micelio-form-copy h3 {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin: 0.15rem 0 0.55rem;
+}
+.micelio-form-copy > p {
+  max-width: 430px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+.micelio-qr-box {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: 1.25rem;
+  max-width: 390px;
+}
+.micelio-qr-box img {
+  width: 92px;
+  height: 92px;
+  object-fit: contain;
+  border-radius: 8px;
+  opacity: 0.88;
+}
+.micelio-qr-box strong {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+.micelio-qr-box span {
+  display: block;
+  margin-top: 0.18rem;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.micelio-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.micelio-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.38rem;
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+}
+.micelio-form label > span { letter-spacing: 0.025em; }
+.micelio-form small {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+}
+.micelio-form select,
+.micelio-form input {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.72rem 0.8rem;
+  color: var(--text-primary);
+  background: rgba(17,22,25,0.26);
+  border: 1px solid rgba(115,157,174,0.15);
+  border-radius: 10px;
+  font: inherit;
+  outline: none;
+}
+.micelio-form select:focus,
+.micelio-form input:focus {
+  border-color: rgba(158,212,226,0.55);
+  background: rgba(17,22,25,0.40);
+}
+.micelio-form option { background: #111619; color: var(--text-primary); }
+.micelio-phrase-label { grid-column: 1 / -1; }
+.micelio-form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+.micelio-submit {
+  border: 1px solid rgba(115,157,174,0.22);
+  font-family: var(--font-sans);
+}
+.micelio-reset {
+  appearance: none;
+  background: none;
+  border: 0;
+  color: var(--text-muted);
+  padding: 0.5rem 0.2rem;
+  font: inherit;
+  font-size: 0.74rem;
+  cursor: pointer;
+}
+.micelio-reset:hover,
+.micelio-reset:focus-visible {
+  color: var(--text-secondary);
+  outline: none;
+}
+.micelio-feedback {
+  grid-column: 1 / -1;
+  min-height: 1.3em;
+  color: var(--accent-light);
+  font-size: 0.78rem;
+}
+.micelio-prototype-note {
+  max-width: 760px;
+  margin-top: 2rem;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 820px) {
+  .micelio-visual-wrap { min-height: 430px; }
+  .micelio-live-svg { min-height: 430px; }
+  .micelio-node text { font-size: 21px; }
+  .micelio-reading {
+    left: 0.75rem;
+    bottom: 0.75rem;
+    width: calc(100% - 1.5rem);
+  }
+  .micelio-status { flex-direction: column; gap: 0.15rem; }
+  .micelio-participation {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .micelio-form { grid-template-columns: 1fr; }
+  .micelio-phrase-label,
+  .micelio-form-actions,
+  .micelio-feedback { grid-column: 1; }
+}
+
 </style>
 </head>
 <body>
@@ -735,14 +1015,93 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 <h1>INVESTIGACIÓN</h1>
 <p class="section-lead">Desde 2024, DUBERLY desarrolla su Doctorado en Artes Integradas en la Universidad de Playa Ancha. Su investigación aborda la mediación artística como una práctica capaz de crear conocimiento desde la experiencia, los vínculos y el territorio. La imagen del micelio permite observar cómo una acción artística se conecta con otras, circula entre personas y contextos, y produce aprendizajes que desbordan la autoría individual.</p>
 </div>
-<div class="card-grid">
-<article class="home-access-card">
-<div>
-<div class="card-number">Doctorado en Artes Integradas — UPLA (2024–Presente)</div>
-<h3>Micelio cultural</h3>
-<p>Investigación-creación sobre mediación artística, memoria, tecnologías cotidianas y producción colaborativa de conocimiento en contextos educativos, artísticos y comunitarios.</p>
+
+<div class="research-intro">
+  <div class="card-number">Doctorado en Artes Integradas — UPLA (2024–Presente)</div>
+  <h2>Micelio cultural</h2>
+  <p>Investigación-creación sobre mediación artística, memoria, tecnologías cotidianas y producción colaborativa de conocimiento en contextos educativos, artísticos y comunitarios.</p>
 </div>
-</article>
+
+<div class="sub-header micelio-subheader">
+  <h2>DIAGRAMA VIVO</h2>
+  <p>Una representación experimental de las relaciones que atraviesan la investigación. Toca un nodo para observar sus conexiones o agrega una nueva relación al micelio.</p>
+</div>
+
+<div class="micelio-experiment" id="micelioExperiment">
+  <div class="micelio-visual-wrap">
+    <svg id="micelioSvg" class="micelio-live-svg" viewBox="0 0 1000 610" role="img" aria-labelledby="micelioTitle micelioDesc">
+      <title id="micelioTitle">Micelio cultural interactivo</title>
+      <desc id="micelioDesc">Diagrama de conceptos conectados: creación, mediación, territorio, memoria, tecnología, comunidad y archivo.</desc>
+      <g id="micelioEdges"></g>
+      <g id="micelioNodes"></g>
+    </svg>
+    <div class="micelio-reading" id="micelioReading" aria-live="polite">
+      <span class="micelio-reading-label">Micelio cultural</span>
+      <strong>Explora una relación</strong>
+      <p>Toca cualquier nodo para activar sus conexiones.</p>
+    </div>
+  </div>
+
+  <div class="micelio-status">
+    <span id="micelioStatusText">7 conceptos · 10 relaciones base</span>
+    <span id="micelioLocalCount">0 aportes guardados en este dispositivo</span>
+  </div>
+
+  <div class="micelio-participation" id="participaMicelio">
+    <div class="micelio-form-copy">
+      <div class="card-number">Experimento participativo</div>
+      <h3>Agrega una conexión</h3>
+      <p>Selecciona dos elementos que para ti se relacionan. Puedes dejar además una frase breve sobre ese vínculo.</p>
+      
+<div class="micelio-qr-box">
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXIAAAFyAQAAAADAX2ykAAACeklEQVR4nO2bTW7kIBCF3xssZemWcoA+CtwsZ8oN7KP0DWDZEtabBeD+iaJMJNtqRsWCluFblFQq6lFUU/jNmP/8CgeMN95444033vjveNYxAEgDMJMEsBBIbS8caI/xG/NekhQBhjGDHxFgAMAAJ0nSI7+3PcZvxA/1N50A/wlopssCBCK9iwBAwOWD7DF+W354XvBaCIwRQloopGPtMX5fnjwBQCKBMf/M722P8dvwo6QJgBQB+AhgZg1uSfmZ39se4zflZ5LkCWBIbwLgxI/oxIClyOdj7TF+I76E6K1IWRPueCXm85W63zvCHuP34BnSUCZgzNBUNp3qLhaL3z55lNutohO8csu1owQvCT46aWqfml7NfuN/GLV4UfSVu/eqyoQqt8y/PfI1fqtrMwA4PZzPTlIJbPNvf/xd/LazOAM+OrVMvK6Zfzvkm35OhOZzvea2qpVbtbMTj7HH+D148pwBfyFraeOcoanJacD0c+e8j+3pKKShCirg/mpUc/KL2m/8v/DpreRaBgAM45VAKWfV58IXt9/4r6Pq4rFdff1NbrWL8e3iZPqqN77oK/rLAPrPU131n0MW0nsulcryZniIPcZvy6/xq1a/ijXXloTr76Lb4rc/vt5/fXx4Giz6amxdOV5tmH+75Ev84jbBqTzyl3ScrL+uU77Vr8potSqMWkvPtZJl+qpLvp3Pq1YuXn18RCruNv92zLcTuPZfrWMmCR8XO5//D75o5amVnmtiTsN3/N72GL8tzwAnhjRAutTQxXy2/vbO+bV/ciqf17XdboAUF1r9uUv+WT/X1g3ltb6R18n0VX887f/dxhtvvPHGG384/xeb/MTsB5pmYwAAAABJRU5ErkJggg==" alt="Código QR para abrir la participación del Micelio Cultural en un teléfono.">
+  <div>
+    <strong>Participa desde otro dispositivo</strong>
+    <span>Escanea el QR para abrir directamente esta experiencia.</span>
+  </div>
+</div>
+    </div>
+
+    <form id="micelioForm" class="micelio-form">
+      <label>
+        <span>Primer elemento</span>
+        <select id="micelioFrom" required>
+          <option value="">Seleccionar</option>
+          <option value="creacion">Creación</option>
+          <option value="mediacion">Mediación</option>
+          <option value="territorio">Territorio</option>
+          <option value="memoria">Memoria</option>
+          <option value="tecnologia">Tecnología</option>
+          <option value="comunidad">Comunidad</option>
+          <option value="archivo">Archivo</option>
+        </select>
+      </label>
+      <label>
+        <span>Segundo elemento</span>
+        <select id="micelioTo" required>
+          <option value="">Seleccionar</option>
+          <option value="creacion">Creación</option>
+          <option value="mediacion">Mediación</option>
+          <option value="territorio">Territorio</option>
+          <option value="memoria">Memoria</option>
+          <option value="tecnologia">Tecnología</option>
+          <option value="comunidad">Comunidad</option>
+          <option value="archivo">Archivo</option>
+        </select>
+      </label>
+      <label class="micelio-phrase-label">
+        <span>Una frase sobre la relación <small>(opcional · máx. 80 caracteres)</small></span>
+        <input id="micelioPhrase" type="text" maxlength="80" placeholder="Ej.: los lugares también recuerdan">
+      </label>
+      <div class="micelio-form-actions">
+        <button type="submit" class="discrete-link micelio-submit">Sumar al micelio <span aria-hidden="true">+</span></button>
+        <button type="button" id="micelioReset" class="micelio-reset">Reiniciar prueba local</button>
+      </div>
+      <p class="micelio-feedback" id="micelioFeedback" aria-live="polite"></p>
+    </form>
+  </div>
+
+  <p class="micelio-prototype-note">Prototipo experimental: en esta versión los aportes se guardan únicamente en el dispositivo desde el que se realizan. La conexión colectiva entre visitantes puede incorporarse en una segunda etapa.</p>
 </div>
 </section>
 <!-- ESCRITOS -->
@@ -1024,6 +1383,291 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 <img id="lightboxImg" src="" alt="Imagen ampliada">
 </div>
 <!-- SCRIPT DE NAVEGACIÓN Y MODALES -->
-<script> function enterSite(targetTab = 'inicio') { document.body.classList.add('inside-site'); switchTab(targetTab); } function returnToCover() { document.body.classList.remove('inside-site'); window.scrollTo({ top: 0, behavior: 'smooth' }); } function switchTab(tabId) { if (!document.body.classList.contains('inside-site')) { document.body.classList.add('inside-site'); } document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active')); document.querySelectorAll('.main-nav button').forEach(el => el.classList.remove('active')); const target = document.getElementById(tabId); if (target) { target.classList.add('active'); } const navButtons = document.querySelectorAll('.main-nav button'); navButtons.forEach(btn => { const onclickAttr = btn.getAttribute('onclick') || ''; if (onclickAttr.includes(`'${tabId}'`)) { btn.classList.add('active'); } }); window.scrollTo({ top: 0, behavior: 'smooth' }); } /* Funciones para Fichas Expandidas (Modales) */ function openModal(modalId) { const m = document.getElementById(modalId); if (m) m.classList.add('open'); } function closeModal(modalId) { const m = document.getElementById(modalId); if (m) m.classList.remove('open'); } /* Funciones para Lightbox */ function openLightbox(src) { const lb = document.getElementById('lightboxModal'); const img = document.getElementById('lightboxImg'); if (lb && img) { img.src = src; lb.classList.add('open'); } } function closeLightbox() { const lb = document.getElementById('lightboxModal'); if (lb) lb.classList.remove('open'); } document.getElementById('heroCover').addEventListener('keydown', function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); enterSite('inicio'); } }); let hasScrolled = false; window.addEventListener('wheel', function(e) { if (!document.body.classList.contains('inside-site') && e.deltaY > 10 && !hasScrolled) { hasScrolled = true; enterSite('inicio'); setTimeout(() => { hasScrolled = false; }, 1000); } }); /* Rocolas horizontales: la rueda recorre proyectos y libera la página al llegar a cada extremo */ document.querySelectorAll('.creation-carousel').forEach(carousel => { let wheelLocked = false; carousel.addEventListener('wheel', function(e) { if (window.innerWidth <= 820 || Math.abs(e.deltaY) < Math.abs(e.deltaX)) return; const maxScroll = carousel.scrollWidth - carousel.clientWidth; const goingForward = e.deltaY > 0; const canAdvance = goingForward ? carousel.scrollLeft < maxScroll - 4 : carousel.scrollLeft > 4; if (!canAdvance) return; e.preventDefault(); if (wheelLocked) return; wheelLocked = true; const card = carousel.querySelector('article'); const step = card ? card.getBoundingClientRect().width + 16 : carousel.clientWidth * 0.7; carousel.scrollBy({ left: goingForward ? step : -step, behavior: 'smooth' }); setTimeout(() => { wheelLocked = false; }, 420); }, { passive: false }); }); </script>
+<script> function enterSite(targetTab = 'inicio') { document.body.classList.add('inside-site'); switchTab(targetTab); } function returnToCover() { document.body.classList.remove('inside-site'); window.scrollTo({ top: 0, behavior: 'smooth' }); } function switchTab(tabId) { if (!document.body.classList.contains('inside-site')) { document.body.classList.add('inside-site'); } document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active')); document.querySelectorAll('.main-nav button').forEach(el => el.classList.remove('active')); const target = document.getElementById(tabId); if (target) { target.classList.add('active'); } const navButtons = document.querySelectorAll('.main-nav button'); navButtons.forEach(btn => { const onclickAttr = btn.getAttribute('onclick') || ''; if (onclickAttr.includes(`'${tabId}'`)) { btn.classList.add('active'); } }); window.scrollTo({ top: 0, behavior: 'smooth' }); } /* Funciones para Fichas Expandidas (Modales) */ function openModal(modalId) { const m = document.getElementById(modalId); if (m) m.classList.add('open'); } function closeModal(modalId) { const m = document.getElementById(modalId); if (m) m.classList.remove('open'); } /* Funciones para Lightbox */ function openLightbox(src) { const lb = document.getElementById('lightboxModal'); const img = document.getElementById('lightboxImg'); if (lb && img) { img.src = src; lb.classList.add('open'); } } function closeLightbox() { const lb = document.getElementById('lightboxModal'); if (lb) lb.classList.remove('open'); } document.getElementById('heroCover').addEventListener('keydown', function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); enterSite('inicio'); } }); let hasScrolled = false; window.addEventListener('wheel', function(e) { if (!document.body.classList.contains('inside-site') && e.deltaY > 10 && !hasScrolled) { hasScrolled = true; enterSite('inicio'); setTimeout(() => { hasScrolled = false; }, 1000); } }); /* Rocolas horizontales: la rueda recorre proyectos y libera la página al llegar a cada extremo */ document.querySelectorAll('.creation-carousel').forEach(carousel => { let wheelLocked = false; carousel.addEventListener('wheel', function(e) { if (window.innerWidth <= 820 || Math.abs(e.deltaY) < Math.abs(e.deltaX)) return; const maxScroll = carousel.scrollWidth - carousel.clientWidth; const goingForward = e.deltaY > 0; const canAdvance = goingForward ? carousel.scrollLeft < maxScroll - 4 : carousel.scrollLeft > 4; if (!canAdvance) return; e.preventDefault(); if (wheelLocked) return; wheelLocked = true; const card = carousel.querySelector('article'); const step = card ? card.getBoundingClientRect().width + 16 : carousel.clientWidth * 0.7; carousel.scrollBy({ left: goingForward ? step : -step, behavior: 'smooth' }); setTimeout(() => { wheelLocked = false; }, 420); }, { passive: false }); }); 
+/* INVESTIGACIÓN — MICELIO CULTURAL */
+(function () {
+  const svg = document.getElementById('micelioSvg');
+  if (!svg) return;
+
+  const edgesLayer = document.getElementById('micelioEdges');
+  const nodesLayer = document.getElementById('micelioNodes');
+  const reading = document.getElementById('micelioReading');
+  const statusText = document.getElementById('micelioStatusText');
+  const localCount = document.getElementById('micelioLocalCount');
+  const form = document.getElementById('micelioForm');
+  const fromSelect = document.getElementById('micelioFrom');
+  const toSelect = document.getElementById('micelioTo');
+  const phraseInput = document.getElementById('micelioPhrase');
+  const feedback = document.getElementById('micelioFeedback');
+  const resetBtn = document.getElementById('micelioReset');
+  const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const storageKey = 'duberly_micelio_aportes_v1';
+
+  const nodeDefs = [
+    { id:'creacion', label:'CREACIÓN', x:500, y:115, phase:0.1 },
+    { id:'mediacion', label:'MEDIACIÓN', x:735, y:205, phase:1.5 },
+    { id:'territorio', label:'TERRITORIO', x:805, y:405, phase:2.7 },
+    { id:'memoria', label:'MEMORIA', x:610, y:495, phase:4.1 },
+    { id:'archivo', label:'ARCHIVO', x:365, y:492, phase:5.0 },
+    { id:'comunidad', label:'COMUNIDAD', x:190, y:365, phase:3.4 },
+    { id:'tecnologia', label:'TECNOLOGÍA', x:245, y:185, phase:2.1 }
+  ];
+
+  const baseEdges = [
+    ['creacion','mediacion'],
+    ['creacion','memoria'],
+    ['creacion','tecnologia'],
+    ['mediacion','comunidad'],
+    ['mediacion','territorio'],
+    ['territorio','memoria'],
+    ['territorio','comunidad'],
+    ['memoria','archivo'],
+    ['archivo','tecnologia'],
+    ['tecnologia','comunidad']
+  ];
+
+  const nodeCopy = {
+    creacion: 'Creación conecta lenguajes, materiales, personas y preguntas.',
+    mediacion: 'Mediación activa encuentros y transforma la relación entre práctica, contexto y participantes.',
+    territorio: 'Territorio aparece como experiencia situada, paisaje, desplazamiento y contexto.',
+    memoria: 'Memoria articula registros, afectos, relatos y formas de volver sobre la experiencia.',
+    tecnologia: 'Tecnología funciona como soporte, lenguaje y agente dentro de los procesos creativos.',
+    comunidad: 'Comunidad reúne participación, aprendizaje, vínculos y producción compartida.',
+    archivo: 'Archivo conserva huellas y permite que materiales anteriores vuelvan a producir relaciones.'
+  };
+
+  let localEdges = loadLocalEdges();
+  let activeNode = null;
+  let rafId = null;
+  const nodeEls = new Map();
+  const edgeEls = [];
+
+  function loadLocalEdges() {
+    try {
+      const raw = JSON.parse(localStorage.getItem(storageKey) || '[]');
+      return Array.isArray(raw) ? raw.filter(x => x && x.from && x.to) : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function saveLocalEdges() {
+    try { localStorage.setItem(storageKey, JSON.stringify(localEdges)); } catch (e) {}
+  }
+
+  function allEdges() {
+    return baseEdges.map(([from,to]) => ({from,to,local:false,phrase:''}))
+      .concat(localEdges.map(x => ({...x, local:true})));
+  }
+
+  function svgEl(name, attrs={}) {
+    const el = document.createElementNS('http://www.w3.org/2000/svg', name);
+    Object.entries(attrs).forEach(([k,v]) => el.setAttribute(k, String(v)));
+    return el;
+  }
+
+  function degree(id) {
+    return allEdges().filter(e => e.from === id || e.to === id).length;
+  }
+
+  function render() {
+    edgesLayer.innerHTML = '';
+    nodesLayer.innerHTML = '';
+    nodeEls.clear();
+    edgeEls.length = 0;
+
+    allEdges().forEach(edge => {
+      const path = svgEl('path', {
+        'class': 'micelio-edge' + (edge.local ? ' local' : ''),
+        'data-from': edge.from,
+        'data-to': edge.to
+      });
+      edgesLayer.appendChild(path);
+      edgeEls.push({data:edge, el:path});
+    });
+
+    nodeDefs.forEach(n => {
+      const g = svgEl('g', {
+        'class':'micelio-node',
+        'tabindex':'0',
+        'role':'button',
+        'aria-label':'Explorar nodo ' + n.label,
+        'data-node':n.id
+      });
+      const r = 24 + Math.min(14, degree(n.id) * 1.7);
+      const c = svgEl('circle', {cx:0, cy:0, r:r});
+      const t = svgEl('text', {x:0, y:r + 29});
+      t.textContent = n.label;
+      g.appendChild(c);
+      g.appendChild(t);
+      g.addEventListener('click', () => selectNode(n.id));
+      g.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          selectNode(n.id);
+        }
+      });
+      nodesLayer.appendChild(g);
+      nodeEls.set(n.id, {data:n, el:g});
+    });
+
+    updateStatus();
+    updatePositions(performance.now());
+    if (activeNode) selectNode(activeNode, true);
+  }
+
+  function nodePosition(n, t) {
+    if (reducedMotion) return {x:n.x, y:n.y};
+    const s = t / 1800;
+    return {
+      x: n.x + Math.sin(s + n.phase) * 10 + Math.sin(s * 0.43 + n.phase) * 5,
+      y: n.y + Math.cos(s * 0.83 + n.phase) * 9 + Math.sin(s * 0.31 + n.phase) * 4
+    };
+  }
+
+  function updatePositions(t) {
+    const positions = {};
+    nodeDefs.forEach(n => {
+      const p = nodePosition(n, t);
+      positions[n.id] = p;
+      const item = nodeEls.get(n.id);
+      if (item) item.el.setAttribute('transform', `translate(${p.x} ${p.y})`);
+    });
+
+    edgeEls.forEach(({data,el}) => {
+      const a = positions[data.from], b = positions[data.to];
+      if (!a || !b) return;
+      const mx = (a.x + b.x) / 2;
+      const my = (a.y + b.y) / 2;
+      const dx = b.x - a.x, dy = b.y - a.y;
+      const len = Math.max(1, Math.hypot(dx,dy));
+      const bend = 18 + ((data.from.charCodeAt(0) + data.to.charCodeAt(0)) % 26);
+      const cx = mx - (dy / len) * bend;
+      const cy = my + (dx / len) * bend;
+      el.setAttribute('d', `M ${a.x} ${a.y} Q ${cx} ${cy} ${b.x} ${b.y}`);
+    });
+  }
+
+  function animate(t) {
+    updatePositions(t);
+    rafId = requestAnimationFrame(animate);
+  }
+
+  function startAnimation() {
+    if (reducedMotion || rafId) return;
+    rafId = requestAnimationFrame(animate);
+  }
+
+  function stopAnimation() {
+    if (rafId) cancelAnimationFrame(rafId);
+    rafId = null;
+  }
+
+  function selectNode(id, preserve=false) {
+    activeNode = preserve ? id : (activeNode === id ? null : id);
+    const current = activeNode;
+
+    nodeEls.forEach(({el}, nodeId) => {
+      el.classList.toggle('active', nodeId === current);
+      el.classList.toggle('dimmed', !!current && nodeId !== current &&
+        !allEdges().some(e => (e.from === current && e.to === nodeId) || (e.to === current && e.from === nodeId)));
+    });
+
+    edgeEls.forEach(({data,el}) => {
+      const isActive = !!current && (data.from === current || data.to === current);
+      el.classList.toggle('active', isActive);
+      el.classList.toggle('dimmed', !!current && !isActive);
+    });
+
+    if (!current) {
+      reading.innerHTML = '<span class="micelio-reading-label">Micelio cultural</span><strong>Explora una relación</strong><p>Toca cualquier nodo para activar sus conexiones.</p>';
+      return;
+    }
+
+    const n = nodeDefs.find(x => x.id === current);
+    const connected = allEdges().filter(e => e.from === current || e.to === current);
+    const related = connected.map(e => {
+      const other = e.from === current ? e.to : e.from;
+      return nodeDefs.find(x => x.id === other)?.label || other;
+    });
+    const phrases = connected.filter(e => e.local && e.phrase).map(e => e.phrase);
+    const phraseText = phrases.length ? ` Último aporte: “${escapeHtml(phrases[phrases.length - 1])}”.` : '';
+    reading.innerHTML =
+      '<span class="micelio-reading-label">' + n.label + '</span>' +
+      '<strong>' + connected.length + ' conexiones activas</strong>' +
+      '<p>' + nodeCopy[current] + ' Dialoga con ' + related.join(', ') + '.' + phraseText + '</p>';
+  }
+
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, ch => ({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
+    }[ch]));
+  }
+
+  function updateStatus() {
+    statusText.textContent = nodeDefs.length + ' conceptos · ' + baseEdges.length + ' relaciones base';
+    localCount.textContent = localEdges.length + (localEdges.length === 1
+      ? ' aporte guardado en este dispositivo'
+      : ' aportes guardados en este dispositivo');
+  }
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const from = fromSelect.value;
+    const to = toSelect.value;
+    const phrase = phraseInput.value.trim().slice(0,80);
+
+    if (!from || !to) {
+      feedback.textContent = 'Selecciona dos elementos.';
+      return;
+    }
+    if (from === to) {
+      feedback.textContent = 'Elige dos elementos distintos para crear una relación.';
+      return;
+    }
+
+    localEdges.push({from,to,phrase,createdAt:Date.now()});
+    saveLocalEdges();
+    activeNode = null;
+    render();
+    feedback.textContent = 'Conexión incorporada al micelio de este dispositivo.';
+    form.reset();
+
+    const newEdge = edgeEls[edgeEls.length - 1];
+    if (newEdge) {
+      newEdge.el.classList.add('active');
+      setTimeout(() => newEdge.el.classList.remove('active'), 1200);
+    }
+  });
+
+  resetBtn.addEventListener('click', () => {
+    localEdges = [];
+    saveLocalEdges();
+    activeNode = null;
+    render();
+    feedback.textContent = 'La prueba local volvió al micelio inicial.';
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stopAnimation();
+    else startAnimation();
+  });
+
+  render();
+  startAnimation();
+
+  try {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('participa') === 'micelio') {
+      document.body.classList.add('inside-site');
+      switchTab('investigacion');
+      setTimeout(() => {
+        document.getElementById('participaMicelio')?.scrollIntoView({behavior:'smooth', block:'start'});
+      }, 500);
+    }
+  } catch (e) {}
+})();
+
+</script>
 </body>
 </html> 
