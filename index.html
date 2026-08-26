@@ -593,6 +593,13 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
   .micelio-feedback { grid-column: 1; }
 }
 
+
+.micelio-submit:disabled {
+  opacity: 0.55;
+  cursor: wait;
+  transform: none !important;
+}
+
 </style>
 </head>
 <body>
@@ -1031,7 +1038,7 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 
   <div class="micelio-status">
     <span id="micelioStatusText">7 conceptos · 10 relaciones base</span>
-    <span id="micelioLocalCount">0 aportes guardados en este dispositivo</span>
+    <span id="micelioLocalCount">Conectando con el micelio público…</span>
   </div>
 
   <div class="micelio-participation" id="participaMicelio">
@@ -1082,13 +1089,13 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
       </label>
       <div class="micelio-form-actions">
         <button type="submit" class="discrete-link micelio-submit">Sumar al micelio <span aria-hidden="true">+</span></button>
-        <button type="button" id="micelioReset" class="micelio-reset">Reiniciar prueba local</button>
+        <button type="button" id="micelioReset" class="micelio-reset">Actualizar micelio</button>
       </div>
       <p class="micelio-feedback" id="micelioFeedback" aria-live="polite"></p>
     </form>
   </div>
 
-  <p class="micelio-prototype-note">Prototipo experimental: en esta versión los aportes se guardan únicamente en el dispositivo desde el que se realizan. La conexión colectiva entre visitantes puede incorporarse en una segunda etapa.</p>
+  <p class="micelio-prototype-note">Experimento participativo público: las conexiones enviadas desde distintos dispositivos pasan a formar parte de un mismo micelio compartido. No se solicitan nombres, correos ni otros datos personales.</p>
 </div>
 </section>
 <!-- ESCRITOS -->
@@ -1388,7 +1395,9 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
   const feedback = document.getElementById('micelioFeedback');
   const resetBtn = document.getElementById('micelioReset');
   const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const storageKey = 'duberly_micelio_aportes_v1';
+  const supabaseUrl = 'https://bhustxebwiteltnlahea.supabase.co';
+  const supabaseKey = 'sb_publishable_uOp5B0U9CVVH9oI5uEDe9g_a-KguP-C';
+  const supabaseEndpoint = supabaseUrl + '/rest/v1/micelio_aportes';
 
   const nodeDefs = [
     { id:'mediacion', label:'MEDIACIÓN', x:500, y:305, phase:1.5 },
@@ -1423,28 +1432,66 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
     archivo: 'Archivo conserva huellas y permite que materiales anteriores vuelvan a producir relaciones.'
   };
 
-  let localEdges = loadLocalEdges();
+  let publicEdges = [];
   let activeNode = null;
   let rafId = null;
+  let refreshTimer = null;
   const nodeEls = new Map();
   const edgeEls = [];
 
-  function loadLocalEdges() {
-    try {
-      const raw = JSON.parse(localStorage.getItem(storageKey) || '[]');
-      return Array.isArray(raw) ? raw.filter(x => x && x.from && x.to) : [];
-    } catch (e) {
-      return [];
+  async function loadPublicEdges({silent=false} = {}) {
+    if (!silent) {
+      localCount.textContent = 'Conectando con el micelio público…';
     }
-  }
 
-  function saveLocalEdges() {
-    try { localStorage.setItem(storageKey, JSON.stringify(localEdges)); } catch (e) {}
+    try {
+      const response = await fetch(
+        supabaseEndpoint + '?select=id,created_at,source_node,target_node,phrase&order=created_at.asc&limit=1000',
+        {
+          method: 'GET',
+          headers: {
+            'apikey': supabaseKey,
+            'Accept': 'application/json'
+          }
+        }
+      );
+
+      if (!response.ok) {
+        const detail = await response.text().catch(() => '');
+        throw new Error('HTTP ' + response.status + (detail ? ' · ' + detail : ''));
+      }
+
+      const rows = await response.json();
+      publicEdges = Array.isArray(rows)
+        ? rows
+            .filter(row => row && row.source_node && row.target_node)
+            .map(row => ({
+              id: row.id,
+              from: row.source_node,
+              to: row.target_node,
+              phrase: row.phrase || '',
+              createdAt: row.created_at || '',
+              local: true
+            }))
+        : [];
+
+      render();
+      localCount.textContent = publicEdges.length +
+        (publicEdges.length === 1 ? ' aporte público' : ' aportes públicos');
+      return true;
+    } catch (error) {
+      console.error('Micelio público:', error);
+      localCount.textContent = 'Micelio público temporalmente no disponible';
+      if (!silent) {
+        feedback.textContent = 'No pudimos conectar con el micelio público. Puedes volver a intentar en unos segundos.';
+      }
+      return false;
+    }
   }
 
   function allEdges() {
     return baseEdges.map(([from,to]) => ({from,to,local:false,phrase:''}))
-      .concat(localEdges.map(x => ({...x, local:true})));
+      .concat(publicEdges);
   }
 
   function svgEl(name, attrs={}) {
@@ -1595,16 +1642,18 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 
   function updateStatus() {
     statusText.textContent = nodeDefs.length + ' conceptos · ' + baseEdges.length + ' relaciones base';
-    localCount.textContent = localEdges.length + (localEdges.length === 1
-      ? ' aporte guardado en este dispositivo'
-      : ' aportes guardados en este dispositivo');
+    if (publicEdges.length >= 0) {
+      localCount.textContent = publicEdges.length +
+        (publicEdges.length === 1 ? ' aporte público' : ' aportes públicos');
+    }
   }
 
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
     const from = fromSelect.value;
     const to = toSelect.value;
     const phrase = phraseInput.value.trim().slice(0,80);
+    const submitBtn = form.querySelector('.micelio-submit');
 
     if (!from || !to) {
       feedback.textContent = 'Selecciona dos elementos.';
@@ -1615,26 +1664,70 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
       return;
     }
 
-    localEdges.push({from,to,phrase,createdAt:Date.now()});
-    saveLocalEdges();
-    activeNode = null;
-    render();
-    feedback.textContent = 'Conexión incorporada al micelio de este dispositivo.';
-    form.reset();
+    submitBtn.disabled = true;
+    submitBtn.setAttribute('aria-busy', 'true');
+    feedback.textContent = 'Sumando conexión al micelio público…';
 
-    const newEdge = edgeEls[edgeEls.length - 1];
-    if (newEdge) {
-      newEdge.el.classList.add('active');
-      setTimeout(() => newEdge.el.classList.remove('active'), 1200);
+    try {
+      const response = await fetch(supabaseEndpoint, {
+        method: 'POST',
+        headers: {
+          'apikey': supabaseKey,
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Prefer': 'return=representation'
+        },
+        body: JSON.stringify({
+          source_node: from,
+          target_node: to,
+          phrase: phrase || null
+        })
+      });
+
+      if (!response.ok) {
+        const detail = await response.text().catch(() => '');
+        throw new Error('HTTP ' + response.status + (detail ? ' · ' + detail : ''));
+      }
+
+      const inserted = await response.json();
+      const row = Array.isArray(inserted) ? inserted[0] : inserted;
+
+      if (row && row.source_node && row.target_node) {
+        publicEdges.push({
+          id: row.id,
+          from: row.source_node,
+          to: row.target_node,
+          phrase: row.phrase || '',
+          createdAt: row.created_at || '',
+          local: true
+        });
+        activeNode = null;
+        render();
+
+        const newEdge = edgeEls[edgeEls.length - 1];
+        if (newEdge) {
+          newEdge.el.classList.add('active');
+          setTimeout(() => newEdge.el.classList.remove('active'), 1400);
+        }
+      } else {
+        await loadPublicEdges({silent:true});
+      }
+
+      form.reset();
+      feedback.textContent = 'Tu conexión ya forma parte del micelio público.';
+    } catch (error) {
+      console.error('No se pudo guardar el aporte:', error);
+      feedback.textContent = 'No pudimos guardar la conexión. Revisa la conexión e inténtalo nuevamente.';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.removeAttribute('aria-busy');
     }
   });
 
-  resetBtn.addEventListener('click', () => {
-    localEdges = [];
-    saveLocalEdges();
-    activeNode = null;
-    render();
-    feedback.textContent = 'La prueba local volvió al micelio inicial.';
+  resetBtn.addEventListener('click', async () => {
+    feedback.textContent = 'Actualizando conexiones…';
+    const ok = await loadPublicEdges();
+    feedback.textContent = ok ? 'Micelio actualizado.' : 'No fue posible actualizar en este momento.';
   });
 
   document.addEventListener('visibilitychange', () => {
@@ -1644,6 +1737,13 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 
   render();
   startAnimation();
+  loadPublicEdges();
+
+  /* Refresco liviano para que aportes hechos desde otros teléfonos
+     aparezcan sin necesidad de recargar toda la página. */
+  refreshTimer = setInterval(() => {
+    if (!document.hidden) loadPublicEdges({silent:true});
+  }, 15000);
 
   try {
     const params = new URLSearchParams(window.location.search);
