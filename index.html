@@ -241,6 +241,84 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; }
 .home-access-card, .site-photo-container { opacity: 1; transform: none; }
 }
+
+/* =========================================================
+   TRANSPARENCIA GLOBAL DE TARJETAS Y CAJAS
+   Unifica el lenguaje visual del sitio con superficies casi invisibles.
+   ========================================================= */
+
+/* Tarjetas principales: Inicio, Creación, Mediación, Investigación, Escritos */
+.home-access-card,
+.home-card-obra,
+.home-card-mediacion,
+.home-card-investigacion,
+.home-card-escritos,
+#obra .playlist-frame {
+  background: linear-gradient(
+    145deg,
+    rgba(20, 40, 52, 0.16),
+    rgba(17, 22, 25, 0.08)
+  ) !important;
+  border: 1px solid rgba(158, 212, 226, 0.055) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14) !important;
+}
+
+/* Hover también muy sutil: conserva respuesta sin volver a "encajonar". */
+.home-access-card:hover,
+.home-access-card:focus-within,
+.home-card-obra:hover,
+.home-card-mediacion:hover,
+.home-card-investigacion:hover,
+.home-card-escritos:hover,
+#obra .playlist-frame:hover {
+  background: linear-gradient(
+    145deg,
+    rgba(30, 58, 61, 0.24),
+    rgba(17, 22, 25, 0.14)
+  ) !important;
+  border-color: rgba(158, 212, 226, 0.09) !important;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.18) !important;
+}
+
+/* Prensa y contexto: mismo grado de transparencia. */
+.press-item {
+  background: linear-gradient(
+    145deg,
+    rgba(20, 40, 52, 0.16),
+    rgba(17, 22, 25, 0.08)
+  ) !important;
+  border-color: rgba(158, 212, 226, 0.055) !important;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.press-item:hover {
+  background: linear-gradient(
+    145deg,
+    rgba(30, 58, 61, 0.24),
+    rgba(17, 22, 25, 0.14)
+  ) !important;
+  border-color: rgba(158, 212, 226, 0.09) !important;
+}
+
+/* Cajas auxiliares y reproductores: casi transparentes. */
+.card-embed-slot,
+.slot-placeholder {
+  background: rgba(10, 13, 15, 0.18) !important;
+  border-color: rgba(115, 157, 174, 0.07) !important;
+  box-shadow: none !important;
+}
+
+/* El marco de las fotografías también se integra más con el fondo. */
+.site-photo-container {
+  background-color: rgba(17, 22, 25, 0.16);
+}
+
+/* Los modales se mantienen más sólidos por legibilidad y foco. */
+
 </style>
 </head>
 <body>
