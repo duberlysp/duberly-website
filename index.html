@@ -59,6 +59,18 @@ nav.main-nav button.active { color: var(--accent-light); border-bottom-color: va
 #obra .home-access-card h3 { font-size: 1.2rem; }
 #obra .home-access-card p { font-size: 0.84rem; line-height: 1.5; }
 
+/* En las fichas del carrusel, el texto inmediatamente bajo el título ocupa
+   una sola línea para mantener una altura editorial consistente. */
+#obra .creation-carousel > article > div:first-child > p {
+  display: block;
+  width: 100%;
+  min-height: 1.5em;
+  max-height: 1.5em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* Fotos de CREACIÓN: más pequeñas, uniformes y cuadradas */
 #obra .creation-carousel .site-photo-container {
   width: min(78%, 250px);
@@ -72,11 +84,11 @@ nav.main-nav button.active { color: var(--accent-light); border-bottom-color: va
   object-fit: cover;
   object-position: center;
 }
-/* La captura del perfil del Ensamble es más panorámica:
-   se conserva completa dentro del marco cuadrado en vez de forzar un recorte. */
+/* Perfil del Ensamble: recorte cuadrado, sin bandas/bordes negros */
 #obra .creation-carousel img[src$="spotify-ensamble-folk.jpg"] {
-  object-fit: contain;
-  background: var(--surface-color);
+  object-fit: cover;
+  object-position: center center;
+  background: transparent;
 }
 
 #obra .card-action-slot { margin-top: 0.75rem; padding-top: 0.6rem; }
