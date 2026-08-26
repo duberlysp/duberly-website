@@ -325,24 +325,7 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
    ========================================================= */
 #investigacion .section-header { margin-bottom: 2.2rem; }
 
-.research-intro {
-  max-width: 760px;
-  padding: 0.2rem 0 0.4rem 1.4rem;
-  border-left: 1px solid rgba(115, 157, 174, 0.34);
-}
-.research-intro h2 {
-  font-family: var(--font-serif);
-  font-weight: 400;
-  font-size: clamp(1.65rem, 3vw, 2.25rem);
-  margin: 0.15rem 0 0.55rem;
-}
-.research-intro p {
-  max-width: 700px;
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-  line-height: 1.7;
-}
-.micelio-subheader { margin-top: 3.2rem; }
+.micelio-subheader { margin-top: 2.1rem; }
 
 .micelio-experiment {
   position: relative;
@@ -390,6 +373,11 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
   stroke-width: 1.4;
   transition: r 0.35s var(--ease-out), fill 0.35s ease, stroke 0.35s ease, opacity 0.35s ease;
 }
+.micelio-node .node-core {
+  fill: rgba(214, 177, 70, 0.68);
+  opacity: 0.88;
+  transition: fill 0.35s ease, opacity 0.35s ease, transform 0.35s ease;
+}
 .micelio-node text {
   fill: var(--text-secondary);
   font-family: var(--font-sans);
@@ -404,6 +392,12 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 .micelio-node.active circle {
   fill: rgba(30,58,61,0.78);
   stroke: rgba(158,212,226,0.92);
+}
+.micelio-node:hover .node-core,
+.micelio-node:focus .node-core,
+.micelio-node.active .node-core {
+  fill: rgba(232, 196, 92, 0.96);
+  opacity: 1;
 }
 .micelio-node:hover text,
 .micelio-node:focus text,
@@ -1015,13 +1009,6 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 <h1>INVESTIGACIÓN</h1>
 <p class="section-lead">Desde 2024, DUBERLY desarrolla su Doctorado en Artes Integradas en la Universidad de Playa Ancha. Su investigación aborda la mediación artística como una práctica capaz de crear conocimiento desde la experiencia, los vínculos y el territorio. La imagen del micelio permite observar cómo una acción artística se conecta con otras, circula entre personas y contextos, y produce aprendizajes que desbordan la autoría individual.</p>
 </div>
-
-<div class="research-intro">
-  <div class="card-number">Doctorado en Artes Integradas — UPLA (2024–Presente)</div>
-  <h2>Micelio cultural</h2>
-  <p>Investigación-creación sobre mediación artística, memoria, tecnologías cotidianas y producción colaborativa de conocimiento en contextos educativos, artísticos y comunitarios.</p>
-</div>
-
 <div class="sub-header micelio-subheader">
   <h2>DIAGRAMA VIVO</h2>
   <p>Una representación experimental de las relaciones que atraviesan la investigación. Toca un nodo para observar sus conexiones o agrega una nueva relación al micelio.</p>
@@ -1404,31 +1391,31 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
   const storageKey = 'duberly_micelio_aportes_v1';
 
   const nodeDefs = [
-    { id:'creacion', label:'CREACIÓN', x:500, y:115, phase:0.1 },
-    { id:'mediacion', label:'MEDIACIÓN', x:735, y:205, phase:1.5 },
-    { id:'territorio', label:'TERRITORIO', x:805, y:405, phase:2.7 },
-    { id:'memoria', label:'MEMORIA', x:610, y:495, phase:4.1 },
-    { id:'archivo', label:'ARCHIVO', x:365, y:492, phase:5.0 },
-    { id:'comunidad', label:'COMUNIDAD', x:190, y:365, phase:3.4 },
-    { id:'tecnologia', label:'TECNOLOGÍA', x:245, y:185, phase:2.1 }
+    { id:'mediacion', label:'MEDIACIÓN', x:500, y:305, phase:1.5 },
+    { id:'creacion', label:'CREACIÓN', x:500, y:108, phase:0.1 },
+    { id:'territorio', label:'TERRITORIO', x:790, y:218, phase:2.7 },
+    { id:'memoria', label:'MEMORIA', x:700, y:486, phase:4.1 },
+    { id:'archivo', label:'ARCHIVO', x:300, y:486, phase:5.0 },
+    { id:'comunidad', label:'COMUNIDAD', x:210, y:218, phase:3.4 },
+    { id:'tecnologia', label:'TECNOLOGÍA', x:500, y:548, phase:2.1 }
   ];
 
   const baseEdges = [
-    ['creacion','mediacion'],
-    ['creacion','memoria'],
-    ['creacion','tecnologia'],
-    ['mediacion','comunidad'],
+    ['mediacion','creacion'],
     ['mediacion','territorio'],
-    ['territorio','memoria'],
+    ['mediacion','memoria'],
+    ['mediacion','archivo'],
+    ['mediacion','comunidad'],
+    ['mediacion','tecnologia'],
+    ['creacion','memoria'],
     ['territorio','comunidad'],
-    ['memoria','archivo'],
-    ['archivo','tecnologia'],
-    ['tecnologia','comunidad']
+    ['archivo','memoria'],
+    ['tecnologia','archivo']
   ];
 
   const nodeCopy = {
     creacion: 'Creación conecta lenguajes, materiales, personas y preguntas.',
-    mediacion: 'Mediación activa encuentros y transforma la relación entre práctica, contexto y participantes.',
+    mediacion: 'Mediación opera como núcleo relacional del micelio: articula creación, territorio, memoria, tecnología, comunidad y archivo.',
     territorio: 'Territorio aparece como experiencia situada, paisaje, desplazamiento y contexto.',
     memoria: 'Memoria articula registros, afectos, relatos y formas de volver sobre la experiencia.',
     tecnologia: 'Tecnología funciona como soporte, lenguaje y agente dentro de los procesos creativos.',
@@ -1496,9 +1483,11 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
       });
       const r = 24 + Math.min(14, degree(n.id) * 1.7);
       const c = svgEl('circle', {cx:0, cy:0, r:r});
+      const core = svgEl('circle', {cx:0, cy:0, r:Math.max(4.8, r * 0.25), 'class':'node-core'});
       const t = svgEl('text', {x:0, y:r + 29});
       t.textContent = n.label;
       g.appendChild(c);
+      g.appendChild(core);
       g.appendChild(t);
       g.addEventListener('click', () => selectNode(n.id));
       g.addEventListener('keydown', e => {
