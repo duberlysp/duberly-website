@@ -58,17 +58,64 @@ nav.main-nav button.active { color: var(--accent-light); border-bottom-color: va
 #obra .home-access-card { padding: 1.35rem; border-radius: 15px; }
 #obra .home-access-card h3 { font-size: 1.2rem; }
 #obra .home-access-card p { font-size: 0.84rem; line-height: 1.5; }
-#obra .site-photo-container { margin-bottom: 0.75rem; }
+
+/* Fotos de CREACIÓN: más pequeñas, uniformes y cuadradas */
+#obra .creation-carousel .site-photo-container {
+  width: min(78%, 250px);
+  aspect-ratio: 1 / 1;
+  margin: 0.65rem auto 0.75rem;
+}
+#obra .creation-carousel .site-photo-img {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: cover;
+  object-position: center;
+}
+/* La captura del perfil del Ensamble es más panorámica:
+   se conserva completa dentro del marco cuadrado en vez de forzar un recorte. */
+#obra .creation-carousel img[src$="spotify-ensamble-folk.jpg"] {
+  object-fit: contain;
+  background: var(--surface-color);
+}
+
 #obra .card-action-slot { margin-top: 0.75rem; padding-top: 0.6rem; }
 #obra iframe[src*="/artist/"] { height: 220px; }
 #obra iframe[src*="/playlist/"] { height: 235px; }
-#obra .channel-card { max-width: 430px; min-height: 0; align-self: start; }
-#obra .card-grid.creation-carousel { display: flex; gap: 1rem; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: 0.8rem 10vw 1.5rem 0.4rem; margin: 0 -0.4rem; scrollbar-width: none; -ms-overflow-style: none; }
+#obra .channel-card { max-width: 430px; min-height: 0; align-self: flex-start; }
+
+/* Cada ficha termina donde termina su contenido: evita los grandes vacíos
+   provocados por el estiramiento de todas las tarjetas a la altura de la mayor. */
+#obra .card-grid.creation-carousel {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 0.8rem 10vw 1.5rem 0.4rem;
+  margin: 0 -0.4rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
 #obra .card-grid.creation-carousel::-webkit-scrollbar { display: none; }
-#obra .creation-carousel > article { flex: 0 0 min(42vw, 390px); min-width: 300px; scroll-snap-align: start; background: linear-gradient(145deg, rgba(20, 40, 52, 0.54), rgba(17, 22, 25, 0.38)); border: 1px solid rgba(158, 212, 226, 0.10); backdrop-filter: blur(13px); -webkit-backdrop-filter: blur(13px); box-shadow: 0 18px 45px rgba(0,0,0,0.32); }
+#obra .creation-carousel > article {
+  flex: 0 0 min(40vw, 365px);
+  min-width: 285px;
+  align-self: flex-start;
+  justify-content: flex-start;
+  min-height: 0;
+  height: auto;
+  scroll-snap-align: start;
+  background: linear-gradient(145deg, rgba(20, 40, 52, 0.54), rgba(17, 22, 25, 0.38));
+  border: 1px solid rgba(158, 212, 226, 0.10);
+  backdrop-filter: blur(13px);
+  -webkit-backdrop-filter: blur(13px);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.32);
+}
 #obra .creation-carousel > article + article { margin-left: -0.35rem; }
 #obra .creation-carousel > article:hover { background: linear-gradient(145deg, rgba(30, 58, 61, 0.72), rgba(17, 22, 25, 0.52)); z-index: 3; }
-#obra .creation-carousel .site-photo-img { max-height: 270px; object-fit: cover; }
 #obra .playlist-frame { background: linear-gradient(135deg, rgba(20, 40, 52, 0.72), rgba(30, 58, 61, 0.48)); border-color: rgba(158, 212, 226, 0.18); }
 #obra .carousel-hint { display: none; }
 /* BIO COMPACTA Y CENTRADA */
@@ -141,6 +188,7 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 .modal-content-wrapper { padding: 1.5rem; }
 #obra .card-grid.creation-carousel { padding-right: 12vw; }
 #obra .creation-carousel > article { flex-basis: 82vw; min-width: 82vw; }
+#obra .creation-carousel .site-photo-container { width: min(74%, 230px); }
 #biocv .bio-body { text-align: left; }
 #biocv .bio-body p { text-align: left; hyphens: none; }
 }
