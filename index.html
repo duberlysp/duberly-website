@@ -55,7 +55,7 @@ nav.main-nav button.active { color: var(--accent-light); border-bottom-color: va
 #obra .section-header { margin-bottom: 2rem; }
 #obra .sub-header { margin-top: 2.25rem; margin-bottom: 1.1rem; }
 #obra .card-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.1rem; }
-#obra .home-access-card { padding: 1.35rem; border-radius: 15px; }
+#obra .home-access-card { padding: 1.1rem; border-radius: 14px; }
 #obra .home-access-card h3 { font-size: 1.2rem; }
 #obra .home-access-card p { font-size: 0.84rem; line-height: 1.5; }
 
@@ -73,9 +73,9 @@ nav.main-nav button.active { color: var(--accent-light); border-bottom-color: va
 
 /* Fotos de CREACIÓN: más pequeñas, uniformes y cuadradas */
 #obra .creation-carousel .site-photo-container {
-  width: min(78%, 250px);
+  width: 100%;
   aspect-ratio: 1 / 1;
-  margin: 0.65rem auto 0.75rem;
+  margin: 0.65rem 0 0.75rem;
 }
 #obra .creation-carousel .site-photo-img {
   width: 100%;
@@ -101,13 +101,21 @@ nav.main-nav button.active { color: var(--accent-light); border-bottom-color: va
   min-height: 152px;
   overflow: hidden;
 }
+#obra .creation-carousel .card-embed-slot {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  box-shadow: none;
+  border-color: rgba(115, 157, 174, 0.08);
+  background: rgba(10, 13, 15, 0.20);
+}
 
 /* Cuando existe una sola acción, foto y botón comparten el mismo ancho.
    El reproductor queda más ancho para que Spotify no se comprima. */
 #obra .creation-carousel .card-action-slot:has(> :only-child) {
-  width: min(78%, 250px);
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
 }
 #obra .creation-carousel .card-action-slot:has(> :only-child) > :only-child {
   width: 100%;
@@ -133,22 +141,27 @@ nav.main-nav button.active { color: var(--accent-light); border-bottom-color: va
 }
 #obra .card-grid.creation-carousel::-webkit-scrollbar { display: none; }
 #obra .creation-carousel > article {
-  flex: 0 0 min(40vw, 365px);
-  min-width: 285px;
+  flex: 0 0 min(36vw, 335px);
+  min-width: 270px;
   align-self: flex-start;
   justify-content: flex-start;
   min-height: 0;
   height: auto;
   scroll-snap-align: start;
-  background: linear-gradient(145deg, rgba(20, 40, 52, 0.54), rgba(17, 22, 25, 0.38));
-  border: 1px solid rgba(158, 212, 226, 0.10);
-  backdrop-filter: blur(13px);
-  -webkit-backdrop-filter: blur(13px);
-  box-shadow: 0 18px 45px rgba(0,0,0,0.32);
+  background: linear-gradient(145deg, rgba(20, 40, 52, 0.16), rgba(17, 22, 25, 0.08));
+  border: 1px solid rgba(158, 212, 226, 0.055);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.14);
 }
 #obra .creation-carousel > article + article { margin-left: -0.35rem; }
-#obra .creation-carousel > article:hover { background: linear-gradient(145deg, rgba(30, 58, 61, 0.72), rgba(17, 22, 25, 0.52)); z-index: 3; }
-#obra .playlist-frame { background: linear-gradient(135deg, rgba(20, 40, 52, 0.72), rgba(30, 58, 61, 0.48)); border-color: rgba(158, 212, 226, 0.18); }
+#obra .creation-carousel > article:hover {
+  background: linear-gradient(145deg, rgba(30, 58, 61, 0.24), rgba(17, 22, 25, 0.14));
+  border-color: rgba(158, 212, 226, 0.09);
+  box-shadow: 0 14px 32px rgba(0,0,0,0.18);
+  z-index: 3;
+}
+#obra .playlist-frame { background: linear-gradient(135deg, rgba(20, 40, 52, 0.16), rgba(30, 58, 61, 0.10)); border-color: rgba(158, 212, 226, 0.06); }
 #obra .carousel-hint { display: none; }
 /* BIO COMPACTA Y CENTRADA */
 #biocv .section-header { max-width: 760px; margin: 0 auto 1.8rem; text-align: center; }
@@ -219,9 +232,9 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 .hero-title { letter-spacing: 0.18em; }
 .modal-content-wrapper { padding: 1.5rem; }
 #obra .card-grid.creation-carousel { padding-right: 12vw; }
-#obra .creation-carousel > article { flex-basis: 82vw; min-width: 82vw; }
-#obra .creation-carousel .site-photo-container { width: min(74%, 230px); }
-#obra .creation-carousel .card-action-slot:has(> :only-child) { width: min(74%, 230px); }
+#obra .creation-carousel > article { flex-basis: 78vw; min-width: 78vw; }
+#obra .creation-carousel .site-photo-container { width: 100%; }
+#obra .creation-carousel .card-action-slot:has(> :only-child) { width: 100%; }
 #biocv .bio-body { text-align: left; }
 #biocv .bio-body p { text-align: left; hyphens: none; }
 }
