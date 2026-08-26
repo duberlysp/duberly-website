@@ -55,7 +55,11 @@ nav.main-nav button.active { color: var(--accent-light); border-bottom-color: va
 #obra .section-header { margin-bottom: 2rem; }
 #obra .sub-header { margin-top: 2.25rem; margin-bottom: 1.1rem; }
 #obra .card-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.1rem; }
-#obra .home-access-card { padding: 1.35rem; border-radius: 15px; }
+#obra .home-access-card {
+  --creation-inner-width: min(78%, 250px);
+  padding: 1.35rem;
+  border-radius: 15px;
+}
 #obra .home-access-card h3 { font-size: 1.2rem; }
 #obra .home-access-card p { font-size: 0.84rem; line-height: 1.5; }
 
@@ -73,7 +77,7 @@ nav.main-nav button.active { color: var(--accent-light); border-bottom-color: va
 
 /* Fotos de CREACIÓN: más pequeñas, uniformes y cuadradas */
 #obra .creation-carousel .site-photo-container {
-  width: min(78%, 250px);
+  width: var(--creation-inner-width);
   aspect-ratio: 1 / 1;
   margin: 0.65rem auto 0.75rem;
 }
@@ -91,9 +95,31 @@ nav.main-nav button.active { color: var(--accent-light); border-bottom-color: va
   background: transparent;
 }
 
-#obra .card-action-slot { margin-top: 0.75rem; padding-top: 0.6rem; }
-#obra iframe[src*="/artist/"] { height: 220px; }
-#obra iframe[src*="/playlist/"] { height: 235px; }
+/* Foto, reproductor y acción comparten el mismo ancho visual */
+#obra .creation-carousel .card-embed-slot,
+#obra .creation-carousel .card-action-slot {
+  width: var(--creation-inner-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Spotify usa su formato compacto real: elimina el espacio negro sobrante
+   que aparecía bajo perfiles y playlists. */
+#obra .creation-carousel iframe[src*="open.spotify.com/embed"] {
+  height: 152px !important;
+  min-height: 152px;
+}
+
+/* Si la acción tiene un único botón/enlace, ocupa el mismo ancho que la foto. */
+#obra .creation-carousel .card-action-slot {
+  margin-top: 0.75rem;
+  padding-top: 0.6rem;
+}
+#obra .creation-carousel .card-action-slot > :only-child {
+  width: 100%;
+  justify-content: space-between;
+}
+
 #obra .channel-card { max-width: 430px; min-height: 0; align-self: flex-start; }
 
 /* Cada ficha termina donde termina su contenido: evita los grandes vacíos
@@ -200,7 +226,7 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 .modal-content-wrapper { padding: 1.5rem; }
 #obra .card-grid.creation-carousel { padding-right: 12vw; }
 #obra .creation-carousel > article { flex-basis: 82vw; min-width: 82vw; }
-#obra .creation-carousel .site-photo-container { width: min(74%, 230px); }
+#obra .creation-carousel > article { --creation-inner-width: min(76%, 230px); }
 #biocv .bio-body { text-align: left; }
 #biocv .bio-body p { text-align: left; hyphens: none; }
 }
