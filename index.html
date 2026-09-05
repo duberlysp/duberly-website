@@ -215,6 +215,12 @@ nav.main-nav button.active { color: var(--accent-light); border-bottom-color: va
 .atlas-copy { max-width: 760px; color: var(--text-secondary); line-height: 1.75; }
 .atlas-copy p + p { margin-top: 0.9rem; }
 .atlas-meta { margin-top: 1.2rem; color: var(--text-muted); font-size: 0.78rem; letter-spacing: 0.04em; }
+.text-modal-copy { max-width: 760px; color: var(--text-secondary); line-height: 1.75; }
+.text-modal-copy p + p { margin-top: 0.9rem; }
+.text-modal-subtitle { color: var(--text-muted); margin-bottom: 1.4rem; font-size: 0.95rem; }
+.text-modal-actions { margin-top: 1.6rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.06); display: flex; gap: 0.8rem; flex-wrap: wrap; }
+.text-modal-media-title { margin-top: 1.7rem; margin-bottom: 0.8rem; font-family: var(--font-serif); font-size: 1.05rem; font-weight: 500; }
+.text-modal-embed { border-radius: 14px; overflow: hidden; background: #000; }
 .atlas-selection-title { margin: 2rem 0 0.2rem; font-family: var(--font-serif); font-size: 1.15rem; font-weight: 400; color: var(--accent-light); }
 .mycelial-network-container { position: relative; margin-top: 2rem; padding: 1rem 0; }
 .mycelial-svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; overflow: visible; }
@@ -1115,14 +1121,14 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 </div>
 <div class="sub-header">
 <h2>ESCRITOS ARTÍSTICOS</h2>
-<p>Poesía, crónica y narrativa como mapas sensibles de experiencias, desplazamientos y encuentros.</p>
+<p>Poesía y crónica como mapas sensibles de experiencias, memoria y territorio.</p>
 </div>
 <div class="card-grid">
 <article class="home-access-card">
 <div>
 <div class="card-number">Poesía & Cartografía</div>
 <h3>Atlas de los 39</h3>
-<p>Treinta y nueve poemas construyen una cartografía autobiográfica que recorre territorio, memoria, viajes, vínculos y principios de vida desde el valle del Aconcagua hacia otros lugares del planeta.</p>
+<p>Proyecto poético y autobiográfico que reúne 39 poemas como coordenadas de una cartografía personal entre territorio, memoria, viajes y principios de vida.</p>
 </div>
 <div class="card-action-slot">
 <button class="discrete-link" onclick="openModal('modal-atlas-39')">Abrir Atlas <span class="arrow" aria-hidden="true">↗</span></button>
@@ -1130,50 +1136,48 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 </article>
 <article class="home-access-card">
 <div>
-<div class="card-number">Crónica</div>
-<h3>Crónicas</h3>
-<p>Relatos que nacen de viajes, procesos artísticos y escenas cotidianas, allí donde la memoria personal se encuentra con la experiencia compartida.</p>
+<div class="card-number">Crónica · Territorio</div>
+<h3>¡No es sequía, es saqueo!</h3>
+<p>Una crónica que entrelaza memoria personal, río Aconcagua y conflicto socioambiental a partir del estallido social de 2019.</p>
 </div>
-</article>
-<article class="home-access-card">
-<div>
-<div class="card-number">Narrativa Breve</div>
-<h3>Cuentos</h3>
-<p>Relatos breves en los que territorio, naturaleza, imaginación y memoria abren otras formas de recorrer una experiencia.</p>
+<div class="card-action-slot">
+<button class="discrete-link" onclick="openModal('modal-no-sequia')">Abrir texto <span class="arrow" aria-hidden="true">↗</span></button>
 </div>
 </article>
 </div>
 <div class="sub-header">
-<h2>ESCRITOS ACADÉMICOS</h2>
-<p>Textos donde la práctica artística conversa con la investigación-creación, la educación y los estudios sobre mediación.</p>
+<h2>ENSAYOS & INVESTIGACIÓN-CREACIÓN</h2>
+<p>Textos donde cuerpo, memoria, territorio, colaboración y materialidades se convierten en problemas de creación e investigación.</p>
 </div>
 <div class="card-grid">
 <article class="home-access-card">
 <div>
-<div class="card-number">Publicación Académica</div>
-<h3>Artículos</h3>
-<p>Artículos que observan prácticas artísticas, tecnologías y formas colectivas de producir y hacer circular conocimiento.</p>
+<div class="card-number">Investigación-Creación</div>
+<h3>VOZ</h3>
+<p>Exploración de la voz y la palabra como materialidades artísticas capaces de activar cuerpo, emoción, juego, creatividad y experiencia colectiva.</p>
+</div>
+<div class="card-action-slot">
+<button class="discrete-link" onclick="openModal('modal-voz')">Abrir proyecto <span class="arrow" aria-hidden="true">↗</span></button>
 </div>
 </article>
 <article class="home-access-card">
 <div>
-<div class="card-number">Congresos & Encuentros</div>
-<h3>Ponencias</h3>
-<p>Presentaciones que ponen la investigación en conversación con comunidades académicas y artísticas, permitiendo que las ideas cambien al circular.</p>
+<div class="card-number">Ensayo · Artes Integradas</div>
+<h3>ANIMA</h3>
+<p>Una reflexión sobre colaboración, interdisciplinariedad e intermedialidad a partir de la obra audiovisual de Paul Thomas Anderson y Thom Yorke.</p>
+</div>
+<div class="card-action-slot">
+<button class="discrete-link" onclick="openModal('modal-anima')">Abrir ensayo <span class="arrow" aria-hidden="true">↗</span></button>
 </div>
 </article>
 <article class="home-access-card">
 <div>
-<div class="card-number">Libros / Compilaciones</div>
-<h3>Capítulos</h3>
-<p>Escrituras desarrolladas en colaboración y diálogo con investigaciones más amplias sobre arte, memoria, educación y territorio.</p>
+<div class="card-number">Ensayo · Memoria & Territorio</div>
+<h3>Islas flotantes</h3>
+<p>Memoria, territorio y patrimonio vivo a partir de las comunidades Uros del lago Titicaca y las transformaciones de sus formas de habitar.</p>
 </div>
-</article>
-<article class="home-access-card">
-<div>
-<div class="card-number">Investigación Doctoral</div>
-<h3>Textos de Investigación-Creación</h3>
-<p>Bitácoras, ensayos y documentos vinculados con el desarrollo del micelio cultural y la mediación artística como producción de conocimiento.</p>
+<div class="card-action-slot">
+<button class="discrete-link" onclick="openModal('modal-uros')">Abrir ensayo <span class="arrow" aria-hidden="true">↗</span></button>
 </div>
 </article>
 </div>
@@ -1228,9 +1232,8 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 <div class="card-number">Poesía & Cartografía · 39 poemas</div>
 <h2 style="font-size: 1.8rem; margin-bottom: 0.8rem; font-family: var(--font-serif);">Atlas de los 39</h2>
 <div class="atlas-copy">
-<p><em>Atlas de los 39</em> es un proyecto poético y autobiográfico desarrollado por DUBERLY en torno a sus 39 años. El número 39 —3 + 9 = 12; 1 + 2 = 3— funciona como una cifra simbólica para marcar el cierre de un ciclo y observar, desde ese umbral, los territorios, experiencias y principios que han configurado una vida.</p>
-<p>El Atlas reúne 39 poemas que trazan una cartografía personal: comienza en el valle del Aconcagua, junto al río, los cerros y la naturaleza de su territorio de origen, y se expande hacia recorridos por distintos lugares del planeta, encuentros con otras culturas, vínculos, pérdidas y búsquedas.</p>
-<p>Cada texto funciona como una coordenada de esa geografía afectiva. El recorrido desemboca en una serie de principios vitales, construyendo un mapa donde territorio, memoria, cuerpo y experiencia se superponen.</p>
+<p><em>Atlas de los 39</em> es un proyecto poético y autobiográfico creado por DUBERLY como cierre de un ciclo vital. Reúne 39 poemas que trazan una cartografía personal desde el valle del Aconcagua y su paisaje de origen hacia viajes, encuentros, pérdidas y búsquedas desarrolladas en distintos territorios.</p>
+<p>Cada texto funciona como una coordenada afectiva donde memoria, cuerpo, territorio y experiencia se superponen, hasta desembocar en una serie de principios de vida.</p>
 </div>
 <div class="atlas-meta">Proyecto personal · poesía · cartografía autobiográfica</div>
 <div class="atlas-cover-wrap">
@@ -1266,9 +1269,81 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 <div class="photo-credit">Quillota · Memoria</div>
 </div>
 </div>
-<!-- El enlace al PDF completo se añadirá aquí cuando el archivo se aloje en duberly.me -->
 </div>
 </div>
+
+<!-- Modal No es sequía, es saqueo -->
+<div id="modal-no-sequia" class="project-modal" role="dialog" aria-modal="true" aria-label="Ficha expandida No es sequía, es saqueo">
+<div class="modal-content-wrapper">
+<button class="modal-close-btn" onclick="closeModal('modal-no-sequia')" aria-label="Cerrar modal">&times;</button>
+<div class="card-number">Crónica · Escritura territorial</div>
+<h2 style="font-size: 1.8rem; margin-bottom: 0.8rem; font-family: var(--font-serif);">¡No es sequía, es saqueo!</h2>
+<div class="text-modal-copy">
+<p>A partir del estallido social de 2019 y de las imágenes de un río Aconcagua que parecía volver a correr, DUBERLY entrelaza memoria personal, territorio y conflicto socioambiental. Los recuerdos de infancia junto al río dialogan con las disputas por el agua, su administración y las transformaciones ecológicas del valle.</p>
+<p>La crónica convierte el cauce en memoria compartida y observa cómo una experiencia íntima puede revelar tensiones políticas que atraviesan todo un territorio.</p>
+</div>
+<div class="text-modal-actions">
+<a href="./no-es-sequia-es-saqueo.pdf" target="_blank" rel="noopener noreferrer" class="discrete-link" aria-label="Leer No es sequía, es saqueo en PDF">Leer texto completo <span class="arrow" aria-hidden="true">↗</span></a>
+</div>
+</div>
+</div>
+
+<!-- Modal VOZ -->
+<div id="modal-voz" class="project-modal" role="dialog" aria-modal="true" aria-label="Ficha expandida VOZ">
+<div class="modal-content-wrapper">
+<button class="modal-close-btn" onclick="closeModal('modal-voz')" aria-label="Cerrar modal">&times;</button>
+<div class="card-number">Investigación-Creación · Voz, cuerpo y palabra</div>
+<h2 style="font-size: 1.8rem; margin-bottom: 0.4rem; font-family: var(--font-serif);">VOZ</h2>
+<p class="text-modal-subtitle">Experimentación sobre cuerpo, palabra y creación colectiva</p>
+<div class="text-modal-copy">
+<p><em>VOZ</em> explora la voz y la palabra como materialidades artísticas vinculadas al cuerpo, la emoción y la experiencia colectiva. A través de ejercicios vocales desarrollados con un grupo de participantes, la experimentación transita entre la expresión emotiva y la desfragmentación sonora del lenguaje, observando cómo la voz puede activar movimiento, introspección, juego, creatividad y reflexión compartida.</p>
+<p>El proceso culmina en una pieza sonora que reúne los resultados de la experiencia y permite acceder a su dimensión vocal y colectiva.</p>
+</div>
+<h3 class="text-modal-media-title">Resultado sonoro</h3>
+<div class="text-modal-embed video-responsive">
+<iframe src="https://www.youtube-nocookie.com/embed/lE-6Qskoh5w" title="VOZ · resultado sonoro" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
+<div class="text-modal-actions">
+<a href="./voz.pdf" target="_blank" rel="noopener noreferrer" class="discrete-link" aria-label="Leer investigación VOZ en PDF">Leer investigación <span class="arrow" aria-hidden="true">↗</span></a>
+<a href="https://www.youtube.com/watch?v=lE-6Qskoh5w" target="_blank" rel="noopener noreferrer" class="discrete-link" aria-label="Escuchar resultado sonoro de VOZ en YouTube">Escuchar resultado sonoro <span class="arrow" aria-hidden="true">↗</span></a>
+</div>
+</div>
+</div>
+
+<!-- Modal ANIMA -->
+<div id="modal-anima" class="project-modal" role="dialog" aria-modal="true" aria-label="Ficha expandida ANIMA">
+<div class="modal-content-wrapper">
+<button class="modal-close-btn" onclick="closeModal('modal-anima')" aria-label="Cerrar modal">&times;</button>
+<div class="card-number">Ensayo · Artes Integradas</div>
+<h2 style="font-size: 1.8rem; margin-bottom: 0.4rem;">ANIMA</h2>
+<p class="text-modal-subtitle">Artes integradas, interdisciplinariedad, intermedialidad y colaboración</p>
+<div class="text-modal-copy">
+<p>A partir de la obra audiovisual <em>ANIMA</em>, de Paul Thomas Anderson y Thom Yorke, este ensayo indaga en las artes integradas como un territorio construido mediante colaboración, interdisciplinariedad e intermedialidad.</p>
+<p>Música, danza, cine, arquitectura, cuerpo e imagen son observados como materialidades activas que producen sentido en relación unas con otras. El recorrido propone entender la integración artística menos como la suma de disciplinas que como una trama de intercambios capaz de desdibujar fronteras entre lenguajes, autorías y formas de creación.</p>
+</div>
+<div class="text-modal-actions">
+<a href="./anima.pdf" target="_blank" rel="noopener noreferrer" class="discrete-link" aria-label="Leer ensayo ANIMA en PDF">Leer ensayo completo <span class="arrow" aria-hidden="true">↗</span></a>
+</div>
+</div>
+</div>
+
+<!-- Modal Islas flotantes -->
+<div id="modal-uros" class="project-modal" role="dialog" aria-modal="true" aria-label="Ficha expandida Islas flotantes: memoria, territorio y transformación en los Uros">
+<div class="modal-content-wrapper">
+<button class="modal-close-btn" onclick="closeModal('modal-uros')" aria-label="Cerrar modal">&times;</button>
+<div class="card-number">Ensayo · Memoria & Territorio</div>
+<h2 style="font-size: 1.8rem; margin-bottom: 0.4rem;">Islas flotantes</h2>
+<p class="text-modal-subtitle">Memoria, territorio y transformación en los Uros</p>
+<div class="text-modal-copy">
+<p>Este ensayo recorre la relación entre memoria, territorio y patrimonio a partir de las comunidades Uros del lago Titicaca y sus islas flotantes. Sus formas de habitar, construir y transmitir cultura permiten observar la memoria como una práctica viva, continuamente transformada por procesos históricos, políticos, económicos y ambientales.</p>
+<p>Frente a la patrimonialización y la explotación turística, el texto plantea que la continuidad cultural depende también de los espacios cotidianos donde las comunidades pueden practicar, recordar y reconstruir colectivamente su identidad.</p>
+</div>
+<div class="text-modal-actions">
+<a href="./islas-flotantes.pdf" target="_blank" rel="noopener noreferrer" class="discrete-link" aria-label="Leer ensayo Islas flotantes en PDF">Leer ensayo completo <span class="arrow" aria-hidden="true">↗</span></a>
+</div>
+</div>
+</div>
+
 <!-- Modal Cartografía Sonora -->
 <div id="modal-cartografia" class="project-modal" role="dialog" aria-modal="true" aria-label="Ficha expandida Cartografía Sonora Latinoamericana">
 <div class="modal-content-wrapper">
