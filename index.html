@@ -207,6 +207,15 @@ nav.main-nav button.active { color: var(--accent-light); border-bottom-color: va
 .modal-close-btn:hover { background: var(--accent-verde-azulado); color: #fff; }
 .modal-gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 1.8rem 0; }
 .modal-gallery-grid .site-photo-container { margin-bottom: 0; }
+/* ATLAS DE LOS 39 — ficha editorial */
+.atlas-cover-wrap { max-width: 330px; margin: 1.6rem auto 2rem; }
+.atlas-cover-wrap .site-photo-container { margin-bottom: 0; background: #111; }
+.atlas-gallery .site-photo-container { background: #111; }
+.atlas-gallery .site-photo-img { width: 100%; height: 520px; object-fit: contain; background: #111; }
+.atlas-copy { max-width: 760px; color: var(--text-secondary); line-height: 1.75; }
+.atlas-copy p + p { margin-top: 0.9rem; }
+.atlas-meta { margin-top: 1.2rem; color: var(--text-muted); font-size: 0.78rem; letter-spacing: 0.04em; }
+.atlas-selection-title { margin: 2rem 0 0.2rem; font-family: var(--font-serif); font-size: 1.15rem; font-weight: 400; color: var(--accent-light); }
 .mycelial-network-container { position: relative; margin-top: 2rem; padding: 1rem 0; }
 .mycelial-svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; overflow: visible; }
 .mycelial-path { fill: none; stroke: rgba(115, 157, 174, 0.25); stroke-width: 1.2; stroke-dasharray: 4 2; }
@@ -1113,7 +1122,10 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 <div>
 <div class="card-number">Poesía & Cartografía</div>
 <h3>Atlas de los 39</h3>
-<p>Un proyecto poético y cartográfico sobre geografía, memoria, vínculos y desplazamiento. Sus poemas funcionan como coordenadas, conceptos y trayectos que conectan experiencias vividas en Chile, América, Europa y Asia.</p>
+<p>Treinta y nueve poemas construyen una cartografía autobiográfica que recorre territorio, memoria, viajes, vínculos y principios de vida desde el valle del Aconcagua hacia otros lugares del planeta.</p>
+</div>
+<div class="card-action-slot">
+<button class="discrete-link" onclick="openModal('modal-atlas-39')">Abrir Atlas <span class="arrow" aria-hidden="true">↗</span></button>
 </div>
 </article>
 <article class="home-access-card">
@@ -1209,6 +1221,54 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 </main>
 </div>
 <!-- MODALES DE GALERÍAS Y FICHAS EXPANDIDAS -->
+<!-- Modal Atlas de los 39 -->
+<div id="modal-atlas-39" class="project-modal" role="dialog" aria-modal="true" aria-label="Ficha expandida Atlas de los 39">
+<div class="modal-content-wrapper">
+<button class="modal-close-btn" onclick="closeModal('modal-atlas-39')" aria-label="Cerrar modal">&times;</button>
+<div class="card-number">Poesía & Cartografía · 39 poemas</div>
+<h2 style="font-size: 1.8rem; margin-bottom: 0.8rem; font-family: var(--font-serif);">Atlas de los 39</h2>
+<div class="atlas-copy">
+<p><em>Atlas de los 39</em> es un proyecto poético y autobiográfico desarrollado por DUBERLY en torno a sus 39 años. El número 39 —3 + 9 = 12; 1 + 2 = 3— funciona como una cifra simbólica para marcar el cierre de un ciclo y observar, desde ese umbral, los territorios, experiencias y principios que han configurado una vida.</p>
+<p>El Atlas reúne 39 poemas que trazan una cartografía personal: comienza en el valle del Aconcagua, junto al río, los cerros y la naturaleza de su territorio de origen, y se expande hacia recorridos por distintos lugares del planeta, encuentros con otras culturas, vínculos, pérdidas y búsquedas.</p>
+<p>Cada texto funciona como una coordenada de esa geografía afectiva. El recorrido desemboca en una serie de principios vitales, construyendo un mapa donde territorio, memoria, cuerpo y experiencia se superponen.</p>
+</div>
+<div class="atlas-meta">Proyecto personal · poesía · cartografía autobiográfica</div>
+<div class="atlas-cover-wrap">
+<div class="site-photo-container" onclick="openLightbox('./atlas-39-portada.jpg')">
+<img src="./atlas-39-portada.jpg" alt="Portada de Atlas de los 39 de DUBERLY." class="site-photo-img" loading="lazy">
+</div>
+<div class="photo-credit">Portada</div>
+</div>
+<h3 class="atlas-selection-title">Selección del Atlas</h3>
+<div class="modal-gallery-grid atlas-gallery">
+<div>
+<div class="site-photo-container" onclick="openLightbox('./atlas-39-portico.jpg')">
+<img src="./atlas-39-portico.jpg" alt="Pórtico de Atlas de los 39." class="site-photo-img" loading="lazy">
+</div>
+<div class="photo-credit">Pórtico</div>
+</div>
+<div>
+<div class="site-photo-container" onclick="openLightbox('./atlas-39-cerro.jpg')">
+<img src="./atlas-39-cerro.jpg" alt="Poema Cerro de Atlas de los 39." class="site-photo-img" loading="lazy">
+</div>
+<div class="photo-credit">Cerro · Territorio</div>
+</div>
+<div>
+<div class="site-photo-container" onclick="openLightbox('./atlas-39-rio.jpg')">
+<img src="./atlas-39-rio.jpg" alt="Poema Río de Atlas de los 39." class="site-photo-img" loading="lazy">
+</div>
+<div class="photo-credit">Río · Territorio</div>
+</div>
+<div>
+<div class="site-photo-container" onclick="openLightbox('./atlas-39-quillota.jpg')">
+<img src="./atlas-39-quillota.jpg" alt="Poema Quillota de Atlas de los 39." class="site-photo-img" loading="lazy">
+</div>
+<div class="photo-credit">Quillota · Memoria</div>
+</div>
+</div>
+<!-- El enlace al PDF completo se añadirá aquí cuando el archivo se aloje en duberly.me -->
+</div>
+</div>
 <!-- Modal Cartografía Sonora -->
 <div id="modal-cartografia" class="project-modal" role="dialog" aria-modal="true" aria-label="Ficha expandida Cartografía Sonora Latinoamericana">
 <div class="modal-content-wrapper">
