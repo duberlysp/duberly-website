@@ -184,6 +184,14 @@ nav.main-nav button.active { color: var(--accent-light); border-bottom-color: va
 .bio-gallery-item.is-vertical img { width: 180px; }
 .bio-gallery-item.is-portrait img { width: 210px; }
 .bio-gallery-note { max-width: 760px; margin: 0.8rem auto 0; font-size: 0.72rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--text-muted); text-align: center; }
+/* FORMACIÓN BIO / CV — restaurado desde v15 */
+.bio-formation { max-width: 900px; margin: 2.8rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(158,212,226,0.12); }
+.bio-formation h2 { font-family: var(--font-serif); font-size: 1.35rem; font-weight: 400; margin-bottom: 1.25rem; color: var(--text-primary); }
+.bio-formation-list { display: grid; gap: 0; }
+.bio-formation-item { display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 1.4rem; padding: 0.8rem 0; border-bottom: 1px solid rgba(158,212,226,0.08); align-items: baseline; }
+.bio-formation-year { font-family: var(--font-sans); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-slate); }
+.bio-formation-degree { font-family: var(--font-sans); font-size: 0.88rem; line-height: 1.45; color: var(--text-primary); }
+.bio-formation-degree span { color: var(--text-secondary); }
 @keyframes bioAutoScroll { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 0.5rem)); } }
 /* TARJETAS Y ESTRUCTURA DE FICHAS */ .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.8rem; margin-top: 1.5rem; }
 .mycelial-grid { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(12, 1fr); gap: 2rem; align-items: start; }
