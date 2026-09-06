@@ -168,6 +168,23 @@ nav.main-nav button.active { color: var(--accent-light); border-bottom-color: va
 #biocv .section-header p.section-lead { margin: 0 auto; }
 #biocv .bio-body { max-width: 760px; margin: 0 auto; }
 #biocv .bio-body p { font-size: 0.89rem; line-height: 1.66; margin-bottom: 0.95rem; text-align: justify; text-align-last: left; text-justify: inter-word; hyphens: auto; }
+/* FRANJA VISUAL BIO */
+.bio-gallery-shell { position: relative; margin-top: 2.6rem; }
+.bio-gallery-shell::before, .bio-gallery-shell::after { content: ''; position: absolute; top: 0; bottom: 0; width: 56px; z-index: 2; pointer-events: none; }
+.bio-gallery-shell::before { left: 0; background: linear-gradient(90deg, rgba(18,22,24,0.95), rgba(18,22,24,0)); }
+.bio-gallery-shell::after { right: 0; background: linear-gradient(270deg, rgba(18,22,24,0.95), rgba(18,22,24,0)); }
+.bio-gallery-viewport { overflow: hidden; width: min(1120px, 100%); margin: 0 auto; }
+.bio-gallery-track { display: flex; gap: 1rem; width: max-content; animation: bioScroll 56s linear infinite; }
+.bio-gallery-viewport:hover .bio-gallery-track { animation-play-state: paused; }
+.bio-gallery-item { flex: 0 0 auto; }
+.bio-gallery-item .site-photo-container { margin-bottom: 0; height: 250px; }
+.bio-gallery-item img { height: 250px; width: auto; display: block; object-fit: cover; }
+.bio-gallery-item.is-wide img { width: 420px; }
+.bio-gallery-item.is-mid img { width: 330px; }
+.bio-gallery-item.is-vertical img { width: 180px; }
+.bio-gallery-item.is-portrait img { width: 210px; }
+.bio-gallery-note { max-width: 760px; margin: 1rem auto 0; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); text-align: center; }
+@keyframes bioScroll { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 0.5rem)); } }
 /* TARJETAS Y ESTRUCTURA DE FICHAS */ .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.8rem; margin-top: 1.5rem; }
 .mycelial-grid { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(12, 1fr); gap: 2rem; align-items: start; }
 .home-access-card { border: none; padding: 2.2rem; text-decoration: none; color: inherit; display: flex; flex-direction: column; justify-content: space-between; position: relative; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35); background: linear-gradient(135deg, rgba(20, 40, 52, 0.6) 0%, rgba(17, 22, 25, 0.5) 100%); border-radius: 20px; opacity: 0; transform: translateY(20px); animation: fadeInOrganic 0.8s var(--ease-out) forwards; transition: transform 0.4s var(--ease-out), background 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease; }
@@ -252,6 +269,16 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 #obra .creation-carousel .card-action-slot:has(> :only-child) { width: 100%; }
 #biocv .bio-body { text-align: left; }
 #biocv .bio-body p { text-align: left; hyphens: none; }
+.bio-gallery-shell::before, .bio-gallery-shell::after { display: none; }
+.bio-gallery-viewport { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; padding-bottom: 0.25rem; }
+.bio-gallery-track { animation: none; }
+.bio-gallery-item .site-photo-container { height: 190px; }
+.bio-gallery-item img { height: 190px; }
+.bio-gallery-item.is-wide img { width: 300px; }
+.bio-gallery-item.is-mid img { width: 245px; }
+.bio-gallery-item.is-vertical img { width: 138px; }
+.bio-gallery-item.is-portrait img { width: 160px; }
+.bio-gallery-note { font-size: 0.72rem; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; }
 .home-access-card, .site-photo-container { opacity: 1; transform: none; }
@@ -1193,6 +1220,29 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 <p>Es Licenciado en Artes, Tecnología y Gestión Musical por la Universidad de Valparaíso, Magíster en Arte y Educación por la Universidad Central y doctorando en Artes Integradas en la Universidad de Playa Ancha.</p>
 <p>Desde 2020 ejerce docencia en la Universidad Andrés Bello. Es vocalista y director artístico del Ensamble Folk y, desde el ecosistema Chile Puerto Folk, impulsa experiencias artísticas, la Orquesta Folk y procesos de mediación en diálogo con comunidades educativas, culturales y territoriales. Su trabajo en ECAV amplía esta red mediante formación, ensambles e intervenciones artísticas.</p>
 <p>Su trayectoria se ha tejido mediante colaboraciones y circulación por América, Asia y Europa. En cada contexto, la práctica se transforma al encontrarse con otras personas, repertorios y maneras de comprender el territorio.</p>
+</div>
+<div class="bio-gallery-shell" aria-label="Archivo visual de la trayectoria de Duberly">
+<div class="bio-gallery-viewport">
+<div class="bio-gallery-track">
+<div class="bio-gallery-item is-vertical"><div class="site-photo-container" onclick="openLightbox('./bio-01.jpg')"><img src="./bio-01.jpg" alt="Duberly en escenario observando a otro músico durante un concierto." class="site-photo-img" loading="lazy"></div></div>
+<div class="bio-gallery-item is-wide"><div class="site-photo-container" onclick="openLightbox('./bio-02.jpg')"><img src="./bio-02.jpg" alt="Duberly realizando una actividad musical comunitaria en India con niñas y niños." class="site-photo-img" loading="lazy"></div></div>
+<div class="bio-gallery-item is-wide"><div class="site-photo-container" onclick="openLightbox('./bio-03.PNG')"><img src="./bio-03.PNG" alt="Duberly coordinando con un equipo de producción y medios en Corea del Sur." class="site-photo-img" loading="lazy"></div></div>
+<div class="bio-gallery-item is-wide"><div class="site-photo-container" onclick="openLightbox('./bio-04.jpg')"><img src="./bio-04.jpg" alt="Duberly cantando en escena con camisa amarilla." class="site-photo-img" loading="lazy"></div></div>
+<div class="bio-gallery-item is-wide"><div class="site-photo-container" onclick="openLightbox('./bio-05.jpg')"><img src="./bio-05.jpg" alt="Presentación final del Taller de Canto con estudiantes en un escenario universitario." class="site-photo-img" loading="lazy"></div></div>
+<div class="bio-gallery-item is-wide"><div class="site-photo-container" onclick="openLightbox('./bio-06.jpg')"><img src="./bio-06.jpg" alt="Concierto colectivo del ensamble con iluminación verde sobre el escenario." class="site-photo-img" loading="lazy"></div></div>
+<div class="bio-gallery-item is-vertical"><div class="site-photo-container" onclick="openLightbox('./bio-07.jpg')"><img src="./bio-07.jpg" alt="Duberly interpretando en escenario con luz azul y vestuario oscuro." class="site-photo-img" loading="lazy"></div></div>
+<div class="bio-gallery-item is-portrait"><div class="site-photo-container" onclick="openLightbox('./bio-08.jpg')"><img src="./bio-08.jpg" alt="Retrato de Duberly con camisa rayada bajo una iluminación azul." class="site-photo-img" loading="lazy"></div></div>
+<div class="bio-gallery-item is-vertical" aria-hidden="true"><div class="site-photo-container" onclick="openLightbox('./bio-01.jpg')"><img src="./bio-01.jpg" alt="" class="site-photo-img" loading="lazy"></div></div>
+<div class="bio-gallery-item is-wide" aria-hidden="true"><div class="site-photo-container" onclick="openLightbox('./bio-02.jpg')"><img src="./bio-02.jpg" alt="" class="site-photo-img" loading="lazy"></div></div>
+<div class="bio-gallery-item is-wide" aria-hidden="true"><div class="site-photo-container" onclick="openLightbox('./bio-03.PNG')"><img src="./bio-03.PNG" alt="" class="site-photo-img" loading="lazy"></div></div>
+<div class="bio-gallery-item is-wide" aria-hidden="true"><div class="site-photo-container" onclick="openLightbox('./bio-04.jpg')"><img src="./bio-04.jpg" alt="" class="site-photo-img" loading="lazy"></div></div>
+<div class="bio-gallery-item is-wide" aria-hidden="true"><div class="site-photo-container" onclick="openLightbox('./bio-05.jpg')"><img src="./bio-05.jpg" alt="" class="site-photo-img" loading="lazy"></div></div>
+<div class="bio-gallery-item is-wide" aria-hidden="true"><div class="site-photo-container" onclick="openLightbox('./bio-06.jpg')"><img src="./bio-06.jpg" alt="" class="site-photo-img" loading="lazy"></div></div>
+<div class="bio-gallery-item is-vertical" aria-hidden="true"><div class="site-photo-container" onclick="openLightbox('./bio-07.jpg')"><img src="./bio-07.jpg" alt="" class="site-photo-img" loading="lazy"></div></div>
+<div class="bio-gallery-item is-portrait" aria-hidden="true"><div class="site-photo-container" onclick="openLightbox('./bio-08.jpg')"><img src="./bio-08.jpg" alt="" class="site-photo-img" loading="lazy"></div></div>
+</div>
+</div>
+<div class="bio-gallery-note">archivo visual · creación · mediación · circulación · docencia</div>
 </div>
 </section>
 <!-- CONTACTO -->
