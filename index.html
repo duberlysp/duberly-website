@@ -173,12 +173,10 @@ nav.main-nav button.active { color: var(--accent-light); border-bottom-color: va
 .bio-gallery-shell::before, .bio-gallery-shell::after { content: ''; position: absolute; top: 0; bottom: 34px; width: 46px; z-index: 2; pointer-events: none; }
 .bio-gallery-shell::before { left: 0; background: linear-gradient(90deg, rgba(18,22,24,0.9), rgba(18,22,24,0)); }
 .bio-gallery-shell::after { right: 0; background: linear-gradient(270deg, rgba(18,22,24,0.9), rgba(18,22,24,0)); }
-.bio-gallery-viewport { overflow-x: auto; overflow-y: hidden; width: min(1120px, 100%); margin: 0 auto; padding: 0.2rem 0 0.65rem; scroll-snap-type: x proximity; scrollbar-width: thin; scrollbar-color: rgba(158,212,226,0.30) transparent; -webkit-overflow-scrolling: touch; }
-.bio-gallery-viewport::-webkit-scrollbar { height: 5px; }
-.bio-gallery-viewport::-webkit-scrollbar-track { background: transparent; }
-.bio-gallery-viewport::-webkit-scrollbar-thumb { background: rgba(158,212,226,0.26); border-radius: 999px; }
-.bio-gallery-track { display: flex; gap: 1rem; width: max-content; padding: 0 46px; }
-.bio-gallery-item { flex: 0 0 auto; scroll-snap-align: start; }
+.bio-gallery-viewport { overflow: hidden; width: min(1120px, 100%); margin: 0 auto; padding: 0.2rem 0 0.65rem; }
+.bio-gallery-track { display: flex; gap: 1rem; width: max-content; padding: 0 46px; animation: bioAutoScroll 58s linear infinite; will-change: transform; }
+.bio-gallery-viewport:hover .bio-gallery-track { animation-play-state: paused; }
+.bio-gallery-item { flex: 0 0 auto; }
 .bio-gallery-item .site-photo-container { margin-bottom: 0; height: 250px; }
 .bio-gallery-item img { height: 250px; width: auto; display: block; object-fit: cover; }
 .bio-gallery-item.is-wide img { width: 420px; }
@@ -186,14 +184,7 @@ nav.main-nav button.active { color: var(--accent-light); border-bottom-color: va
 .bio-gallery-item.is-vertical img { width: 180px; }
 .bio-gallery-item.is-portrait img { width: 210px; }
 .bio-gallery-note { max-width: 760px; margin: 0.8rem auto 0; font-size: 0.72rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--text-muted); text-align: center; }
-/* FORMACIÓN BIO / CV */
-.bio-formation { max-width: 900px; margin: 2.8rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(158,212,226,0.12); }
-.bio-formation h2 { font-family: var(--font-serif); font-size: 1.35rem; font-weight: 400; margin-bottom: 1.25rem; color: var(--text-primary); }
-.bio-formation-list { display: grid; gap: 0; }
-.bio-formation-item { display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 1.4rem; padding: 0.8rem 0; border-bottom: 1px solid rgba(158,212,226,0.08); align-items: baseline; }
-.bio-formation-year { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-slate); }
-.bio-formation-degree { font-size: 0.88rem; line-height: 1.45; color: var(--text-primary); }
-.bio-formation-degree span { color: var(--text-secondary); }
+@keyframes bioAutoScroll { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 0.5rem)); } }
 /* TARJETAS Y ESTRUCTURA DE FICHAS */ .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.8rem; margin-top: 1.5rem; }
 .mycelial-grid { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(12, 1fr); gap: 2rem; align-items: start; }
 .home-access-card { border: none; padding: 2.2rem; text-decoration: none; color: inherit; display: flex; flex-direction: column; justify-content: space-between; position: relative; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35); background: linear-gradient(135deg, rgba(20, 40, 52, 0.6) 0%, rgba(17, 22, 25, 0.5) 100%); border-radius: 20px; opacity: 0; transform: translateY(20px); animation: fadeInOrganic 0.8s var(--ease-out) forwards; transition: transform 0.4s var(--ease-out), background 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease; }
@@ -279,7 +270,10 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 #biocv .bio-body { text-align: left; }
 #biocv .bio-body p { text-align: left; hyphens: none; }
 .bio-gallery-shell::before, .bio-gallery-shell::after { display: none; }
-.bio-gallery-track { padding: 0 1rem; gap: 0.75rem; }
+.bio-gallery-viewport { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity; }
+.bio-gallery-track { animation: none; padding: 0 1rem; gap: 0.75rem; }
+.bio-gallery-item { scroll-snap-align: start; }
+.bio-gallery-item:nth-child(n+9) { display: none; }
 .bio-gallery-item .site-photo-container { height: 190px; }
 .bio-gallery-item img { height: 190px; }
 .bio-gallery-item.is-wide img { width: 300px; }
@@ -1236,7 +1230,7 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 <h2>Formación</h2>
 <div class="bio-formation-list">
 <div class="bio-formation-item"><div class="bio-formation-year">2012–2015</div><div class="bio-formation-degree">Licenciatura en Artes, Tecnología y Gestión Musical <span>· Universidad de Valparaíso</span></div></div>
-<div class="bio-formation-item"><div class="bio-formation-year">2015</div><div class="bio-formation-degree">Música popular y clásica <span>· Universidad de Ciencias y Artes de Chiapas</span></div></div>
+<div class="bio-formation-item"><div class="bio-formation-year">2014</div><div class="bio-formation-degree">Música popular y clásica <span>· Universidad de Ciencias y Artes de Chiapas</span></div></div>
 <div class="bio-formation-item"><div class="bio-formation-year">2020</div><div class="bio-formation-degree">Postítulo en Educación Artística <span>· Universidad Central de Chile</span></div></div>
 <div class="bio-formation-item"><div class="bio-formation-year">2020–2021</div><div class="bio-formation-degree">Magíster en Arte y Educación <span>· Universidad Central de Chile</span></div></div>
 <div class="bio-formation-item"><div class="bio-formation-year">2021</div><div class="bio-formation-degree">Máster en Arteterapia y Educación Artística <span>· Universidad Autónoma de Madrid</span></div></div>
@@ -1247,17 +1241,25 @@ nav.main-nav { justify-content: center; gap: 0.8rem; }
 <div class="bio-gallery-shell" aria-label="Archivo visual de la trayectoria de Duberly">
 <div class="bio-gallery-viewport">
 <div class="bio-gallery-track">
-<div class="bio-gallery-item is-vertical"><div class="site-photo-container" onclick="openLightbox('./bio-01.jpg')"><img src="./bio-01.jpg" alt="Duberly en escenario observando a otro músico durante un concierto." class="site-photo-img" loading="eager"></div></div>
-<div class="bio-gallery-item is-wide"><div class="site-photo-container" onclick="openLightbox('./bio-02.jpg')"><img src="./bio-02.jpg" alt="Duberly realizando una actividad musical comunitaria en India con niñas y niños." class="site-photo-img" loading="eager"></div></div>
-<div class="bio-gallery-item is-wide"><div class="site-photo-container" onclick="openLightbox('./bio-03.PNG')"><img src="./bio-03.PNG" alt="Duberly coordinando con un equipo de producción y medios en Corea del Sur." class="site-photo-img" loading="eager"></div></div>
-<div class="bio-gallery-item is-wide"><div class="site-photo-container" onclick="openLightbox('./bio-04.jpg')"><img src="./bio-04.jpg" alt="Duberly cantando en escena con camisa amarilla." class="site-photo-img" loading="eager"></div></div>
-<div class="bio-gallery-item is-wide"><div class="site-photo-container" onclick="openLightbox('./bio-05.jpg')"><img src="./bio-05.jpg" alt="Presentación final del Taller de Canto con estudiantes en un escenario universitario." class="site-photo-img" loading="eager"></div></div>
-<div class="bio-gallery-item is-wide"><div class="site-photo-container" onclick="openLightbox('./bio-06.jpg')"><img src="./bio-06.jpg" alt="Concierto colectivo del ensamble con iluminación verde sobre el escenario." class="site-photo-img" loading="eager"></div></div>
-<div class="bio-gallery-item is-vertical"><div class="site-photo-container" onclick="openLightbox('./bio-07.jpg')"><img src="./bio-07.jpg" alt="Duberly interpretando en escenario con luz azul y vestuario oscuro." class="site-photo-img" loading="eager"></div></div>
-<div class="bio-gallery-item is-portrait"><div class="site-photo-container" onclick="openLightbox('./bio-08.jpg')"><img src="./bio-08.jpg" alt="Retrato de Duberly con camisa rayada bajo una iluminación azul." class="site-photo-img" loading="eager"></div></div>
+<div class="bio-gallery-item is-vertical"><div class="site-photo-container" onclick="openLightbox('./bio-01.JPG')"><img src="./bio-01.JPG" alt="Duberly en escenario observando a otro músico durante un concierto." class="site-photo-img" loading="eager" decoding="async"></div></div>
+<div class="bio-gallery-item is-wide"><div class="site-photo-container" onclick="openLightbox('./bio-02.jpg')"><img src="./bio-02.jpg" alt="Duberly realizando una actividad musical comunitaria en India con niñas y niños." class="site-photo-img" loading="eager" decoding="async"></div></div>
+<div class="bio-gallery-item is-wide"><div class="site-photo-container" onclick="openLightbox('./bio-03.png')"><img src="./bio-03.png" alt="Duberly coordinando con un equipo de producción y medios en Corea del Sur." class="site-photo-img" loading="eager" decoding="async"></div></div>
+<div class="bio-gallery-item is-wide"><div class="site-photo-container" onclick="openLightbox('./bio-04.jpg')"><img src="./bio-04.jpg" alt="Duberly cantando en escena con camisa amarilla." class="site-photo-img" loading="eager" decoding="async"></div></div>
+<div class="bio-gallery-item is-wide"><div class="site-photo-container" onclick="openLightbox('./bio-05.jpg')"><img src="./bio-05.jpg" alt="Presentación final del Taller de Canto con estudiantes en un escenario universitario." class="site-photo-img" loading="eager" decoding="async"></div></div>
+<div class="bio-gallery-item is-wide"><div class="site-photo-container" onclick="openLightbox('./bio-06.jpg')"><img src="./bio-06.jpg" alt="Concierto colectivo del ensamble con iluminación verde sobre el escenario." class="site-photo-img" loading="eager" decoding="async"></div></div>
+<div class="bio-gallery-item is-vertical"><div class="site-photo-container" onclick="openLightbox('./bio-07.JPG')"><img src="./bio-07.JPG" alt="Duberly interpretando en escenario con luz azul y vestuario oscuro." class="site-photo-img" loading="eager" decoding="async"></div></div>
+<div class="bio-gallery-item is-portrait"><div class="site-photo-container" onclick="openLightbox('./bio-08.JPG')"><img src="./bio-08.JPG" alt="Retrato de Duberly con camisa rayada bajo una iluminación azul." class="site-photo-img" loading="eager" decoding="async"></div></div>
+<div class="bio-gallery-item is-vertical" aria-hidden="true"><div class="site-photo-container" onclick="openLightbox('./bio-01.JPG')"><img src="./bio-01.JPG" alt="" class="site-photo-img" loading="eager" decoding="async"></div></div>
+<div class="bio-gallery-item is-wide" aria-hidden="true"><div class="site-photo-container" onclick="openLightbox('./bio-02.jpg')"><img src="./bio-02.jpg" alt="" class="site-photo-img" loading="eager" decoding="async"></div></div>
+<div class="bio-gallery-item is-wide" aria-hidden="true"><div class="site-photo-container" onclick="openLightbox('./bio-03.png')"><img src="./bio-03.png" alt="" class="site-photo-img" loading="eager" decoding="async"></div></div>
+<div class="bio-gallery-item is-wide" aria-hidden="true"><div class="site-photo-container" onclick="openLightbox('./bio-04.jpg')"><img src="./bio-04.jpg" alt="" class="site-photo-img" loading="eager" decoding="async"></div></div>
+<div class="bio-gallery-item is-wide" aria-hidden="true"><div class="site-photo-container" onclick="openLightbox('./bio-05.jpg')"><img src="./bio-05.jpg" alt="" class="site-photo-img" loading="eager" decoding="async"></div></div>
+<div class="bio-gallery-item is-wide" aria-hidden="true"><div class="site-photo-container" onclick="openLightbox('./bio-06.jpg')"><img src="./bio-06.jpg" alt="" class="site-photo-img" loading="eager" decoding="async"></div></div>
+<div class="bio-gallery-item is-vertical" aria-hidden="true"><div class="site-photo-container" onclick="openLightbox('./bio-07.JPG')"><img src="./bio-07.JPG" alt="" class="site-photo-img" loading="eager" decoding="async"></div></div>
+<div class="bio-gallery-item is-portrait" aria-hidden="true"><div class="site-photo-container" onclick="openLightbox('./bio-08.JPG')"><img src="./bio-08.JPG" alt="" class="site-photo-img" loading="eager" decoding="async"></div></div>
 </div>
 </div>
-<div class="bio-gallery-note">archivo visual · desliza para recorrer</div>
+<div class="bio-gallery-note">archivo visual · creación · mediación · circulación · docencia</div>
 </div>
 </section>
 <!-- CONTACTO -->
