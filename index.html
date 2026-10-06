@@ -259,6 +259,80 @@ footer { border-top: 1px solid var(--border-subtle); padding-top: 2rem; margin-t
 /* LIGHTBOX PARA AMPLIAR FOTOGRAFÍAS */ .lightbox-modal { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(5, 7, 8, 0.95); z-index: 3000; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; padding: 2rem; }
 .lightbox-modal.open { opacity: 1; visibility: visible; }
 .lightbox-modal img { max-width: 92vw; max-height: 92vh; object-fit: contain; border-radius: 8px; box-shadow: 0 0 50px rgba(0,0,0,0.9); }
+/* SERVICIOS */
+#servicios .section-header { max-width: 860px; margin-bottom: 2.2rem; }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.4rem;
+}
+.service-card {
+  min-height: 330px;
+  padding: 1.45rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(158,212,226,0.07);
+  border-radius: 18px;
+  background: linear-gradient(145deg, rgba(20,40,52,0.15), rgba(17,22,25,0.07));
+  box-shadow: 0 12px 30px rgba(0,0,0,0.13);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform .35s var(--ease-out), border-color .35s ease, background .35s ease;
+}
+.service-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(158,212,226,0.13);
+  background: linear-gradient(145deg, rgba(30,58,61,0.22), rgba(17,22,25,0.12));
+}
+.service-number {
+  color: var(--accent-slate);
+  font-size: .68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  margin-bottom: .8rem;
+}
+.service-card h2 {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: .025em;
+  margin-bottom: .75rem;
+  color: var(--text-primary);
+}
+.service-card p {
+  color: var(--text-secondary);
+  font-size: .88rem;
+  line-height: 1.65;
+}
+.service-tags {
+  margin-top: 1.15rem;
+  padding-top: .9rem;
+  border-top: 1px solid rgba(158,212,226,0.065);
+  color: var(--text-muted);
+  font-size: .72rem;
+  line-height: 1.65;
+  letter-spacing: .025em;
+}
+.services-cta {
+  max-width: 820px;
+  margin: 2rem auto 0;
+  padding-top: 1.35rem;
+  border-top: 1px solid rgba(158,212,226,0.075);
+  text-align: center;
+}
+.services-cta p {
+  color: var(--text-secondary);
+  font-size: .9rem;
+  line-height: 1.65;
+  margin-bottom: .9rem;
+}
+@media (max-width: 820px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .service-card { min-height: 0; }
+}
+
 /* RESPONSIVE (MÓVIL) */ @media (max-width: 820px) { .home-hero-layout { flex-direction: column-reverse; gap: 2rem; }
 .home-portrait-wrapper { max-width: 100%; width: 100%; }
 .home-presentation-single { text-align: left; hyphens: none; font-size: 0.94rem; line-height: 1.65; }
@@ -389,283 +463,352 @@ nav.main-nav button { font-size: 0.76rem; letter-spacing: 0.1em; }
 
 
 /* =========================================================
-   INVESTIGACIÓN — MICELIO CULTURAL / DIAGRAMA VIVO
+   INVESTIGACIÓN — ALMANAQUE DE CONEXIONES POSIBLES / V24
+   Objeto digital manipulable · mobile-first
    ========================================================= */
-#investigacion .section-header { margin-bottom: 2.2rem; }
-
-.micelio-subheader { margin-top: 2.1rem; }
-
-.micelio-experiment {
-  position: relative;
-  margin-top: 1rem;
+#investigacion .section-header { margin-bottom: 2.15rem; }
+.almanaque-subheader { margin-top: 2rem; }
+.almanaque-shell {
+  margin-top: 1.1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(158,212,226,0.07);
 }
-.micelio-visual-wrap {
+.almanaque-intro {
+  max-width: 790px;
+  color: var(--text-secondary);
+  font-size: 0.94rem;
+  line-height: 1.74;
+  margin-bottom: 1.4rem;
+}
+.almanaque-object-stage {
   position: relative;
   width: 100%;
-  min-height: 500px;
-  overflow: hidden;
-  border-top: 1px solid rgba(158, 212, 226, 0.05);
-  border-bottom: 1px solid rgba(158, 212, 226, 0.05);
-  background:
-    radial-gradient(circle at 50% 46%, rgba(59,110,114,0.08), transparent 36%),
-    linear-gradient(180deg, rgba(3,5,6,0.03), rgba(3,5,6,0.16));
+  display: grid;
+  place-items: center;
+  padding: 0.5rem 0 1.1rem;
 }
-.micelio-live-svg {
+.almanaque-object {
+  --ring-1: #738f8a;
+  --ring-2: #7d8fa6;
+  --ring-3: #9a815f;
+  --ring-4: #9a6f62;
+  --ring-5: #827d98;
+  position: relative;
+  width: min(94vw, 690px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  user-select: none;
+  -webkit-user-select: none;
+  isolation: isolate;
+}
+.almanaque-object::before {
+  content: '';
+  position: absolute;
+  inset: 4%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 42% 35%, rgba(255,255,255,0.035), transparent 27%),
+    radial-gradient(circle at 64% 68%, rgba(199,155,82,0.035), transparent 34%),
+    radial-gradient(circle at 50% 50%, rgba(18,29,32,0.42), rgba(3,5,6,0.02) 68%);
+  box-shadow: inset 0 0 80px rgba(0,0,0,0.28), 0 24px 55px rgba(0,0,0,0.18);
+  pointer-events: none;
+}
+.almanaque-svg {
   display: block;
   width: 100%;
   height: auto;
-  min-height: 500px;
   overflow: visible;
+  touch-action: none;
 }
-.micelio-edge {
-  stroke: rgba(115, 157, 174, 0.22);
-  stroke-width: 1.15;
+.almanaque-ring-hit {
   fill: none;
-  transition: stroke 0.35s ease, stroke-width 0.35s ease, opacity 0.35s ease;
+  stroke: rgba(255,255,255,0.001);
+  cursor: grab;
+  pointer-events: stroke;
 }
-.micelio-edge.local {
-  stroke: rgba(158, 212, 226, 0.42);
-  stroke-width: 1.7;
-  stroke-dasharray: 5 4;
-}
-.micelio-edge.dimmed { opacity: 0.12; }
-.micelio-edge.active {
-  opacity: 1;
-  stroke: rgba(158, 212, 226, 0.75);
-  stroke-width: 2;
-}
-.micelio-node { cursor: pointer; outline: none; }
-.micelio-node circle {
-  fill: rgba(17,22,25,0.86);
-  stroke: rgba(115,157,174,0.58);
-  stroke-width: 1.4;
-  transition: r 0.35s var(--ease-out), fill 0.35s ease, stroke 0.35s ease, opacity 0.35s ease;
-}
-.micelio-node .node-core {
-  fill: rgba(214, 177, 70, 0.68);
-  opacity: 0.88;
-  transition: fill 0.35s ease, opacity 0.35s ease, transform 0.35s ease;
-}
-.micelio-node text {
-  fill: var(--text-secondary);
-  font-family: var(--font-sans);
-  font-size: 17px;
-  letter-spacing: 0.035em;
-  text-anchor: middle;
+.almanaque-ring-hit:active { cursor: grabbing; }
+.almanaque-ring-band {
+  fill: none;
+  opacity: 0.38;
   pointer-events: none;
-  transition: fill 0.35s ease, opacity 0.35s ease;
+  filter: saturate(0.86);
 }
-.micelio-node:hover circle,
-.micelio-node:focus circle,
-.micelio-node.active circle {
-  fill: rgba(30,58,61,0.78);
-  stroke: rgba(158,212,226,0.92);
+.almanaque-ring-line {
+  fill: none;
+  stroke: rgba(232,237,239,0.14);
+  stroke-width: 1;
+  pointer-events: none;
 }
-.micelio-node:hover .node-core,
-.micelio-node:focus .node-core,
-.micelio-node.active .node-core {
-  fill: rgba(232, 196, 92, 0.96);
-  opacity: 1;
+.almanaque-ring text {
+  fill: rgba(232,237,239,0.83);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  letter-spacing: 0.045em;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  pointer-events: none;
 }
-.micelio-node:hover text,
-.micelio-node:focus text,
-.micelio-node.active text { fill: var(--text-primary); }
-.micelio-node.dimmed { opacity: 0.25; }
-
-.micelio-reading {
-  position: absolute;
-  left: 1.2rem;
-  bottom: 1.2rem;
-  width: min(360px, calc(100% - 2.4rem));
-  padding: 1rem 1.1rem;
-  background: rgba(5,8,10,0.54);
-  border: 1px solid rgba(158,212,226,0.07);
-  border-radius: 14px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+.almanaque-ring text.is-active {
+  fill: #f1e6ca;
+  font-weight: 600;
 }
-.micelio-reading-label {
+.almanaque-ring-caption {
+  fill: rgba(232,237,239,0.42) !important;
+  font-size: 9px !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase;
+}
+.almanaque-center-disc {
+  fill: rgba(7,11,13,0.92);
+  stroke: rgba(232,237,239,0.16);
+  stroke-width: 1.2;
+}
+.almanaque-center-small {
+  fill: var(--accent-slate);
+  font-family: var(--font-sans);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-anchor: middle;
+  text-transform: uppercase;
+}
+.almanaque-center-main {
+  fill: var(--text-primary);
+  font-family: var(--font-serif);
+  font-size: 22px;
+  text-anchor: middle;
+}
+.almanaque-axis {
+  stroke: rgba(241,230,202,0.74);
+  stroke-width: 1.3;
+  pointer-events: none;
+}
+.almanaque-axis-dot { fill: #d2a35b; }
+.almanaque-axis-label {
+  fill: #d8b679;
+  font-family: var(--font-sans);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-anchor: middle;
+}
+.almanaque-instruction {
+  max-width: 650px;
+  margin: -0.2rem auto 0;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  line-height: 1.55;
+}
+.almanaque-output {
+  max-width: 800px;
+  margin: 2rem auto 0;
+  padding-top: 1.45rem;
+  border-top: 1px solid rgba(158,212,226,0.075);
+}
+.almanaque-output-kicker {
   display: block;
   color: var(--accent-slate);
   font-size: 0.68rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.7rem;
 }
-.micelio-reading strong {
-  display: block;
+.almanaque-result {
   font-family: var(--font-serif);
-  font-weight: 400;
-  font-size: 1.15rem;
-  margin-bottom: 0.25rem;
-}
-.micelio-reading p {
-  color: var(--text-secondary);
-  font-size: 0.82rem;
-  line-height: 1.45;
-}
-
-.micelio-status {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.75rem 0.15rem 0;
-  color: var(--text-muted);
-  font-size: 0.74rem;
-  letter-spacing: 0.035em;
-}
-
-.micelio-participation {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: 2.4rem;
-  align-items: start;
-  margin-top: 3rem;
-  padding: 1.6rem 0 0;
-  border-top: 1px solid rgba(158, 212, 226, 0.07);
-}
-.micelio-form-copy h3 {
-  font-family: var(--font-serif);
-  font-size: 1.6rem;
-  font-weight: 400;
-  margin: 0.15rem 0 0.55rem;
-}
-.micelio-form-copy > p {
-  max-width: 430px;
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  line-height: 1.65;
-}
-.micelio-qr-box {
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-  margin-top: 1.25rem;
-  max-width: 390px;
-}
-.micelio-qr-box img {
-  width: 92px;
-  height: 92px;
-  object-fit: contain;
-  border-radius: 8px;
-  opacity: 0.88;
-}
-.micelio-qr-box strong {
-  display: block;
-  font-size: 0.82rem;
-  font-weight: 500;
+  font-size: clamp(1.35rem, 4.8vw, 2.25rem);
+  line-height: 1.36;
   color: var(--text-primary);
+  margin: 0;
 }
-.micelio-qr-box span {
-  display: block;
-  margin-top: 0.18rem;
-  color: var(--text-muted);
-  font-size: 0.75rem;
-  line-height: 1.4;
-  word-break: break-word;
+.almanaque-provocation {
+  margin-top: 0.9rem;
+  max-width: 690px;
+  color: #d7c39a;
+  font-size: 0.93rem;
+  line-height: 1.66;
 }
-
-.micelio-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-.micelio-form label {
+.almanaque-actions {
   display: flex;
-  flex-direction: column;
-  gap: 0.38rem;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  margin-top: 1.15rem;
+}
+.almanaque-actions button,
+.almanaque-nudge button {
+  appearance: none;
+  border: 1px solid rgba(158,212,226,0.14);
+  background: rgba(17,22,25,0.16);
   color: var(--text-secondary);
-  font-size: 0.78rem;
-}
-.micelio-form label > span { letter-spacing: 0.025em; }
-.micelio-form small {
-  color: var(--text-muted);
-  font-size: 0.7rem;
-}
-.micelio-form select,
-.micelio-form input {
-  width: 100%;
-  min-height: 44px;
-  padding: 0.72rem 0.8rem;
-  color: var(--text-primary);
-  background: rgba(17,22,25,0.26);
-  border: 1px solid rgba(115,157,174,0.15);
-  border-radius: 10px;
   font: inherit;
+  cursor: pointer;
+  min-height: 44px;
+  border-radius: 999px;
+  padding: 0.58rem 0.95rem;
+  transition: background .25s ease, border-color .25s ease, color .25s ease, transform .25s ease;
+}
+.almanaque-actions button:hover,
+.almanaque-actions button:focus-visible,
+.almanaque-nudge button:hover,
+.almanaque-nudge button:focus-visible {
+  color: var(--text-primary);
+  border-color: rgba(216,182,121,0.42);
+  background: rgba(55,50,42,0.27);
   outline: none;
 }
-.micelio-form select:focus,
-.micelio-form input:focus {
-  border-color: rgba(158,212,226,0.55);
-  background: rgba(17,22,25,0.40);
+.almanaque-actions .almanaque-random {
+  color: #f0dfbd;
+  border-color: rgba(210,163,91,0.31);
+  background: rgba(154,111,98,0.13);
 }
-.micelio-form option { background: #111619; color: var(--text-primary); }
-.micelio-phrase-label { grid-column: 1 / -1; }
-.micelio-form-actions {
-  grid-column: 1 / -1;
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-  flex-wrap: wrap;
+.almanaque-fine {
+  margin-top: 1.25rem;
+  border-top: 1px solid rgba(158,212,226,0.055);
+  padding-top: 1rem;
 }
-.micelio-submit {
-  border: 1px solid rgba(115,157,174,0.22);
-  font-family: var(--font-sans);
-}
-.micelio-reset {
-  appearance: none;
-  background: none;
-  border: 0;
+.almanaque-fine summary {
+  cursor: pointer;
   color: var(--text-muted);
-  padding: 0.5rem 0.2rem;
-  font: inherit;
+  font-size: 0.73rem;
+  letter-spacing: 0.07em;
+  list-style: none;
+}
+.almanaque-fine summary::-webkit-details-marker { display: none; }
+.almanaque-nudges {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.45rem;
+  margin-top: 0.8rem;
+}
+.almanaque-nudge {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) auto auto;
+  gap: 0.45rem;
+  align-items: center;
+  min-width: 0;
+}
+.almanaque-nudge span {
+  min-width: 0;
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.almanaque-nudge b {
+  color: var(--text-muted);
+  font-size: 0.68rem;
+  font-weight: 500;
+  margin-right: 0.35rem;
+}
+.almanaque-nudge button {
+  width: 44px;
+  padding: 0;
+  border-radius: 50%;
+}
+.almanaque-huella-panel {
+  max-width: 800px;
+  margin: 1.35rem auto 0;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(158,212,226,0.075);
+}
+.almanaque-huella-panel[hidden] { display: none; }
+.almanaque-huella-config {
+  color: var(--text-muted);
   font-size: 0.74rem;
+  letter-spacing: 0.03em;
+  line-height: 1.55;
+  margin-bottom: 0.85rem;
+}
+.almanaque-huella-panel label {
+  display: block;
+  color: var(--text-secondary);
+  font-size: 0.86rem;
+  margin-bottom: 0.55rem;
+}
+.almanaque-huella-panel textarea {
+  width: 100%;
+  min-height: 145px;
+  resize: vertical;
+  padding: 0.95rem 1rem;
+  border-radius: 13px;
+  border: 1px solid rgba(158,212,226,0.10);
+  background: rgba(9,13,15,0.22);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 16px;
+  line-height: 1.55;
+  outline: none;
+}
+.almanaque-huella-panel textarea:focus {
+  border-color: rgba(210,163,91,0.38);
+  background: rgba(9,13,15,0.34);
+}
+.almanaque-consent {
+  display: flex !important;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-top: 0.8rem;
+  color: var(--text-muted) !important;
+  font-size: 0.72rem !important;
+  line-height: 1.5;
   cursor: pointer;
 }
-.micelio-reset:hover,
-.micelio-reset:focus-visible {
+.almanaque-consent input {
+  margin-top: 0.18rem;
+  accent-color: #d2a35b;
+}
+.almanaque-huella-actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: 0.95rem;
+}
+.almanaque-huella-actions button {
+  appearance: none;
+  border: 1px solid rgba(158,212,226,0.14);
+  background: rgba(17,22,25,0.16);
   color: var(--text-secondary);
-  outline: none;
+  font: inherit;
+  cursor: pointer;
+  min-height: 44px;
+  border-radius: 999px;
+  padding: 0.58rem 0.95rem;
 }
-.micelio-feedback {
-  grid-column: 1 / -1;
-  min-height: 1.3em;
-  color: var(--accent-light);
-  font-size: 0.78rem;
+.almanaque-huella-actions .almanaque-submit {
+  color: #f0dfbd;
+  border-color: rgba(210,163,91,0.31);
+  background: rgba(154,111,98,0.13);
 }
-.micelio-prototype-note {
-  max-width: 760px;
-  margin-top: 2rem;
-  color: var(--text-muted);
-  font-size: 0.72rem;
-  line-height: 1.55;
-}
-
-@media (max-width: 820px) {
-  .micelio-visual-wrap { min-height: 430px; }
-  .micelio-live-svg { min-height: 430px; }
-  .micelio-node text { font-size: 21px; }
-  .micelio-reading {
-    left: 0.75rem;
-    bottom: 0.75rem;
-    width: calc(100% - 1.5rem);
-  }
-  .micelio-status { flex-direction: column; gap: 0.15rem; }
-  .micelio-participation {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  .micelio-form { grid-template-columns: 1fr; }
-  .micelio-phrase-label,
-  .micelio-form-actions,
-  .micelio-feedback { grid-column: 1; }
-}
-
-
-.micelio-submit:disabled {
-  opacity: 0.55;
+.almanaque-huella-actions button:disabled {
+  opacity: 0.48;
   cursor: wait;
-  transform: none !important;
+}
+.almanaque-note,
+.almanaque-status {
+  margin-top: 0.55rem;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+.almanaque-status { color: #d7c39a; min-height: 1.1em; }
+
+@media (min-width: 760px) {
+  .almanaque-object { width: min(72vw, 690px); }
+  .almanaque-nudges { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .almanaque-ring text { font-size: 14px; }
+}
+
+@media (max-width: 430px) {
+  .almanaque-object { width: min(96vw, 420px); }
+  .almanaque-ring text { font-size: 13.5px; letter-spacing: 0.025em; }
+  .almanaque-center-main { font-size: 19px; }
+  .almanaque-axis-label { font-size: 8px; }
+  .almanaque-result { font-size: 1.45rem; }
+  .almanaque-actions { gap: 0.5rem; }
+  .almanaque-actions button { flex: 1 1 auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .almanaque-ring { transition: none !important; }
 }
 
 </style>
@@ -685,6 +828,7 @@ nav.main-nav button { font-size: 0.76rem; letter-spacing: 0.1em; }
 <button class="nav-btn" onclick="switchTab('mediacion')">Mediación</button>
 <button class="nav-btn" onclick="switchTab('investigacion')">Investigación</button>
 <button class="nav-btn" onclick="switchTab('escritos')">Escritos</button>
+<button class="nav-btn" onclick="switchTab('servicios')">Servicios</button>
 <button class="nav-btn" onclick="switchTab('biocv')">BIO / CV</button>
 <button class="nav-btn" onclick="switchTab('contacto')">Contacto</button>
 </nav>
@@ -1084,88 +1228,66 @@ nav.main-nav button { font-size: 0.76rem; letter-spacing: 0.1em; }
 <h1>INVESTIGACIÓN</h1>
 <p class="section-lead">Desde 2024, DUBERLY desarrolla su Doctorado en Artes Integradas en la Universidad de Playa Ancha. Su investigación aborda la mediación artística como una práctica capaz de crear conocimiento desde la experiencia, los vínculos y el territorio. La imagen del micelio permite observar cómo una acción artística se conecta con otras, circula entre personas y contextos, y produce aprendizajes que desbordan la autoría individual.</p>
 </div>
-<div class="sub-header micelio-subheader">
-  <h2>DIAGRAMA VIVO</h2>
-  <p>Una representación experimental de las relaciones que atraviesan la investigación. Toca un nodo para observar sus conexiones o agrega una nueva relación al micelio.</p>
+<div class="sub-header almanaque-subheader">
+  <h2>ALMANAQUE DE CONEXIONES POSIBLES</h2>
+  <p>Un dispositivo para combinar conceptos, experimentar relaciones y producir una lectura propia.</p>
 </div>
+<div class="almanaque-shell" id="almanaque">
+  <p class="almanaque-intro">El arte multiplica las posibilidades. Gira cada círculo como si tuvieras el objeto entre las manos: operación, medio, relación, proceso y fruto se reorganizan para abrir una configuración singular. La línea superior marca el encuentro actual.</p>
 
-<div class="micelio-experiment" id="micelioExperiment">
-  <div class="micelio-visual-wrap">
-    <svg id="micelioSvg" class="micelio-live-svg" viewBox="0 0 1000 610" role="img" aria-labelledby="micelioTitle micelioDesc">
-      <title id="micelioTitle">Micelio cultural interactivo</title>
-      <desc id="micelioDesc">Diagrama de conceptos conectados: creación, mediación, territorio, memoria, tecnología, comunidad y archivo.</desc>
-      <g id="micelioEdges"></g>
-      <g id="micelioNodes"></g>
-    </svg>
-    <div class="micelio-reading" id="micelioReading" aria-live="polite">
-      <span class="micelio-reading-label">Micelio cultural</span>
-      <strong>Explora una relación</strong>
-      <p>Toca cualquier nodo para activar sus conexiones.</p>
+  <div class="almanaque-object-stage">
+    <div class="almanaque-object">
+      <svg id="almanaqueSvg" class="almanaque-svg" viewBox="0 0 760 760" role="img" aria-labelledby="almanaqueTitle almanaqueDesc">
+        <title id="almanaqueTitle">Almanaque de conexiones posibles</title>
+        <desc id="almanaqueDesc">Cinco círculos concéntricos manipulables que combinan operación, medio, relación, proceso y fruto.</desc>
+        <g id="almanaqueRings"></g>
+        <g aria-hidden="true">
+          <line class="almanaque-axis" x1="380" y1="26" x2="380" y2="322"></line>
+          <circle class="almanaque-axis-dot" cx="380" cy="27" r="3.2"></circle>
+          <text class="almanaque-axis-label" x="380" y="14">ENCUENTRO</text>
+          <circle class="almanaque-center-disc" cx="380" cy="380" r="57"></circle>
+          <text class="almanaque-center-main" id="almanaqueCenter" x="380" y="385">MICELIO</text>
+          <circle class="almanaque-axis-dot" cx="380" cy="380" r="2.5"></circle>
+        </g>
+      </svg>
     </div>
   </div>
+  <p class="almanaque-instruction">Arrastra cualquier anillo con el mouse o con el dedo. Al soltar, el círculo encuentra la palabra más cercana a la guía. También puedes tocar una palabra para llevarla al encuentro.</p>
 
-  <div class="micelio-status">
-    <span id="micelioStatusText">7 conceptos · 10 relaciones base</span>
-    <span id="micelioLocalCount">Conectando con el micelio público…</span>
-  </div>
-
-  <div class="micelio-participation" id="participaMicelio">
-    <div class="micelio-form-copy">
-      <div class="card-number">Experimento participativo</div>
-      <h3>Agrega una conexión</h3>
-      <p>Selecciona dos elementos que para ti se relacionan. Puedes dejar además una frase breve sobre ese vínculo.</p>
-      
-<div class="micelio-qr-box">
-  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXIAAAFyAQAAAADAX2ykAAACeklEQVR4nO2bTW7kIBCF3xssZemWcoA+CtwsZ8oN7KP0DWDZEtabBeD+iaJMJNtqRsWCluFblFQq6lFUU/jNmP/8CgeMN95444033vjveNYxAEgDMJMEsBBIbS8caI/xG/NekhQBhjGDHxFgAMAAJ0nSI7+3PcZvxA/1N50A/wlopssCBCK9iwBAwOWD7DF+W354XvBaCIwRQloopGPtMX5fnjwBQCKBMf/M722P8dvwo6QJgBQB+AhgZg1uSfmZ39se4zflZ5LkCWBIbwLgxI/oxIClyOdj7TF+I76E6K1IWRPueCXm85W63zvCHuP34BnSUCZgzNBUNp3qLhaL3z55lNutohO8csu1owQvCT46aWqfml7NfuN/GLV4UfSVu/eqyoQqt8y/PfI1fqtrMwA4PZzPTlIJbPNvf/xd/LazOAM+OrVMvK6Zfzvkm35OhOZzvea2qpVbtbMTj7HH+D148pwBfyFraeOcoanJacD0c+e8j+3pKKShCirg/mpUc/KL2m/8v/DpreRaBgAM45VAKWfV58IXt9/4r6Pq4rFdff1NbrWL8e3iZPqqN77oK/rLAPrPU131n0MW0nsulcryZniIPcZvy6/xq1a/ijXXloTr76Lb4rc/vt5/fXx4Giz6amxdOV5tmH+75Ev84jbBqTzyl3ScrL+uU77Vr8potSqMWkvPtZJl+qpLvp3Pq1YuXn18RCruNv92zLcTuPZfrWMmCR8XO5//D75o5amVnmtiTsN3/N72GL8tzwAnhjRAutTQxXy2/vbO+bV/ciqf17XdboAUF1r9uUv+WT/X1g3ltb6R18n0VX887f/dxhtvvPHGG384/xeb/MTsB5pmYwAAAABJRU5ErkJggg==" alt="Código QR para abrir la participación del Micelio Cultural en un teléfono.">
-  <div>
-    <strong>Participa desde otro dispositivo</strong>
-    <span>Escanea el QR para abrir directamente esta experiencia.</span>
-  </div>
-</div>
+  <div class="almanaque-output">
+    <span class="almanaque-output-kicker">Configuración actual</span>
+    <p class="almanaque-result" id="almanaqueResult" aria-live="polite"></p>
+    <p class="almanaque-provocation" id="almanaqueProvocation"></p>
+    <div class="almanaque-actions">
+      <button type="button" class="almanaque-random" id="almanaqueRandom">Déjate encontrar</button>
+      <button type="button" id="almanaqueReset">Volver al origen</button>
+      <button type="button" id="almanaqueHuellaToggle">Dejar una huella</button>
     </div>
+    <p class="almanaque-status" id="almanaqueStatus" aria-live="polite"></p>
 
-    <form id="micelioForm" class="micelio-form">
-      <label>
-        <span>Primer elemento</span>
-        <select id="micelioFrom" required>
-          <option value="">Seleccionar</option>
-          <option value="creacion">Creación</option>
-          <option value="mediacion">Mediación</option>
-          <option value="territorio">Territorio</option>
-          <option value="memoria">Memoria</option>
-          <option value="tecnologia">Tecnología</option>
-          <option value="comunidad">Comunidad</option>
-          <option value="archivo">Archivo</option>
-        </select>
-      </label>
-      <label>
-        <span>Segundo elemento</span>
-        <select id="micelioTo" required>
-          <option value="">Seleccionar</option>
-          <option value="creacion">Creación</option>
-          <option value="mediacion">Mediación</option>
-          <option value="territorio">Territorio</option>
-          <option value="memoria">Memoria</option>
-          <option value="tecnologia">Tecnología</option>
-          <option value="comunidad">Comunidad</option>
-          <option value="archivo">Archivo</option>
-        </select>
-      </label>
-      <label class="micelio-phrase-label">
-        <span>Una frase sobre la relación <small>(opcional · máx. 80 caracteres)</small></span>
-        <input id="micelioPhrase" type="text" maxlength="80" placeholder="Ej.: los lugares también recuerdan">
-      </label>
-      <div class="micelio-form-actions">
-        <button type="submit" class="discrete-link micelio-submit">Sumar al micelio <span aria-hidden="true">+</span></button>
-        <button type="button" id="micelioReset" class="micelio-reset">Actualizar micelio</button>
-      </div>
-      <p class="micelio-feedback" id="micelioFeedback" aria-live="polite"></p>
-    </form>
+    <details class="almanaque-fine">
+      <summary>Ajuste fino / accesibilidad</summary>
+      <div class="almanaque-nudges" id="almanaqueNudges"></div>
+    </details>
   </div>
 
-  <p class="micelio-prototype-note">Experimento participativo público: las conexiones enviadas desde distintos dispositivos pasan a formar parte de un mismo micelio compartido. No se solicitan nombres, correos ni otros datos personales.</p>
+  <form class="almanaque-huella-panel" id="almanaqueHuellaForm" hidden>
+    <p class="almanaque-huella-config" id="almanaqueHuellaConfig"></p>
+    <label for="almanaqueReflection">¿Qué aparece al experimentar esta combinación?</label>
+    <textarea id="almanaqueReflection" maxlength="1200" placeholder="Escribe una imagen, una pregunta, una sensación, una acción posible…" required></textarea>
+    <label class="almanaque-consent" for="almanaqueConsent">
+      <input type="checkbox" id="almanaqueConsent" required>
+      <span>Acepto que esta reflexión se incorpore, sin solicitar mi nombre ni correo, al archivo de MICELIO CULTURAL y pueda utilizarse como material de investigación y creación.</span>
+    </label>
+    <div class="almanaque-huella-actions">
+      <button type="submit" class="almanaque-submit">Sumar al micelio</button>
+      <button type="button" id="almanaqueHuellaCancel">Cerrar</button>
+    </div>
+    <p class="almanaque-note">La huella queda vinculada únicamente a la configuración seleccionada y al momento de envío.</p>
+  </form>
 </div>
 </section>
+
 <!-- ESCRITOS -->
 <section id="escritos" class="tab-content">
 <div class="section-header">
@@ -1235,6 +1357,44 @@ nav.main-nav button { font-size: 0.76rem; letter-spacing: 0.1em; }
 </article>
 </div>
 </section>
+<!-- SERVICIOS -->
+<section id="servicios" class="tab-content">
+<div class="section-header">
+<h1>SERVICIOS</h1>
+<p class="section-lead">Diseño experiencias digitales, artísticas y formativas para artistas, profesionales, instituciones y proyectos culturales. Cada colaboración se construye desde el contexto, la identidad del proyecto y las personas que participarán de él.</p>
+</div>
+<div class="services-grid">
+<article class="service-card">
+<div>
+<div class="service-number">01 / Experiencias digitales</div>
+<h2>Diseño & desarrollo web</h2>
+<p>Sitios web pensados como extensiones sensibles de una práctica o proyecto: portafolios, páginas profesionales, espacios institucionales, archivos digitales y micrositios para iniciativas culturales.</p>
+<div class="service-tags">arquitectura de información · experiencia de usuario · diseño visual · desarrollo web · adaptación móvil</div>
+</div>
+</article>
+<article class="service-card">
+<div>
+<div class="service-number">02 / Experiencias artísticas</div>
+<h2>Diseño de experiencias & mediación</h2>
+<p>Creación y acompañamiento de experiencias donde arte, participación, territorio y dispositivos se articulan: mediaciones, conciertos educativos, activaciones, montajes y procesos de creación colectiva.</p>
+<div class="service-tags">mediación artística · dirección artística · diseño de dispositivos · creación colectiva · experiencias situadas</div>
+</div>
+</article>
+<article class="service-card">
+<div>
+<div class="service-number">03 / Formación</div>
+<h2>Talleres & capacitaciones</h2>
+<p>Instancias formativas para universidades, espacios culturales, equipos docentes y comunidades, desarrolladas desde la práctica artística, la experimentación y metodologías participativas.</p>
+<div class="service-tags">investigación-creación · procesos creativos · mediación artística · trabajo colaborativo · diseño de proyectos</div>
+</div>
+</article>
+</div>
+<div class="services-cta">
+<p>¿Tienes una idea, un proyecto en desarrollo o una necesidad específica? Podemos diseñar una colaboración a medida.</p>
+<button type="button" class="discrete-link" onclick="switchTab('contacto')">Conversemos <span class="arrow" aria-hidden="true">→</span></button>
+</div>
+</section>
+
 <!-- BIO / CV -->
 <section id="biocv" class="tab-content">
 <div class="section-header">
@@ -1287,7 +1447,7 @@ nav.main-nav button { font-size: 0.76rem; letter-spacing: 0.1em; }
 <section id="contacto" class="tab-content">
 <div class="section-header">
 <h1>CONTACTO</h1>
-<p class="section-lead">Para colaboraciones, proyectos artísticos, mediaciones, investigación y circulación.</p>
+<p class="section-lead">Para servicios, colaboraciones, proyectos artísticos, mediaciones, investigación y circulación.</p>
 </div>
 <div class="contact-block">
 <div style="font-size: 1.15rem; font-family: var(--font-serif); color: var(--text-primary); margin-bottom: 0.5rem;"> Duberly Saavedra Polo </div>
@@ -1601,309 +1761,346 @@ nav.main-nav button { font-size: 0.76rem; letter-spacing: 0.1em; }
 </div>
 <!-- SCRIPT DE NAVEGACIÓN Y MODALES -->
 <script> function enterSite(targetTab = 'inicio') { document.body.classList.add('inside-site'); switchTab(targetTab); } function returnToCover() { document.body.classList.remove('inside-site'); window.scrollTo({ top: 0, behavior: 'smooth' }); } function switchTab(tabId) { if (!document.body.classList.contains('inside-site')) { document.body.classList.add('inside-site'); } document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active')); document.querySelectorAll('.main-nav button').forEach(el => el.classList.remove('active')); const target = document.getElementById(tabId); if (target) { target.classList.add('active'); } const navButtons = document.querySelectorAll('.main-nav button'); navButtons.forEach(btn => { const onclickAttr = btn.getAttribute('onclick') || ''; if (onclickAttr.includes(`'${tabId}'`)) { btn.classList.add('active'); } }); window.scrollTo({ top: 0, behavior: 'smooth' }); } /* Funciones para Fichas Expandidas (Modales) */ function openModal(modalId) { const m = document.getElementById(modalId); if (m) m.classList.add('open'); } function closeModal(modalId) { const m = document.getElementById(modalId); if (m) m.classList.remove('open'); } /* Funciones para Lightbox */ function openLightbox(src) { const lb = document.getElementById('lightboxModal'); const img = document.getElementById('lightboxImg'); if (lb && img) { img.src = src; lb.classList.add('open'); } } function closeLightbox() { const lb = document.getElementById('lightboxModal'); if (lb) lb.classList.remove('open'); } document.getElementById('heroCover').addEventListener('keydown', function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); enterSite('inicio'); } }); let hasScrolled = false; window.addEventListener('wheel', function(e) { if (!document.body.classList.contains('inside-site') && e.deltaY > 10 && !hasScrolled) { hasScrolled = true; enterSite('inicio'); setTimeout(() => { hasScrolled = false; }, 1000); } }); /* Rocolas horizontales: la rueda recorre proyectos y libera la página al llegar a cada extremo */ document.querySelectorAll('.creation-carousel').forEach(carousel => { let wheelLocked = false; carousel.addEventListener('wheel', function(e) { if (window.innerWidth <= 820 || Math.abs(e.deltaY) < Math.abs(e.deltaX)) return; const maxScroll = carousel.scrollWidth - carousel.clientWidth; const goingForward = e.deltaY > 0; const canAdvance = goingForward ? carousel.scrollLeft < maxScroll - 4 : carousel.scrollLeft > 4; if (!canAdvance) return; e.preventDefault(); if (wheelLocked) return; wheelLocked = true; const card = carousel.querySelector('article'); const step = card ? card.getBoundingClientRect().width + 16 : carousel.clientWidth * 0.7; carousel.scrollBy({ left: goingForward ? step : -step, behavior: 'smooth' }); setTimeout(() => { wheelLocked = false; }, 420); }, { passive: false }); }); 
-/* INVESTIGACIÓN — MICELIO CULTURAL */
+/* INVESTIGACIÓN — ALMANAQUE DE CONEXIONES POSIBLES / V24 */
 (function () {
-  const svg = document.getElementById('micelioSvg');
-  if (!svg) return;
+  const root = document.getElementById('almanaque');
+  const svg = document.getElementById('almanaqueSvg');
+  const ringsRoot = document.getElementById('almanaqueRings');
+  if (!root || !svg || !ringsRoot) return;
 
-  const edgesLayer = document.getElementById('micelioEdges');
-  const nodesLayer = document.getElementById('micelioNodes');
-  const reading = document.getElementById('micelioReading');
-  const statusText = document.getElementById('micelioStatusText');
-  const localCount = document.getElementById('micelioLocalCount');
-  const form = document.getElementById('micelioForm');
-  const fromSelect = document.getElementById('micelioFrom');
-  const toSelect = document.getElementById('micelioTo');
-  const phraseInput = document.getElementById('micelioPhrase');
-  const feedback = document.getElementById('micelioFeedback');
-  const resetBtn = document.getElementById('micelioReset');
+  const NS = 'http://www.w3.org/2000/svg';
+  const cx = 380, cy = 380;
+  const groups = [
+    { label: 'Operación', color: '#738f8a', radius: 96, width: 40, values: ['conectar', 'transformar', 'distribuir', 'regenerar'] },
+    { label: 'Medio', color: '#7d8fa6', radius: 145, width: 46, values: ['voz', 'cuerpo', 'palabra', 'sonido', 'imagen', 'espacio'] },
+    { label: 'Relación', color: '#9a815f', radius: 200, width: 50, values: ['yo', 'tú', 'comunidad', 'territorio', 'memoria', 'materialidad', 'tecnología', 'sistema'] },
+    { label: 'Proceso', color: '#9a6f62', radius: 258, width: 52, values: ['circulando', 'versionando', 'interpretando', 'metabolizando', 'experimentando', 'entrelazando', 'colaborando', 'traduciendo', 'escuchando', 'recomponiendo'] },
+    { label: 'Fruto', color: '#827d98', radius: 320, width: 56, values: ['conocimiento', 'pregunta', 'memoria', 'vínculo', 'aprendizaje', 'afecto', 'experiencia', 'creación', 'reflexión', 'sentido', 'posibilidad', 'continuidad'] }
+  ];
+
+  const state = groups.map(() => ({ index: 0, rotation: 0, dragging: false, pointerId: null, startAngle: 0, startRotation: 0 }));
+  const ringEls = [];
+  const textEls = [];
+  const result = document.getElementById('almanaqueResult');
+  const provocation = document.getElementById('almanaqueProvocation');
+  const center = document.getElementById('almanaqueCenter');
+  const status = document.getElementById('almanaqueStatus');
+  const nudges = document.getElementById('almanaqueNudges');
   const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const huellaToggle = document.getElementById('almanaqueHuellaToggle');
+  const huellaForm = document.getElementById('almanaqueHuellaForm');
+  const huellaConfig = document.getElementById('almanaqueHuellaConfig');
+  const huellaText = document.getElementById('almanaqueReflection');
+  const huellaConsent = document.getElementById('almanaqueConsent');
+  const huellaCancel = document.getElementById('almanaqueHuellaCancel');
   const supabaseUrl = 'https://bhustxebwiteltnlahea.supabase.co';
   const supabaseKey = 'sb_publishable_uOp5B0U9CVVH9oI5uEDe9g_a-KguP-C';
-  const supabaseEndpoint = supabaseUrl + '/rest/v1/micelio_aportes';
+  const huellasEndpoint = supabaseUrl + '/rest/v1/almanaque_huellas';
+  let huellaSnapshot = null;
 
-  const nodeDefs = [
-    { id:'mediacion', label:'MEDIACIÓN', x:500, y:305, phase:1.5 },
-    { id:'creacion', label:'CREACIÓN', x:500, y:108, phase:0.1 },
-    { id:'territorio', label:'TERRITORIO', x:790, y:218, phase:2.7 },
-    { id:'memoria', label:'MEMORIA', x:700, y:486, phase:4.1 },
-    { id:'archivo', label:'ARCHIVO', x:300, y:486, phase:5.0 },
-    { id:'comunidad', label:'COMUNIDAD', x:210, y:218, phase:3.4 },
-    { id:'tecnologia', label:'TECNOLOGÍA', x:500, y:548, phase:2.1 }
-  ];
+  function el(name, attrs = {}) {
+    const node = document.createElementNS(NS, name);
+    Object.entries(attrs).forEach(([k, v]) => node.setAttribute(k, v));
+    return node;
+  }
 
-  const baseEdges = [
-    ['mediacion','creacion'],
-    ['mediacion','territorio'],
-    ['mediacion','memoria'],
-    ['mediacion','archivo'],
-    ['mediacion','comunidad'],
-    ['mediacion','tecnologia'],
-    ['creacion','memoria'],
-    ['territorio','comunidad'],
-    ['archivo','memoria'],
-    ['tecnologia','archivo']
-  ];
+  function norm(deg) {
+    let x = deg % 360;
+    if (x < 0) x += 360;
+    return x;
+  }
 
-  const nodeCopy = {
-    creacion: 'Creación conecta lenguajes, materiales, personas y preguntas.',
-    mediacion: 'Mediación opera como núcleo relacional del micelio: articula creación, territorio, memoria, tecnología, comunidad y archivo.',
-    territorio: 'Territorio aparece como experiencia situada, paisaje, desplazamiento y contexto.',
-    memoria: 'Memoria articula registros, afectos, relatos y formas de volver sobre la experiencia.',
-    tecnologia: 'Tecnología funciona como soporte, lenguaje y agente dentro de los procesos creativos.',
-    comunidad: 'Comunidad reúne participación, aprendizaje, vínculos y producción compartida.',
-    archivo: 'Archivo conserva huellas y permite que materiales anteriores vuelvan a producir relaciones.'
-  };
+  function shortestDelta(a, b) {
+    return ((b - a + 540) % 360) - 180;
+  }
 
-  let publicEdges = [];
-  let activeNode = null;
-  let rafId = null;
-  let refreshTimer = null;
-  const nodeEls = new Map();
-  const edgeEls = [];
+  function pointAngle(evt) {
+    const rect = svg.getBoundingClientRect();
+    const scaleX = 760 / rect.width;
+    const scaleY = 760 / rect.height;
+    const x = (evt.clientX - rect.left) * scaleX - cx;
+    const y = (evt.clientY - rect.top) * scaleY - cy;
+    return Math.atan2(y, x) * 180 / Math.PI;
+  }
 
-  async function loadPublicEdges({silent=false} = {}) {
-    if (!silent) {
-      localCount.textContent = 'Conectando con el micelio público…';
+  function itemAngle(groupIndex, itemIndex) {
+    const count = groups[groupIndex].values.length;
+    return -90 + itemIndex * (360 / count);
+  }
+
+  function rotationForIndex(groupIndex, itemIndex) {
+    return -(itemIndex * (360 / groups[groupIndex].values.length));
+  }
+
+  function nearestIndex(groupIndex, rotation) {
+    const count = groups[groupIndex].values.length;
+    const step = 360 / count;
+    return ((Math.round(norm(-rotation) / step) % count) + count) % count;
+  }
+
+  function buildRing(group, groupIndex) {
+    const g = el('g', { class: 'almanaque-ring', 'data-ring': String(groupIndex) });
+    const band = el('circle', {
+      class: 'almanaque-ring-band', cx, cy, r: group.radius,
+      stroke: group.color, 'stroke-width': group.width
+    });
+    const lineOuter = el('circle', {
+      class: 'almanaque-ring-line', cx, cy, r: group.radius + group.width / 2
+    });
+    const lineInner = el('circle', {
+      class: 'almanaque-ring-line', cx, cy, r: group.radius - group.width / 2
+    });
+    g.append(band, lineOuter, lineInner);
+
+    const labels = [];
+    group.values.forEach((value, itemIndex) => {
+      const angle = itemAngle(groupIndex, itemIndex);
+      const rad = angle * Math.PI / 180;
+      const x = cx + Math.cos(rad) * group.radius;
+      const y = cy + Math.sin(rad) * group.radius;
+      const tg = el('g', { transform: `translate(${x} ${y}) rotate(${angle + 90})`, 'data-item': String(itemIndex) });
+      const text = el('text');
+      text.textContent = value;
+      tg.appendChild(text);
+      g.appendChild(tg);
+      labels.push(text);
+    });
+
+    const capAngle = 90;
+    const capRad = capAngle * Math.PI / 180;
+    const cap = el('text', {
+      class: 'almanaque-ring-caption',
+      x: cx + Math.cos(capRad) * group.radius,
+      y: cy + Math.sin(capRad) * group.radius
+    });
+    cap.textContent = group.label.toUpperCase();
+    cap.setAttribute('transform', `rotate(${capAngle + 90} ${cap.getAttribute('x')} ${cap.getAttribute('y')})`);
+    g.appendChild(cap);
+
+    const hit = el('circle', {
+      class: 'almanaque-ring-hit', cx, cy, r: group.radius,
+      'stroke-width': group.width + 10, tabindex: '0', role: 'slider',
+      'aria-label': group.label, 'aria-valuemin': '1', 'aria-valuemax': String(group.values.length),
+      'aria-valuenow': '1', 'aria-valuetext': group.values[0]
+    });
+
+    ringsRoot.append(g, hit);
+    ringEls[groupIndex] = { g, hit };
+    textEls[groupIndex] = labels;
+
+    hit.addEventListener('pointerdown', evt => {
+      evt.preventDefault();
+      const st = state[groupIndex];
+      st.dragging = true;
+      st.pointerId = evt.pointerId;
+      st.startAngle = pointAngle(evt);
+      st.startRotation = st.rotation;
+      hit.setPointerCapture(evt.pointerId);
+      g.style.transition = 'none';
+    });
+
+    hit.addEventListener('pointermove', evt => {
+      const st = state[groupIndex];
+      if (!st.dragging || st.pointerId !== evt.pointerId) return;
+      evt.preventDefault();
+      const a = pointAngle(evt);
+      st.rotation = st.startRotation + shortestDelta(st.startAngle, a);
+      applyRing(groupIndex, false);
+    });
+
+    function endDrag(evt) {
+      const st = state[groupIndex];
+      if (!st.dragging || st.pointerId !== evt.pointerId) return;
+      st.dragging = false;
+      const idx = nearestIndex(groupIndex, st.rotation);
+      selectIndex(groupIndex, idx, true);
+      try { hit.releasePointerCapture(evt.pointerId); } catch (e) {}
     }
+    hit.addEventListener('pointerup', endDrag);
+    hit.addEventListener('pointercancel', endDrag);
 
-    try {
-      const response = await fetch(
-        supabaseEndpoint + '?select=id,created_at,source_node,target_node,phrase&order=created_at.asc&limit=1000',
-        {
-          method: 'GET',
-          headers: {
-            'apikey': supabaseKey,
-            'Accept': 'application/json'
-          }
-        }
-      );
+    hit.addEventListener('click', evt => {
+      if (state[groupIndex].dragging) return;
+      const a = pointAngle(evt);
+      const local = norm(a - state[groupIndex].rotation + 90);
+      const idx = Math.round(local / (360 / group.values.length)) % group.values.length;
+      selectIndex(groupIndex, idx, true);
+    });
 
-      if (!response.ok) {
-        const detail = await response.text().catch(() => '');
-        throw new Error('HTTP ' + response.status + (detail ? ' · ' + detail : ''));
+    hit.addEventListener('keydown', evt => {
+      if (evt.key === 'ArrowLeft' || evt.key === 'ArrowDown') {
+        evt.preventDefault(); step(groupIndex, -1);
+      } else if (evt.key === 'ArrowRight' || evt.key === 'ArrowUp') {
+        evt.preventDefault(); step(groupIndex, 1);
+      } else if (evt.key === 'Home') {
+        evt.preventDefault(); selectIndex(groupIndex, 0, true);
       }
+    });
+  }
 
-      const rows = await response.json();
-      publicEdges = Array.isArray(rows)
-        ? rows
-            .filter(row => row && row.source_node && row.target_node)
-            .map(row => ({
-              id: row.id,
-              from: row.source_node,
-              to: row.target_node,
-              phrase: row.phrase || '',
-              createdAt: row.created_at || '',
-              local: true
-            }))
-        : [];
+  function applyRing(groupIndex, animate = true) {
+    const st = state[groupIndex];
+    const group = groups[groupIndex];
+    const { g, hit } = ringEls[groupIndex];
+    g.style.transition = (!reducedMotion && animate) ? 'transform 520ms cubic-bezier(0.16, 1, 0.3, 1)' : 'none';
+    g.setAttribute('transform', `rotate(${st.rotation} ${cx} ${cy})`);
+    textEls[groupIndex].forEach((t, i) => t.classList.toggle('is-active', i === st.index));
+    hit.setAttribute('aria-valuenow', String(st.index + 1));
+    hit.setAttribute('aria-valuetext', group.values[st.index]);
+  }
 
-      render();
-      localCount.textContent = publicEdges.length +
-        (publicEdges.length === 1 ? ' aporte público' : ' aportes públicos');
-      return true;
-    } catch (error) {
-      console.error('Micelio público:', error);
-      localCount.textContent = 'Micelio público temporalmente no disponible';
-      if (!silent) {
-        feedback.textContent = 'No pudimos conectar con el micelio público. Puedes volver a intentar en unos segundos.';
-      }
-      return false;
+  function selectIndex(groupIndex, idx, animate = true) {
+    const group = groups[groupIndex];
+    const st = state[groupIndex];
+    idx = ((idx % group.values.length) + group.values.length) % group.values.length;
+    const targetBase = rotationForIndex(groupIndex, idx);
+    const cycles = Math.round((st.rotation - targetBase) / 360);
+    st.rotation = targetBase + cycles * 360;
+    st.index = idx;
+    applyRing(groupIndex, animate);
+    status.textContent = '';
+    updateOutput();
+  }
+
+  function step(groupIndex, dir) {
+    selectIndex(groupIndex, state[groupIndex].index + dir, true);
+  }
+
+  function values() {
+    return groups.map((g, i) => g.values[state[i].index]);
+  }
+
+  function sentence(v) {
+    return `${v[0]} · ${v[1]} · ${v[2]} · ${v[3]} · ${v[4]}`;
+  }
+
+  function makeProvocation(v) {
+    const verb = {
+      conectar: '¿Qué vínculo aparece cuando',
+      transformar: '¿Qué cambia cuando',
+      distribuir: '¿Cómo circula aquello que surge cuando',
+      regenerar: '¿Qué puede volver a crecer cuando'
+    }[v[0]] || '¿Qué aparece cuando';
+    return `${verb} ${v[0]} desde ${v[1]}, en relación con ${v[2]}, ${v[3]}, y aparece ${v[4]}?`;
+  }
+
+  function updateOutput() {
+    const v = values();
+    result.textContent = sentence(v);
+    provocation.textContent = makeProvocation(v);
+    center.textContent = 'MICELIO';
+    nudges.querySelectorAll('[data-nudge-value]').forEach((node, i) => {
+      node.textContent = v[i];
+    });
+  }
+
+  groups.forEach((g, i) => {
+    buildRing(g, i);
+    const row = document.createElement('div');
+    row.className = 'almanaque-nudge';
+    const value = document.createElement('span');
+    value.innerHTML = `<b>${g.label}</b><span data-nudge-value></span>`;
+    const prev = document.createElement('button');
+    prev.type = 'button'; prev.textContent = '←'; prev.setAttribute('aria-label', `Anterior: ${g.label}`);
+    prev.addEventListener('click', () => step(i, -1));
+    const next = document.createElement('button');
+    next.type = 'button'; next.textContent = '→'; next.setAttribute('aria-label', `Siguiente: ${g.label}`);
+    next.addEventListener('click', () => step(i, 1));
+    row.append(value, prev, next);
+    nudges.appendChild(row);
+  });
+
+  document.getElementById('almanaqueRandom').addEventListener('click', () => {
+    groups.forEach((g, i) => {
+      let idx = Math.floor(Math.random() * g.values.length);
+      if (g.values.length > 1 && idx === state[i].index) idx = (idx + 1) % g.values.length;
+      const base = rotationForIndex(i, idx);
+      state[i].rotation = base - 360 - Math.floor(Math.random() * 2) * 360;
+      state[i].index = idx;
+      applyRing(i, true);
+    });
+    status.textContent = 'El almanaque abrió una nueva combinación.';
+    updateOutput();
+  });
+
+  document.getElementById('almanaqueReset').addEventListener('click', () => {
+    groups.forEach((g, i) => {
+      state[i].rotation = 0;
+      state[i].index = 0;
+      applyRing(i, true);
+    });
+    status.textContent = 'Volviste al origen.';
+    updateOutput();
+  });
+
+  function openHuella() {
+    huellaSnapshot = values().slice();
+    huellaConfig.textContent = 'Configuración: ' + sentence(huellaSnapshot);
+    huellaForm.hidden = false;
+    huellaToggle.setAttribute('aria-expanded', 'true');
+    status.textContent = '';
+    requestAnimationFrame(() => huellaText.focus());
+  }
+
+  function closeHuella({clear=false} = {}) {
+    huellaForm.hidden = true;
+    huellaToggle.setAttribute('aria-expanded', 'false');
+    if (clear) {
+      huellaText.value = '';
+      huellaConsent.checked = false;
+      huellaSnapshot = null;
     }
   }
 
-  function allEdges() {
-    return baseEdges.map(([from,to]) => ({from,to,local:false,phrase:''}))
-      .concat(publicEdges);
-  }
+  huellaToggle.setAttribute('aria-expanded', 'false');
+  huellaToggle.addEventListener('click', () => {
+    if (huellaForm.hidden) openHuella();
+    else closeHuella();
+  });
 
-  function svgEl(name, attrs={}) {
-    const el = document.createElementNS('http://www.w3.org/2000/svg', name);
-    Object.entries(attrs).forEach(([k,v]) => el.setAttribute(k, String(v)));
-    return el;
-  }
+  huellaCancel.addEventListener('click', () => closeHuella());
 
-  function degree(id) {
-    return allEdges().filter(e => e.from === id || e.to === id).length;
-  }
-
-  function render() {
-    edgesLayer.innerHTML = '';
-    nodesLayer.innerHTML = '';
-    nodeEls.clear();
-    edgeEls.length = 0;
-
-    allEdges().forEach(edge => {
-      const path = svgEl('path', {
-        'class': 'micelio-edge' + (edge.local ? ' local' : ''),
-        'data-from': edge.from,
-        'data-to': edge.to
-      });
-      edgesLayer.appendChild(path);
-      edgeEls.push({data:edge, el:path});
-    });
-
-    nodeDefs.forEach(n => {
-      const g = svgEl('g', {
-        'class':'micelio-node',
-        'tabindex':'0',
-        'role':'button',
-        'aria-label':'Explorar nodo ' + n.label,
-        'data-node':n.id
-      });
-      const r = 24 + Math.min(14, degree(n.id) * 1.7);
-      const c = svgEl('circle', {cx:0, cy:0, r:r});
-      const core = svgEl('circle', {cx:0, cy:0, r:Math.max(4.8, r * 0.25), 'class':'node-core'});
-      const t = svgEl('text', {x:0, y:r + 29});
-      t.textContent = n.label;
-      g.appendChild(c);
-      g.appendChild(core);
-      g.appendChild(t);
-      g.addEventListener('click', () => selectNode(n.id));
-      g.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          selectNode(n.id);
-        }
-      });
-      nodesLayer.appendChild(g);
-      nodeEls.set(n.id, {data:n, el:g});
-    });
-
-    updateStatus();
-    updatePositions(performance.now());
-    if (activeNode) selectNode(activeNode, true);
-  }
-
-  function nodePosition(n, t) {
-    if (reducedMotion) return {x:n.x, y:n.y};
-    const s = t / 1800;
-    return {
-      x: n.x + Math.sin(s + n.phase) * 10 + Math.sin(s * 0.43 + n.phase) * 5,
-      y: n.y + Math.cos(s * 0.83 + n.phase) * 9 + Math.sin(s * 0.31 + n.phase) * 4
-    };
-  }
-
-  function updatePositions(t) {
-    const positions = {};
-    nodeDefs.forEach(n => {
-      const p = nodePosition(n, t);
-      positions[n.id] = p;
-      const item = nodeEls.get(n.id);
-      if (item) item.el.setAttribute('transform', `translate(${p.x} ${p.y})`);
-    });
-
-    edgeEls.forEach(({data,el}) => {
-      const a = positions[data.from], b = positions[data.to];
-      if (!a || !b) return;
-      const mx = (a.x + b.x) / 2;
-      const my = (a.y + b.y) / 2;
-      const dx = b.x - a.x, dy = b.y - a.y;
-      const len = Math.max(1, Math.hypot(dx,dy));
-      const bend = 18 + ((data.from.charCodeAt(0) + data.to.charCodeAt(0)) % 26);
-      const cx = mx - (dy / len) * bend;
-      const cy = my + (dx / len) * bend;
-      el.setAttribute('d', `M ${a.x} ${a.y} Q ${cx} ${cy} ${b.x} ${b.y}`);
-    });
-  }
-
-  function animate(t) {
-    updatePositions(t);
-    rafId = requestAnimationFrame(animate);
-  }
-
-  function startAnimation() {
-    if (reducedMotion || rafId) return;
-    rafId = requestAnimationFrame(animate);
-  }
-
-  function stopAnimation() {
-    if (rafId) cancelAnimationFrame(rafId);
-    rafId = null;
-  }
-
-  function selectNode(id, preserve=false) {
-    activeNode = preserve ? id : (activeNode === id ? null : id);
-    const current = activeNode;
-
-    nodeEls.forEach(({el}, nodeId) => {
-      el.classList.toggle('active', nodeId === current);
-      el.classList.toggle('dimmed', !!current && nodeId !== current &&
-        !allEdges().some(e => (e.from === current && e.to === nodeId) || (e.to === current && e.from === nodeId)));
-    });
-
-    edgeEls.forEach(({data,el}) => {
-      const isActive = !!current && (data.from === current || data.to === current);
-      el.classList.toggle('active', isActive);
-      el.classList.toggle('dimmed', !!current && !isActive);
-    });
-
-    if (!current) {
-      reading.innerHTML = '<span class="micelio-reading-label">Micelio cultural</span><strong>Explora una relación</strong><p>Toca cualquier nodo para activar sus conexiones.</p>';
-      return;
-    }
-
-    const n = nodeDefs.find(x => x.id === current);
-    const connected = allEdges().filter(e => e.from === current || e.to === current);
-    const related = connected.map(e => {
-      const other = e.from === current ? e.to : e.from;
-      return nodeDefs.find(x => x.id === other)?.label || other;
-    });
-    const phrases = connected.filter(e => e.local && e.phrase).map(e => e.phrase);
-    const phraseText = phrases.length ? ` Último aporte: “${escapeHtml(phrases[phrases.length - 1])}”.` : '';
-    reading.innerHTML =
-      '<span class="micelio-reading-label">' + n.label + '</span>' +
-      '<strong>' + connected.length + ' conexiones activas</strong>' +
-      '<p>' + nodeCopy[current] + ' Dialoga con ' + related.join(', ') + '.' + phraseText + '</p>';
-  }
-
-  function escapeHtml(str) {
-    return String(str).replace(/[&<>"']/g, ch => ({
-      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
-    }[ch]));
-  }
-
-  function updateStatus() {
-    statusText.textContent = nodeDefs.length + ' conceptos · ' + baseEdges.length + ' relaciones base';
-    if (publicEdges.length >= 0) {
-      localCount.textContent = publicEdges.length +
-        (publicEdges.length === 1 ? ' aporte público' : ' aportes públicos');
-    }
-  }
-
-  form.addEventListener('submit', async e => {
+  huellaForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const from = fromSelect.value;
-    const to = toSelect.value;
-    const phrase = phraseInput.value.trim().slice(0,80);
-    const submitBtn = form.querySelector('.micelio-submit');
+    const reflection = huellaText.value.trim();
+    const snapshot = huellaSnapshot ? huellaSnapshot.slice() : values().slice();
+    const submitBtn = huellaForm.querySelector('.almanaque-submit');
 
-    if (!from || !to) {
-      feedback.textContent = 'Selecciona dos elementos.';
+    if (!reflection) {
+      status.textContent = 'Escribe una reflexión antes de sumar tu huella.';
+      huellaText.focus();
       return;
     }
-    if (from === to) {
-      feedback.textContent = 'Elige dos elementos distintos para crear una relación.';
+    if (!huellaConsent.checked) {
+      status.textContent = 'Marca la casilla para autorizar la incorporación de esta huella.';
+      huellaConsent.focus();
       return;
     }
 
     submitBtn.disabled = true;
     submitBtn.setAttribute('aria-busy', 'true');
-    feedback.textContent = 'Sumando conexión al micelio público…';
+    status.textContent = 'Sumando tu huella al archivo…';
 
     try {
-      const response = await fetch(supabaseEndpoint, {
+      const response = await fetch(huellasEndpoint, {
         method: 'POST',
         headers: {
           'apikey': supabaseKey,
+          'Authorization': 'Bearer ' + supabaseKey,
           'Content-Type': 'application/json',
           'Accept': 'application/json',
           'Prefer': 'return=representation'
         },
         body: JSON.stringify({
-          source_node: from,
-          target_node: to,
-          phrase: phrase || null
+          operacion: snapshot[0],
+          medio: snapshot[1],
+          relacion: snapshot[2],
+          proceso: snapshot[3],
+          fruto: snapshot[4],
+          configuracion: sentence(snapshot),
+          reflexion: reflection.slice(0, 1200),
+          consentimiento: true,
+          version: 'v24'
         })
       });
 
@@ -1912,72 +2109,20 @@ nav.main-nav button { font-size: 0.76rem; letter-spacing: 0.1em; }
         throw new Error('HTTP ' + response.status + (detail ? ' · ' + detail : ''));
       }
 
-      const inserted = await response.json();
-      const row = Array.isArray(inserted) ? inserted[0] : inserted;
-
-      if (row && row.source_node && row.target_node) {
-        publicEdges.push({
-          id: row.id,
-          from: row.source_node,
-          to: row.target_node,
-          phrase: row.phrase || '',
-          createdAt: row.created_at || '',
-          local: true
-        });
-        activeNode = null;
-        render();
-
-        const newEdge = edgeEls[edgeEls.length - 1];
-        if (newEdge) {
-          newEdge.el.classList.add('active');
-          setTimeout(() => newEdge.el.classList.remove('active'), 1400);
-        }
-      } else {
-        await loadPublicEdges({silent:true});
-      }
-
-      form.reset();
-      feedback.textContent = 'Tu conexión ya forma parte del micelio público.';
+      status.textContent = 'Tu huella se sumó al archivo de MICELIO.';
+      closeHuella({clear:true});
     } catch (error) {
-      console.error('No se pudo guardar el aporte:', error);
-      feedback.textContent = 'No pudimos guardar la conexión. Revisa la conexión e inténtalo nuevamente.';
+      console.error('No fue posible guardar la huella:', error);
+      status.textContent = 'La huella no pudo guardarse. Puedes intentarlo nuevamente en unos segundos.';
     } finally {
       submitBtn.disabled = false;
       submitBtn.removeAttribute('aria-busy');
     }
   });
 
-  resetBtn.addEventListener('click', async () => {
-    feedback.textContent = 'Actualizando conexiones…';
-    const ok = await loadPublicEdges();
-    feedback.textContent = ok ? 'Micelio actualizado.' : 'No fue posible actualizar en este momento.';
-  });
 
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) stopAnimation();
-    else startAnimation();
-  });
-
-  render();
-  startAnimation();
-  loadPublicEdges();
-
-  /* Refresco liviano para que aportes hechos desde otros teléfonos
-     aparezcan sin necesidad de recargar toda la página. */
-  refreshTimer = setInterval(() => {
-    if (!document.hidden) loadPublicEdges({silent:true});
-  }, 15000);
-
-  try {
-    const params = new URLSearchParams(window.location.search);
-    if (params.get('participa') === 'micelio') {
-      document.body.classList.add('inside-site');
-      switchTab('investigacion');
-      setTimeout(() => {
-        document.getElementById('participaMicelio')?.scrollIntoView({behavior:'smooth', block:'start'});
-      }, 500);
-    }
-  } catch (e) {}
+  groups.forEach((g, i) => applyRing(i, false));
+  updateOutput();
 })();
 
 </script>
