@@ -1795,7 +1795,7 @@ nav.main-nav button { font-size: 0.76rem; letter-spacing: 0.1em; }
   const huellaCancel = document.getElementById('almanaqueHuellaCancel');
   const supabaseUrl = 'https://bhustxebwiteltnlahea.supabase.co';
   const supabaseKey = 'sb_publishable_uOp5B0U9CVVH9oI5uEDe9g_a-KguP-C';
-  const huellasEndpoint = supabaseUrl + '/rest/v1/almanaque_huellas';
+  const huellasEndpoint = supabaseUrl + '/rest/v1/rpc/registrar_huella_almanaque';
   let huellaSnapshot = null;
 
   function el(name, attrs = {}) {
@@ -2086,21 +2086,20 @@ nav.main-nav button { font-size: 0.76rem; letter-spacing: 0.1em; }
         method: 'POST',
         headers: {
           'apikey': supabaseKey,
-          'Authorization': 'Bearer ' + supabaseKey,
           'Content-Type': 'application/json',
           'Accept': 'application/json',
-          'Prefer': 'return=representation'
+          'Prefer': 'return=minimal'
         },
         body: JSON.stringify({
-          operacion: snapshot[0],
-          medio: snapshot[1],
-          relacion: snapshot[2],
-          proceso: snapshot[3],
-          fruto: snapshot[4],
-          configuracion: sentence(snapshot),
-          reflexion: reflection.slice(0, 1200),
-          consentimiento: true,
-          version: 'v24'
+          p_operacion: snapshot[0],
+          p_medio: snapshot[1],
+          p_relacion: snapshot[2],
+          p_proceso: snapshot[3],
+          p_fruto: snapshot[4],
+          p_configuracion: sentence(snapshot),
+          p_reflexion: reflection.slice(0, 1200),
+          p_consentimiento: true,
+          p_version: 'v28'
         })
       });
 
