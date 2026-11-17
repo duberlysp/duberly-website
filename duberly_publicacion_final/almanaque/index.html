@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#030506">
+<title>Almanaque de Posibilidades · MICELIO CULTURAL</title>
+<meta name="description" content="Instrumento creativo participativo de MICELIO CULTURAL para combinar conceptos y explorar relaciones posibles.">
+<style>
+
+ :root { /* Paleta general */ --bg-color: #0a0d0f; --surface-color: #111619; --surface-card: #151c20; --border-subtle: #1e282d; --border-active: #344852; /* Textos */ --text-primary: #e8edef; --text-secondary: #b0c0c7; --text-muted: #80939c; /* Acentos */ --accent-petroleo: #1e3a3d; --accent-azul-profundo: #142834; --accent-verde-azulado: #3b6e72; --accent-slate: #739dae; --accent-light: #9ed4e2; --font-serif: "Times New Roman", Times, Georgia, serif; --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --transition-smooth: all 0.4s var(--ease-out); }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { min-height: 100%; color: var(--text-primary); font-family: var(--font-sans); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+body { background-color: #030506; background-image: radial-gradient(ellipse 72% 88% at 18% 30%, rgba(30, 58, 61, 0.24) 0%, rgba(20, 40, 52, 0.13) 38%, rgba(8, 13, 15, 0.04) 68%, transparent 82%), radial-gradient(ellipse 94% 112% at 94% 74%, rgba(0, 0, 0, 0.98) 0%, rgba(0, 0, 0, 0.8) 38%, rgba(0, 0, 0, 0.32) 69%, transparent 100%), linear-gradient(138deg, #0a1013 0%, #070b0d 44%, #030506 72%, #000000 100%); background-attachment: fixed; background-repeat: no-repeat; }
+.site-wrapper { min-height: 100vh; position: relative; }
+h1, h2, h3, .brand-signature, .hero-title, .home-access-card h2 { font-family: var(--font-serif); }
+/* PORTADA */ .hero-cover { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; background-color: var(--bg-color); z-index: 1000; cursor: pointer; opacity: 1; visibility: visible; transition: opacity 0.6s var(--ease-out), visibility 0.6s var(--ease-out); }
+.hero-title { font-size: clamp(3rem, 11vw, 8rem); font-weight: 400; letter-spacing: 0.28em; text-transform: uppercase; color: var(--text-primary); user-select: none; margin-left: 0.28em; text-shadow: 0 0 40px rgba(0, 0, 0, 0.8); }
+body.inside-site .hero-cover { opacity: 0; visibility: hidden; pointer-events: none; }
+/* ENCABEZADO Y FIRMA */ header.site-header { position: fixed; top: 0; left: 0; width: 100%; padding: 1.8rem 2.5rem; z-index: 900; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(180deg, rgba(10, 13, 15, 0.98) 0%, rgba(10, 13, 15, 0.85) 70%, rgba(10, 13, 15, 0) 100%); backdrop-filter: blur(10px); opacity: 0; transform: translateY(-10px); pointer-events: none; transition: var(--transition-smooth); }
+body.inside-site header.site-header { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.brand-signature { font-size: 1.15rem; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-primary); cursor: pointer; text-decoration: none; transition: color 0.3s ease; }
+.brand-signature:hover { color: var(--accent-light); }
+nav.main-nav { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+nav.main-nav button { background: none; border: none; color: var(--text-secondary); font-family: var(--font-sans); font-size: 0.82rem; font-weight: 500; cursor: pointer; padding: 0.3rem 0; border-bottom: 2px solid transparent; transition: var(--transition-smooth); text-transform: uppercase; letter-spacing: 0.12em; }
+nav.main-nav button:hover, nav.main-nav button:focus-visible { color: var(--text-primary); border-bottom-color: var(--accent-slate); outline: none; }
+nav.main-nav button.active { color: var(--accent-light); border-bottom-color: var(--accent-verde-azulado); }
+/* LAYOUT GENERAL */ main { flex-grow: 1; padding-top: 120px; position: relative; z-index: 10; }
+.site-container { max-width: 1040px; margin: 0 auto; padding: 2rem 2rem 6rem 2rem; }
+.tab-content { display: none; opacity: 0; transition: opacity 0.4s ease; }
+.tab-content.active { display: block; opacity: 1; }
+.section-header { margin-bottom: 3.5rem; }
+.section-header h1 { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 400; letter-spacing: 0.08em; margin-bottom: 1.2rem; color: var(--text-primary); }
+.section-header p.section-lead { color: var(--text-secondary); font-size: 1.05rem; max-width: 860px; line-height: 1.75; font-weight: 300; }
+.sub-header { margin-top: 3.5rem; margin-bottom: 1.8rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.6rem; }
+.sub-header h2 { font-size: 1.5rem; font-weight: 400; letter-spacing: 0.05em; color: var(--accent-light); font-family: var(--font-serif); }
+.sub-header p { color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.2rem; }
+/* COMPOSICIÓN Y TRATAMIENTO DE FOTOGRAFÍAS */ .home-hero-layout { display: flex; gap: 2.5rem; align-items: center; margin-bottom: 4rem; }
+.site-photo-container { position: relative; display: block; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4), 0 18px 45px -10px rgba(30, 58, 61, 0.35); transition: transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out); cursor: pointer; margin-bottom: 1.2rem; background-color: var(--surface-color); }
+.site-photo-container::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--accent-verde-azulado); opacity: 0.03; pointer-events: none; transition: opacity 0.5s var(--ease-out); }
+.site-photo-img { width: 100%; height: auto; display: block; object-fit: cover; opacity: 0.98; filter: brightness(1) contrast(1); transition: transform 0.5s var(--ease-out), filter 0.5s var(--ease-out); }
+.site-photo-container:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 0 22px 55px -8px rgba(30, 58, 61, 0.45); }
+.site-photo-container:hover .site-photo-img { filter: brightness(1.04) contrast(1); transform: scale(1.015); }
+.photo-credit { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.4rem; font-style: italic; text-align: right; }
+.home-portrait-wrapper { flex: 0 0 42%; max-width: 45%; display: block; }
+.home-presentation-single { flex: 1; font-family: var(--font-sans); font-size: clamp(0.9rem, 1.42vw, 1.02rem); line-height: 1.68; color: var(--text-primary); font-weight: 300; border-left: 1px solid rgba(59, 110, 114, 0.72); padding-left: 1.55rem; text-align: justify; text-align-last: left; text-justify: inter-word; hyphens: auto; }
+.home-presentation-single p + p { margin-top: 0.78rem; }
+.home-portrait-static { cursor: default; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.46), 0 22px 60px -18px rgba(59, 110, 114, 0.55); }
+.home-portrait-static:hover { transform: none; box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5), 0 24px 66px -16px rgba(59, 110, 114, 0.62); }
+.home-portrait-static:hover .site-photo-img { transform: none; filter: brightness(1.035) contrast(1.01); }
+/* ESCALA COMPACTA PARA CREACIÓN */
+#obra .section-header { margin-bottom: 2rem; }
+#obra .sub-header { margin-top: 2.25rem; margin-bottom: 1.1rem; }
+#obra .card-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.1rem; }
+#obra .home-access-card { padding: 1.1rem; border-radius: 14px; }
+#obra .home-access-card h3 { font-size: 1.2rem; }
+#obra .home-access-card p { font-size: 0.84rem; line-height: 1.5; }
+
+/* En las fichas del carrusel, el texto inmediatamente bajo el título ocupa
+   una sola línea para mantener una altura editorial consistente. */
+#obra .creation-carousel > article > div:first-child > p {
+  display: block;
+  width: 100%;
+  min-height: 1.5em;
+  max-height: 1.5em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Fotos de CREACIÓN: más pequeñas, uniformes y cuadradas */
+#obra .creation-carousel .site-photo-container {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  margin: 0.65rem 0 0.75rem;
+}
+#obra .creation-carousel .site-photo-img {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: cover;
+  object-position: center;
+}
+/* Perfil del Ensamble: recorte cuadrado, sin bandas/bordes negros */
+#obra .creation-carousel img[src$="spotify-ensamble-folk.jpg"] {
+  object-fit: cover;
+  object-position: center center;
+  background: transparent;
+}
+
+#obra .card-action-slot { margin-top: 0.75rem; padding-top: 0.6rem; }
+
+/* Spotify: mantener el ancho natural de la tarjeta para evitar scrollbars,
+   pero usar la altura compacta real para que no quede un bloque negro vacío. */
+#obra .creation-carousel iframe[src*="open.spotify.com/embed"] {
+  width: 100%;
+  height: 152px !important;
+  min-height: 152px;
+  overflow: hidden;
+}
+#obra .creation-carousel .card-embed-slot {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  box-shadow: none;
+  border-color: rgba(115, 157, 174, 0.08);
+  background: rgba(10, 13, 15, 0.20);
+}
+
+/* Cuando existe una sola acción, foto y botón comparten el mismo ancho.
+   El reproductor queda más ancho para que Spotify no se comprima. */
+#obra .creation-carousel .card-action-slot:has(> :only-child) {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+#obra .creation-carousel .card-action-slot:has(> :only-child) > :only-child {
+  width: 100%;
+  justify-content: space-between;
+}
+
+#obra .channel-card { max-width: 430px; min-height: 0; align-self: flex-start; }
+
+/* Cada ficha termina donde termina su contenido: evita los grandes vacíos
+   provocados por el estiramiento de todas las tarjetas a la altura de la mayor. */
+#obra .card-grid.creation-carousel {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 0.8rem 10vw 1.5rem 0.4rem;
+  margin: 0 -0.4rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+#obra .card-grid.creation-carousel::-webkit-scrollbar { display: none; }
+#obra .creation-carousel > article {
+  flex: 0 0 min(36vw, 335px);
+  min-width: 270px;
+  align-self: flex-start;
+  justify-content: flex-start;
+  min-height: 0;
+  height: auto;
+  scroll-snap-align: start;
+  background: linear-gradient(145deg, rgba(20, 40, 52, 0.16), rgba(17, 22, 25, 0.08));
+  border: 1px solid rgba(158, 212, 226, 0.055);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.14);
+}
+#obra .creation-carousel > article + article { margin-left: -0.35rem; }
+#obra .creation-carousel > article:hover {
+  background: linear-gradient(145deg, rgba(30, 58, 61, 0.24), rgba(17, 22, 25, 0.14));
+  border-color: rgba(158, 212, 226, 0.09);
+  box-shadow: 0 14px 32px rgba(0,0,0,0.18);
+  z-index: 3;
+}
+#obra .playlist-frame { background: linear-gradient(135deg, rgba(20, 40, 52, 0.16), rgba(30, 58, 61, 0.10)); border-color: rgba(158, 212, 226, 0.06); }
+#obra .carousel-hint { display: none; }
+/* BIO COMPACTA Y CENTRADA */
+#biocv .section-header { max-width: 760px; margin: 0 auto 1.8rem; text-align: center; }
+#biocv .section-header p.section-lead { margin: 0 auto; }
+#biocv .bio-body { max-width: 760px; margin: 0 auto; }
+#biocv .bio-body p { font-size: 0.89rem; line-height: 1.66; margin-bottom: 0.95rem; text-align: justify; text-align-last: left; text-justify: inter-word; hyphens: auto; }
+/* FRANJA VISUAL BIO */
+.bio-gallery-shell { position: relative; margin-top: 2.8rem; }
+.bio-gallery-shell::before, .bio-gallery-shell::after { content: ''; position: absolute; top: 0; bottom: 34px; width: 46px; z-index: 2; pointer-events: none; }
+.bio-gallery-shell::before { left: 0; background: linear-gradient(90deg, rgba(18,22,24,0.9), rgba(18,22,24,0)); }
+.bio-gallery-shell::after { right: 0; background: linear-gradient(270deg, rgba(18,22,24,0.9), rgba(18,22,24,0)); }
+.bio-gallery-viewport { overflow: hidden; width: min(1120px, 100%); margin: 0 auto; padding: 0.2rem 0 0.65rem; }
+.bio-gallery-track { display: flex; gap: 1rem; width: max-content; padding: 0 46px; animation: bioAutoScroll 58s linear infinite; will-change: transform; }
+.bio-gallery-viewport:hover .bio-gallery-track { animation-play-state: paused; }
+.bio-gallery-item { flex: 0 0 auto; }
+.bio-gallery-item .site-photo-container { margin-bottom: 0; height: 250px; }
+.bio-gallery-item img { height: 250px; width: auto; display: block; object-fit: cover; }
+.bio-gallery-item.is-wide img { width: 420px; }
+.bio-gallery-item.is-mid img { width: 330px; }
+.bio-gallery-item.is-vertical img { width: 180px; }
+.bio-gallery-item.is-portrait img { width: 210px; }
+.bio-gallery-note { max-width: 760px; margin: 0.8rem auto 0; font-size: 0.72rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--text-muted); text-align: center; }
+/* FORMACIÓN BIO / CV — restaurado desde v15 */
+.bio-formation { max-width: 900px; margin: 2.8rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(158,212,226,0.12); }
+.bio-formation h2 { font-family: var(--font-serif); font-size: 1.35rem; font-weight: 400; margin-bottom: 1.25rem; color: var(--text-primary); }
+.bio-formation-list { display: grid; gap: 0; }
+.bio-formation-item { display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 1.4rem; padding: 0.8rem 0; border-bottom: 1px solid rgba(158,212,226,0.08); align-items: baseline; }
+.bio-formation-year { font-family: var(--font-sans); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-slate); }
+.bio-formation-degree { font-family: var(--font-sans); font-size: 0.88rem; line-height: 1.45; color: var(--text-primary); }
+.bio-formation-degree span { color: var(--text-secondary); }
+@keyframes bioAutoScroll { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 0.5rem)); } }
+/* TARJETAS Y ESTRUCTURA DE FICHAS */ .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.8rem; margin-top: 1.5rem; }
+.mycelial-grid { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(12, 1fr); gap: 2rem; align-items: start; }
+.home-access-card { border: none; padding: 2.2rem; text-decoration: none; color: inherit; display: flex; flex-direction: column; justify-content: space-between; position: relative; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35); background: linear-gradient(135deg, rgba(20, 40, 52, 0.6) 0%, rgba(17, 22, 25, 0.5) 100%); border-radius: 20px; opacity: 0; transform: translateY(20px); animation: fadeInOrganic 0.8s var(--ease-out) forwards; transition: transform 0.4s var(--ease-out), background 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease; }
+@keyframes fadeInOrganic { to { opacity: 1; transform: translateY(0); }
+}
+.home-card-obra { grid-column: 1 / span 7; border-radius: 28px 12px 36px 16px; min-height: 230px; animation-delay: 0.1s; }
+.home-card-mediacion { grid-column: 7 / span 6; margin-top: 2.5rem; margin-left: -1.5rem; background: linear-gradient(135deg, rgba(30, 58, 61, 0.58) 0%, rgba(17, 22, 25, 0.52) 100%); border-radius: 16px 32px 18px 28px; min-height: 240px; animation-delay: 0.25s; }
+.home-card-investigacion { grid-column: 1 / span 6; margin-top: 1rem; background: linear-gradient(135deg, rgba(30, 58, 61, 0.52) 0%, rgba(20, 40, 52, 0.58) 100%); border-radius: 22px 18px 30px 14px; min-height: 230px; animation-delay: 0.4s; }
+.home-card-escritos { grid-column: 6 / span 7; margin-top: -1rem; background: linear-gradient(135deg, rgba(20, 40, 52, 0.62) 0%, rgba(30, 58, 61, 0.48) 100%); border-radius: 14px 26px 16px 34px; min-height: 230px; animation-delay: 0.55s; }
+.home-access-card:hover, .home-access-card:focus-within { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); background: linear-gradient(135deg, rgba(20, 40, 52, 0.85) 0%, rgba(30, 58, 61, 0.75) 100%); outline: none; }
+.home-access-card .card-number { font-size: 0.75rem; letter-spacing: 0.15em; color: var(--accent-slate); text-transform: uppercase; font-weight: 600; margin-bottom: 1rem; }
+.home-access-card h2, .home-access-card h3 { font-size: 1.5rem; font-weight: 400; color: var(--text-primary); margin-bottom: 0.6rem; }
+.home-access-card p { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; }
+/* PRENSA Y CONTEXTO */
+.press-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.8rem; margin-top: 1.2rem; }
+.press-item { min-height: 155px; padding: 1.15rem; display: flex; flex-direction: column; justify-content: space-between; background: linear-gradient(145deg, rgba(20, 40, 52, 0.34), rgba(17, 22, 25, 0.24)); border: 1px solid rgba(115, 157, 174, 0.12); border-radius: 12px 20px 14px 18px; transition: background 0.35s ease, transform 0.35s var(--ease-out), border-color 0.35s ease; }
+.press-item:hover { transform: translateY(-3px); background: linear-gradient(145deg, rgba(30, 58, 61, 0.48), rgba(17, 22, 25, 0.36)); border-color: rgba(158, 212, 226, 0.22); }
+.press-meta { color: var(--accent-slate); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.45rem; }
+.press-item h3 { font-family: var(--font-sans); font-size: 0.92rem; line-height: 1.35; font-weight: 500; margin-bottom: 0.8rem; }
+.press-item .discrete-link { align-self: flex-start; font-size: 0.76rem; padding: 0.3rem 0.65rem; }
+/* INTEGRACIÓN DE REPRODUCTORES Y ENLACES DISCRETOS */ .card-embed-slot { margin-top: 1.2rem; width: 100%; border-radius: 12px; overflow: hidden; background: rgba(10, 13, 15, 0.5); box-shadow: 0 4px 16px rgba(0,0,0,0.4); border: 1px solid rgba(115, 157, 174, 0.15); }
+.card-embed-slot iframe { display: block; width: 100%; border: 0; }
+.video-responsive { position: relative; padding-bottom: 56.25%; /* Aspect Ratio 16:9 */ height: 0; overflow: hidden; }
+.video-responsive iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.card-action-slot { margin-top: 1.2rem; padding-top: 0.8rem; border-top: 1px solid rgba(255, 255, 255, 0.06); display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; }
+.discrete-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.88rem; font-weight: 500; color: var(--accent-light); text-decoration: none; padding: 0.4rem 0.8rem; border-radius: 20px; background-color: rgba(30, 58, 61, 0.25); border: 1px solid rgba(115, 157, 174, 0.2); transition: var(--transition-smooth); cursor: pointer; }
+.discrete-link:hover, .discrete-link:focus-visible { color: #ffffff; background-color: rgba(59, 110, 114, 0.45); border-color: var(--accent-light); outline: none; transform: translateX(2px); }
+.discrete-link .arrow { font-size: 0.9em; transition: transform 0.3s ease; }
+.discrete-link:hover .arrow { transform: translate(2px, -2px); }
+.slot-placeholder { margin-top: 1.2rem; padding: 1.2rem; background-color: rgba(10, 13, 15, 0.4); border: 1px dashed var(--border-subtle); font-size: 0.82rem; color: var(--text-muted); text-align: center; border-radius: 12px; }
+.field-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.6rem; }
+.field-value { font-size: 0.88rem; color: var(--text-secondary); }
+/* MODAL / FICHA EXPANDIDA CON GALERÍA */ .project-modal { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(10, 13, 15, 0.92); backdrop-filter: blur(14px); z-index: 2000; display: flex; justify-content: center; align-items: center; padding: 2rem; opacity: 0; visibility: hidden; transition: opacity 0.4s var(--ease-out), visibility 0.4s var(--ease-out); }
+.project-modal.open { opacity: 1; visibility: visible; }
+.modal-content-wrapper { background-color: var(--surface-card); border: 1px solid var(--border-active); border-radius: 24px; max-width: 860px; width: 100%; max-height: 88vh; overflow-y: auto; padding: 2.5rem; position: relative; box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7); }
+.modal-close-btn { position: absolute; top: 1.5rem; right: 1.5rem; background: rgba(30, 58, 61, 0.4); border: 1px solid rgba(115, 157, 174, 0.3); color: var(--text-primary); font-size: 1.2rem; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: var(--transition-smooth); }
+.modal-close-btn:hover { background: var(--accent-verde-azulado); color: #fff; }
+.modal-gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 1.8rem 0; }
+.modal-gallery-grid .site-photo-container { margin-bottom: 0; }
+/* ATLAS DE LOS 39 — ficha editorial */
+.atlas-cover-wrap { max-width: 330px; margin: 1.6rem auto 2rem; }
+.atlas-cover-wrap .site-photo-container { margin-bottom: 0; background: #111; }
+.atlas-gallery .site-photo-container { background: #111; }
+.atlas-gallery .site-photo-img { width: 100%; height: 520px; object-fit: contain; background: #111; }
+.atlas-copy { max-width: 760px; color: var(--text-secondary); line-height: 1.75; }
+.atlas-copy p + p { margin-top: 0.9rem; }
+.atlas-meta { margin-top: 1.2rem; color: var(--text-muted); font-size: 0.78rem; letter-spacing: 0.04em; }
+.text-modal-copy { max-width: 760px; color: var(--text-secondary); line-height: 1.75; }
+.text-modal-copy p + p { margin-top: 0.9rem; }
+.text-modal-subtitle { color: var(--text-muted); margin-bottom: 1.4rem; font-size: 0.95rem; }
+.text-modal-actions { margin-top: 1.6rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.06); display: flex; gap: 0.8rem; flex-wrap: wrap; }
+.text-modal-media-title { margin-top: 1.7rem; margin-bottom: 0.8rem; font-family: var(--font-serif); font-size: 1.05rem; font-weight: 500; }
+.text-modal-embed { border-radius: 14px; overflow: hidden; background: #000; }
+.atlas-selection-title { margin: 2rem 0 0.2rem; font-family: var(--font-serif); font-size: 1.15rem; font-weight: 400; color: var(--accent-light); }
+.mycelial-network-container { position: relative; margin-top: 2rem; padding: 1rem 0; }
+.mycelial-svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; overflow: visible; }
+.mycelial-path { fill: none; stroke: rgba(115, 157, 174, 0.25); stroke-width: 1.2; stroke-dasharray: 4 2; }
+.mycelial-node { fill: var(--accent-slate); opacity: 0.4; }
+.bio-body p { margin-bottom: 1.4rem; color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; }
+.contact-block { margin-top: 2rem; display: flex; flex-direction: column; gap: 1.2rem; max-width: 500px; }
+.contact-item { display: flex; justify-content: space-between; align-items: center; padding-bottom: 0.8rem; border-bottom: 1px solid var(--border-subtle); color: var(--text-primary); text-decoration: none; font-size: 1rem; transition: var(--transition-smooth); }
+.contact-item:hover, .contact-item:focus-visible { border-bottom-color: var(--accent-light); color: var(--accent-light); outline: none; }
+footer { border-top: 1px solid var(--border-subtle); padding-top: 2rem; margin-top: 5rem; font-size: 0.82rem; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+/* LIGHTBOX PARA AMPLIAR FOTOGRAFÍAS */ .lightbox-modal { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(5, 7, 8, 0.95); z-index: 3000; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; padding: 2rem; }
+.lightbox-modal.open { opacity: 1; visibility: visible; }
+.lightbox-modal img { max-width: 92vw; max-height: 92vh; object-fit: contain; border-radius: 8px; box-shadow: 0 0 50px rgba(0,0,0,0.9); }
+/* SERVICIOS */
+#servicios .section-header { max-width: 860px; margin-bottom: 2.2rem; }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.4rem;
+}
+.service-card {
+  min-height: 330px;
+  padding: 1.45rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(158,212,226,0.07);
+  border-radius: 18px;
+  background: linear-gradient(145deg, rgba(20,40,52,0.15), rgba(17,22,25,0.07));
+  box-shadow: 0 12px 30px rgba(0,0,0,0.13);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform .35s var(--ease-out), border-color .35s ease, background .35s ease;
+}
+.service-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(158,212,226,0.13);
+  background: linear-gradient(145deg, rgba(30,58,61,0.22), rgba(17,22,25,0.12));
+}
+.service-number {
+  color: var(--accent-slate);
+  font-size: .68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  margin-bottom: .8rem;
+}
+.service-card h2 {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: .025em;
+  margin-bottom: .75rem;
+  color: var(--text-primary);
+}
+.service-card p {
+  color: var(--text-secondary);
+  font-size: .88rem;
+  line-height: 1.65;
+}
+.service-tags {
+  margin-top: 1.15rem;
+  padding-top: .9rem;
+  border-top: 1px solid rgba(158,212,226,0.065);
+  color: var(--text-muted);
+  font-size: .72rem;
+  line-height: 1.65;
+  letter-spacing: .025em;
+}
+.services-cta {
+  max-width: 820px;
+  margin: 2rem auto 0;
+  padding-top: 1.35rem;
+  border-top: 1px solid rgba(158,212,226,0.075);
+  text-align: center;
+}
+.services-cta p {
+  color: var(--text-secondary);
+  font-size: .9rem;
+  line-height: 1.65;
+  margin-bottom: .9rem;
+}
+@media (max-width: 820px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .service-card { min-height: 0; }
+}
+
+/* RESPONSIVE (MÓVIL) */ @media (max-width: 820px) { .home-hero-layout { flex-direction: column-reverse; gap: 2rem; }
+.home-portrait-wrapper { max-width: 100%; width: 100%; }
+.home-presentation-single { text-align: left; hyphens: none; font-size: 0.94rem; line-height: 1.65; }
+.mycelial-grid { display: flex; flex-direction: column; gap: 1.5rem; }
+.home-access-card { margin: 0 !important; min-height: auto; border-radius: 18px; }
+.mycelial-svg { display: none; }
+header.site-header {
+  position: relative;
+  top: auto;
+  left: auto;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 1.15rem 1rem 1.35rem;
+  background: linear-gradient(180deg, rgba(10, 13, 15, 0.99) 0%, rgba(10, 13, 15, 0.96) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+main { padding-top: 0; }
+.brand-signature { font-size: 1.05rem; }
+nav.main-nav { justify-content: center; gap: 0.65rem 1rem; max-width: 100%; }
+nav.main-nav button { font-size: 0.76rem; letter-spacing: 0.1em; }
+.press-grid { grid-template-columns: 1fr; }
+.press-item { min-height: 0; }
+.hero-title { letter-spacing: 0.18em; }
+.modal-content-wrapper { padding: 1.5rem; }
+#obra .card-grid.creation-carousel { padding-right: 12vw; }
+#obra .creation-carousel > article { flex-basis: 78vw; min-width: 78vw; }
+#obra .creation-carousel .site-photo-container { width: 100%; }
+#obra .creation-carousel .card-action-slot:has(> :only-child) { width: 100%; }
+#biocv .bio-body { text-align: left; }
+#biocv .bio-body p { text-align: left; hyphens: none; }
+.bio-gallery-shell::before, .bio-gallery-shell::after { display: none; }
+.bio-gallery-viewport { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity; }
+.bio-gallery-track { animation: none; padding: 0 1rem; gap: 0.75rem; }
+.bio-gallery-item { scroll-snap-align: start; }
+.bio-gallery-item:nth-child(n+9) { display: none; }
+.bio-gallery-item .site-photo-container { height: 190px; }
+.bio-gallery-item img { height: 190px; }
+.bio-gallery-item.is-wide img { width: 300px; }
+.bio-gallery-item.is-mid img { width: 245px; }
+.bio-gallery-item.is-vertical img { width: 138px; }
+.bio-gallery-item.is-portrait img { width: 160px; }
+.bio-gallery-note { font-size: 0.68rem; padding: 0 1rem; }
+.bio-formation { margin-top: 2.2rem; padding-top: 1.5rem; }
+.bio-formation-item { grid-template-columns: 1fr; gap: 0.25rem; padding: 0.8rem 0; }
+.bio-formation-degree { font-size: 0.84rem; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; }
+.home-access-card, .site-photo-container { opacity: 1; transform: none; }
+}
+
+/* =========================================================
+   TRANSPARENCIA GLOBAL DE TARJETAS Y CAJAS
+   Unifica el lenguaje visual del sitio con superficies casi invisibles.
+   ========================================================= */
+
+/* Tarjetas principales: Inicio, Creación, Mediación, Investigación, Escritos */
+.home-access-card,
+.home-card-obra,
+.home-card-mediacion,
+.home-card-investigacion,
+.home-card-escritos,
+#obra .playlist-frame {
+  background: linear-gradient(
+    145deg,
+    rgba(20, 40, 52, 0.16),
+    rgba(17, 22, 25, 0.08)
+  ) !important;
+  border: 1px solid rgba(158, 212, 226, 0.055) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14) !important;
+}
+
+/* Hover también muy sutil: conserva respuesta sin volver a "encajonar". */
+.home-access-card:hover,
+.home-access-card:focus-within,
+.home-card-obra:hover,
+.home-card-mediacion:hover,
+.home-card-investigacion:hover,
+.home-card-escritos:hover,
+#obra .playlist-frame:hover {
+  background: linear-gradient(
+    145deg,
+    rgba(30, 58, 61, 0.24),
+    rgba(17, 22, 25, 0.14)
+  ) !important;
+  border-color: rgba(158, 212, 226, 0.09) !important;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.18) !important;
+}
+
+/* Prensa y contexto: mismo grado de transparencia. */
+.press-item {
+  background: linear-gradient(
+    145deg,
+    rgba(20, 40, 52, 0.16),
+    rgba(17, 22, 25, 0.08)
+  ) !important;
+  border-color: rgba(158, 212, 226, 0.055) !important;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.press-item:hover {
+  background: linear-gradient(
+    145deg,
+    rgba(30, 58, 61, 0.24),
+    rgba(17, 22, 25, 0.14)
+  ) !important;
+  border-color: rgba(158, 212, 226, 0.09) !important;
+}
+
+/* Cajas auxiliares y reproductores: casi transparentes. */
+.card-embed-slot,
+.slot-placeholder {
+  background: rgba(10, 13, 15, 0.18) !important;
+  border-color: rgba(115, 157, 174, 0.07) !important;
+  box-shadow: none !important;
+}
+
+/* El marco de las fotografías también se integra más con el fondo. */
+.site-photo-container {
+  background-color: rgba(17, 22, 25, 0.16);
+}
+
+/* Los modales se mantienen más sólidos por legibilidad y foco. */
+
+
+/* =========================================================
+   INVESTIGACIÓN — ALMANAQUE DE CONEXIONES POSIBLES / V24
+   Objeto digital manipulable · mobile-first
+   ========================================================= */
+#investigacion .section-header { margin-bottom: 2.15rem; }
+.almanaque-subheader { margin-top: 2rem; }
+.almanaque-shell {
+  margin-top: 1.1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(158,212,226,0.07);
+}
+.almanaque-intro {
+  max-width: 790px;
+  color: var(--text-secondary);
+  font-size: 0.94rem;
+  line-height: 1.74;
+  margin-bottom: 1.4rem;
+}
+.almanaque-object-stage {
+  position: relative;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  padding: 0.5rem 0 1.1rem;
+}
+.almanaque-object {
+  --ring-1: #738f8a;
+  --ring-2: #7d8fa6;
+  --ring-3: #9a815f;
+  --ring-4: #9a6f62;
+  --ring-5: #827d98;
+  position: relative;
+  width: min(94vw, 690px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  user-select: none;
+  -webkit-user-select: none;
+  isolation: isolate;
+}
+.almanaque-object::before {
+  content: '';
+  position: absolute;
+  inset: 4%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 42% 35%, rgba(255,255,255,0.035), transparent 27%),
+    radial-gradient(circle at 64% 68%, rgba(199,155,82,0.035), transparent 34%),
+    radial-gradient(circle at 50% 50%, rgba(18,29,32,0.42), rgba(3,5,6,0.02) 68%);
+  box-shadow: inset 0 0 80px rgba(0,0,0,0.28), 0 24px 55px rgba(0,0,0,0.18);
+  pointer-events: none;
+}
+.almanaque-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  touch-action: none;
+}
+.almanaque-ring-hit {
+  fill: none;
+  stroke: rgba(255,255,255,0.001);
+  cursor: grab;
+  pointer-events: stroke;
+}
+.almanaque-ring-hit:active { cursor: grabbing; }
+.almanaque-ring-band {
+  fill: none;
+  opacity: 0.38;
+  pointer-events: none;
+  filter: saturate(0.86);
+}
+.almanaque-ring-line {
+  fill: none;
+  stroke: rgba(232,237,239,0.14);
+  stroke-width: 1;
+  pointer-events: none;
+}
+.almanaque-ring text {
+  fill: rgba(232,237,239,0.83);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  letter-spacing: 0.045em;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  pointer-events: none;
+}
+.almanaque-ring text.is-active {
+  fill: #f1e6ca;
+  font-weight: 600;
+}
+.almanaque-ring-caption {
+  fill: rgba(232,237,239,0.42) !important;
+  font-size: 9px !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase;
+}
+.almanaque-center-disc {
+  fill: rgba(7,11,13,0.92);
+  stroke: rgba(232,237,239,0.16);
+  stroke-width: 1.2;
+}
+.almanaque-center-small {
+  fill: var(--accent-slate);
+  font-family: var(--font-sans);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-anchor: middle;
+  text-transform: uppercase;
+}
+.almanaque-center-main {
+  fill: var(--text-primary);
+  font-family: var(--font-serif);
+  font-size: 22px;
+  text-anchor: middle;
+}
+.almanaque-axis {
+  stroke: rgba(241,230,202,0.74);
+  stroke-width: 1.3;
+  pointer-events: none;
+}
+.almanaque-axis-dot { fill: #d2a35b; }
+.almanaque-axis-label {
+  fill: #d8b679;
+  font-family: var(--font-sans);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-anchor: middle;
+}
+.almanaque-instruction {
+  max-width: 650px;
+  margin: -0.2rem auto 0;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  line-height: 1.55;
+}
+.almanaque-output {
+  max-width: 800px;
+  margin: 2rem auto 0;
+  padding-top: 1.45rem;
+  border-top: 1px solid rgba(158,212,226,0.075);
+}
+.almanaque-output-kicker {
+  display: block;
+  color: var(--accent-slate);
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.7rem;
+}
+.almanaque-result {
+  font-family: var(--font-serif);
+  font-size: clamp(1.35rem, 4.8vw, 2.25rem);
+  line-height: 1.36;
+  color: var(--text-primary);
+  margin: 0;
+}
+.almanaque-provocation {
+  margin-top: 0.9rem;
+  max-width: 690px;
+  color: #d7c39a;
+  font-size: 0.93rem;
+  line-height: 1.66;
+}
+.almanaque-actions {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  margin-top: 1.15rem;
+}
+.almanaque-actions button,
+.almanaque-nudge button {
+  appearance: none;
+  border: 1px solid rgba(158,212,226,0.14);
+  background: rgba(17,22,25,0.16);
+  color: var(--text-secondary);
+  font: inherit;
+  cursor: pointer;
+  min-height: 44px;
+  border-radius: 999px;
+  padding: 0.58rem 0.95rem;
+  transition: background .25s ease, border-color .25s ease, color .25s ease, transform .25s ease;
+}
+.almanaque-actions button:hover,
+.almanaque-actions button:focus-visible,
+.almanaque-nudge button:hover,
+.almanaque-nudge button:focus-visible {
+  color: var(--text-primary);
+  border-color: rgba(216,182,121,0.42);
+  background: rgba(55,50,42,0.27);
+  outline: none;
+}
+.almanaque-actions .almanaque-random {
+  color: #f0dfbd;
+  border-color: rgba(210,163,91,0.31);
+  background: rgba(154,111,98,0.13);
+}
+.almanaque-fine {
+  margin-top: 1.25rem;
+  border-top: 1px solid rgba(158,212,226,0.055);
+  padding-top: 1rem;
+}
+.almanaque-fine summary {
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 0.73rem;
+  letter-spacing: 0.07em;
+  list-style: none;
+}
+.almanaque-fine summary::-webkit-details-marker { display: none; }
+.almanaque-nudges {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.45rem;
+  margin-top: 0.8rem;
+}
+.almanaque-nudge {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) auto auto;
+  gap: 0.45rem;
+  align-items: center;
+  min-width: 0;
+}
+.almanaque-nudge span {
+  min-width: 0;
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.almanaque-nudge b {
+  color: var(--text-muted);
+  font-size: 0.68rem;
+  font-weight: 500;
+  margin-right: 0.35rem;
+}
+.almanaque-nudge button {
+  width: 44px;
+  padding: 0;
+  border-radius: 50%;
+}
+.almanaque-huella-panel {
+  max-width: 800px;
+  margin: 1.35rem auto 0;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(158,212,226,0.075);
+}
+.almanaque-huella-panel[hidden] { display: none; }
+.almanaque-huella-config {
+  color: var(--text-muted);
+  font-size: 0.74rem;
+  letter-spacing: 0.03em;
+  line-height: 1.55;
+  margin-bottom: 0.85rem;
+}
+.almanaque-huella-panel label {
+  display: block;
+  color: var(--text-secondary);
+  font-size: 0.86rem;
+  margin-bottom: 0.55rem;
+}
+.almanaque-huella-panel textarea {
+  width: 100%;
+  min-height: 145px;
+  resize: vertical;
+  padding: 0.95rem 1rem;
+  border-radius: 13px;
+  border: 1px solid rgba(158,212,226,0.10);
+  background: rgba(9,13,15,0.22);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 16px;
+  line-height: 1.55;
+  outline: none;
+}
+.almanaque-huella-panel textarea:focus {
+  border-color: rgba(210,163,91,0.38);
+  background: rgba(9,13,15,0.34);
+}
+.almanaque-consent {
+  display: flex !important;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-top: 0.8rem;
+  color: var(--text-muted) !important;
+  font-size: 0.72rem !important;
+  line-height: 1.5;
+  cursor: pointer;
+}
+.almanaque-consent input {
+  margin-top: 0.18rem;
+  accent-color: #d2a35b;
+}
+.almanaque-huella-actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: 0.95rem;
+}
+.almanaque-huella-actions button {
+  appearance: none;
+  border: 1px solid rgba(158,212,226,0.14);
+  background: rgba(17,22,25,0.16);
+  color: var(--text-secondary);
+  font: inherit;
+  cursor: pointer;
+  min-height: 44px;
+  border-radius: 999px;
+  padding: 0.58rem 0.95rem;
+}
+.almanaque-huella-actions .almanaque-submit {
+  color: #f0dfbd;
+  border-color: rgba(210,163,91,0.31);
+  background: rgba(154,111,98,0.13);
+}
+.almanaque-huella-actions button:disabled {
+  opacity: 0.48;
+  cursor: wait;
+}
+.almanaque-note,
+.almanaque-status {
+  margin-top: 0.55rem;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+.almanaque-status { color: #d7c39a; min-height: 1.1em; }
+
+@media (min-width: 760px) {
+  .almanaque-object { width: min(72vw, 690px); }
+  .almanaque-nudges { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .almanaque-ring text { font-size: 14px; }
+}
+
+@media (max-width: 430px) {
+  .almanaque-object { width: min(96vw, 420px); }
+  .almanaque-ring text { font-size: 13.5px; letter-spacing: 0.025em; }
+  .almanaque-center-main { font-size: 19px; }
+  .almanaque-axis-label { font-size: 8px; }
+  .almanaque-result { font-size: 1.45rem; }
+  .almanaque-actions { gap: 0.5rem; }
+  .almanaque-actions button { flex: 1 1 auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .almanaque-ring { transition: none !important; }
+}
+
+
+.almanaque-standalone-back {
+  position: relative;
+  z-index: 20;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 1.25rem 2rem 0;
+}
+.almanaque-standalone-back a { text-decoration: none; }
+</style>
+</head>
+<body class="inside-site">
+<div class="almanaque-standalone-back">
+<a href="../index.html" class="discrete-link">← Volver a DUBERLY</a>
+</div>
+<main>
+<div class="site-container">
+<section id="investigacion" >
+<div class="section-header">
+<h1>ALMANAQUE DE POSIBILIDADES</h1>
+<p class="section-lead">Instrumento creativo de MICELIO CULTURAL para combinar conceptos, experimentar relaciones y producir configuraciones abiertas.</p>
+</div>
+<div class="sub-header almanaque-subheader">
+  <h2>EXPLORAR EL ALMANAQUE</h2>
+  <p>Un dispositivo para combinar conceptos, experimentar relaciones y producir una lectura propia.</p>
+</div>
+<div class="almanaque-shell" id="almanaque">
+  <p class="almanaque-intro">El arte multiplica las posibilidades. Gira cada círculo como si tuvieras el objeto entre las manos: operación, medio, relación, proceso y fruto se reorganizan para abrir una configuración singular. La línea superior marca el encuentro actual.</p>
+
+  <div class="almanaque-object-stage">
+    <div class="almanaque-object">
+      <svg id="almanaqueSvg" class="almanaque-svg" viewBox="0 0 760 760" role="img" aria-labelledby="almanaqueTitle almanaqueDesc">
+        <title id="almanaqueTitle">Almanaque de conexiones posibles</title>
+        <desc id="almanaqueDesc">Cinco círculos concéntricos manipulables que combinan operación, medio, relación, proceso y fruto.</desc>
+        <g id="almanaqueRings"></g>
+        <g aria-hidden="true">
+          <line class="almanaque-axis" x1="380" y1="26" x2="380" y2="322"></line>
+          <circle class="almanaque-axis-dot" cx="380" cy="27" r="3.2"></circle>
+          <text class="almanaque-axis-label" x="380" y="14">ENCUENTRO</text>
+          <circle class="almanaque-center-disc" cx="380" cy="380" r="57"></circle>
+          <text class="almanaque-center-main" id="almanaqueCenter" x="380" y="385">MICELIO</text>
+          <circle class="almanaque-axis-dot" cx="380" cy="380" r="2.5"></circle>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <p class="almanaque-instruction">Arrastra cualquier anillo con el mouse o con el dedo. Al soltar, el círculo encuentra la palabra más cercana a la guía. También puedes tocar una palabra para llevarla al encuentro.</p>
+
+  <div class="almanaque-output">
+    <span class="almanaque-output-kicker">Configuración actual</span>
+    <p class="almanaque-result" id="almanaqueResult" aria-live="polite"></p>
+    <p class="almanaque-provocation" id="almanaqueProvocation"></p>
+    <div class="almanaque-actions">
+      <button type="button" class="almanaque-random" id="almanaqueRandom">Déjate encontrar</button>
+      <button type="button" id="almanaqueReset">Volver al origen</button>
+      <button type="button" id="almanaqueHuellaToggle">Dejar una huella</button>
+    </div>
+    <p class="almanaque-status" id="almanaqueStatus" aria-live="polite"></p>
+
+    <details class="almanaque-fine">
+      <summary>Ajuste fino / accesibilidad</summary>
+      <div class="almanaque-nudges" id="almanaqueNudges"></div>
+    </details>
+  </div>
+
+  <form class="almanaque-huella-panel" id="almanaqueHuellaForm" hidden>
+    <p class="almanaque-huella-config" id="almanaqueHuellaConfig"></p>
+    <label for="almanaqueReflection">¿Qué aparece al experimentar esta combinación?</label>
+    <textarea id="almanaqueReflection" maxlength="1200" placeholder="Escribe una imagen, una pregunta, una sensación, una acción posible…" required></textarea>
+    <label class="almanaque-consent" for="almanaqueConsent">
+      <input type="checkbox" id="almanaqueConsent" required>
+      <span>Acepto que esta reflexión se incorpore, sin solicitar mi nombre ni correo, al archivo de MICELIO CULTURAL y pueda utilizarse como material de investigación y creación.</span>
+    </label>
+    <div class="almanaque-huella-actions">
+      <button type="submit" class="almanaque-submit">Sumar al micelio</button>
+      <button type="button" id="almanaqueHuellaCancel">Cerrar</button>
+    </div>
+    <p class="almanaque-note">La huella queda vinculada únicamente a la configuración seleccionada y al momento de envío.</p>
+  </form>
+</div>
+</section>
+</div>
+</main>
+<script>
+/* INVESTIGACIÓN — ALMANAQUE DE CONEXIONES POSIBLES / V24 */
+(function () {
+  const root = document.getElementById('almanaque');
+  const svg = document.getElementById('almanaqueSvg');
+  const ringsRoot = document.getElementById('almanaqueRings');
+  if (!root || !svg || !ringsRoot) return;
+
+  const NS = 'http://www.w3.org/2000/svg';
+  const cx = 380, cy = 380;
+  const groups = [
+    { label: 'Operación', color: '#738f8a', radius: 96, width: 40, values: ['conectar', 'transformar', 'distribuir', 'regenerar'] },
+    { label: 'Medio', color: '#7d8fa6', radius: 145, width: 46, values: ['voz', 'cuerpo', 'palabra', 'sonido', 'imagen', 'espacio'] },
+    { label: 'Relación', color: '#9a815f', radius: 200, width: 50, values: ['yo', 'tú', 'comunidad', 'territorio', 'memoria', 'materialidad', 'tecnología', 'sistema'] },
+    { label: 'Proceso', color: '#9a6f62', radius: 258, width: 52, values: ['circulando', 'versionando', 'interpretando', 'metabolizando', 'experimentando', 'entrelazando', 'colaborando', 'traduciendo', 'escuchando', 'recomponiendo'] },
+    { label: 'Fruto', color: '#827d98', radius: 320, width: 56, values: ['conocimiento', 'pregunta', 'memoria', 'vínculo', 'aprendizaje', 'afecto', 'experiencia', 'creación', 'reflexión', 'sentido', 'posibilidad', 'continuidad'] }
+  ];
+
+  const state = groups.map(() => ({ index: 0, rotation: 0, dragging: false, pointerId: null, startAngle: 0, startRotation: 0 }));
+  const ringEls = [];
+  const textEls = [];
+  const result = document.getElementById('almanaqueResult');
+  const provocation = document.getElementById('almanaqueProvocation');
+  const center = document.getElementById('almanaqueCenter');
+  const status = document.getElementById('almanaqueStatus');
+  const nudges = document.getElementById('almanaqueNudges');
+  const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const huellaToggle = document.getElementById('almanaqueHuellaToggle');
+  const huellaForm = document.getElementById('almanaqueHuellaForm');
+  const huellaConfig = document.getElementById('almanaqueHuellaConfig');
+  const huellaText = document.getElementById('almanaqueReflection');
+  const huellaConsent = document.getElementById('almanaqueConsent');
+  const huellaCancel = document.getElementById('almanaqueHuellaCancel');
+  const supabaseUrl = 'https://bhustxebwiteltnlahea.supabase.co';
+  const supabaseKey = 'sb_publishable_uOp5B0U9CVVH9oI5uEDe9g_a-KguP-C';
+  const huellasEndpoint = supabaseUrl + '/rest/v1/almanaque_huellas';
+  let huellaSnapshot = null;
+
+  function el(name, attrs = {}) {
+    const node = document.createElementNS(NS, name);
+    Object.entries(attrs).forEach(([k, v]) => node.setAttribute(k, v));
+    return node;
+  }
+
+  function norm(deg) {
+    let x = deg % 360;
+    if (x < 0) x += 360;
+    return x;
+  }
+
+  function shortestDelta(a, b) {
+    return ((b - a + 540) % 360) - 180;
+  }
+
+  function pointAngle(evt) {
+    const rect = svg.getBoundingClientRect();
+    const scaleX = 760 / rect.width;
+    const scaleY = 760 / rect.height;
+    const x = (evt.clientX - rect.left) * scaleX - cx;
+    const y = (evt.clientY - rect.top) * scaleY - cy;
+    return Math.atan2(y, x) * 180 / Math.PI;
+  }
+
+  function itemAngle(groupIndex, itemIndex) {
+    const count = groups[groupIndex].values.length;
+    return -90 + itemIndex * (360 / count);
+  }
+
+  function rotationForIndex(groupIndex, itemIndex) {
+    return -(itemIndex * (360 / groups[groupIndex].values.length));
+  }
+
+  function nearestIndex(groupIndex, rotation) {
+    const count = groups[groupIndex].values.length;
+    const step = 360 / count;
+    return ((Math.round(norm(-rotation) / step) % count) + count) % count;
+  }
+
+  function buildRing(group, groupIndex) {
+    const g = el('g', { class: 'almanaque-ring', 'data-ring': String(groupIndex) });
+    const band = el('circle', {
+      class: 'almanaque-ring-band', cx, cy, r: group.radius,
+      stroke: group.color, 'stroke-width': group.width
+    });
+    const lineOuter = el('circle', {
+      class: 'almanaque-ring-line', cx, cy, r: group.radius + group.width / 2
+    });
+    const lineInner = el('circle', {
+      class: 'almanaque-ring-line', cx, cy, r: group.radius - group.width / 2
+    });
+    g.append(band, lineOuter, lineInner);
+
+    const labels = [];
+    group.values.forEach((value, itemIndex) => {
+      const angle = itemAngle(groupIndex, itemIndex);
+      const rad = angle * Math.PI / 180;
+      const x = cx + Math.cos(rad) * group.radius;
+      const y = cy + Math.sin(rad) * group.radius;
+      const tg = el('g', { transform: `translate(${x} ${y}) rotate(${angle + 90})`, 'data-item': String(itemIndex) });
+      const text = el('text');
+      text.textContent = value;
+      tg.appendChild(text);
+      g.appendChild(tg);
+      labels.push(text);
+    });
+
+    const capAngle = 90;
+    const capRad = capAngle * Math.PI / 180;
+    const cap = el('text', {
+      class: 'almanaque-ring-caption',
+      x: cx + Math.cos(capRad) * group.radius,
+      y: cy + Math.sin(capRad) * group.radius
+    });
+    cap.textContent = group.label.toUpperCase();
+    cap.setAttribute('transform', `rotate(${capAngle + 90} ${cap.getAttribute('x')} ${cap.getAttribute('y')})`);
+    g.appendChild(cap);
+
+    const hit = el('circle', {
+      class: 'almanaque-ring-hit', cx, cy, r: group.radius,
+      'stroke-width': group.width + 10, tabindex: '0', role: 'slider',
+      'aria-label': group.label, 'aria-valuemin': '1', 'aria-valuemax': String(group.values.length),
+      'aria-valuenow': '1', 'aria-valuetext': group.values[0]
+    });
+
+    ringsRoot.append(g, hit);
+    ringEls[groupIndex] = { g, hit };
+    textEls[groupIndex] = labels;
+
+    hit.addEventListener('pointerdown', evt => {
+      evt.preventDefault();
+      const st = state[groupIndex];
+      st.dragging = true;
+      st.pointerId = evt.pointerId;
+      st.startAngle = pointAngle(evt);
+      st.startRotation = st.rotation;
+      hit.setPointerCapture(evt.pointerId);
+      g.style.transition = 'none';
+    });
+
+    hit.addEventListener('pointermove', evt => {
+      const st = state[groupIndex];
+      if (!st.dragging || st.pointerId !== evt.pointerId) return;
+      evt.preventDefault();
+      const a = pointAngle(evt);
+      st.rotation = st.startRotation + shortestDelta(st.startAngle, a);
+      applyRing(groupIndex, false);
+    });
+
+    function endDrag(evt) {
+      const st = state[groupIndex];
+      if (!st.dragging || st.pointerId !== evt.pointerId) return;
+      st.dragging = false;
+      const idx = nearestIndex(groupIndex, st.rotation);
+      selectIndex(groupIndex, idx, true);
+      try { hit.releasePointerCapture(evt.pointerId); } catch (e) {}
+    }
+    hit.addEventListener('pointerup', endDrag);
+    hit.addEventListener('pointercancel', endDrag);
+
+    hit.addEventListener('click', evt => {
+      if (state[groupIndex].dragging) return;
+      const a = pointAngle(evt);
+      const local = norm(a - state[groupIndex].rotation + 90);
+      const idx = Math.round(local / (360 / group.values.length)) % group.values.length;
+      selectIndex(groupIndex, idx, true);
+    });
+
+    hit.addEventListener('keydown', evt => {
+      if (evt.key === 'ArrowLeft' || evt.key === 'ArrowDown') {
+        evt.preventDefault(); step(groupIndex, -1);
+      } else if (evt.key === 'ArrowRight' || evt.key === 'ArrowUp') {
+        evt.preventDefault(); step(groupIndex, 1);
+      } else if (evt.key === 'Home') {
+        evt.preventDefault(); selectIndex(groupIndex, 0, true);
+      }
+    });
+  }
+
+  function applyRing(groupIndex, animate = true) {
+    const st = state[groupIndex];
+    const group = groups[groupIndex];
+    const { g, hit } = ringEls[groupIndex];
+    g.style.transition = (!reducedMotion && animate) ? 'transform 520ms cubic-bezier(0.16, 1, 0.3, 1)' : 'none';
+    g.setAttribute('transform', `rotate(${st.rotation} ${cx} ${cy})`);
+    textEls[groupIndex].forEach((t, i) => t.classList.toggle('is-active', i === st.index));
+    hit.setAttribute('aria-valuenow', String(st.index + 1));
+    hit.setAttribute('aria-valuetext', group.values[st.index]);
+  }
+
+  function selectIndex(groupIndex, idx, animate = true) {
+    const group = groups[groupIndex];
+    const st = state[groupIndex];
+    idx = ((idx % group.values.length) + group.values.length) % group.values.length;
+    const targetBase = rotationForIndex(groupIndex, idx);
+    const cycles = Math.round((st.rotation - targetBase) / 360);
+    st.rotation = targetBase + cycles * 360;
+    st.index = idx;
+    applyRing(groupIndex, animate);
+    status.textContent = '';
+    updateOutput();
+  }
+
+  function step(groupIndex, dir) {
+    selectIndex(groupIndex, state[groupIndex].index + dir, true);
+  }
+
+  function values() {
+    return groups.map((g, i) => g.values[state[i].index]);
+  }
+
+  function sentence(v) {
+    return `${v[0]} · ${v[1]} · ${v[2]} · ${v[3]} · ${v[4]}`;
+  }
+
+  function makeProvocation(v) {
+    const verb = {
+      conectar: '¿Qué vínculo aparece cuando',
+      transformar: '¿Qué cambia cuando',
+      distribuir: '¿Cómo circula aquello que surge cuando',
+      regenerar: '¿Qué puede volver a crecer cuando'
+    }[v[0]] || '¿Qué aparece cuando';
+    return `${verb} ${v[0]} desde ${v[1]}, en relación con ${v[2]}, ${v[3]}, y aparece ${v[4]}?`;
+  }
+
+  function updateOutput() {
+    const v = values();
+    result.textContent = sentence(v);
+    provocation.textContent = makeProvocation(v);
+    center.textContent = 'MICELIO';
+    nudges.querySelectorAll('[data-nudge-value]').forEach((node, i) => {
+      node.textContent = v[i];
+    });
+  }
+
+  groups.forEach((g, i) => {
+    buildRing(g, i);
+    const row = document.createElement('div');
+    row.className = 'almanaque-nudge';
+    const value = document.createElement('span');
+    value.innerHTML = `<b>${g.label}</b><span data-nudge-value></span>`;
+    const prev = document.createElement('button');
+    prev.type = 'button'; prev.textContent = '←'; prev.setAttribute('aria-label', `Anterior: ${g.label}`);
+    prev.addEventListener('click', () => step(i, -1));
+    const next = document.createElement('button');
+    next.type = 'button'; next.textContent = '→'; next.setAttribute('aria-label', `Siguiente: ${g.label}`);
+    next.addEventListener('click', () => step(i, 1));
+    row.append(value, prev, next);
+    nudges.appendChild(row);
+  });
+
+  document.getElementById('almanaqueRandom').addEventListener('click', () => {
+    groups.forEach((g, i) => {
+      let idx = Math.floor(Math.random() * g.values.length);
+      if (g.values.length > 1 && idx === state[i].index) idx = (idx + 1) % g.values.length;
+      const base = rotationForIndex(i, idx);
+      state[i].rotation = base - 360 - Math.floor(Math.random() * 2) * 360;
+      state[i].index = idx;
+      applyRing(i, true);
+    });
+    status.textContent = 'El almanaque abrió una nueva combinación.';
+    updateOutput();
+  });
+
+  document.getElementById('almanaqueReset').addEventListener('click', () => {
+    groups.forEach((g, i) => {
+      state[i].rotation = 0;
+      state[i].index = 0;
+      applyRing(i, true);
+    });
+    status.textContent = 'Volviste al origen.';
+    updateOutput();
+  });
+
+  function openHuella() {
+    huellaSnapshot = values().slice();
+    huellaConfig.textContent = 'Configuración: ' + sentence(huellaSnapshot);
+    huellaForm.hidden = false;
+    huellaToggle.setAttribute('aria-expanded', 'true');
+    status.textContent = '';
+    requestAnimationFrame(() => huellaText.focus());
+  }
+
+  function closeHuella({clear=false} = {}) {
+    huellaForm.hidden = true;
+    huellaToggle.setAttribute('aria-expanded', 'false');
+    if (clear) {
+      huellaText.value = '';
+      huellaConsent.checked = false;
+      huellaSnapshot = null;
+    }
+  }
+
+  huellaToggle.setAttribute('aria-expanded', 'false');
+  huellaToggle.addEventListener('click', () => {
+    if (huellaForm.hidden) openHuella();
+    else closeHuella();
+  });
+
+  huellaCancel.addEventListener('click', () => closeHuella());
+
+  huellaForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const reflection = huellaText.value.trim();
+    const snapshot = huellaSnapshot ? huellaSnapshot.slice() : values().slice();
+    const submitBtn = huellaForm.querySelector('.almanaque-submit');
+
+    if (!reflection) {
+      status.textContent = 'Escribe una reflexión antes de sumar tu huella.';
+      huellaText.focus();
+      return;
+    }
+    if (!huellaConsent.checked) {
+      status.textContent = 'Marca la casilla para autorizar la incorporación de esta huella.';
+      huellaConsent.focus();
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.setAttribute('aria-busy', 'true');
+    status.textContent = 'Sumando tu huella al archivo…';
+
+    try {
+      const response = await fetch(huellasEndpoint, {
+        method: 'POST',
+        headers: {
+          'apikey': supabaseKey,
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({
+          operacion: snapshot[0],
+          medio: snapshot[1],
+          relacion: snapshot[2],
+          proceso: snapshot[3],
+          fruto: snapshot[4],
+          configuracion: sentence(snapshot),
+          reflexion: reflection.slice(0, 1200),
+          consentimiento: true,
+          version: 'v27'
+        })
+      });
+
+      if (!response.ok) {
+        const detail = await response.text().catch(() => '');
+        throw new Error('HTTP ' + response.status + (detail ? ' · ' + detail : ''));
+      }
+
+      status.textContent = 'Tu huella se sumó al archivo de MICELIO.';
+      closeHuella({clear:true});
+    } catch (error) {
+      console.error('No fue posible guardar la huella:', error);
+      status.textContent = 'La huella no pudo guardarse. Puedes intentarlo nuevamente en unos segundos.';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.removeAttribute('aria-busy');
+    }
+  });
+
+
+  groups.forEach((g, i) => applyRing(i, false));
+  updateOutput();
+})();
+</script>
+</body>
+</html>
